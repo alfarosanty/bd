@@ -37,7 +37,7 @@ public class StockController : ControllerBase
             Stock st = new Stock();
             st.id = 1;
             st.cantidad = 4533;
-            st.producto = "Tela Moja";
+            st.producto = "Tela Mojas";
             st.baja = false;
             stList.Add(st);
             Stock st1 = new Stock();
