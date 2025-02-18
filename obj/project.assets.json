@@ -967,11 +967,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Git\\Blume\\BlumeAPI\\BlumeAPI.csproj",
+      "projectUniqueName": "G:\\Desa\\programa\\bd\\BlumeAPI.csproj",
       "projectName": "BlumeAPI",
-      "projectPath": "C:\\Git\\Blume\\BlumeAPI\\BlumeAPI.csproj",
+      "projectPath": "G:\\Desa\\programa\\bd\\BlumeAPI.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Git\\Blume\\BlumeAPI\\obj\\",
+      "outputPath": "G:\\Desa\\programa\\bd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
