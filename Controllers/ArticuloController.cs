@@ -38,7 +38,7 @@ public class ArticuloController : ControllerBase
         return articulos;
     }
 
-    [HttpGet("ByFamiliaMedidaS/{familia}/{medida}")]
+    [HttpGet("ByFamiliaMedida/{familia}/{medida}")]
     public IEnumerable<Articulo> GetArticulosByFamilia(string familia, string medida)
     {
         CConexion con =  new CConexion();
