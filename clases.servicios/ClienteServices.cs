@@ -27,7 +27,7 @@ using System.Threading.Tasks;
         public List<Cliente> listarClientes(NpgsqlConnection conex )
     {
         
-        string commandText = getSelect() +  GetFromText();
+        string commandText = getSelect() +  GetFromText() + GetWhereText();
 
         List<Cliente> clientes = new List<Cliente>();
         using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
@@ -57,6 +57,11 @@ using System.Threading.Tasks;
     }
 
 
+
+    private static string GetWhereText()
+    {
+        return "WHERE CL.\"ID_CONDICION_AFIP\" = CF.\"ID_CONDICION\" ";
+    }
 
 
     private static Cliente ReadCliente(NpgsqlDataReader reader)

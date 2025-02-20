@@ -23,15 +23,6 @@ using System.Threading.Tasks;
      
     public List<ArticuloPresupuesto> Articulos  { get; set; }
     
-    public string RazonSocial{ get; set; }
-    public string Contacto{ get; set; }
-    public string Telefono{ get; set; }
-    public string Domicilio{ get; set; }
-    public string Localidad{ get; set; }
-    public string Provincia { get; set; }
-    public string Cuit{ get; set; }
-
-    public CondicionFiscal CondicionFiscal{ get; set; }
 
     }
 

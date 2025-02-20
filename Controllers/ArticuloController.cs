@@ -18,8 +18,8 @@ public class ArticuloController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetArticulos")]
-    public IEnumerable<Articulo> Get()
+     [HttpGet(Name = "GetArticulos")]
+    public IEnumerable<Articulo> GetArticulos()
     {
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
@@ -27,5 +27,26 @@ public class ArticuloController : ControllerBase
         con.cerrarConexion(npgsqlConnection);
         return articulos;
     }
+
+ [HttpGet("ByFamilia/{familia}")]
+    public IEnumerable<Articulo> GetArticulosByFamilia(string familia)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<Articulo> articulos = new ArticuloServices().GetArticuloByFamiliaMedida(familia, null, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulos;
+    }
+
+    [HttpGet("ByFamiliaMedida/{familia}/{medida}")]
+    public IEnumerable<Articulo> GetArticulosByFamilia(string familia, string medida)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<Articulo> articulos = new ArticuloServices().GetArticuloByFamiliaMedida(familia, medida, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulos;
+    }
+
 
 }

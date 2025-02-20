@@ -26,19 +26,18 @@ public class RemitoIngresoController : ControllerBase
 */
  
     [HttpPost(Name = "CrearRemitoIngreso")]
-    public void Crear(int idTaller, string descripcion, string fecha,List<ArticuloCantidad> ri){
+    public void Crear(int idTaller, string descripcion, string fecha,List<ArticuloPresupuesto> ap){
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
         //obtener taller
         //obtener fecha
-        //obtener descripcion
+
         //listar articulos y cantidades
-        //
-        ArticuloServices ats = new ArticuloServices();
-        List<ArticuloIngreso>   aingresos = new List<ArticuloIngreso> ();
-        
-        foreach(ArticuloCantidad art in ri){
+        ArticuloPresupuesto ats = new ArticuloPresupuesto();
+        List<ArticuloPresupuesto>   aingresos = new List<ArticuloPresupuesto> ();
+        /**
+        foreach(ArticuloPresupuesto art in ri){
         ArticuloIngreso ai = new ArticuloIngreso();
         Articulo articulo = new Articulo();
         articulo.Id = art.IdArticulo;
@@ -50,17 +49,12 @@ public class RemitoIngresoController : ControllerBase
          Console.WriteLine("Data " + art.IdArticulo);
         }   
 
-        RemitoIngreso remitoIngreso = new RemitoIngreso();
+        Presupuesto presu = new Presupuesto();
       //  string date = DateTime.UtcNow.ToString("MM-dd-yyyy");
         //TallerServices ts = new TallerServices().Get(idTaller);          
-        Taller taller  = new Taller();
-        taller.Id = idTaller;
-        remitoIngreso.Taller = taller;
-        remitoIngreso.Fecha = DateTime.UtcNow;
-        remitoIngreso.Articulos = aingresos;
-        remitoIngreso.Descripcion = descripcion;
-        new RemitoIngresoServices().crear(remitoIngreso,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+       
+        new PresupuestoServices().crear(presu,npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);*/
     }
 
 }

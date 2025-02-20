@@ -41,7 +41,7 @@ using System.Threading.Tasks;
                 return null;
                 }
 
-                 public List<Articulo> listarArticulos(NpgsqlConnection conex )
+    public List<Articulo> listarArticulos(NpgsqlConnection conex )
     {
         string selectText = NewMethod();
         string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
@@ -70,22 +70,28 @@ using System.Threading.Tasks;
 
 
 
-    public List<Articulo> GetArticuloByFamiliaMedida(Familia familia, Medida medida, NpgsqlConnection conex ){
+    public List<Articulo> GetArticuloByFamiliaMedida(string familia, string medida, NpgsqlConnection conex ){
             string selectText = $"SELECT AR.* ,";  
             selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
             selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
             selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
             string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
             string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
-            whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" AND FM.\"CODIGO\"=@id_familia AND ";
-            whereText +="MD.\"CODIGO\" =@id_medida";
+            whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" ";
+            if(familia !=null )
+               whereText +=  "AND FM.\"CODIGO\"=@id_familia ";
+            
+            if(medida!=null)
+                whereText +="AND MD.\"CODIGO\" =@id_medida";
             string commandText = selectText + fromText + whereText;
-            Console.WriteLine("Consulta: "+ commandText + "MEDIDA= " + medida.Codigo + " FAMILIA= "+ familia.Codigo);
+            Console.WriteLine("Consulta: "+ commandText + "MEDIDA= " + medida + " FAMILIA= "+ familia);
             List<Articulo> articulos = new List<Articulo>();
             using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
             {
-                cmd.Parameters.AddWithValue("id_medida", medida.Codigo.ToString());
-                cmd.Parameters.AddWithValue("id_familia", familia.Codigo.ToString());
+                 if(medida!=null)
+                    cmd.Parameters.AddWithValue("id_medida", medida);
+                if(familia !=null )
+                    cmd.Parameters.AddWithValue("id_familia", familia);
                 using (NpgsqlDataReader reader =  cmd.ExecuteReader())
                 {                    
                     while (reader.Read())
@@ -93,11 +99,10 @@ using System.Threading.Tasks;
                         articulos.Add( ReadArticulo(reader));
                         }
                 }
-            }                
+            }                  
             return articulos;
                 
             }
-
 
         private static Articulo ReadArticulo(NpgsqlDataReader reader)
         {
