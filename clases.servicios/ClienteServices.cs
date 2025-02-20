@@ -9,9 +9,10 @@ using System.Threading.Tasks;
     {    
 
         public Cliente GetCliente(int id, NpgsqlConnection conex ){
-            string commandText = $"SELECT * FROM \" "+ Cliente.TABLA + "\"WHERE \"ID_"+ Cliente.TABLA + "\" = @id";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-                {
+
+            string commandText =  getSelect() + GetFromText()+ GetWhereText() + "AND CL.\"ID_"+ Cliente.TABLA + "\" = @id";
+            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+               {
                     Console.WriteLine("Consulta: "+ commandText);
                     cmd.Parameters.AddWithValue("id", id);
                      using (NpgsqlDataReader reader =  cmd.ExecuteReader())
@@ -44,13 +45,13 @@ using System.Threading.Tasks;
         }
         return clientes;
 
-        static string getSelect()
+       
+    }
+ private static string getSelect()
         {
             return  $"SELECT CL.* ,CF.\"CODIGO\" AS CF_CODIGO, CF.\"DESCRIPCION\" AS CF_DESCRIPCION ";
             
         }
-    }
-
     private static string GetFromText()
     {
         return "FROM \"CLIENTE\" CL,\"CONDICION_AFIP\" CF ";

@@ -14,14 +14,26 @@ public class ClienteController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetClientes")]
+    [HttpGet("GetClientes")]
     public IEnumerable<Cliente> Get()
     {
+        
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
         List<Cliente> articulos = new ClienteServices().listarClientes(npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
         return articulos;
     }
+
+     [HttpGet("GetClienteById/{idCliente}")]
+    public Cliente GetById(int idCliente)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        Cliente cliente = new ClienteServices().GetCliente(idCliente, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return cliente;
+    }
+
 
 }
