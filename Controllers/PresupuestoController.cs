@@ -13,38 +13,27 @@ public class PresupuestoController : ControllerBase
     {
         _logger = logger;
     }
+
+     [HttpGet("GetPresupuestoByNumero/{idPresupuesto}")]
+    public Presupuesto Get(int idPresupuesto)
+    {
+         CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+       PresupuestoServices  ps = new PresupuestoServices();
+        Presupuesto presu = ps.GetPresupuesto(idPresupuesto,npgsqlConnection);
+         con.cerrarConexion(npgsqlConnection);
+         return presu;
+    }
  
     [HttpPost(Name = "CrearPresupuesto")]
-    public void Crear(int idClinete, string fecha,List<ArticuloPresupuesto> ri){
-        /**CConexion con =  new CConexion();
+    public void Crear(Presupuesto presupuesto){
+        CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
-        Cliente cl = mew Cliente();
-        cl.Id = idClinete;
-       
-        List<ArticuloPresupuesto>   aingresos = new List<ArticuloPresupuesto> ();
-        foreach(ArticuloCantidad art in ri){
-            ArticuloPresupuesto ai = new ArticuloPresupuesto();
-            Articulo articulo = new Articulo();
-            articulo.Id = art.IdArticulo;
-            //No hace falta q vaya a la BD
-            //ai.articulo =  ats.GetArticulo(art.IdArticulo, npgsqlConnection);
-            ai.Articulo = articulo;
-            ai.cantidad = art.cantidad;
-            aingresos.Add(ai);
-            Console.WriteLine("Data " + art.IdArticulo);
-        }
-           
-            DateTime fecha = DateTime.ParseExact(fecha, "dd-MM-yyy", System.Globalization.CultureInfo.InvariantCulture);
-
-        Presupuesto presu = new Presupuesto();
-        presu.Cliente = cl;
-        presu.Articulos = aingresos;
-        presu.fecha = 
-        
-
-         PresupuestoServices ps = new PresupuestoServices();
-         ps.Crear(presu, npgsqlConnection);**/
+        PresupuestoServices  ps = new PresupuestoServices();
+         ps.crear(presupuesto, npgsqlConnection);
+         con.cerrarConexion(npgsqlConnection);
+         
     }
 
 }
