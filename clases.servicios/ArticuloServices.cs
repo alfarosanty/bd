@@ -109,7 +109,7 @@ using System.Threading.Tasks;
             int? id = reader["ID_" + Articulo.TABLA] as int?;
             string name = reader["CODIGO"] as string;
             string minPlayers = reader["DESCRIPCION"] as string;
-            double precio1 = reader["PRECIO1"] as double;
+            decimal precio1 = reader.GetDecimal(reader.GetOrdinal("PRECIO1"));
 
             
             int? medidaId = reader["ID_" + Medida.TABLA] as int?;            
