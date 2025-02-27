@@ -64,6 +64,7 @@ public class PresupuestoServices
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ap.Articulo.Id);
                             cmd.Parameters.AddWithValue("CANTIDAD",ap.cantidad);
                             cmd.Parameters.AddWithValue("PRECIO_UNITARIO",ap.PrecioUnitario);
+                            cmd.Parameters.AddWithValue("DESCUENTO",ap.Descuento);
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Ingreso el  " + ArticuloPresupuesto.TABLA +   " el aritculo" + ap.Articulo.Id);
                         }

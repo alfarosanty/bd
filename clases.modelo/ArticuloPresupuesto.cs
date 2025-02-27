@@ -18,6 +18,8 @@ using System.Threading.Tasks;
 
             public decimal PrecioUnitario { get; set; }
 
+            public decimal Descuento { get; set; }
+
             /**INCLUIR UN ESTAOD PARA SABER SI ESTA SEPARADO O SE MANDO A PRODUCCION**/
 
     }
