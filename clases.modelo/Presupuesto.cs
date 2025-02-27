@@ -16,12 +16,12 @@ using System.Threading.Tasks;
 
     public bool EximirIVA { get; set; }
 
-    public EstadoPresupuesto EstadoPresupuesto{ get; set; }
+    public EstadoPresupuesto? EstadoPresupuesto{ get; set; }
 
-    public Factura factura{ get; set; }
+    public Factura? factura{ get; set; }
 
      
-    public List<ArticuloPresupuesto> Articulos  { get; set; }
+    public List<ArticuloPresupuesto>? Articulos  { get; set; }
     
 
     }

@@ -25,15 +25,15 @@ public class PresupuestoController : ControllerBase
          return presu;
     }
  
-    [HttpPost(Name = "CrearPresupuesto")]
-    public void Crear(Presupuesto presupuesto){
+    [HttpPost()]
+    public int  Crear(Presupuesto presupuesto){
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
         PresupuestoServices  ps = new PresupuestoServices();
-         ps.crear(presupuesto, npgsqlConnection);
+       int id =  ps.crear(presupuesto, npgsqlConnection);
          con.cerrarConexion(npgsqlConnection);
-         
+         return id;
     }
 
 }
