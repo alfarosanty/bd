@@ -70,7 +70,7 @@ public class PresupuestoServices
                         //ACTUALIZAR EL STOCK DE ESE ARTICULO
                 }
                 
-                return sqlSeq;
+                return idPresupuesto;
             }
 
 
