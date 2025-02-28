@@ -17,6 +17,16 @@ using System.Threading.Tasks;
             return selectText;
         } 
 
+
+        static string NewMethodDistintos()
+        {
+            string selectText = $"SELECT DISTINCT ON (AR.\"ID_MEDIDA\", AR.\"ID_FAMILIA\") AR.* ,";
+            selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
+            selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
+            selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
+            return selectText;
+        } 
+
         public Articulo GetArticulo(int id, NpgsqlConnection conex ){
             string commandText = $"SELECT * FROM \""+ Articulo.TABLA + "\" WHERE \"ID_"+ Articulo.TABLA + "\" = @id";
 
@@ -41,9 +51,13 @@ using System.Threading.Tasks;
                 return null;
                 }
 
-    public List<Articulo> listarArticulos(NpgsqlConnection conex )
+    public List<Articulo> listarArticulos(NpgsqlConnection conex, bool distintos )
     {
-        string selectText = NewMethod();
+        string selectText ;
+        if(distintos)
+            selectText = NewMethodDistintos();
+        else
+            selectText = NewMethod();
         string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
         string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
         whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\"";
@@ -63,7 +77,6 @@ using System.Threading.Tasks;
 
         }
         return articulos;
-
         
     }
 

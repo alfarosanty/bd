@@ -23,10 +23,23 @@ public class ArticuloController : ControllerBase
     {
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().listarArticulos(npgsqlConnection);
+        List<Articulo> articulos = new ArticuloServices().listarArticulos(npgsqlConnection,false);
         con.cerrarConexion(npgsqlConnection);
         return articulos;
     }
+
+
+
+    [HttpGet("GetArticulosByFamiliaMedida")]
+    public IEnumerable<Articulo> GetArticulosByFamiliaMedida()
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<Articulo> articulos = new ArticuloServices().listarArticulos(npgsqlConnection,true);
+        con.cerrarConexion(npgsqlConnection);
+        return articulos;
+    }
+
 
  [HttpGet("ByFamilias/{familia}")]
     public IEnumerable<Articulo> GetArticulosByFamilia(string familia)
