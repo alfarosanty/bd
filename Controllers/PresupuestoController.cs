@@ -36,4 +36,15 @@ public class PresupuestoController : ControllerBase
         return id;  
     }
 
+      [HttpGet("GetPresupuestoByCliente/{idCliente}")]
+    public List<Presupuesto> GetByCliente(int idCliente)
+    {
+         CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+       PresupuestoServices  ps = new PresupuestoServices();
+        List<Presupuesto> presu = ps.GetPresupuestoByCliente(idCliente,npgsqlConnection);
+         con.cerrarConexion(npgsqlConnection);
+         return presu;
+    }
+
 }

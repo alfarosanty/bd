@@ -35,6 +35,28 @@ public class PresupuestoServices
                 return null;
                 }
 
+
+
+
+
+     public List<Presupuesto> GetPresupuestoByCliente(int idCliente, NpgsqlConnection conex ){
+            List<Presupuesto> presupuestos = new List<Presupuesto>();
+            string commandText =  getSelect() + GetFromText()+ " WHERE PR.\"ID_CLIENTE\" = @id";
+            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+               {
+                 Console.WriteLine("Consulta: "+ commandText);
+                    cmd.Parameters.AddWithValue("id", idCliente);
+                     
+                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            presupuestos.Add(ReadPresupeusto(reader));
+                            
+                            
+                        }
+                }
+                return presupuestos;
+        }
     
 
     
