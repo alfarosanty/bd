@@ -19,6 +19,7 @@ public class PresupuestoServices
 
 
      public Presupuesto GetPresupuesto(int id, NpgsqlConnection conex ){
+        Presupuesto presupuesto = new Presupuesto();
             string commandText =  getSelect() + GetFromText()+ " WHERE PR.\"ID_PRESUPUESTO\" = @id";
             using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
                {
@@ -27,12 +28,12 @@ public class PresupuestoServices
                      using (NpgsqlDataReader reader =  cmd.ExecuteReader())
                         while (reader.Read())
                         {
-                            Presupuesto presu = ReadPresupeusto(reader);
-                            return presu;
+                            presupuesto = ReadPresupeusto(reader, conex);                           
                             
                         }
                 }
-                return null;
+                presupuesto.Articulos =  getArticuloPresupuesto(presupuesto,conex);
+                return presupuesto;
                 }
 
 
@@ -50,7 +51,7 @@ public class PresupuestoServices
                      using (NpgsqlDataReader reader =  cmd.ExecuteReader())
                         while (reader.Read())
                         {
-                            presupuestos.Add(ReadPresupeusto(reader));
+                            presupuestos.Add(ReadPresupeusto(reader, conex));
                             
                             
                         }
@@ -96,23 +97,25 @@ public class PresupuestoServices
                 return idPresupuesto;
             }
 
-
-
-
-
-
-/**
-            cmd.Parameters.AddWithValue("ID_CLIENTE",presupuesto.Cliente.Id);
-            cmd.Parameters.AddWithValue("EXMIR_IVA",presupuesto.EximirIVA);
-             cmd.Parameters.AddWithValue("ID_ESTADO",1);     
-      **/       
-private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader){
-        int? id = reader["ID_PRESUPUESTO"] as int?;
-       // DateTime fecha = reader["FECHA_PRESUPUESTO"] as DateTime;
-           return new Presupuesto{
-             Id = id.Value
-             //Fecha = fecha
+private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnection conex){
+       int id =(int) reader["ID_PRESUPUESTO"];
+       DateTime fecha = (DateTime) reader["FECHA_PRESUPUESTO"];
+       bool eximirIVA = (bool)reader["EXMIR_IVA"];
+       int idCliente =(int) reader["ID_CLIENTE"];
+      
+       Presupuesto presupuesto = new Presupuesto{
+             Id = id,
+             Fecha = fecha,
+             EximirIVA = eximirIVA
              };
+
+           CConexion cconexio =  new CConexion();
+          NpgsqlConnection conex2= cconexio.establecerConexion();
+
+           presupuesto.Cliente = new ClienteServices().GetCliente(idCliente, conex2);
+          
+           cconexio.cerrarConexion(conex2);
+           return presupuesto;
 
 
 }
@@ -143,5 +146,43 @@ private static string GetFromTextByArticulo()
         return "WHERE AP.\"ID_PRESUPUESTO\" = AP.\"ID_PRESUPUESTO\" ";
     }
 
+
+    private static List<ArticuloPresupuesto> getArticuloPresupuesto(Presupuesto presupuesto,NpgsqlConnection conex ){
+        List<ArticuloPresupuesto> articuloPresupuesto = new List<ArticuloPresupuesto>();
+        string commandText = "SELECT AP.* FROM \"ARTICULO_PRESUPUESTO\" AP WHERE AP.\"ID_PRESUPUESTO\"=@IDPRESUPUESTO";
+        using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+               {
+                 Console.WriteLine("Consulta: "+ commandText);
+                    cmd.Parameters.AddWithValue("IDPRESUPUESTO", presupuesto.Id);
+                     
+                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            articuloPresupuesto.Add(ReadArticuloPresupeusto(reader, presupuesto,conex));
+                            
+                            
+                        }
+                }
+                return articuloPresupuesto;
+    }
+    private static ArticuloPresupuesto ReadArticuloPresupeusto(NpgsqlDataReader reader,Presupuesto presupuesto,NpgsqlConnection conex){
+        int idArticulo =(int) reader["ID_ARTICULO"];
+        decimal precioUnitario = (decimal) reader["PRECIO_UNITARIO"];
+        int cantidadAP =(int)  reader["CANTIDAD"] ;
+         decimal descuento =(decimal)  reader["DESCUENTO"];
+        CConexion cConexion= new CConexion();
+        NpgsqlConnection conex2 =  cConexion.establecerConexion();
+        Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex2);
+        cConexion.cerrarConexion(conex2);
+            return new ArticuloPresupuesto{
+                Articulo = articulo,
+                //Presupuesto = presupuesto,
+                PrecioUnitario = precioUnitario,
+                cantidad = cantidadAP,
+                Descuento= descuento
+                };
+
+
+    }
 
 }
