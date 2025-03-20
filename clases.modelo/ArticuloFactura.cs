@@ -18,4 +18,6 @@ using System.Threading.Tasks;
 
             public decimal PrecioUnitario { get; set; }
 
+            public decimal Descuento { get; set; }
+
     }
