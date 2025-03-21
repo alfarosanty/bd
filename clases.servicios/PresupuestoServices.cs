@@ -69,13 +69,14 @@ public class PresupuestoServices
             Console.WriteLine("Ingreso el  " + Presupuesto.TABLA  + " el remito ingreso" + sqlSeq);
             int idPresupuesto =   Convert.ToInt32(cmdSeq.ExecuteScalar()) ;         
             //CREO EL INSERT EN LA TABLA PRESUPUESTO
-            string sqlInsert = "INSERT INTO  \""+ Presupuesto.TABLA + "\" (\"ID_PRESUPUESTO\",\"FECHA_PRESUPUESTO\",\"ID_CLIENTE\",\"EXMIR_IVA\",\"ID_ESTADO\") VALUES(@ID_PRESUPUESTO,@FECHA_PRESUPUESTO,@ID_CLIENTE,@EXMIR_IVA,@ID_ESTADO)";
+            string sqlInsert = "INSERT INTO  \""+ Presupuesto.TABLA + "\" (\"ID_PRESUPUESTO\",\"FECHA_PRESUPUESTO\",\"ID_CLIENTE\",\"EXMIR_IVA\",\"ID_ESTADO\", \"TOTAL_PRESUPUESTO\") VALUES(@ID_PRESUPUESTO,@FECHA_PRESUPUESTO,@ID_CLIENTE,@EXMIR_IVA,@ID_ESTADO, @TOTAL_PRESUPUESTO)";
             NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);            
             cmd.Parameters.AddWithValue("ID_PRESUPUESTO",idPresupuesto);
             cmd.Parameters.AddWithValue("FECHA_PRESUPUESTO",presupuesto.Fecha);
             cmd.Parameters.AddWithValue("ID_CLIENTE",presupuesto.Cliente.Id);
             cmd.Parameters.AddWithValue("EXMIR_IVA",presupuesto.EximirIVA);
-             cmd.Parameters.AddWithValue("ID_ESTADO",1);     
+            cmd.Parameters.AddWithValue("ID_ESTADO",1); 
+            cmd.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
              cmd.ExecuteNonQuery();                
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(presupuesto.Articulos !=null)
@@ -96,6 +97,47 @@ public class PresupuestoServices
                 
                 return idPresupuesto;
             }
+
+        public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnection)
+    {
+        // Elimina los artículos antiguos asociados a este presupuesto
+        string sqlDelete = "DELETE FROM \"" + ArticuloPresupuesto.TABLA + "\" WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+        NpgsqlCommand cmdDelete = new NpgsqlCommand(sqlDelete, npgsqlConnection);
+        cmdDelete.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+        cmdDelete.ExecuteNonQuery();
+
+        // Ahora inserta los nuevos artículos
+        if (presupuesto.Articulos != null)
+         {
+        foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
+        {
+            string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
+                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\") " +
+                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO)";
+            NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
+            cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);  // Usa el mismo ID del presupuesto existente
+            cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
+            cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
+            cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
+            cmdInsert.ExecuteNonQuery();
+        }
+    }
+
+    // Actualiza el total en la tabla de presupuesto
+    string sqlUpdateTotal = "UPDATE \"" + Presupuesto.TABLA + "\" " +
+                            "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO " +
+                            "WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+    NpgsqlCommand cmdUpdateTotal = new NpgsqlCommand(sqlUpdateTotal, npgsqlConnection);
+    cmdUpdateTotal.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
+    cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+    cmdUpdateTotal.ExecuteNonQuery();  // Actualiza el total del presupuesto
+
+    return presupuesto.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
+    }
+
+
+
+
 
 private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnection conex){
        int id =(int) reader["ID_PRESUPUESTO"];
@@ -184,5 +226,17 @@ private static string GetFromTextByArticulo()
 
 
     }
+
+private static int calcularTotal(List<ArticuloPresupuesto> articulos)
+{
+    if (articulos == null)
+    {
+        return 0;
+    }
+    decimal sumaTotal = articulos.Sum(articulo => articulo.PrecioUnitario * articulo.cantidad);
+    int sumaTotalRedondeada = (int)Math.Round(sumaTotal);
+    return sumaTotalRedondeada;
+}
+
 
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
             public Articulo Articulo { get; set; }
 
-            public Factura Factura { get; set; }
+            public Factura? Factura { get; set; }
 
             public int cantidad { get; set; }
 

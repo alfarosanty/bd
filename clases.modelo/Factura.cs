@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
     public bool EximirIVA { get; set; }
 
-   // public List<ArticuloFactura> Articulos  { get; set; }
+    public List<ArticuloFactura>? articulos  { get; set; }
 
     public Presupuesto? presupuesto{ get; set; }
    

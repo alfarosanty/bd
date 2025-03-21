@@ -25,7 +25,7 @@ public class PresupuestoController : ControllerBase
          return presu;
     }
  
-    [HttpPost()]
+    [HttpPost("crear")]
     public int  Crear(Presupuesto presupuesto){
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
@@ -35,6 +35,19 @@ public class PresupuestoController : ControllerBase
          con.cerrarConexion(npgsqlConnection);
         return id;  
     }
+
+    [HttpPost("actualizar")]
+    public int Actualizar(Presupuesto presupuesto)
+    {
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    PresupuestoServices ps = new PresupuestoServices();
+    int id = ps.actualizar(presupuesto, npgsqlConnection);
+    con.cerrarConexion(npgsqlConnection);
+    return id;
+    }
+
 
       [HttpGet("GetPresupuestoByCliente/{idCliente}")]
     public List<Presupuesto> GetByCliente(int idCliente)

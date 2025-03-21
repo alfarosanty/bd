@@ -33,10 +33,17 @@ public  string getTabla()
             cmd.Parameters.AddWithValue("FECHA",factura.Fecha);
             cmd.Parameters.AddWithValue("ID_CLIENTE",factura.Cliente.Id);
             cmd.Parameters.AddWithValue("EXMIR_IVA",factura.EximirIVA);
-            cmd.Parameters.AddWithValue("TOTAL",1);
-            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", 2);
+            cmd.Parameters.AddWithValue("TOTAL",calcularTotal(factura.articulos));
+            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", factura.presupuesto?.Id);
             cmd.ExecuteNonQuery();                
-            //RECORRO Y GUARDO LAS FACTURAS
+            
+                
+                return idFactura;
+                }
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                //RECORRO Y GUARDO LAS FACTURAS
             /*
             if(presupuesto.Articulos !=null)
                 foreach(ArticuloPresupuesto ap in presupuesto.Articulos){
@@ -53,11 +60,8 @@ public  string getTabla()
                         }
                         //ACTUALIZAR EL STOCK DE ESE ARTICULO
                 } */
-                
-                return idFactura;
-                }
 
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private decimal calcularPrecioFinal(List<ArticuloFactura> articulosFacturas)
 {
     decimal precioConDescuento = 0;
@@ -71,6 +75,17 @@ public  string getTabla()
     }
 
     return precioConDescuento;
+}
+
+private static int calcularTotal(List<ArticuloFactura> articulos)
+{
+    if (articulos == null)
+    {
+        return 0;
+    }
+    decimal sumaTotal = articulos.Sum(articulo => articulo.PrecioUnitario * articulo.cantidad);
+    int sumaTotalRedondeada = (int)Math.Round(sumaTotal);
+    return sumaTotalRedondeada;
 }
 
 
