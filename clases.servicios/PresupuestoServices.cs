@@ -125,11 +125,13 @@ public class PresupuestoServices
 
     // Actualiza el total en la tabla de presupuesto
     string sqlUpdateTotal = "UPDATE \"" + Presupuesto.TABLA + "\" " +
-                            "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO " +
+                            "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO, " +
+                            "     \"FECHA_PRESUPUESTO\" = @FECHA_PRESUPUESTO " +
                             "WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
     NpgsqlCommand cmdUpdateTotal = new NpgsqlCommand(sqlUpdateTotal, npgsqlConnection);
     cmdUpdateTotal.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
     cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+    cmdUpdateTotal.Parameters.AddWithValue("FECHA_PRESUPUESTO", presupuesto.Fecha);
     cmdUpdateTotal.ExecuteNonQuery();  // Actualiza el total del presupuesto
 
     return presupuesto.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
