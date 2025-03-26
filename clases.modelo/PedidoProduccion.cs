@@ -16,7 +16,7 @@ using System.Threading.Tasks;
         
         public Taller taller { get; set; }
 
-        public EstadoPedidoProduccion estado { get; set; }
+        public int IdEstadoPedidoProduccion { get; set; }
 
         
         public List<PedidoProduccionArticulo> Articulos { get; set; }

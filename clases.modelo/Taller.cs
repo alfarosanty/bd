@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-    public  class Taller: Basico
+    public  class Taller
     {
         public static String TABLA="FABRICANTE";
 

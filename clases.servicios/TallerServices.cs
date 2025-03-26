@@ -2,17 +2,30 @@
 
 using Npgsql;
 
-public class TallerServices : BasicoServices
+public class TallerServices
 {
-    public override string getTabla()
+    public string getTabla()
     {
         return Taller.TABLA;
     }
 
-    public override Taller readBasico(NpgsqlDataReader reader)
-    {
-        throw new NotImplementedException();
-    }
+
+public Taller GetTaller(int id, NpgsqlConnection conex ){
+
+            string commandText =  getSelect() + GetFromText() + " WHERE F.\"ID_"+ Taller.TABLA + "\" = @id";
+            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+               {
+                    Console.WriteLine("Consulta: "+ commandText);
+                    cmd.Parameters.AddWithValue("id", id);
+                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            return ReadTaller(reader);
+                            
+                        }
+                }
+                return null;
+                }
 
     public List<Taller> listarTalleres(NpgsqlConnection conex)
     {

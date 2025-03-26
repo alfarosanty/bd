@@ -14,12 +14,12 @@ using System.Threading.Tasks;
         
         public Articulo Articulo { get; set; }
 
-        public PedidoProduccion PedidoProduccion{ get; set; }
+        public int? IdPedidoProduccion{ get; set; }
 
         public int Cantidad { get; set; }
 
         /**Diferencia entrega la cantidad pedida y lo que devolvieron*/
-        public int CantidadPendiente { get; set; }
+        public int? CantidadPendiente { get; set; }
 
 
 
