@@ -19,7 +19,7 @@ public class PedidoProduccionService
 
     public PedidoProduccion getPedidoProduccion(int id, NpgsqlConnection conex ){
         PedidoProduccion pedidoProduccion = new PedidoProduccion();
-            string commandText =  getSelect() + GetFromText()+ " WHERE PR.\"ID_PEDIDO_PRODUCCION\" = @id";
+            string commandText =  getSelect() + GetFromText()+ " WHERE PP.\"ID_PEDIDO_PRODUCCION\" = @id";
             using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
                {
                  Console.WriteLine("Consulta: "+ commandText);
@@ -69,7 +69,7 @@ public class PedidoProduccionService
             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
             cmd.Parameters.AddWithValue("FECHA",pedidoProduccion.Fecha);
             cmd.Parameters.AddWithValue("ID_FABRICANTE",pedidoProduccion.taller.Id);
-            cmd.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD",1); 
+            cmd.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD",pedidoProduccion.IdEstadoPedidoProduccion); 
              cmd.ExecuteNonQuery();                
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(pedidoProduccion.Articulos !=null)
@@ -80,9 +80,9 @@ public class PedidoProduccionService
                             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ppa.Articulo.Id);
                             cmd.Parameters.AddWithValue("CANTIDAD",ppa.Cantidad);
-                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",0);
+                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.CantidadPendiente);
                             cmd.ExecuteNonQuery();
-                            Console.WriteLine("Ingreso el  " + PedidoProduccionArticulo.TABLA +   " el aritculo" + ppa.Articulo.Id);
+                            Console.WriteLine("Ingreso el  " + PedidoProduccionArticulo.TABLA +   " el articulo" + ppa.Articulo.Id);
                         }
                         //ACTUALIZAR EL STOCK DE ESE ARTICULO
                 }
@@ -90,47 +90,49 @@ public class PedidoProduccionService
                 return idPedidoProduccion;
             }
 
-/*
-        public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnection)
+
+        public int actualizar(PedidoProduccion pedidoProduccion, Npgsql.NpgsqlConnection npgsqlConnection)
     {
         // Elimina los artículos antiguos asociados a este presupuesto
-        string sqlDelete = "DELETE FROM \"" + ArticuloPresupuesto.TABLA + "\" WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+        string sqlDelete = "DELETE FROM \"" + PedidoProduccionArticulo.TABLA + "\" WHERE \"ID_PEDIDO_PRODUCCION\" = @ID_PEDIDO_PRODUCCION";
         NpgsqlCommand cmdDelete = new NpgsqlCommand(sqlDelete, npgsqlConnection);
-        cmdDelete.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+        cmdDelete.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);
         cmdDelete.ExecuteNonQuery();
 
         // Ahora inserta los nuevos artículos
-        if (presupuesto.Articulos != null)
+        if (pedidoProduccion.Articulos != null)
          {
-        foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
+        foreach (PedidoProduccionArticulo ppa in pedidoProduccion.Articulos)
         {
-            string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO)";
+            string sqlInsert = "INSERT INTO \"" + PedidoProduccionArticulo.TABLA + "\" " +
+                               "(\"ID_ARTICULO\", \"ID_PEDIDO_PRODUCCION\", \"CANTIDAD\", \"CANT_PENDIENTE\") " +
+                               "VALUES(@ID_ARTICULO, @ID_PEDIDO_PRODUCCION, @CANTIDAD, @CANT_PENDIENTE)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
-            cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);  // Usa el mismo ID del presupuesto existente
-            cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
-            cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
-            cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
+            cmdInsert.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);  // Usa el mismo ID del presupuesto existente
+            cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ppa.Articulo.Id);
+            cmdInsert.Parameters.AddWithValue("CANTIDAD", ppa.Cantidad);
+            cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.CantidadPendiente);
             cmdInsert.ExecuteNonQuery();
         }
     }
 
     // Actualiza el total en la tabla de presupuesto
-    string sqlUpdateTotal = "UPDATE \"" + Presupuesto.TABLA + "\" " +
-                            "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO, " +
-                            "     \"FECHA_PRESUPUESTO\" = @FECHA_PRESUPUESTO " +
-                            "WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+string sqlUpdateTotal = "UPDATE \"" + PedidoProduccion.TABLA + "\" " +
+                        "SET \"FECHA\" = @FECHA, " + 
+                        "    \"ID_ESTADO_PEDIDO_PROD\" = @ID_ESTADO_PEDIDO_PROD " +
+                        "WHERE \"ID_PEDIDO_PRODUCCION\" = @ID_PEDIDO_PRODUCCION";
+
     NpgsqlCommand cmdUpdateTotal = new NpgsqlCommand(sqlUpdateTotal, npgsqlConnection);
-    cmdUpdateTotal.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
-    cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
-    cmdUpdateTotal.Parameters.AddWithValue("FECHA_PRESUPUESTO", presupuesto.Fecha);
+    cmdUpdateTotal.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);
+    cmdUpdateTotal.Parameters.AddWithValue("FECHA", pedidoProduccion.Fecha);
+    cmdUpdateTotal.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD",pedidoProduccion.IdEstadoPedidoProduccion);
+
     cmdUpdateTotal.ExecuteNonQuery();  // Actualiza el total del presupuesto
 
-    return presupuesto.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
+    return pedidoProduccion.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
     }
 
-*/
+
 
 
 
@@ -214,7 +216,8 @@ private static string GetFromTextByArticulo()
                 Articulo = articulo,
                 //Presupuesto = presupuesto,
                 Cantidad = cantidadAPP,
-                CantidadPendiente= cantidadPendienteAPP
+                CantidadPendiente = cantidadPendienteAPP,
+                IdPedidoProduccion = pedidoProduccion.Id
                 };
 
 

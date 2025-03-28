@@ -12,10 +12,9 @@ using System.Threading.Tasks;
 
             public Articulo Articulo { get; set; }
 
-            public RemitoIngreso RemitoIngreso { get; set; }
+            public Ingreso Ingreso { get; set; }
 
             public int cantidad { get; set; }
 
-            public PedidoProduccionArticulo PedidoProduccionArticulo  { get; set; }         
 
     }

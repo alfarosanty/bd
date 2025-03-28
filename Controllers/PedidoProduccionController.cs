@@ -25,7 +25,7 @@ public class PedidoProduccionController : ControllerBase
         return id;  
     }
 
-/*
+
 
     [HttpPost("actualizar")]
     public int Actualizar(PedidoProduccion pedidoProduccion)
@@ -38,7 +38,7 @@ public class PedidoProduccionController : ControllerBase
     con.cerrarConexion(npgsqlConnection);
     return id;
     }
-*/
+
 
       [HttpGet("GetPedidoProduccionByTaller/{idTaller}")]
     public List<PedidoProduccion> GetByTaller(int idTaller)
