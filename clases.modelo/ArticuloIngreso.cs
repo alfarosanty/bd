@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
             public Articulo Articulo { get; set; }
 
-            public Ingreso Ingreso { get; set; }
+            public int? IdIngreso { get; set; }
 
             public int cantidad { get; set; }
 

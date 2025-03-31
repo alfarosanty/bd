@@ -51,7 +51,7 @@ public class IngresoController : ControllerBase
          return ingresos;
     }
 
-         [HttpGet("GetIngresoByNumero/{idPedidoProduccion}")]
+         [HttpGet("GetIngresoByNumero/{idIngreso}")]
     public Ingreso Get(int idIngreso)
     {
         CConexion con =  new CConexion();

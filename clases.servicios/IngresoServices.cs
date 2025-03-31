@@ -19,7 +19,7 @@ public class IngresoService
 
     public Ingreso getIngreso(int id, NpgsqlConnection conex ){
         Ingreso ingreso = new Ingreso();
-            string commandText =  getSelect() + GetFromText()+ " WHERE PP.\"ID_INGRESO\" = @id";
+            string commandText =  getSelect() + GetFromText()+ " WHERE I.\"ID_INGRESO\" = @id";
             using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
                {
                  Console.WriteLine("Consulta: "+ commandText);
@@ -37,7 +37,7 @@ public class IngresoService
 
     public List<Ingreso> GetIngresoByTaller(int idTaller, NpgsqlConnection conex ){
             List<Ingreso> ingresos = new List<Ingreso>();
-            string commandText =  getSelect() + GetFromText()+ " WHERE I.\"ID_INGRESO\" = @id";
+            string commandText =  getSelect() + GetFromText()+ " WHERE I.\"ID_FABRICANTE\" = @id";
             using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
                {
                  Console.WriteLine("Consulta: "+ commandText);
@@ -73,7 +73,7 @@ public class IngresoService
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(ingreso.Articulos !=null)
                 foreach(ArticuloIngreso ia in ingreso.Articulos){
-                        sqlInsert = "INSERT INTO  \""+ ArticuloIngreso.TABLA + "\" (\"ID_ARTICULO\",\"ID_INGRESO\",\"CANTIDAD\",\"FECHA\") VALUES(@ID_ARTICULO,@ID_INGRESO,@CANTIDAD,@FECHA)";
+            sqlInsert = "INSERT INTO \"" + ArticuloIngreso.TABLA + "\" (\"ID_ARTICULO\",\"ID_INGRESO\",\"CANTIDAD\",\"FECHA\") " + "VALUES(@ID_ARTICULO,@ID_INGRESO,@CANTIDAD,@FECHA) ";
                         cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
                         {                        
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ia.Articulo.Id);
@@ -200,7 +200,7 @@ private static string GetFromTextByArticulo()
     private static ArticuloIngreso ReadArticuloIngreso(NpgsqlDataReader reader,Ingreso ingreso,NpgsqlConnection conex){
         int idArticulo =(int) reader["ID_ARTICULO"];
         int cantidadI =(int)  reader["CANTIDAD"] ;
-        int fecha =(int)  reader["FECHA"];
+        DateTime fecha =(DateTime)  reader["FECHA"];
         CConexion cConexion= new CConexion();
         NpgsqlConnection conex2 =  cConexion.establecerConexion();
         Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex2);
@@ -209,7 +209,7 @@ private static string GetFromTextByArticulo()
                 Articulo = articulo,
                 //Presupuesto = presupuesto,
                 cantidad = cantidadI,
-                Ingreso = ingreso
+                IdIngreso = ingreso.Id
                 };
 
 
