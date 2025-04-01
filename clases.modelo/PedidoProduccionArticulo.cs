@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 
     public  class PedidoProduccionArticulo
         {
-        public static String TABLA="PRODUCCION_ARTICULO";
-        public int Id { get; set; }
-        
+        public static String TABLA="PRODUCCION_ARTICULO";        
         public Articulo Articulo { get; set; }
 
         public int? IdPedidoProduccion{ get; set; }

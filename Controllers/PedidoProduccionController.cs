@@ -46,7 +46,7 @@ public class PedidoProduccionController : ControllerBase
          CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
        PedidoProduccionService  pps = new PedidoProduccionService();
-        List<PedidoProduccion> pedidoProducciones = pps.GetPresupuestoByTaller(idTaller,npgsqlConnection);
+        List<PedidoProduccion> pedidoProducciones = pps.GetPedidoProduccionByTaller(idTaller,npgsqlConnection);
          con.cerrarConexion(npgsqlConnection);
          return pedidoProducciones;
     }

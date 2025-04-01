@@ -35,24 +35,34 @@ public class PedidoProduccionService
                 return pedidoProduccion;
                 }
 
-    public List<PedidoProduccion> GetPresupuestoByTaller(int idTaller, NpgsqlConnection conex ){
-            List<PedidoProduccion> pedidosProduccion = new List<PedidoProduccion>();
-            string commandText =  getSelect() + GetFromText()+ " WHERE PP.\"ID_FABRICANTE\" = @id";
-            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-               {
-                 Console.WriteLine("Consulta: "+ commandText);
-                    cmd.Parameters.AddWithValue("id", idTaller);
-                     
-                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                        while (reader.Read())
-                        {
-                            pedidosProduccion.Add(ReadPedidoProduccion(reader, conex));
-                            
-                            
-                        }
-                }
-                return pedidosProduccion;
+public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlConnection conex)
+{
+    List<PedidoProduccion> pedidosProduccion = new List<PedidoProduccion>();
+    string commandText = getSelect() + GetFromText() + " WHERE PP.\"ID_FABRICANTE\" = @id";
+
+    using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+    {
+        Console.WriteLine("Consulta: " + commandText);
+        cmd.Parameters.AddWithValue("id", idTaller);
+
+        using (NpgsqlDataReader reader = cmd.ExecuteReader()) // ⛔ Aquí aún no cargamos artículos
+        {
+            while (reader.Read())
+            {
+                pedidosProduccion.Add(ReadPedidoProduccion(reader, conex));
+            }
         }
+    }
+
+    // 🔹 Segunda fase: Ahora cargamos los artículos después de cerrar el reader
+    foreach (var pedido in pedidosProduccion)
+    {
+        pedido.Articulos = getArticulosPedidoProduccion(pedido, conex);
+    }
+
+    return pedidosProduccion;
+}
+
     
 
     
