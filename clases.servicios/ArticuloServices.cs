@@ -123,7 +123,7 @@ using System.Threading.Tasks;
             string name = reader["CODIGO"] as string;
             string minPlayers = reader["DESCRIPCION"] as string;
             decimal precio1 = reader.GetDecimal(reader.GetOrdinal("PRECIO1"));
-
+            int? idFabricante = reader["ID_FABICANTE"] as int?;
             
             int? medidaId = reader["ID_" + Medida.TABLA] as int?;            
             string meidadCodigo = reader["MEDIDA_CODIGO"] as string;   
@@ -168,6 +168,7 @@ using System.Threading.Tasks;
             articulo.Color = color;
             articulo.Familia = familia;
             articulo.Precio1 = precio1;
+            articulo.IdFabricante = idFabricante.Value;
             return articulo;
         }
 

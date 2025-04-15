@@ -18,6 +18,7 @@ using System.Threading.Tasks;
         public Familia Familia{ get; set; }
 
         public decimal Precio1{ get; set; }
+        public int IdFabricante{ get; set; }
         
 
     }

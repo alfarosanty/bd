@@ -20,6 +20,8 @@ using System.Threading.Tasks;
 
             public decimal Descuento { get; set; }
 
+            public bool hayStock {get; set; }
+
             /**INCLUIR UN ESTAOD PARA SABER SI ESTA SEPARADO O SE MANDO A PRODUCCION**/
 
     }
