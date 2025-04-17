@@ -18,8 +18,10 @@ using System.Threading.Tasks;
 
         public int IdEstadoPedidoProduccion { get; set; }
 
-        
+        public int IDPresupuesto {get; set; }
+
         public List<PedidoProduccionArticulo> Articulos { get; set; }
+        
 
 
 

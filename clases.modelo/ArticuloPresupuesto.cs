@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 
             public int cantidad { get; set; }
 
+            public int? CantidadPendiente { get; set; }
+
+
             public decimal PrecioUnitario { get; set; }
 
             public decimal Descuento { get; set; }
