@@ -109,14 +109,15 @@ public class PresupuestoServices
          {
         foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
         {
-            string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO)";
+string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
+                   "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\", \"HAY_STOCK\") " +
+                   "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO, @HAY_STOCK)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);  // Usa el mismo ID del presupuesto existente
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
             cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
+            cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock); // <-- nuevo parámetro
             cmdInsert.ExecuteNonQuery();
         }
     }
@@ -207,25 +208,34 @@ private static string GetFromTextByArticulo()
                 }
                 return articuloPresupuesto;
     }
-    private static ArticuloPresupuesto ReadArticuloPresupeusto(NpgsqlDataReader reader,Presupuesto presupuesto,NpgsqlConnection conex){
-        int idArticulo =(int) reader["ID_ARTICULO"];
-        decimal precioUnitario = (decimal) reader["PRECIO_UNITARIO"];
-        int cantidadAP =(int)  reader["CANTIDAD"] ;
-         decimal descuento =(decimal)  reader["DESCUENTO"];
-        CConexion cConexion= new CConexion();
-        NpgsqlConnection conex2 =  cConexion.establecerConexion();
-        Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex2);
-        cConexion.cerrarConexion(conex2);
-            return new ArticuloPresupuesto{
-                Articulo = articulo,
-                //Presupuesto = presupuesto,
-                PrecioUnitario = precioUnitario,
-                cantidad = cantidadAP,
-                Descuento= descuento
-                };
+
+    private static ArticuloPresupuesto ReadArticuloPresupeusto(NpgsqlDataReader reader, Presupuesto presupuesto, NpgsqlConnection conex)
+{
+    int idArticulo = (int)reader["ID_ARTICULO"];
+    decimal precioUnitario = (decimal)reader["PRECIO_UNITARIO"];
+    int cantidadAP = (int)reader["CANTIDAD"];
+    decimal descuento = (decimal)reader["DESCUENTO"];
+
+    bool hayStock = !reader.IsDBNull(reader.GetOrdinal("HAY_STOCK")) && (bool)reader["HAY_STOCK"];
+    int pendiente = !reader.IsDBNull(reader.GetOrdinal("PENDIENTE")) ? (int)reader["PENDIENTE"] : 0;
+
+    CConexion cConexion = new CConexion();
+    NpgsqlConnection conex2 = cConexion.establecerConexion();
+    Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex2);
+    cConexion.cerrarConexion(conex2);
+
+    return new ArticuloPresupuesto
+    {
+        Articulo = articulo,
+        PrecioUnitario = precioUnitario,
+        cantidad = cantidadAP,
+        Descuento = descuento,
+        hayStock = hayStock,
+        CantidadPendiente = pendiente
+    };
+}
 
 
-    }
 
 private static int calcularTotal(List<ArticuloPresupuesto> articulos)
 {
