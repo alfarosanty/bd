@@ -74,13 +74,15 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
             Console.WriteLine("Ingreso el  " + PedidoProduccion.TABLA  + " el remito ingreso" + sqlSeq);
             int idPedidoProduccion =   Convert.ToInt32(cmdSeq.ExecuteScalar()) ;         
             //CREO EL INSERT EN LA TABLA PRESUPUESTO
-            string sqlInsert = "INSERT INTO  \""+ PedidoProduccion.TABLA + "\" (\"ID_PEDIDO_PRODUCCION\",\"FECHA\",\"ID_FABRICANTE\",\"ID_ESTADO_PEDIDO_PROD\") VALUES(@ID_PEDIDO_PRODUCCION,@FECHA,@ID_FABRICANTE,@ID_ESTADO_PEDIDO_PROD)";
-            NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);            
-            cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
-            cmd.Parameters.AddWithValue("FECHA",pedidoProduccion.Fecha);
-            cmd.Parameters.AddWithValue("ID_FABRICANTE",pedidoProduccion.taller.Id);
-            cmd.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD",pedidoProduccion.IdEstadoPedidoProduccion); 
-             cmd.ExecuteNonQuery();                
+            string sqlInsert = "INSERT INTO  \"" + PedidoProduccion.TABLA + "\" (\"ID_PEDIDO_PRODUCCION\", \"FECHA\", \"ID_FABRICANTE\", \"ID_ESTADO_PEDIDO_PROD\", \"ID_PRESUPUESTO\") VALUES(@ID_PEDIDO_PRODUCCION, @FECHA, @ID_FABRICANTE, @ID_ESTADO_PEDIDO_PROD, @ID_PRESUPUESTO)";
+            NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
+            cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", idPedidoProduccion);
+            cmd.Parameters.AddWithValue("FECHA", pedidoProduccion.Fecha);
+            cmd.Parameters.AddWithValue("ID_FABRICANTE", pedidoProduccion.taller.Id);
+            cmd.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD", pedidoProduccion.IdEstadoPedidoProduccion);
+            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", pedidoProduccion.IDPresupuesto?? (object)DBNull.Value);
+            cmd.ExecuteNonQuery();
+              
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(pedidoProduccion.Articulos !=null)
                 foreach(PedidoProduccionArticulo ppa in pedidoProduccion.Articulos){
@@ -146,28 +148,29 @@ string sqlUpdateTotal = "UPDATE \"" + PedidoProduccion.TABLA + "\" " +
 
 
 
-private static PedidoProduccion ReadPedidoProduccion(NpgsqlDataReader reader,NpgsqlConnection conex){
-       int id =(int) reader["ID_PEDIDO_PRODUCCION"];
-       DateTime fecha = (DateTime) reader["FECHA"];
-       int idFabricante = (int)reader["ID_FABRICANTE"];
-       int idEstadoPedidoProduccion =(int) reader["ID_ESTADO_PEDIDO_PROD"];
-      
-       PedidoProduccion pedidoProduccion = new PedidoProduccion{
-             Id = id,
-             Fecha = fecha,
-             IdEstadoPedidoProduccion = idEstadoPedidoProduccion
-             };
+private static PedidoProduccion ReadPedidoProduccion(NpgsqlDataReader reader, NpgsqlConnection conex) {
+    int id = (int)reader["ID_PEDIDO_PRODUCCION"];
+    DateTime fecha = (DateTime)reader["FECHA"];
+    int idFabricante = (int)reader["ID_FABRICANTE"];
+    int idEstadoPedidoProduccion = (int)reader["ID_ESTADO_PEDIDO_PROD"];
+int? idPresupuesto = reader["ID_PRESUPUESTO"] is DBNull ? null : (int)reader["ID_PRESUPUESTO"];
 
-           CConexion cconexio =  new CConexion();
-          NpgsqlConnection conex2= cconexio.establecerConexion();
+    PedidoProduccion pedidoProduccion = new PedidoProduccion {
+        Id = id,
+        Fecha = fecha,
+        IdEstadoPedidoProduccion = idEstadoPedidoProduccion,
+        IDPresupuesto = idPresupuesto
+    };
 
-           pedidoProduccion.taller = new TallerServices().GetTaller(idFabricante, conex2);
-          
-           cconexio.cerrarConexion(conex2);
-           return pedidoProduccion;
+    CConexion cconexio = new CConexion();
+    NpgsqlConnection conex2 = cconexio.establecerConexion();
 
+    pedidoProduccion.taller = new TallerServices().GetTaller(idFabricante, conex2);
 
+    cconexio.cerrarConexion(conex2);
+    return pedidoProduccion;
 }
+
     private static string getSelect()
         {
             return  $"SELECT PP.* ";
