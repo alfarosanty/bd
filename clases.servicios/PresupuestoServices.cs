@@ -86,8 +86,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
         foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
         {
             string sqlArticuloInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                                       "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\", \"DESCUENTO\", \"PENDIENTE\") " +
-                                       "VALUES (@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO, @DESCUENTO, @PENDIENTE)";
+                                       "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\", \"DESCUENTO\", \"PENDIENTE\", \"DESCRIPCION\") " +
+                                       "VALUES (@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO, @DESCUENTO, @PENDIENTE, @DESCRIPCION)";
             NpgsqlCommand cmdArticulo = new NpgsqlCommand(sqlArticuloInsert, npgsqlConnection);
             cmdArticulo.Parameters.AddWithValue("ID_PRESUPUESTO", idPresupuesto);
             cmdArticulo.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
@@ -95,6 +95,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdArticulo.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
             cmdArticulo.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
             cmdArticulo.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
+            cmdArticulo.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
             cmdArticulo.ExecuteNonQuery();
 
             Console.WriteLine("Ingreso el " + ArticuloPresupuesto.TABLA + " el artículo " + ap.Articulo.Id);
@@ -119,8 +120,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
         foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
         {
             string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK)";
+                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\", \"DESCRIPCION\") " +
+                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK, @DESCRIPCION)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
@@ -129,6 +130,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
             cmdInsert.Parameters.AddWithValue("DESCUENTO",ap.Descuento);
             cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock);
+            cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
             cmdInsert.ExecuteNonQuery();
         }
     }
@@ -160,7 +162,7 @@ private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnect
        DateTime fecha = (DateTime) reader["FECHA_PRESUPUESTO"];
        bool eximirIVA = (bool)reader["EXMIR_IVA"];
        int idCliente =(int) reader["ID_CLIENTE"];
-        int? descGeneral = reader["DESCUENTO"] != DBNull.Value ? (int?)reader["DESCUENTO"] : null;
+       int? descGeneral = reader["DESCUENTO"] != DBNull.Value ? (int?)reader["DESCUENTO"] : null;
 
       
        Presupuesto presupuesto = new Presupuesto{
@@ -236,6 +238,8 @@ private static string GetFromTextByArticulo()
 
     bool hayStock = !reader.IsDBNull(reader.GetOrdinal("HAY_STOCK")) && (bool)reader["HAY_STOCK"];
     int pendiente = !reader.IsDBNull(reader.GetOrdinal("PENDIENTE")) ? (int)reader["PENDIENTE"] : 0;
+    string desc = !reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? (string)reader["DESCRIPCION"] : " ";
+
 
     CConexion cConexion = new CConexion();
     NpgsqlConnection conex2 = cConexion.establecerConexion();
@@ -249,7 +253,9 @@ private static string GetFromTextByArticulo()
         cantidad = cantidadAP,
         Descuento = descuento,
         hayStock = hayStock,
-        CantidadPendiente = pendiente
+        CantidadPendiente = pendiente,
+        descripcion = desc,
+
     };
 }
 

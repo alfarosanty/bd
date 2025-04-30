@@ -21,6 +21,8 @@ using System.Threading.Tasks;
 
         public bool hayStock {get; set; }
 
+        public string? descripcion { get;set; }
+
 
 
 
