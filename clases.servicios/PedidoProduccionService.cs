@@ -86,14 +86,15 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(pedidoProduccion.Articulos !=null)
                 foreach(PedidoProduccionArticulo ppa in pedidoProduccion.Articulos){
-                        sqlInsert = "INSERT INTO  \""+ PedidoProduccionArticulo.TABLA + "\" (\"ID_ARTICULO\",\"ID_PEDIDO_PRODUCCION\",\"CANTIDAD\",\"CANT_PENDIENTE\",\"DESCRIPCION\") VALUES(@ID_ARTICULO,@ID_PEDIDO_PRODUCCION,@CANTIDAD,@CANT_PENDIENTE,@DESCRIPCION)";
+                        sqlInsert = "INSERT INTO  \""+ PedidoProduccionArticulo.TABLA + "\" (\"ID_ARTICULO\",\"ID_PEDIDO_PRODUCCION\",\"CANTIDAD\",\"CANT_PENDIENTE\",\"DESCRIPCION\",\"CODIGO\") VALUES(@ID_ARTICULO,@ID_PEDIDO_PRODUCCION,@CANTIDAD,@CANT_PENDIENTE,@CODIGO,@DESCRIPCION)";
                         cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
                         {                        
                             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ppa.Articulo.Id);
                             cmd.Parameters.AddWithValue("CANTIDAD",ppa.Cantidad);
                             cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.CantidadPendiente);
-                            cmd.Parameters.AddWithValue("DESCRIPCION",ppa.descripcion);
+                            cmd.Parameters.AddWithValue("CODIGO",ppa.codigo);
+                            cmd.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion ?? (object)DBNull.Value);
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Ingreso el  " + PedidoProduccionArticulo.TABLA +   " el articulo" + ppa.Articulo.Id);
                         }
@@ -118,13 +119,14 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
         foreach (PedidoProduccionArticulo ppa in pedidoProduccion.Articulos)
         {
             string sqlInsert = "INSERT INTO \"" + PedidoProduccionArticulo.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PEDIDO_PRODUCCION\", \"CANTIDAD\", \"CANT_PENDIENTE\", \"DESCRIPCION\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PEDIDO_PRODUCCION, @CANTIDAD, @CANT_PENDIENTE, @DESCRIPCION)";
+                               "(\"ID_ARTICULO\", \"ID_PEDIDO_PRODUCCION\", \"CANTIDAD\", \"CANT_PENDIENTE\",  \"CODIGO\", \"DESCRIPCION\") " +
+                               "VALUES(@ID_ARTICULO, @ID_PEDIDO_PRODUCCION, @CANTIDAD, @CANT_PENDIENTE, @CODIGO, @DESCRIPCION)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);  // Usa el mismo ID del presupuesto existente
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ppa.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("CANTIDAD", ppa.Cantidad);
             cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.CantidadPendiente);
+            cmdInsert.Parameters.AddWithValue("CODIGO", ppa.codigo);
             cmdInsert.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion);
             cmdInsert.ExecuteNonQuery();
         }
@@ -223,7 +225,9 @@ private static string GetFromTextByArticulo()
         int idArticulo =(int) reader["ID_ARTICULO"];
         int cantidadAPP =(int)  reader["CANTIDAD"] ;
         int cantidadPendienteAPP =(int)  reader["CANT_PENDIENTE"];
-        string desc =(string)  reader["DESCRIPCION"];
+        string desc = reader["DESCRIPCION"] != DBNull.Value ? reader["DESCRIPCION"].ToString() : " ";
+        string cod = reader["CODIGO"] != DBNull.Value ? reader["CODIGO"].ToString() : " ";;
+
 
         CConexion cConexion= new CConexion();
         NpgsqlConnection conex2 =  cConexion.establecerConexion();
@@ -235,6 +239,7 @@ private static string GetFromTextByArticulo()
                 Cantidad = cantidadAPP,
                 CantidadPendiente = cantidadPendienteAPP,
                 IdPedidoProduccion = pedidoProduccion.Id,
+                codigo = cod,
                 descripcion = desc,
                 };
 

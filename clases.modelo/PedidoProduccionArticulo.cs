@@ -23,6 +23,8 @@ using System.Threading.Tasks;
 
         public string? descripcion { get;set; }
 
+        public string codigo { get; set; }
+
 
 
 
