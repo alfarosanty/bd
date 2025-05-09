@@ -34,7 +34,7 @@ public  string getTabla()
             cmd.Parameters.AddWithValue("ID_CLIENTE",factura.Cliente.Id);
             cmd.Parameters.AddWithValue("EXMIR_IVA",factura.EximirIVA);
             cmd.Parameters.AddWithValue("TOTAL",calcularTotal(factura.articulos));
-            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", factura.presupuesto?.Id);
+            cmd.Parameters.AddWithValue("ID_PRESUPUESTO",factura.presupuesto?.Id == null ? DBNull.Value : (object)factura.presupuesto.Id);
             cmd.ExecuteNonQuery();                
             
                 
