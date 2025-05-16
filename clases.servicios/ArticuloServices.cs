@@ -122,8 +122,9 @@ using System.Threading.Tasks;
             int? id = reader["ID_" + Articulo.TABLA] as int?;
             string name = reader["CODIGO"] as string;
             string minPlayers = reader["DESCRIPCION"] as string;
-            decimal precio1 = reader.GetDecimal(reader.GetOrdinal("PRECIO1"));
-            int? idFabricante = reader["ID_FABICANTE"] as int?;
+            int precio1Index = reader.GetOrdinal("PRECIO1");
+            decimal precio1 = reader.IsDBNull(precio1Index) ? 1 : reader.GetDecimal(precio1Index);
+            int? idFabricante = reader["ID_FABRICANTE"] as int?;
             
             int? medidaId = reader["ID_" + Medida.TABLA] as int?;            
             string meidadCodigo = reader["MEDIDA_CODIGO"] as string;   
