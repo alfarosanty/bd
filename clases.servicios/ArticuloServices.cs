@@ -8,32 +8,35 @@ using System.Threading.Tasks;
     class ArticuloServices
     {   
 
-        static string NewMethod()
-        {
-            string selectText = $"SELECT AR.* ,";
-            selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
-            selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
-            selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
-            return selectText;
-        } 
+            static string NewMethod()
+            {
+                return "SELECT AR.*, " +
+                    "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, " +
+                    "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, " +
+                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, " +
+                    "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION, " +
+                    "AP.\"PRECIO1\", AP.\"PRECIO2\", AP.\"PRECIO3\" ";            }
 
+            static string NewMethodDistintos()
+            {
+                return "SELECT DISTINCT ON (AR.\"ID_MEDIDA\", AR.\"ID_FAMILIA\") AR.*, " +
+                    "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, " +
+                    "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, " +
+                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, " +
+                    "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION, " +
+                    "AP.\"PRECIO1\", AP.\"PRECIO2\", AP.\"PRECIO3\" ";
+                    }
 
-        static string NewMethodDistintos()
-        {
-            string selectText = $"SELECT DISTINCT ON (AR.\"ID_MEDIDA\", AR.\"ID_FAMILIA\") AR.* ,";
-            selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
-            selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
-            selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
-            return selectText;
-        } 
+ 
 
         public Articulo GetArticulo(int id, NpgsqlConnection conex ){
             string commandText = $"SELECT * FROM \""+ Articulo.TABLA + "\" WHERE \"ID_"+ Articulo.TABLA + "\" = @id";
 
             string selectText = NewMethod();
-            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
+            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
             string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
             whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" AND ";
+            whereText += " AR.\"ID_ARTICULO_PRECIO\"= AP.\"ID_ARTICULO_PRECIO\" AND ";
             whereText += "AR.\"ID_"+ Articulo.TABLA + "\" = @id";
             commandText = selectText + fromText + whereText;     
             
@@ -53,14 +56,15 @@ using System.Threading.Tasks;
 
     public List<Articulo> listarArticulos(NpgsqlConnection conex, bool distintos )
     {
-        string selectText ;
-        if(distintos)
-            selectText = NewMethodDistintos();
-        else
-            selectText = NewMethod();
-        string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
-        string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
-        whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\"";
+        string selectText = distintos ? NewMethodDistintos() : NewMethod();
+
+        string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
+        
+        string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" " +
+                        "AND AR.\"ID_FAMILIA\" = FM.\"ID_FAMILIA\" " +
+                        "AND AR.\"ID_COLOR\" = CL.\"ID_COLOR\" " +
+                        "AND AR.\"ID_ARTICULO_PRECIO\" = AP.\"ID_ARTICULO_PRECIO\" ";
+
         string commandText = selectText + fromText + whereText;
 
         List<Articulo> articulos = new List<Articulo>();
@@ -88,9 +92,12 @@ using System.Threading.Tasks;
             selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
             selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
             selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
-            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL ";
+            selectText += "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION ";
+            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
             string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
             whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" ";
+            whereText += " AR.\"ID_ARTICULO_PRECIO\"= AP.\"ID_ARTICULO_PRECIO\" ";
+
             if(familia !=null )
                whereText +=  "AND FM.\"CODIGO\"=@id_familia ";
             
@@ -117,13 +124,41 @@ using System.Threading.Tasks;
                 
             }
 
+
+            public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
+    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\" FROM \"ARTICULO_PRECIO\"";
+    
+    List<ArticuloPrecio> articulosPrecios = new List<ArticuloPrecio>();
+    
+    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conex))
+    {
+        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                ArticuloPrecio precio = new ArticuloPrecio
+                {
+                    articuloPrecioId = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO_PRECIO")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
+                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
+                    Precio1 = reader.IsDBNull(reader.GetOrdinal("PRECIO1")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO1")),
+                    Precio2 = reader.IsDBNull(reader.GetOrdinal("PRECIO2")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO2")),
+                    Precio3 = reader.IsDBNull(reader.GetOrdinal("PRECIO3")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO3"))
+                };
+                articulosPrecios.Add(precio);
+            }
+        }
+    }
+
+    return articulosPrecios;
+}
+
+
         private static Articulo ReadArticulo(NpgsqlDataReader reader)
         {
             int? id = reader["ID_" + Articulo.TABLA] as int?;
             string name = reader["CODIGO"] as string;
             string minPlayers = reader["DESCRIPCION"] as string;
-            int precio1Index = reader.GetOrdinal("PRECIO1");
-            decimal precio1 = reader.IsDBNull(precio1Index) ? 1 : reader.GetDecimal(precio1Index);
             int? idFabricante = reader["ID_FABRICANTE"] as int?;
             
             int? medidaId = reader["ID_" + Medida.TABLA] as int?;            
@@ -146,6 +181,7 @@ using System.Threading.Tasks;
                 Descripcion = colorDescripcion
             };     
 
+
             int? familiaId = reader["ID_" + Familia.TABLA] as int?;            
             string familiaCodigo = reader["FAMILIA_CODIGO"] as string;   
             string familiaDescripcion = reader["FAMILIA_DESCRIPCION"] as string;   
@@ -154,6 +190,26 @@ using System.Threading.Tasks;
                 Id = familiaId.Value,
                 Codigo =    familiaCodigo,
                 Descripcion = familiaDescripcion
+            };  
+
+            int? articuloPrecioId = reader["ID_" + ArticuloPrecio.TABLA] as int?;            
+            string codigo = reader["CODIGO"] as string;   
+            string descripcion = reader["DESCRIPCION"] as string;
+            int precio1Index = reader.GetOrdinal("PRECIO1");
+            int precio1 = reader.IsDBNull(precio1Index) ? 0 : reader.GetInt32(precio1Index);
+            int precio2Index = reader.GetOrdinal("PRECIO2");
+            int precio2 = reader.IsDBNull(precio2Index) ? 0 : reader.GetInt32(precio2Index);
+            int precio3Index = reader.GetOrdinal("PRECIO3");
+            int precio3 = reader.IsDBNull(precio3Index) ? 0 : reader.GetInt32(precio3Index);
+   
+            ArticuloPrecio articuloPrecio = new ArticuloPrecio
+            {
+                articuloPrecioId = articuloPrecioId.Value,
+                Codigo =    codigo,
+                Descripcion = descripcion,
+                Precio1 = precio1,
+                Precio2 = precio2,
+                Precio3 = precio3,
             }; 
 
             Console.WriteLine("a cargar el articulo");
@@ -168,7 +224,7 @@ using System.Threading.Tasks;
             articulo.Medida = medida;
             articulo.Color = color;
             articulo.Familia = familia;
-            articulo.Precio1 = precio1;
+            articulo.articuloPrecio = articuloPrecio;
             articulo.IdFabricante = idFabricante.Value;
             return articulo;
         }

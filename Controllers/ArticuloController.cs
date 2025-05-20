@@ -30,14 +30,14 @@ public class ArticuloController : ControllerBase
 
 
 
-    [HttpGet("GetArticulosByFamiliaMedida")]
-    public IEnumerable<Articulo> GetArticulosByFamiliaMedida()
+    [HttpGet("GetArticulosPrecio")]
+    public IEnumerable<ArticuloPrecio> GetArticuloPrecio()
     {
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().listarArticulos(npgsqlConnection,true);
+List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
-        return articulos;
+        return articulosPrecio;
     }
 
 

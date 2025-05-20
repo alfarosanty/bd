@@ -17,7 +17,7 @@ using System.Threading.Tasks;
         public Medida Medida{ get; set; }
         public Familia Familia{ get; set; }
 
-        public decimal Precio1{ get; set; }
+        public ArticuloPrecio articuloPrecio{ get; set; }
         public int IdFabricante{ get; set; }
         
 
