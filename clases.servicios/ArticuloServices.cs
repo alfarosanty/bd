@@ -86,43 +86,93 @@ using System.Threading.Tasks;
 
 
 
+       public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, NpgsqlConnection conex)
+{
+    string select = NewMethod(); // Reutilizás el SELECT común
+    string fromAndWhere = @"
+                            FROM 
+                                ""ARTICULO"" AR, 
+                                ""MEDIDA"" MD, 
+                                ""FAMILIA"" FM, 
+                                ""COLOR"" CL, 
+                                ""ARTICULO_PRECIO"" AP
+                            WHERE 
+                                AR.""ID_MEDIDA"" = MD.""ID_MEDIDA"" AND
+                                AR.""ID_FAMILIA"" = FM.""ID_FAMILIA"" AND
+                                AR.""ID_COLOR"" = CL.""ID_COLOR"" AND
+                                AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO"" AND
+                                AR.""ID_ARTICULO_PRECIO"" = @id_articulo_precio
+                            ORDER BY 
+                                AR.""ID_ARTICULO"";
+                        ";
 
-    public List<Articulo> GetArticuloByFamiliaMedida(string familia, string medida, NpgsqlConnection conex ){
-            string selectText = $"SELECT AR.* ,";  
-            selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
-            selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
-            selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION ";
-            selectText += "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION ";
-            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
-            string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
-            whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" ";
-            whereText += " AR.\"ID_ARTICULO_PRECIO\"= AP.\"ID_ARTICULO_PRECIO\" ";
+    string query = select + fromAndWhere;
 
-            if(familia !=null )
-               whereText +=  "AND FM.\"CODIGO\"=@id_familia ";
-            
-            if(medida!=null)
-                whereText +="AND MD.\"CODIGO\" =@id_medida";
-            string commandText = selectText + fromText + whereText;
-            Console.WriteLine("Consulta: "+ commandText + "MEDIDA= " + medida + " FAMILIA= "+ familia);
-            List<Articulo> articulos = new List<Articulo>();
-            using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+    List<Articulo> articulos = new List<Articulo>();
+
+    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conex))
+    {
+        cmd.Parameters.AddWithValue("id_articulo_precio", articuloPrecioId);
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
             {
-                 if(medida!=null)
-                    cmd.Parameters.AddWithValue("id_medida", medida);
-                if(familia !=null )
-                    cmd.Parameters.AddWithValue("id_familia", familia);
-                using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                {                    
-                    while (reader.Read())
-                        {   
-                        articulos.Add( ReadArticulo(reader));
-                        }
-                }
-            }                  
-            return articulos;
-                
+                articulos.Add(ReadArticulo(reader)); // Mapeo
             }
+        }
+    }
+
+    return articulos;
+}
+
+
+
+
+
+            public List<Articulo> GetArticuloByFamiliaMedida(string familia, string medida, NpgsqlConnection conex)
+            {
+                string selectText = $"SELECT AR.*, ";  
+                selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
+                selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
+                selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, ";
+                selectText += "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION ";
+
+                string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
+                string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\" = FM.\"ID_FAMILIA\" AND ";
+                whereText += "AR.\"ID_COLOR\" = CL.\"ID_COLOR\" AND AR.\"ID_ARTICULO_PRECIO\" = AP.\"ID_ARTICULO_PRECIO\" ";
+
+                if (familia != null)
+                    whereText += "AND FM.\"CODIGO\" = @id_familia ";
+
+                if (medida != null)
+                    whereText += "AND MD.\"CODIGO\" = @id_medida ";
+
+                string commandText = selectText + fromText + whereText;
+
+                Console.WriteLine("Consulta: " + commandText + " MEDIDA= " + medida + " FAMILIA= " + familia);
+
+                List<Articulo> articulos = new List<Articulo>();
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+                {
+                    if (medida != null)
+                        cmd.Parameters.AddWithValue("id_medida", medida);
+                    if (familia != null)
+                        cmd.Parameters.AddWithValue("id_familia", familia);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            articulos.Add(ReadArticulo(reader)); // tu función para mapear un artículo
+                        }
+                    }
+                }
+
+                return articulos;
+            }
+
 
 
             public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
@@ -138,7 +188,7 @@ using System.Threading.Tasks;
             {
                 ArticuloPrecio precio = new ArticuloPrecio
                 {
-                    articuloPrecioId = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO_PRECIO")),
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO_PRECIO")),
                     Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
                     Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
                     Precio1 = reader.IsDBNull(reader.GetOrdinal("PRECIO1")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO1")),
@@ -204,7 +254,7 @@ using System.Threading.Tasks;
    
             ArticuloPrecio articuloPrecio = new ArticuloPrecio
             {
-                articuloPrecioId = articuloPrecioId.Value,
+                Id = articuloPrecioId.Value,
                 Codigo =    codigo,
                 Descripcion = descripcion,
                 Precio1 = precio1,

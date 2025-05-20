@@ -10,7 +10,7 @@ using System.Threading.Tasks;
     public  class ArticuloPrecio
         {
         public static String TABLA="ARTICULO_PRECIO";
-        public int articuloPrecioId { get; set; }
+        public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio1 { get; set; }

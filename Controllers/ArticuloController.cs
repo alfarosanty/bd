@@ -41,6 +41,20 @@ List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(
     }
 
 
+[HttpGet("ByArticuloPrecio/{articuloPrecio}")]
+public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio)
+{
+    CConexion con = new CConexion();
+    using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
+    {
+        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, npgsqlConnection);
+        // No necesitás llamar a cerrarConexion si usás "using"
+        return articulos;
+    }
+}
+
+
+
  [HttpGet("ByFamilias/{familia}")]
     public IEnumerable<Articulo> GetArticulosByFamilia(string familia)
     {
