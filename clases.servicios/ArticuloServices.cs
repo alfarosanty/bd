@@ -12,17 +12,17 @@ using System.Threading.Tasks;
             {
                 return "SELECT AR.*, " +
                     "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, " +
-                    "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, " +
-                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, " +
+                    "SFM.\"CODIGO\" AS SUBFAMILIA_CODIGO, SFM.\"DESCRIPCION\" AS SUBFAMILIA_DESCRIPCION, " +
+                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, CL.\"HEXA\" AS COLOR_HEXA, " +
                     "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION, " +
                     "AP.\"PRECIO1\", AP.\"PRECIO2\", AP.\"PRECIO3\" ";            }
 
             static string NewMethodDistintos()
             {
-                return "SELECT DISTINCT ON (AR.\"ID_MEDIDA\", AR.\"ID_FAMILIA\") AR.*, " +
+                return "SELECT DISTINCT ON (AR.\"ID_MEDIDA\", AR.\"ID_SUBFAMILIA\") AR.*, " +
                     "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, " +
-                    "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, " +
-                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, " +
+                    "SFM.\"CODIGO\" AS SUBFAMILIA_CODIGO, SFM.\"DESCRIPCION\" AS SUBFAMILIA_DESCRIPCION, " +
+                    "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, CL.\"HEXA\" AS COLOR_HEXA, " +
                     "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION, " +
                     "AP.\"PRECIO1\", AP.\"PRECIO2\", AP.\"PRECIO3\" ";
                     }
@@ -33,8 +33,8 @@ using System.Threading.Tasks;
             string commandText = $"SELECT * FROM \""+ Articulo.TABLA + "\" WHERE \"ID_"+ Articulo.TABLA + "\" = @id";
 
             string selectText = NewMethod();
-            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
-            string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\"= FM.\"ID_FAMILIA\" AND";
+            string fromText = "FROM \"ARTICULO\" AR,\"MEDIDA\" MD, \"SUBFAMILIA\" SFM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
+            string whereText = "WHERE AR.\"ID_MEDIDA\"= MD.\"ID_MEDIDA\" AND AR.\"ID_SUBFAMILIA\"= SFM.\"ID_SUBFAMILIA\" AND";
             whereText += " AR.\"ID_COLOR\"= CL.\"ID_COLOR\" AND ";
             whereText += " AR.\"ID_ARTICULO_PRECIO\"= AP.\"ID_ARTICULO_PRECIO\" AND ";
             whereText += "AR.\"ID_"+ Articulo.TABLA + "\" = @id";
@@ -58,10 +58,10 @@ using System.Threading.Tasks;
     {
         string selectText = distintos ? NewMethodDistintos() : NewMethod();
 
-        string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
+        string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"SUBFAMILIA\" SFM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
         
         string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" " +
-                        "AND AR.\"ID_FAMILIA\" = FM.\"ID_FAMILIA\" " +
+                        "AND AR.\"ID_SUBFAMILIA\" = SFM.\"ID_SUBFAMILIA\" " +
                         "AND AR.\"ID_COLOR\" = CL.\"ID_COLOR\" " +
                         "AND AR.\"ID_ARTICULO_PRECIO\" = AP.\"ID_ARTICULO_PRECIO\" ";
 
@@ -93,12 +93,12 @@ using System.Threading.Tasks;
                             FROM 
                                 ""ARTICULO"" AR, 
                                 ""MEDIDA"" MD, 
-                                ""FAMILIA"" FM, 
+                                ""SUBFAMILIA"" SFM, 
                                 ""COLOR"" CL, 
                                 ""ARTICULO_PRECIO"" AP
                             WHERE 
                                 AR.""ID_MEDIDA"" = MD.""ID_MEDIDA"" AND
-                                AR.""ID_FAMILIA"" = FM.""ID_FAMILIA"" AND
+                                AR.""ID_SUBFAMILIA"" = SFM.""ID_SUBFAMILIA"" AND
                                 AR.""ID_COLOR"" = CL.""ID_COLOR"" AND
                                 AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO"" AND
                                 AR.""ID_ARTICULO_PRECIO"" = @id_articulo_precio
@@ -130,27 +130,27 @@ using System.Threading.Tasks;
 
 
 
-            public List<Articulo> GetArticuloByFamiliaMedida(string familia, string medida, NpgsqlConnection conex)
+            public List<Articulo> GetArticuloByFamiliaMedida(string subfamilia, string medida, NpgsqlConnection conex)
             {
                 string selectText = $"SELECT AR.*, ";  
                 selectText += "MD.\"CODIGO\" AS MEDIDA_CODIGO, MD.\"DESCRIPCION\" AS MEDIDA_DESCRIPCION, ";
-                selectText += "FM.\"CODIGO\" AS FAMILIA_CODIGO, FM.\"DESCRIPCION\" AS FAMILIA_DESCRIPCION, ";
-                selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, ";
+                selectText += "SFM.\"CODIGO\" AS SUBFAMILIA_CODIGO, SFM.\"DESCRIPCION\" AS SUBFAMILIA_DESCRIPCION, ";
+                selectText += "CL.\"CODIGO\" AS COLOR_CODIGO, CL.\"DESCRIPCION\" AS COLOR_DESCRIPCION, CL.\"HEXA\" AS COLOR_HEXA, ";
                 selectText += "AP.\"CODIGO\" AS ARTICULO_PRECIO_CODIGO, AP.\"DESCRIPCION\" AS ARTICULO_PRECIO_DESCRIPCION ";
 
-                string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"FAMILIA\" FM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
-                string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" AND AR.\"ID_FAMILIA\" = FM.\"ID_FAMILIA\" AND ";
+                string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"SUBFAMILIA\" SFM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
+                string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" AND AR.\"ID_SUBFAMILIA\" = SFM.\"ID_SUBFAMILIA\" AND ";
                 whereText += "AR.\"ID_COLOR\" = CL.\"ID_COLOR\" AND AR.\"ID_ARTICULO_PRECIO\" = AP.\"ID_ARTICULO_PRECIO\" ";
 
-                if (familia != null)
-                    whereText += "AND FM.\"CODIGO\" = @id_familia ";
+                if (subfamilia != null)
+                    whereText += "AND SFM.\"CODIGO\" = @id_subfamilia ";
 
                 if (medida != null)
                     whereText += "AND MD.\"CODIGO\" = @id_medida ";
 
                 string commandText = selectText + fromText + whereText;
 
-                Console.WriteLine("Consulta: " + commandText + " MEDIDA= " + medida + " FAMILIA= " + familia);
+                Console.WriteLine("Consulta: " + commandText + " MEDIDA= " + medida + " SUBFAMILIA= " + subfamilia);
 
                 List<Articulo> articulos = new List<Articulo>();
 
@@ -158,8 +158,8 @@ using System.Threading.Tasks;
                 {
                     if (medida != null)
                         cmd.Parameters.AddWithValue("id_medida", medida);
-                    if (familia != null)
-                        cmd.Parameters.AddWithValue("id_familia", familia);
+                    if (subfamilia != null)
+                        cmd.Parameters.AddWithValue("id_subfamilia", subfamilia);
 
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -223,23 +223,26 @@ using System.Threading.Tasks;
 
             int? colorId = reader["ID_" + Color.TABLA] as int?;            
             string colorCodigo = reader["COLOR_CODIGO"] as string;   
-            string colorDescripcion = reader["COLOR_DESCRIPCION"] as string;   
+            string colorDescripcion = reader["COLOR_DESCRIPCION"] as string;
+            string colorHexa = reader["COLOR_HEXA"] as string;   
+   
             Color color =new Color
             {
                 Id = colorId.Value,
                 Codigo =    colorCodigo,
-                Descripcion = colorDescripcion
+                Descripcion = colorDescripcion,
+                colorHexa = colorHexa
             };     
 
 
-            int? familiaId = reader["ID_" + Familia.TABLA] as int?;            
-            string familiaCodigo = reader["FAMILIA_CODIGO"] as string;   
-            string familiaDescripcion = reader["FAMILIA_DESCRIPCION"] as string;   
-            Familia familia = new Familia
+            int? subfamiliaId = reader["ID_" + SubFamilia.TABLA] as int?;            
+            string subfamiliaCodigo = reader["SUBFAMILIA_CODIGO"] as string;   
+            string subfamiliaDescripcion = reader["SUBFAMILIA_DESCRIPCION"] as string;   
+            SubFamilia subfamilia = new SubFamilia
             {
-                Id = familiaId.Value,
-                Codigo =    familiaCodigo,
-                Descripcion = familiaDescripcion
+                Id = subfamiliaId.Value,
+                Codigo =    subfamiliaCodigo,
+                Descripcion = subfamiliaDescripcion
             };  
 
             int? articuloPrecioId = reader["ID_" + ArticuloPrecio.TABLA] as int?;            
@@ -273,7 +276,7 @@ using System.Threading.Tasks;
 
             articulo.Medida = medida;
             articulo.Color = color;
-            articulo.Familia = familia;
+            articulo.SubFamilia = subfamilia;
             articulo.articuloPrecio = articuloPrecio;
             articulo.IdFabricante = idFabricante.Value;
             return articulo;

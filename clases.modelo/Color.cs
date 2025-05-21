@@ -9,6 +9,8 @@ using System.Threading.Tasks;
     public  class Color: Basico
     {
         public static String TABLA="COLOR";
+
+        public string colorHexa {get; set;}
     }
 
 
