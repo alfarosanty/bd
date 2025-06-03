@@ -28,7 +28,7 @@ using System.Threading.Tasks;
         public List<Cliente> listarClientes(NpgsqlConnection conex )
     {
         
-        string commandText = getSelect() +  GetFromText() + GetWhereText();
+        string commandText = getSelect() +  GetFromText() + GetWhereText(); 
 
         List<Cliente> clientes = new List<Cliente>();
         using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))

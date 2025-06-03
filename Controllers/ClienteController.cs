@@ -20,9 +20,9 @@ public class ClienteController : ControllerBase
         
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Cliente> articulos = new ClienteServices().listarClientes(npgsqlConnection);
+        List<Cliente> clientes = new ClienteServices().listarClientes(npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
-        return articulos;
+        return clientes;
     }
 
      [HttpGet("GetClienteById/{idCliente}")]
