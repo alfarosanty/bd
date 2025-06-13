@@ -8,7 +8,8 @@ using System.Threading.Tasks;
     public class CConexion
     {
         NpgsqlConnection conex = new NpgsqlConnection();
-        static String servidor="192.168.1.35";//ofi
+        static String servidor="localhost"; //prubas
+        //"192.168.1.35";//ofi
         //static String servidor="192.168.1.43";//casa
         static String bd="BD";
         static String usuario="postgres";

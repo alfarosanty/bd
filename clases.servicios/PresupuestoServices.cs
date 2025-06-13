@@ -86,8 +86,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
         foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
         {
             string sqlArticuloInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                                       "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\", \"DESCUENTO\", \"PENDIENTE\", \"DESCRIPCION\") " +
-                                       "VALUES (@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO, @DESCUENTO, @PENDIENTE, @DESCRIPCION)";
+                                       "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PRECIO_UNITARIO\", \"DESCUENTO\", \"PENDIENTE\", \"DESCRIPCION\", \"CODIGO\") " +
+                                       "VALUES (@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PRECIO_UNITARIO, @DESCUENTO, @PENDIENTE, @DESCRIPCION, @CODIGO)";
             NpgsqlCommand cmdArticulo = new NpgsqlCommand(sqlArticuloInsert, npgsqlConnection);
             cmdArticulo.Parameters.AddWithValue("ID_PRESUPUESTO", idPresupuesto);
             cmdArticulo.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
@@ -96,6 +96,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdArticulo.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
             cmdArticulo.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
             cmdArticulo.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
+            cmdArticulo.Parameters.AddWithValue("CODIGO", ap.codigo);
+
             cmdArticulo.ExecuteNonQuery();
 
             Console.WriteLine("Ingreso el " + ArticuloPresupuesto.TABLA + " el artículo " + ap.Articulo.Id);
@@ -120,8 +122,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
         foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
         {
             string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\", \"DESCRIPCION\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK, @DESCRIPCION)";
+                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\", \"DESCRIPCION\", \"CODIGO\") " +
+                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK, @DESCRIPCION, @CODIGO)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
@@ -131,6 +133,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdInsert.Parameters.AddWithValue("DESCUENTO",ap.Descuento);
             cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock);
             cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
+            cmdInsert.Parameters.AddWithValue("CODIGO", ap.codigo);
             cmdInsert.ExecuteNonQuery();
         }
     }
@@ -239,6 +242,8 @@ private static string GetFromTextByArticulo()
     bool hayStock = !reader.IsDBNull(reader.GetOrdinal("HAY_STOCK")) && (bool)reader["HAY_STOCK"];
     int pendiente = !reader.IsDBNull(reader.GetOrdinal("PENDIENTE")) ? (int)reader["PENDIENTE"] : 0;
     string desc = !reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? (string)reader["DESCRIPCION"] : " ";
+    string cod = !reader.IsDBNull(reader.GetOrdinal("CODIGO")) ? (string)reader["CODIGO"] : " ";
+
 
 
     CConexion cConexion = new CConexion();
@@ -255,6 +260,7 @@ private static string GetFromTextByArticulo()
         hayStock = hayStock,
         CantidadPendiente = pendiente,
         descripcion = desc,
+        codigo = cod
 
     };
 }

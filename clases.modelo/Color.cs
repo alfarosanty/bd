@@ -10,7 +10,7 @@ using System.Threading.Tasks;
     {
         public static String TABLA="COLOR";
 
-        public string colorHexa {get; set;}
+        public string? colorHexa {get; set;}
     }
 
 

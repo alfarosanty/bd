@@ -15,7 +15,7 @@ using System.Threading.Tasks;
         public string Descripcion { get; set; }
         public Color Color{ get; set; }
         public Medida Medida{ get; set; }
-        public SubFamilia SubFamilia{ get; set; }
+        public SubFamilia? SubFamilia{ get; set; }
 
         public ArticuloPrecio articuloPrecio{ get; set; }
         public int IdFabricante{ get; set; }

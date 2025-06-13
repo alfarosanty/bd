@@ -27,6 +27,8 @@ using System.Threading.Tasks;
 
             public bool hayStock {get; set; }
 
+            public string? codigo {get; set; }
+
             /**INCLUIR UN ESTAOD PARA SABER SI ESTA SEPARADO O SE MANDO A PRODUCCION**/
 
     }
