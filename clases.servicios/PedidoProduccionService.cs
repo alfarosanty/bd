@@ -92,7 +92,7 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
                             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ppa.Articulo.Id);
                             cmd.Parameters.AddWithValue("CANTIDAD",ppa.Cantidad);
-                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.CantidadPendiente);
+                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.cantidadPendiente);
                             cmd.Parameters.AddWithValue("CODIGO",ppa.codigo);
                             cmd.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion ?? (object)DBNull.Value);
                             cmd.ExecuteNonQuery();
@@ -125,7 +125,7 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
             cmdInsert.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);  // Usa el mismo ID del presupuesto existente
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ppa.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("CANTIDAD", ppa.Cantidad);
-            cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.CantidadPendiente);
+            cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.cantidadPendiente);
             cmdInsert.Parameters.AddWithValue("CODIGO", ppa.codigo);
             cmdInsert.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion);
             cmdInsert.ExecuteNonQuery();
@@ -237,7 +237,7 @@ private static string GetFromTextByArticulo()
                 Articulo = articulo,
                 //Presupuesto = presupuesto,
                 Cantidad = cantidadAPP,
-                CantidadPendiente = cantidadPendienteAPP,
+                cantidadPendiente = cantidadPendienteAPP,
                 IdPedidoProduccion = pedidoProduccion.Id,
                 codigo = cod,
                 descripcion = desc,

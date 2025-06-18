@@ -17,7 +17,7 @@ using System.Threading.Tasks;
         public int Cantidad { get; set; }
 
         /**Diferencia entrega la cantidad pedida y lo que devolvieron*/
-        public int? CantidadPendiente { get; set; }
+        public int? cantidadPendiente { get; set; }
 
         public bool hayStock {get; set; }
 
