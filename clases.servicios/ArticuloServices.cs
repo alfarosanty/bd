@@ -204,6 +204,39 @@ using System.Threading.Tasks;
 }
 
 
+public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection connection)
+{
+    var idsGenerados = new List<int>();
+
+    string query = "INSERT INTO \"" + Articulo.TABLA + "\" (\"DESCRIPCION\", \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"ID_COLOR\", \"ID_MEDIDA\", \"ID_SUBFAMILIA\", \"ID_FABRICANTE\") " +
+                       "VALUES(@DESCRIPCION, @ID_ARTICULO_PRECIO, @CODIGO, @ID_COLOR, @ID_MEDIDA, @ID_SUBFAMILIA , @ID_FABRICANTE)";
+
+    using (var cmd = new NpgsqlCommand())
+    {
+        cmd.Connection = connection;
+
+        foreach (var articulo in articulos)
+        {
+            cmd.CommandText = query;
+            cmd.Parameters.Clear();
+
+            cmd.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@ID_ARTICULO_PRECIO", articulo.articuloPrecio.Id);
+            cmd.Parameters.AddWithValue("@CODIGO", articulo.Codigo);
+            cmd.Parameters.AddWithValue("@ID_COLOR", articulo.Color.Id);
+            cmd.Parameters.AddWithValue("@ID_MEDIDA", articulo.Medida.Id);
+            cmd.Parameters.AddWithValue("@ID_SUBFAMILIA", articulo.SubFamilia.Id);
+            cmd.Parameters.AddWithValue("@ID_FABRICANTE", articulo.IdFabricante);
+
+            var idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
+            idsGenerados.Add(idGenerado);
+        }
+    }
+
+    return idsGenerados;
+}
+
+
         private static Articulo ReadArticulo(NpgsqlDataReader reader)
         {
             int? id = reader["ID_" + Articulo.TABLA] as int?;
@@ -231,7 +264,7 @@ using System.Threading.Tasks;
                 Id = colorId.Value,
                 Codigo =    colorCodigo,
                 Descripcion = colorDescripcion,
-                colorHexa = colorHexa
+                ColorHexa = colorHexa
             };     
 
 

@@ -1,0 +1,98 @@
+2025-06-25 11:05:16.749 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-06-25 11:05:16.833 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 11:05:16.834 -03:00 [INF] Hosting environment: Development
+2025-06-25 11:05:16.834 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-06-25 11:06:15.096 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-06-25 11:06:15.167 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 11:06:15.169 -03:00 [INF] Hosting environment: Development
+2025-06-25 11:06:15.169 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-06-25 11:06:57.018 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-06-25 11:06:57.062 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 11:06:57.066 -03:00 [INF] Hosting environment: Development
+2025-06-25 11:06:57.066 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-06-25 11:11:02.949 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/11 - -
+2025-06-25 11:11:03.035 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-06-25 11:11:03.084 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:11:03.096 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-06-25 11:11:03.165 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-06-25 11:11:04.814 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-06-25 11:11:05.110 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 1937.6627ms
+2025-06-25 11:11:05.116 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-06-25 11:11:05.121 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/11 - - - 200 - application/json;+charset=utf-8 2182.3873ms
+2025-06-25 11:11:25.585 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - -
+2025-06-25 11:11:25.589 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:11:25.601 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - - - 204 - - 16.2573ms
+2025-06-25 11:11:25.608 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939
+2025-06-25 11:11:25.610 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:11:25.610 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:11:25.612 -03:00 [INF] Route matched with {action = "Crear", controller = "Presupuesto"}. Executing controller action with signature Int32 Crear(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-06-25 11:11:25.869 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-06-25 11:11:25.877 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI) in 264.6352ms
+2025-06-25 11:11:25.877 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:11:25.878 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939 - 200 - application/json;+charset=utf-8 269.1177ms
+2025-06-25 11:13:37.177 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-06-25 11:13:37.217 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 11:13:37.218 -03:00 [INF] Hosting environment: Development
+2025-06-25 11:13:37.218 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-06-25 11:14:08.348 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - -
+2025-06-25 11:14:08.381 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-06-25 11:14:08.425 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:14:08.453 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - - - 204 - - 111.0785ms
+2025-06-25 11:14:08.481 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939
+2025-06-25 11:14:08.485 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:14:08.492 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:14:08.533 -03:00 [INF] Route matched with {action = "Crear", controller = "Presupuesto"}. Executing controller action with signature Int32 Crear(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-06-25 11:15:45.100 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI) in 96559.7813ms
+2025-06-25 11:15:46.220 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:15:46.444 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna «CODIGO» en la relación «ARTICULO_PRESUPUESTO»
+
+POSITION: 142
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|233_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at PresupuestoServices.crear(Presupuesto presupuesto, NpgsqlConnection npgsqlConnection) in G:\Desa\programa\bd\clases.servicios\PresupuestoServices.cs:line 102
+   at BlumeAPI.Controllers.PresupuestoController.Crear(Presupuesto presupuesto) in G:\Desa\programa\bd\Controllers\PresupuestoController.cs:line 34
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna «CODIGO» en la relación «ARTICULO_PRESUPUESTO»
+    Position: 142
+    File: parse_target.c
+    Line: 1080
+    Routine: checkInsertTargets
+2025-06-25 11:16:02.122 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939 - 500 - text/plain;+charset=utf-8 113640.8565ms
+2025-06-25 11:16:31.219 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - -
+2025-06-25 11:16:31.223 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:16:31.223 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/crear - - - 204 - - 4.5066ms
+2025-06-25 11:16:31.229 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939
+2025-06-25 11:16:31.229 -03:00 [INF] CORS policy execution successful.
+2025-06-25 11:16:31.229 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:16:31.230 -03:00 [INF] Route matched with {action = "Crear", controller = "Presupuesto"}. Executing controller action with signature Int32 Crear(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-06-25 11:16:31.367 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-06-25 11:16:31.398 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI) in 167.8772ms
+2025-06-25 11:16:31.398 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Crear (BlumeAPI)'
+2025-06-25 11:16:31.398 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/crear application/json 939 - 200 - application/json;+charset=utf-8 168.9983ms

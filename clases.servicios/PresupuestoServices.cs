@@ -13,6 +13,7 @@ public class PresupuestoServices
     public  Presupuesto readBasico(NpgsqlDataReader reader)
     {
         throw new NotImplementedException();
+
     }
 
 
@@ -101,6 +102,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdArticulo.ExecuteNonQuery();
 
             Console.WriteLine("Ingreso el " + ArticuloPresupuesto.TABLA + " el artículo " + ap.Articulo.Id);
+
         }
     }
 

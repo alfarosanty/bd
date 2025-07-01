@@ -76,4 +76,16 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio)
     }
 
 
+    [HttpPost("crearArticulos")]
+    public void crearArticulos(Articulo[] articulos)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+        ArticuloServices  articuloService = new ArticuloServices();
+        articuloService.crearArticulos(articulos, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        }
+
+
 }
