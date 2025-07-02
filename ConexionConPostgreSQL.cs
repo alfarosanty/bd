@@ -10,7 +10,7 @@ using System.Threading.Tasks;
         NpgsqlConnection conex = new NpgsqlConnection();
         static String servidor="localhost"; //prubas
         //"192.168.1.35";//ofi
-        //"192.168.1.43";//casa
+        //"192.168.1.40";//casa
         static String bd="BD";
         static String usuario="postgres";
         static String password="admin";

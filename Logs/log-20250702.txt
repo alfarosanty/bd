@@ -1,0 +1,204 @@
+2025-07-02 08:09:48.455 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-02 08:09:48.839 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-02 08:09:48.844 -03:00 [INF] Hosting environment: Development
+2025-07-02 08:09:48.844 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-02 08:14:25.882 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-02 08:14:26.086 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-02 08:14:26.089 -03:00 [INF] Hosting environment: Development
+2025-07-02 08:14:26.089 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-02 08:14:53.763 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-07-02 08:14:53.764 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:14:54.102 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-02 08:14:54.319 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:14:54.319 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:14:54.358 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:14:54.358 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:14:54.597 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:14:54.597 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 08:14:59.204 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:14:59.204 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:14:59.992 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 5370.3275ms
+2025-07-02 08:14:59.992 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 5370.3872ms
+2025-07-02 08:15:00.005 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:15:00.005 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:15:00.018 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 6326.0673ms
+2025-07-02 08:15:00.022 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 6332.3217ms
+2025-07-02 08:15:07.676 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1 - -
+2025-07-02 08:15:07.692 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:15:07.692 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-07-02 08:15:07.748 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 08:15:07.962 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:15:08.011 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 262.6741ms
+2025-07-02 08:15:08.011 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-07-02 08:15:08.012 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1 - - - 200 - application/json;+charset=utf-8 336.1015ms
+2025-07-02 08:16:31.777 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Articulo/CrearArticulos - -
+2025-07-02 08:16:31.777 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:16:31.784 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Articulo/CrearArticulos - - - 204 - - 7.0813ms
+2025-07-02 08:16:31.801 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Articulo/CrearArticulos application/json 401
+2025-07-02 08:16:31.801 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:16:31.801 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 08:16:31.806 -03:00 [INF] Route matched with {action = "crearArticulos", controller = "Articulo"}. Executing controller action with signature Void crearArticulos(Articulo[]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 08:16:32.273 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI) in 467.4638ms
+2025-07-02 08:16:32.273 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 08:16:32.274 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Articulo/CrearArticulos application/json 401 - 200 0 - 473.0950ms
+2025-07-02 08:16:39.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-07-02 08:16:39.628 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:16:39.628 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:16:39.629 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 08:16:39.630 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:16:39.630 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:16:39.630 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:16:39.630 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:16:39.633 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:16:39.633 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:16:39.633 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 2.5751ms
+2025-07-02 08:16:39.633 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:16:39.633 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 3.8931ms
+2025-07-02 08:16:39.638 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 8.1616ms
+2025-07-02 08:16:39.638 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:16:39.638 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 10.4166ms
+2025-07-02 08:18:15.180 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-07-02 08:18:15.201 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:18:15.201 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:18:15.227 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:18:15.227 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:18:15.228 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:18:15.228 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 08:18:15.228 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:18:15.231 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:18:15.232 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 3.1465ms
+2025-07-02 08:18:15.232 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:18:15.232 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 34.3769ms
+2025-07-02 08:18:15.234 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:18:15.238 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 9.4649ms
+2025-07-02 08:18:15.238 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-07-02 08:18:15.238 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 58.2349ms
+2025-07-02 08:19:49.142 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:19:49.142 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:19:49.142 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:19:49.142 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:19:49.148 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:19:49.148 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 5.6458ms
+2025-07-02 08:19:49.148 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:19:49.148 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 12.5468ms
+2025-07-02 08:20:04.994 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:20:04.994 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:20:04.994 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:20:04.994 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:20:05.079 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:20:05.080 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 85.3157ms
+2025-07-02 08:20:05.080 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:20:05.080 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 85.9318ms
+2025-07-02 08:20:11.221 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Color/GetColores - -
+2025-07-02 08:20:11.221 -03:00 [INF] CORS policy execution successful.
+2025-07-02 08:20:11.221 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:20:11.221 -03:00 [INF] Route matched with {action = "Get", controller = "Color"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Color] Get() on controller BlumeAPI.Controllers.ColorController (BlumeAPI).
+2025-07-02 08:20:11.223 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Color, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 08:20:11.223 -03:00 [INF] Executed action BlumeAPI.Controllers.ColorController.Get (BlumeAPI) in 1.6664ms
+2025-07-02 08:20:11.223 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ColorController.Get (BlumeAPI)'
+2025-07-02 08:20:11.223 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 2.5788ms
+2025-07-02 08:51:37.457 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-07-02 08:51:37.777 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 354.8898ms
+2025-07-02 08:51:37.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-07-02 08:51:37.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-07-02 08:51:37.845 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-07-02 08:51:37.939 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-02 08:51:37.940 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 119.9681ms
+2025-07-02 08:51:38.006 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-02 08:51:38.006 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 161.7986ms
+2025-07-02 08:51:38.018 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-02 08:51:38.018 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 187.7544ms
+2025-07-02 08:51:39.512 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-07-02 08:51:39.582 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2025-07-02 08:51:39.583 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-07-02 08:51:39.583 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 1.4160ms
+2025-07-02 08:51:40.178 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 665.7394ms
+2025-07-02 08:55:20.947 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-02 08:55:21.148 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-02 08:55:21.151 -03:00 [INF] Hosting environment: Development
+2025-07-02 08:55:21.152 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-02 08:56:58.598 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - -
+2025-07-02 08:56:59.593 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 1013.8424ms
+2025-07-02 08:56:59.684 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui.css - -
+2025-07-02 08:56:59.768 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-02 08:56:59.768 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui.css - - - 200 143632 text/css 84.6341ms
+2025-07-02 08:57:00.622 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/favicon-32x32.png - -
+2025-07-02 08:57:00.626 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-07-02 08:57:00.626 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/favicon-32x32.png - - - 200 628 image/png 4.0414ms
+2025-07-02 08:57:06.468 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - -
+2025-07-02 08:57:06.469 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 1.2448ms
+2025-07-02 08:57:06.505 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui-bundle.js - -
+2025-07-02 08:57:06.506 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-07-02 08:57:06.662 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-02 08:57:06.662 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-02 08:57:06.673 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 167.8933ms
+2025-07-02 08:57:06.673 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 167.4055ms
+2025-07-02 08:57:07.482 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/v1/swagger.json - -
+2025-07-02 08:57:08.004 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 522.1256ms
+2025-07-02 09:00:41.693 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-02 09:00:41.917 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-02 09:00:41.921 -03:00 [INF] Hosting environment: Development
+2025-07-02 09:00:41.921 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-02 09:01:18.036 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - -
+2025-07-02 09:01:19.004 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 987.5844ms
+2025-07-02 09:01:19.702 -03:00 [INF] Request starting HTTP/1.1 GET http://192.168.1.40:7166/swagger/v1/swagger.json - -
+2025-07-02 09:01:20.210 -03:00 [INF] Request finished HTTP/1.1 GET http://192.168.1.40:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 508.1087ms
+2025-07-02 09:01:34.205 -03:00 [INF] Request starting HTTP/1.1 POST http://192.168.1.40:7166/Articulo/crearArticulos application/json 597
+2025-07-02 09:01:34.267 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-02 09:01:34.364 -03:00 [INF] CORS policy execution successful.
+2025-07-02 09:01:34.389 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 09:01:34.542 -03:00 [INF] Route matched with {action = "crearArticulos", controller = "Articulo"}. Executing controller action with signature Void crearArticulos(Articulo[]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 09:03:58.244 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI) in 143523.5295ms
+2025-07-02 09:03:58.328 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 09:03:58.341 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 23505: llave duplicada viola restricción de unicidad «ARTICULO_pkey»
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|233_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.<ReadMessage>g__ReadMessageSequential|44_0(NpgsqlConnector connector, Boolean async)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteScalar(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteScalar()
+   at ArticuloServices.crearArticulos(Articulo[] articulos, NpgsqlConnection connection) in G:\Desa\programa\bd\clases.servicios\ArticuloServices.cs:line 231
+   at BlumeAPI.Controllers.ArticuloController.crearArticulos(Articulo[] articulos) in G:\Desa\programa\bd\Controllers\ArticuloController.cs:line 86
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.<>c__DisplayClass33_0.<WrapVoidMethod>b__0(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.VoidResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: llave duplicada viola restricción de unicidad «ARTICULO_pkey»
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: ARTICULO
+    ConstraintName: ARTICULO_pkey
+    File: nbtinsert.c
+    Line: 671
+    Routine: _bt_check_unique
+2025-07-02 09:03:59.749 -03:00 [INF] Request finished HTTP/1.1 POST http://192.168.1.40:7166/Articulo/crearArticulos application/json 597 - 500 - text/plain;+charset=utf-8 145531.7716ms
+2025-07-02 09:04:35.799 -03:00 [INF] Request starting HTTP/1.1 POST http://192.168.1.40:7166/Articulo/crearArticulos application/json 597
+2025-07-02 09:04:35.834 -03:00 [INF] CORS policy execution successful.
+2025-07-02 09:04:35.835 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 09:04:35.835 -03:00 [INF] Route matched with {action = "crearArticulos", controller = "Articulo"}. Executing controller action with signature Void crearArticulos(Articulo[]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-07-02 09:04:36.363 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI) in 527.8713ms
+2025-07-02 09:04:36.364 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.crearArticulos (BlumeAPI)'
+2025-07-02 09:04:36.364 -03:00 [INF] Request finished HTTP/1.1 POST http://192.168.1.40:7166/Articulo/crearArticulos application/json 597 - 200 0 - 572.8288ms
