@@ -17,7 +17,7 @@ public class FacturaController : ControllerBase
         _logger = logger;
     }
 
-    [HttpPost()]
+    [HttpPost("crear")]
     public int  Crear(Factura factura){
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();

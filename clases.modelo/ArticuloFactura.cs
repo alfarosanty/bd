@@ -14,10 +14,14 @@ using System.Threading.Tasks;
 
             public Factura? Factura { get; set; }
 
-            public int cantidad { get; set; }
+            public int Cantidad { get; set; }
 
             public decimal PrecioUnitario { get; set; }
 
             public decimal Descuento { get; set; }
+
+            public string Codigo { get; set; }
+
+            public string Descripcion { get; set; }
 
     }

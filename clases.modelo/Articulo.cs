@@ -19,6 +19,11 @@ using System.Threading.Tasks;
 
         public ArticuloPrecio articuloPrecio{ get; set; }
         public int IdFabricante{ get; set; }
+
+        public bool? Nuevo{ get; set; }
         
+        public bool? Habilitado{ get; set; }
+
+        public int? Stock{ get; set; }
 
     }

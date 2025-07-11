@@ -18,12 +18,12 @@ public class ArticuloController : ControllerBase
         _logger = logger;
     }
 
-     [HttpGet(Name = "GetArticulos")]
+     [HttpGet("GetArticulos")]
     public IEnumerable<Articulo> GetArticulos()
     {
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().listarArticulos(npgsqlConnection,false);
+        List<Articulo> articulos = new ArticuloServices().getAll(npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
         return articulos;
     }
@@ -35,19 +35,19 @@ public class ArticuloController : ControllerBase
     {
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
+        List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
         return articulosPrecio;
     }
 
 
 [HttpGet("ByArticuloPrecio/{articuloPrecio}")]
-public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio)
+public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
 {
     CConexion con = new CConexion();
     using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
     {
-        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, npgsqlConnection);
+        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, npgsqlConnection);
         // No necesitás llamar a cerrarConexion si usás "using"
         return articulos;
     }

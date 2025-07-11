@@ -10,26 +10,33 @@ using System.Threading.Tasks;
     public static String TABLA="FACTURA";
     public int Id { get; set; }
 
-    public DateTime Fecha { get; set; }
+    public DateTime FechaFactura { get; set; }
 
     public Cliente Cliente { get; set; }
 
     public bool EximirIVA { get; set; }
 
-    public List<ArticuloFactura>? articulos  { get; set; }
+    public List<ArticuloFactura>? Articulos  { get; set; }
 
-    public Presupuesto? presupuesto{ get; set; }
-   
-    
-    public string? RazonSocial{ get; set; }
-    public string? Contacto{ get; set; }
-    public string? Telefono{ get; set; }
-    public string? Domicilio{ get; set; }
-    public string? Localidad{ get; set; }
-    public string? Provincia { get; set; }
-    public string? Cuit{ get; set; }
+    public Presupuesto? Presupuesto{ get; set; }
 
-    public CondicionFiscal? CondicionFiscal{ get; set; }
+    public int? ImporteBruto  { get; set; }
+
+    public int PuntoDeVenta { get; set; }
+
+    public int? NumeroFactura { get; set; }
+
+    public int? CaeNumero { get; set; }
+
+    public DateTime? FechaVencimiento { get; set; }
+
+    public int? ImporteNeto  { get; set; }
+
+    public int? Iva { get; set; }
+
+    public string TipoFactura   { get; set; }
+
+    public int? DescuentoGeneral    { get; set; }
 
     }
 

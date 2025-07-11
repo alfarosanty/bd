@@ -64,26 +64,30 @@ public class IngresoService
             Console.WriteLine("Ingreso el  " + Ingreso.TABLA  + " el remito ingreso" + sqlSeq);
             int idIngreso =   Convert.ToInt32(cmdSeq.ExecuteScalar()) ;         
             //CREO EL INSERT EN LA TABLA PRESUPUESTO
-            string sqlInsert = "INSERT INTO  \""+ Ingreso.TABLA + "\" (\"ID_INGRESO\",\"FECHA\",\"ID_FABRICANTE\") VALUES(@ID_INGRESO,@FECHA,@ID_FABRICANTE)";
+            string sqlInsert = "INSERT INTO  \""+ Ingreso.TABLA + "\" (\"ID_INGRESO\",\"FECHA_INGRESO\",\"ID_FABRICANTE\") VALUES(@ID_INGRESO,@FECHA_INGRESO,@ID_FABRICANTE)";
             NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);            
             cmd.Parameters.AddWithValue("ID_INGRESO",idIngreso);
-            cmd.Parameters.AddWithValue("FECHA",ingreso.Fecha);
+            cmd.Parameters.AddWithValue("FECHA_INGRESO",ingreso.Fecha);
             cmd.Parameters.AddWithValue("ID_FABRICANTE",ingreso.taller.Id);
              cmd.ExecuteNonQuery();                
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(ingreso.Articulos !=null)
                 foreach(ArticuloIngreso ia in ingreso.Articulos){
-            sqlInsert = "INSERT INTO \"" + ArticuloIngreso.TABLA + "\" (\"ID_ARTICULO\",\"ID_INGRESO\",\"CANTIDAD\",\"FECHA\") " + "VALUES(@ID_ARTICULO,@ID_INGRESO,@CANTIDAD,@FECHA) ";
+            sqlInsert = "INSERT INTO \"" + ArticuloIngreso.TABLA + "\" (\"ID_ARTICULO\",\"ID_INGRESO\",\"CANTIDAD\",\"FECHA_INGRESO\",\"CODIGO\",\"DESCRIPCION\") " + "VALUES(@ID_ARTICULO,@ID_INGRESO,@CANTIDAD,@FECHA_INGRESO,@CODIGO,@DESCRIPCION) ";
                         cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
                         {                        
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ia.Articulo.Id);
                             cmd.Parameters.AddWithValue("ID_INGRESO",idIngreso);
                             cmd.Parameters.AddWithValue("CANTIDAD",ia.cantidad);
-                            cmd.Parameters.AddWithValue("FECHA",ingreso.Fecha);
+                            cmd.Parameters.AddWithValue("FECHA_INGRESO",ingreso.Fecha);
+                            cmd.Parameters.AddWithValue("CODIGO",ia.Codigo);
+                            cmd.Parameters.AddWithValue("DESCRIPCION",ia.Descripcion);
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Ingreso el  " + Ingreso.TABLA +   " el aritculo" + ia.Articulo.Id);
                         }
                 }
+                 actualizarStock(ingreso.Articulos, npgsqlConnection);
+
                 
                 return idIngreso;
             }
@@ -103,13 +107,13 @@ public class IngresoService
         foreach (ArticuloIngreso ia in ingreso.Articulos)
         {
             string sqlInsert = "INSERT INTO \"" + ArticuloIngreso.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_INGRESO\", \"CANTIDAD\", \"FECHA\") " +
-                               "VALUES(@ID_ARTICULO, @ID_INGRESO, @CANTIDAD, @FECHA)";
+                               "(\"ID_ARTICULO\", \"ID_INGRESO\", \"CANTIDAD\", \"FECHA_INGRESO\") " +
+                               "VALUES(@ID_ARTICULO, @ID_INGRESO, @CANTIDAD, @FECHA_INGRESO)";
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ia.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("ID_INGRESO", ingreso.Id);  // Usa el mismo ID del presupuesto existente
             cmdInsert.Parameters.AddWithValue("CANTIDAD", ia.cantidad);
-            cmdInsert.Parameters.AddWithValue("FECHA", ingreso.Fecha);
+            cmdInsert.Parameters.AddWithValue("FECHA_INGRESO", ingreso.Fecha);
             cmdInsert.ExecuteNonQuery();
         }
     }
@@ -133,7 +137,7 @@ public class IngresoService
 
 private static Ingreso ReadIngreso(NpgsqlDataReader reader,NpgsqlConnection conex){
        int id =(int) reader["ID_INGRESO"];
-       DateTime fecha = (DateTime) reader["FECHA"];
+       DateTime fecha = (DateTime) reader["FECHA_INGRESO"];
        int idFabricante = (int)reader["ID_FABRICANTE"];
       
        Ingreso ingreso = new Ingreso{
@@ -200,7 +204,9 @@ private static string GetFromTextByArticulo()
     private static ArticuloIngreso ReadArticuloIngreso(NpgsqlDataReader reader,Ingreso ingreso,NpgsqlConnection conex){
         int idArticulo =(int) reader["ID_ARTICULO"];
         int cantidadI =(int)  reader["CANTIDAD"] ;
-        DateTime fecha =(DateTime)  reader["FECHA"];
+        DateTime fecha =(DateTime)  reader["FECHA_INGRESO"];
+        string codigo =(string) reader["CODIGO"];
+        string descripcion =(string) reader["DESCRIPCION"];
         CConexion cConexion= new CConexion();
         NpgsqlConnection conex2 =  cConexion.establecerConexion();
         Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex2);
@@ -209,10 +215,35 @@ private static string GetFromTextByArticulo()
                 Articulo = articulo,
                 //Presupuesto = presupuesto,
                 cantidad = cantidadI,
-                IdIngreso = ingreso.Id
+                IdIngreso = ingreso.Id,
+                Codigo = codigo,
+                Descripcion = descripcion
                 };
 
 
     }
+
+private static void actualizarStock(List<ArticuloIngreso> ingresoArticulos, NpgsqlConnection conex)
+{
+string updateQuery = @"
+    UPDATE """ + Articulo.TABLA + @"""
+    SET ""STOCK"" = COALESCE(""STOCK"", 0) + @CANTIDAD
+    WHERE ""ID_ARTICULO"" = @ID_ARTICULO;
+";
+
+
+    using (var cmd = new NpgsqlCommand(updateQuery, conex))
+    {
+        foreach (var ia in ingresoArticulos)
+        {
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@CANTIDAD", ia.cantidad);
+            cmd.Parameters.AddWithValue("@ID_ARTICULO", ia.Articulo.Id);
+
+            cmd.ExecuteNonQuery();
+        }
+    }
+}
+
 
 }

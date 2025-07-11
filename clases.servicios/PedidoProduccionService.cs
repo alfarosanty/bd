@@ -86,7 +86,7 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
             //RECORRO Y GUARDO LOS PRESUPUESTOS
             if(pedidoProduccion.Articulos !=null)
                 foreach(PedidoProduccionArticulo ppa in pedidoProduccion.Articulos){
-                        sqlInsert = "INSERT INTO  \""+ PedidoProduccionArticulo.TABLA + "\" (\"ID_ARTICULO\",\"ID_PEDIDO_PRODUCCION\",\"CANTIDAD\",\"CANT_PENDIENTE\",\"DESCRIPCION\",\"CODIGO\") VALUES(@ID_ARTICULO,@ID_PEDIDO_PRODUCCION,@CANTIDAD,@CANT_PENDIENTE,@CODIGO,@DESCRIPCION)";
+                        sqlInsert = "INSERT INTO  \""+ PedidoProduccionArticulo.TABLA + "\" (\"ID_ARTICULO\",\"ID_PEDIDO_PRODUCCION\",\"CANTIDAD\",\"CANT_PENDIENTE\",\"CODIGO\",\"DESCRIPCION\") VALUES(@ID_ARTICULO,@ID_PEDIDO_PRODUCCION,@CANTIDAD,@CANT_PENDIENTE,@CODIGO,@DESCRIPCION)";
                         cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
                         {                        
                             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);

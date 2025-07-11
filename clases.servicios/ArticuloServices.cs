@@ -54,63 +54,72 @@ using System.Threading.Tasks;
                 return null;
                 }
 
-    public List<Articulo> listarArticulos(NpgsqlConnection conex, bool distintos )
-    {
-        string selectText = distintos ? NewMethodDistintos() : NewMethod();
-
-        string fromText = "FROM \"ARTICULO\" AR, \"MEDIDA\" MD, \"SUBFAMILIA\" SFM, \"COLOR\" CL, \"ARTICULO_PRECIO\" AP ";
-        
-        string whereText = "WHERE AR.\"ID_MEDIDA\" = MD.\"ID_MEDIDA\" " +
-                        "AND AR.\"ID_SUBFAMILIA\" = SFM.\"ID_SUBFAMILIA\" " +
-                        "AND AR.\"ID_COLOR\" = CL.\"ID_COLOR\" " +
-                        "AND AR.\"ID_ARTICULO_PRECIO\" = AP.\"ID_ARTICULO_PRECIO\" ";
-
-        string commandText = selectText + fromText + whereText;
-
-        List<Articulo> articulos = new List<Articulo>();
-        using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+        public List<Articulo> getAll(NpgsqlConnection conex)
         {
+            string selectText = NewMethod(); // devuelve SELECT AR.*, MD."CODIGO" AS MEDIDA_CODIGO, ...
+            
+            string fromAndWhere = @"
+                FROM 
+                    ""ARTICULO"" AR
+                    JOIN ""MEDIDA"" MD ON AR.""ID_MEDIDA"" = MD.""ID_MEDIDA""
+                    JOIN ""SUBFAMILIA"" SFM ON AR.""ID_SUBFAMILIA"" = SFM.""ID_SUBFAMILIA""
+                    JOIN ""COLOR"" CL ON AR.""ID_COLOR"" = CL.""ID_COLOR""
+                    JOIN ""ARTICULO_PRECIO"" AP ON AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO""
+                ORDER BY 
+                    AR.""ID_ARTICULO""";
 
-            Console.WriteLine("Consulta: " + commandText);
-            using (NpgsqlDataReader reader = cmd.ExecuteReader())
-                while (reader.Read())
+            string commandText = selectText + " " + fromAndWhere;
+
+            List<Articulo> articulos = new List<Articulo>();
+
+            using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+            {
+                Console.WriteLine("Consulta: " + commandText);
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    articulos.Add(ReadArticulo(reader));
-
+                    while (reader.Read())
+                    {
+                        articulos.Add(ReadArticulo(reader));
+                    }
                 }
+            }
 
+            return articulos;
         }
-        return articulos;
-        
-    }
 
 
 
-       public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, NpgsqlConnection conex)
+
+
+public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool habilitados, NpgsqlConnection conex)
 {
-    string select = NewMethod(); // Reutilizás el SELECT común
-    string fromAndWhere = @"
-                            FROM 
-                                ""ARTICULO"" AR, 
-                                ""MEDIDA"" MD, 
-                                ""SUBFAMILIA"" SFM, 
-                                ""COLOR"" CL, 
-                                ""ARTICULO_PRECIO"" AP
-                            WHERE 
-                                AR.""ID_MEDIDA"" = MD.""ID_MEDIDA"" AND
-                                AR.""ID_SUBFAMILIA"" = SFM.""ID_SUBFAMILIA"" AND
-                                AR.""ID_COLOR"" = CL.""ID_COLOR"" AND
-                                AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO"" AND
-                                AR.""ID_ARTICULO_PRECIO"" = @id_articulo_precio
-                            ORDER BY 
-                                AR.""ID_ARTICULO"";
-                        ";
+    string select = NewMethod(); // SELECT reutilizable
+
+    string habilitadoFiltro = habilitados ? @"AND AR.""HABILITADO"" = TRUE" : "";
+
+    string fromAndWhere = $@"
+        FROM 
+            ""ARTICULO"" AR, 
+            ""MEDIDA"" MD, 
+            ""SUBFAMILIA"" SFM, 
+            ""COLOR"" CL, 
+            ""ARTICULO_PRECIO"" AP
+        WHERE 
+            AR.""ID_MEDIDA"" = MD.""ID_MEDIDA"" AND
+            AR.""ID_SUBFAMILIA"" = SFM.""ID_SUBFAMILIA"" AND
+            AR.""ID_COLOR"" = CL.""ID_COLOR"" AND
+            AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO"" AND
+            AR.""ID_ARTICULO_PRECIO"" = @id_articulo_precio
+            {habilitadoFiltro}
+        ORDER BY 
+            AR.""ID_ARTICULO"";
+    ";
 
     string query = select + fromAndWhere;
 
-    List<Articulo> articulos = new List<Articulo>();
+    var articulos = new List<Articulo>();
 
-    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conex))
+    using (var cmd = new NpgsqlCommand(query, conex))
     {
         cmd.Parameters.AddWithValue("id_articulo_precio", articuloPrecioId);
 
@@ -118,13 +127,14 @@ using System.Threading.Tasks;
         {
             while (reader.Read())
             {
-                articulos.Add(ReadArticulo(reader)); // Mapeo
+                articulos.Add(ReadArticulo(reader));
             }
         }
     }
 
     return articulos;
 }
+
 
 
 
@@ -208,8 +218,14 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
 {
     var idsGenerados = new List<int>();
 
-    string query = "INSERT INTO \"" + Articulo.TABLA + "\" (\"DESCRIPCION\", \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"ID_COLOR\", \"ID_MEDIDA\", \"ID_SUBFAMILIA\", \"ID_FABRICANTE\") " +
-                       "VALUES(@DESCRIPCION, @ID_ARTICULO_PRECIO, @CODIGO, @ID_COLOR, @ID_MEDIDA, @ID_SUBFAMILIA , @ID_FABRICANTE)";
+    string insertQuery = "INSERT INTO \"" + Articulo.TABLA + "\" " +
+                         "(\"DESCRIPCION\", \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"ID_COLOR\", \"ID_MEDIDA\", \"ID_SUBFAMILIA\", \"ID_FABRICANTE\", \"HABILITADO\" , \"STOCK\") " +
+                         "VALUES (@DESCRIPCION, @ID_ARTICULO_PRECIO, @CODIGO, @ID_COLOR, @ID_MEDIDA, @ID_SUBFAMILIA, @ID_FABRICANTE, @HABILITADO, @STOCK) " +
+                         "RETURNING \"ID_ARTICULO\"";
+
+    string updateQuery = "UPDATE \"" + Articulo.TABLA + "\" " +
+                         "SET \"HABILITADO\" = @HABILITADO " +
+                         "WHERE \"ID_ARTICULO\" = @ID_ARTICULO";
 
     using (var cmd = new NpgsqlCommand())
     {
@@ -217,24 +233,43 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
 
         foreach (var articulo in articulos)
         {
-            cmd.CommandText = query;
             cmd.Parameters.Clear();
 
-            cmd.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
-            cmd.Parameters.AddWithValue("@ID_ARTICULO_PRECIO", articulo.articuloPrecio.Id);
-            cmd.Parameters.AddWithValue("@CODIGO", articulo.Codigo);
-            cmd.Parameters.AddWithValue("@ID_COLOR", articulo.Color.Id);
-            cmd.Parameters.AddWithValue("@ID_MEDIDA", articulo.Medida.Id);
-            cmd.Parameters.AddWithValue("@ID_SUBFAMILIA", articulo.SubFamilia.Id);
-            cmd.Parameters.AddWithValue("@ID_FABRICANTE", articulo.IdFabricante);
+            if (articulo.Nuevo == true)
+            {
+                cmd.CommandText = insertQuery;
 
-            var idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
-            idsGenerados.Add(idGenerado);
+                cmd.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@ID_ARTICULO_PRECIO", articulo.articuloPrecio.Id);
+                cmd.Parameters.AddWithValue("@CODIGO", articulo.Codigo);
+                cmd.Parameters.AddWithValue("@ID_COLOR", articulo.Color.Id);
+                cmd.Parameters.AddWithValue("@ID_MEDIDA", articulo.Medida.Id);
+                cmd.Parameters.AddWithValue("@ID_SUBFAMILIA", articulo.SubFamilia.Id);
+                cmd.Parameters.AddWithValue("@ID_FABRICANTE", articulo.IdFabricante);
+                cmd.Parameters.AddWithValue("@HABILITADO", articulo.Habilitado);
+                cmd.Parameters.AddWithValue("@STOCK", 0);
+
+
+
+                var idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
+                idsGenerados.Add(idGenerado);
+            }
+            else
+            {
+                cmd.CommandText = updateQuery;
+
+                cmd.Parameters.AddWithValue("@HABILITADO", articulo.Habilitado ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@ID_ARTICULO", articulo.Id); // debe tener el ID asignado
+
+                cmd.ExecuteNonQuery();
+                idsGenerados.Add(articulo.Id);
+            }
         }
     }
 
     return idsGenerados;
 }
+
 
 
         private static Articulo ReadArticulo(NpgsqlDataReader reader)
@@ -298,6 +333,11 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
                 Precio3 = precio3,
             }; 
 
+            bool? habilitado = reader["HABILITADO"] != DBNull.Value ? (bool?)reader["HABILITADO"] : null;
+
+            int? stock = reader["STOCK"] != DBNull.Value ? Convert.ToInt32(reader["STOCK"]) : (int?)null;
+
+
             Console.WriteLine("a cargar el articulo");
 
             Articulo  articulo = new Articulo
@@ -312,6 +352,9 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
             articulo.SubFamilia = subfamilia;
             articulo.articuloPrecio = articuloPrecio;
             articulo.IdFabricante = idFabricante.Value;
+            articulo.Habilitado = habilitado;
+            articulo.Nuevo = false;
+            articulo.Stock = stock;
             return articulo;
         }
 

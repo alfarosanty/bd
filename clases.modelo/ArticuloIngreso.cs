@@ -16,5 +16,7 @@ using System.Threading.Tasks;
 
             public int cantidad { get; set; }
 
+            public string Codigo { get; set; }
 
+            public string Descripcion { get; set; }
     }
