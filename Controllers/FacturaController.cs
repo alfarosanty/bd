@@ -28,4 +28,22 @@ public class FacturaController : ControllerBase
         return id;
     }
 
+[HttpGet("FacturacionXCliente")]
+public ActionResult<List<RespuestaEstadistica>> facturacionXCliente([FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    FacturaServices fs = new FacturaServices();
+
+    // Llamás al servicio pasando las fechas recibidas
+    List<RespuestaEstadistica> listaDeRespuestasEstadisticas = fs.facturacionXCliente(fechaInicio, fechaFin, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+
+    return listaDeRespuestasEstadisticas;
+}
+
+
+
 }

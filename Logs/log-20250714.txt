@@ -1,0 +1,183 @@
+2025-07-14 08:04:16.535 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-14 08:04:16.601 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 08:04:16.602 -03:00 [INF] Hosting environment: Development
+2025-07-14 08:04:16.602 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-14 09:20:59.008 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-14 09:20:59.079 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 09:20:59.080 -03:00 [INF] Hosting environment: Development
+2025-07-14 09:20:59.080 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-14 09:21:31.367 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 09:21:31.428 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-14 09:21:31.473 -03:00 [INF] CORS policy execution successful.
+2025-07-14 09:21:31.483 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 09:21:31.551 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 09:21:32.662 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 09:21:32.843 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1286.6322ms
+2025-07-14 09:21:32.846 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 09:21:32.849 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 1488.7663ms
+2025-07-14 09:42:49.577 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 09:42:49.589 -03:00 [INF] CORS policy execution successful.
+2025-07-14 09:42:49.594 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 09:42:49.597 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 09:42:49.699 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 09:42:49.700 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 103.0218ms
+2025-07-14 09:42:49.700 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 09:42:49.700 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 124.2953ms
+2025-07-14 09:57:05.927 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-14 09:57:05.971 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 09:57:05.972 -03:00 [INF] Hosting environment: Development
+2025-07-14 09:57:05.972 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-14 10:12:28.103 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:12:28.182 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-14 10:12:28.235 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:12:28.245 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:12:28.303 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:13:27.770 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-07-14 10:13:27.835 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 10:13:27.836 -03:00 [INF] Hosting environment: Development
+2025-07-14 10:13:27.836 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-07-14 10:13:43.677 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:13:43.726 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-07-14 10:13:43.756 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:13:43.763 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:13:43.799 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:13:44.401 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:13:44.563 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 758.3548ms
+2025-07-14 10:13:44.568 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:13:44.571 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 898.2714ms
+2025-07-14 10:17:01.836 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:17:01.839 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:17:01.839 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:17:01.840 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:17:01.853 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:17:01.853 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 13.0029ms
+2025-07-14 10:17:01.853 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:17:01.853 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 19.1750ms
+2025-07-14 10:19:10.790 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:19:10.795 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:19:10.795 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:19:10.795 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:19:10.856 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:19:10.856 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 61.2308ms
+2025-07-14 10:19:10.856 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:19:10.856 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 66.5008ms
+2025-07-14 10:20:59.427 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:20:59.428 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:20:59.456 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:20:59.456 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:20:59.458 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:20:59.458 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 2.1764ms
+2025-07-14 10:20:59.458 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:20:59.458 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 31.8964ms
+2025-07-14 10:25:15.177 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:25:15.177 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:25:15.181 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:25:15.181 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:25:15.234 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:25:15.234 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 53.2119ms
+2025-07-14 10:25:15.234 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:25:15.234 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 57.5759ms
+2025-07-14 10:25:26.362 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:25:26.362 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:25:26.362 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:25:26.362 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:25:26.364 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:25:26.364 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.6245ms
+2025-07-14 10:25:26.364 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:25:26.364 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 2.0565ms
+2025-07-14 10:26:09.045 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:26:09.045 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:26:09.045 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:26:09.046 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:26:09.047 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:26:09.047 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.3512ms
+2025-07-14 10:26:09.047 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:26:09.047 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 1.8213ms
+2025-07-14 10:35:16.160 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-02&fechaFin=2025-07-31 - -
+2025-07-14 10:35:16.162 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:35:16.162 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:35:16.163 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:35:16.236 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:35:16.236 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 73.5755ms
+2025-07-14 10:35:16.236 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:35:16.236 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-02&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 76.5656ms
+2025-07-14 10:37:45.392 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:37:45.395 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:37:45.396 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:37:45.397 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:37:45.399 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:37:45.399 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.5529ms
+2025-07-14 10:37:45.399 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:37:45.399 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 7.0292ms
+2025-07-14 10:41:14.847 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:41:14.850 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:41:14.851 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:41:14.851 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:41:14.900 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:41:14.900 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 48.3415ms
+2025-07-14 10:41:14.900 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:41:14.900 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 53.0740ms
+2025-07-14 10:43:19.480 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:43:19.481 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:43:19.481 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:19.481 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:43:19.486 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:43:19.486 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 4.9661ms
+2025-07-14 10:43:19.486 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:19.486 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 5.9923ms
+2025-07-14 10:43:24.508 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:43:24.508 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:43:24.508 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:24.508 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:43:24.509 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:43:24.510 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.5504ms
+2025-07-14 10:43:24.510 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:24.510 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 2.1151ms
+2025-07-14 10:43:54.408 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:43:54.408 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:43:54.408 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:54.411 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:43:54.413 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:43:54.414 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 2.4375ms
+2025-07-14 10:43:54.414 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:43:54.414 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 5.5752ms
+2025-07-14 10:46:17.864 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:46:17.868 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:46:17.868 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:46:17.868 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:46:17.919 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:46:17.919 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 50.7199ms
+2025-07-14 10:46:17.919 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:46:17.919 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 55.7925ms
+2025-07-14 10:50:14.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:50:14.783 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:50:14.783 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:50:14.784 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:50:14.785 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:50:14.785 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.5279ms
+2025-07-14 10:50:14.785 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:50:14.785 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 1.9986ms
+2025-07-14 10:50:52.899 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:50:52.901 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:50:52.902 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:50:52.903 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:50:52.905 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:50:52.905 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.5061ms
+2025-07-14 10:50:52.905 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:50:52.905 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 6.6303ms
+2025-07-14 10:55:09.879 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:55:09.881 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:55:09.905 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:55:09.905 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:55:09.953 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:55:09.954 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 48.5577ms
+2025-07-14 10:55:09.954 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:55:09.954 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 74.4512ms
+2025-07-14 10:58:31.670 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - -
+2025-07-14 10:58:31.671 -03:00 [INF] CORS policy execution successful.
+2025-07-14 10:58:31.671 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:58:31.671 -03:00 [INF] Route matched with {action = "facturacionXCliente", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[RespuestaEstadistica]] facturacionXCliente(System.DateTime, System.DateTime) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-07-14 10:58:31.672 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[RespuestaEstadistica, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 10:58:31.672 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI) in 1.4844ms
+2025-07-14 10:58:31.672 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.facturacionXCliente (BlumeAPI)'
+2025-07-14 10:58:31.672 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/FacturacionXCliente?fechaInicio=2025-07-01&fechaFin=2025-07-31 - - - 200 - application/json;+charset=utf-8 1.8855ms

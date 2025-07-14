@@ -79,26 +79,64 @@ public  string getTabla()
     return idFactura;
 }
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                //RECORRO Y GUARDO LAS FACTURAS
-            /*
-            if(presupuesto.Articulos !=null)
-                foreach(ArticuloPresupuesto ap in presupuesto.Articulos){
-                        sqlInsert = "INSERT INTO  \""+ ArticuloPresupuesto.TABLA + "\" (\"ID_ARTICULO\",\"ID_PRESUPUESTO\",\"CANTIDAD\",\"PRECIO_UNITARIO\") VALUES(@ID_ARTICULO,@ID_PRESUPUESTO,@CANTIDAD,@PRECIO_UNITARIO)";
-                        cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
-                        {                        
-                            cmd.Parameters.AddWithValue("ID_PRESUPUESTO",idPresupuesto);
-                            cmd.Parameters.AddWithValue("ID_ARTICULO",ap.Articulo.Id);
-                            cmd.Parameters.AddWithValue("CANTIDAD",ap.cantidad);
-                            cmd.Parameters.AddWithValue("PRECIO_UNITARIO",ap.PrecioUnitario);
-                            cmd.Parameters.AddWithValue("DESCUENTO",ap.Descuento);
-                            cmd.ExecuteNonQuery();
-                            Console.WriteLine("Ingreso el  " + ArticuloPresupuesto.TABLA +   " el aritculo" + ap.Articulo.Id);
-                        }
-                        //ACTUALIZAR EL STOCK DE ESE ARTICULO
-                } */
+public List<RespuestaEstadistica> facturacionXCliente(DateTime? fechaInicio, DateTime? fechaFin, NpgsqlConnection npgsqlConnection)
+{
+    List<RespuestaEstadistica> lista = new List<RespuestaEstadistica>();
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Base del query
+    string sqlSelect = @"SELECT c.""ID_CLIENTE"", c.""RAZON_SOCIAL"", SUM(f.""IMPORTE_BRUTO"") AS ""MONTO_TOTAL"", SUM(af.""CANTIDAD"") AS ""CANTIDAD_TOTAL""
+                         FROM """ + Cliente.TABLA + @""" c
+                         JOIN """ + Factura.TABLA + @""" f ON c.""ID_CLIENTE"" = f.""ID_CLIENTE""
+                         JOIN """ + ArticuloFactura.TABLA + @""" af ON f.""ID_FACTURA"" = af.""ID_FACTURA""";
+
+    // Condición para el filtro de fechas si alguna fecha existe
+    string whereClause = "";
+    if (fechaInicio.HasValue && fechaFin.HasValue)
+    {
+        whereClause = @" WHERE f.""FECHA_FACTURA"" BETWEEN @fechaInicio AND @fechaFin";
+    }
+
+    string groupBy = @" GROUP BY c.""ID_CLIENTE"", c.""RAZON_SOCIAL""";
+
+    string finalQuery = sqlSelect + whereClause + groupBy;
+
+    using (var cmd = new NpgsqlCommand(finalQuery, npgsqlConnection))
+    {
+        if (fechaInicio.HasValue && fechaFin.HasValue)
+        {
+            cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio.Value);
+            cmd.Parameters.AddWithValue("@fechaFin", fechaFin.Value);
+        }
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var cliente = new Cliente
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE")),
+                    RazonSocial = reader.GetString(reader.GetOrdinal("RAZON_SOCIAL"))
+                };
+                var montoDecimal = reader.GetDecimal(reader.GetOrdinal("MONTO_TOTAL"));
+                var monto = (int)montoDecimal;
+
+                var cantidadArticulos = reader.GetInt32(reader.GetOrdinal("CANTIDAD_TOTAL"));
+
+                lista.Add(new RespuestaEstadistica
+                {
+                    Cliente = cliente,
+                    Dinero = monto,
+                    CantidadArticulos = cantidadArticulos
+                });
+            }
+        }
+    }
+
+    return lista;
+}
+
+
+
     private decimal calcularPrecioFinal(List<ArticuloFactura> articulosFacturas)
 {
     decimal precioConDescuento = 0;
