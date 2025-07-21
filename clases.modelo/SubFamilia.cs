@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 
 
-    public  class SubFamilia
+    public  class SubFamilia: Basico
     {
     public static String TABLA="SUBFAMILIA";
 

@@ -27,3 +27,9 @@ using System.Threading.Tasks;
         public int? Stock{ get; set; }
 
     }
+
+    public class ConsultaMedida{
+        public string Medida{ get; set; }
+
+        public int Cantidad{ get; set; }
+    }

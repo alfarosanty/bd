@@ -18,6 +18,8 @@ public class ArticuloController : ControllerBase
         _logger = logger;
     }
 
+// ARTICULO
+
      [HttpGet("GetArticulos")]
     public IEnumerable<Articulo> GetArticulos()
     {
@@ -29,29 +31,6 @@ public class ArticuloController : ControllerBase
     }
 
 
-
-    [HttpGet("GetArticulosPrecio")]
-    public IEnumerable<ArticuloPrecio> GetArticuloPrecio()
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecio;
-    }
-
-
-[HttpGet("ByArticuloPrecio/{articuloPrecio}")]
-public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
-{
-    CConexion con = new CConexion();
-    using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
-    {
-        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, npgsqlConnection);
-        // No necesitás llamar a cerrarConexion si usás "using"
-        return articulos;
-    }
-}
 
 
 
@@ -87,5 +66,59 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, 
         con.cerrarConexion(npgsqlConnection);
         }
 
+    [HttpPost("ConsultarMedidasNecesarias")]
+    public ConsultaMedida[] ConsultarMedidasNecesarias([FromBody] ArticuloPresupuesto[] articulos)
+     {
+         ArticuloServices articuloService = new ArticuloServices();
+
+         var resultado = articuloService.ConsultarMedidasNecesarias(articulos);
+
+         return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
+      }
+
+// ARTICULO PRECIO
+
+    [HttpGet("GetArticulosPrecio")]
+    public IEnumerable<ArticuloPrecio> GetArticuloPrecio()
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulosPrecio;
+    }
+
+
+[HttpGet("ByArticuloPrecio/{articuloPrecio}")]
+public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
+{
+    CConexion con = new CConexion();
+    using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
+    {
+        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, npgsqlConnection);
+        // No necesitás llamar a cerrarConexion si usás "using"
+        return articulos;
+    }
+}
+
+    [HttpPost("CrearArticulosPrecios")]
+    public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<int> articulosPrecioId = new ArticuloServices().CrearArticulosPrecios(articuloPrecios, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulosPrecioId;
+    }
+
+    [HttpPost("ActualizarArticulosPrecios")]
+    public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<int> articulosPrecioId = new ArticuloServices().ActualizarArticulosPrecios(articuloPrecios, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulosPrecioId;
+    }
 
 }

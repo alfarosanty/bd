@@ -270,6 +270,169 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
     return idsGenerados;
 }
 
+public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.NpgsqlConnection connection)
+{
+    var idsGenerados = new List<int>();
+
+    string insertQuery = "INSERT INTO \"" + ArticuloPrecio.TABLA + "\" " +
+                         "(\"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\") " +
+                         "VALUES (@CODIGO, @DESCRIPCION, @PRECIO1, @PRECIO2, @PRECIO3) " +
+                         "RETURNING \"ID_ARTICULO_PRECIO\"";
+
+    using (var cmd = new NpgsqlCommand(insertQuery, connection))
+    {
+        // Asegurarse de que la conexión esté abierta
+        if (connection.State != System.Data.ConnectionState.Open)
+            connection.Open();
+
+        foreach (var articuloPrecio in articuloPrecios)
+        {
+            cmd.Parameters.Clear();
+
+            cmd.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@DESCRIPCION", articuloPrecio.Descripcion ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@PRECIO1", articuloPrecio.Precio1 ?? 0);
+            cmd.Parameters.AddWithValue("@PRECIO2", articuloPrecio.Precio2 ?? 0);
+            cmd.Parameters.AddWithValue("@PRECIO3", articuloPrecio.Precio3 ?? 0);
+
+
+            try
+            {
+                var idGenerado = Convert.ToInt32(cmd.ExecuteScalar());
+                idsGenerados.Add(idGenerado);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores opcional
+                Console.WriteLine($"Error al insertar artículo: {ex.Message}");
+                // Podés optar por continuar o lanzar la excepción
+                // throw;
+            }
+        }
+    }
+
+    return idsGenerados;
+}
+
+public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.NpgsqlConnection connection)
+{
+    var filasAfectadasPorArticulo = new List<int>();
+
+    var descripcionesActuales = new Dictionary<string, string>();
+    string selectQuery = $"SELECT \"CODIGO\", \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = ANY(@codigos)";
+    
+    using (var cmdSelect = new NpgsqlCommand(selectQuery, connection))
+    {
+        if (connection.State != System.Data.ConnectionState.Open)
+            connection.Open();
+
+        var codigos = articuloPrecios.Select(ap => ap.Codigo).ToArray();
+        cmdSelect.Parameters.AddWithValue("@codigos", codigos);
+
+        using (var reader = cmdSelect.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                string codigo = reader.GetString(0);
+                string descripcion = reader.IsDBNull(1) ? null : reader.GetString(1);
+                descripcionesActuales[codigo] = descripcion;
+            }
+        }
+    }
+
+    string updatePrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET " +
+                              "\"PRECIO1\" = @PRECIO1, " +
+                              "\"PRECIO2\" = @PRECIO2, " +
+                              "\"PRECIO3\" = @PRECIO3 " +
+                              "WHERE \"CODIGO\" = @CODIGO";
+
+    string updateDescripcionPrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION " +
+                                          "WHERE \"CODIGO\" = @CODIGO";
+
+    string updateDescripcionArticuloQuery = "UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO";
+
+    using (var cmdPrecio = new NpgsqlCommand(updatePrecioQuery, connection))
+    using (var cmdDescripcionPrecio = new NpgsqlCommand(updateDescripcionPrecioQuery, connection))
+    using (var cmdDescripcionArticulo = new NpgsqlCommand(updateDescripcionArticuloQuery, connection))
+    {
+        foreach (var articuloPrecio in articuloPrecios)
+        {
+            bool actualizoDescripcion = false;
+
+            string descripcionActual = null;
+            descripcionesActuales.TryGetValue(articuloPrecio.Codigo, out descripcionActual);
+
+            // Comparación SIN trim
+            bool descripcionDiferente = !string.Equals(
+                articuloPrecio.Descripcion ?? "",
+                descripcionActual ?? "",
+                StringComparison.OrdinalIgnoreCase
+            );
+
+            try
+            {
+                cmdPrecio.Parameters.Clear();
+                cmdPrecio.Parameters.AddWithValue("@PRECIO1", articuloPrecio.Precio1 ?? 0);
+                cmdPrecio.Parameters.AddWithValue("@PRECIO2", articuloPrecio.Precio2 ?? 0);
+                cmdPrecio.Parameters.AddWithValue("@PRECIO3", articuloPrecio.Precio3 ?? 0);
+                cmdPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
+                int filasAfectadas = cmdPrecio.ExecuteNonQuery();
+
+                if (descripcionDiferente)
+                {
+                    cmdDescripcionPrecio.Parameters.Clear();
+                    cmdDescripcionPrecio.Parameters.AddWithValue("@DESCRIPCION", articuloPrecio.Descripcion ?? (object)DBNull.Value);
+                    cmdDescripcionPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
+                    filasAfectadas += cmdDescripcionPrecio.ExecuteNonQuery();
+
+                    cmdDescripcionArticulo.Parameters.Clear();
+                    cmdDescripcionArticulo.Parameters.AddWithValue("@DESCRIPCION", articuloPrecio.Descripcion ?? (object)DBNull.Value);
+                    cmdDescripcionArticulo.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
+                    filasAfectadas += cmdDescripcionArticulo.ExecuteNonQuery();
+                }
+
+                filasAfectadasPorArticulo.Add(filasAfectadas);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar artículo con código {articuloPrecio.Codigo}: {ex.Message}");
+                filasAfectadasPorArticulo.Add(0);
+            }
+        }
+    }
+
+    return filasAfectadasPorArticulo;
+}
+
+
+
+public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] presupuestosArticulos)
+{
+    var listaDeConsultasMedidas = new List<ConsultaMedida>();
+
+    foreach (var presuArt in presupuestosArticulos)
+    {
+        var consultaMedidaExistente = listaDeConsultasMedidas
+            .FirstOrDefault(cm => cm.Medida == presuArt.Articulo.Medida.Codigo);
+
+        if (consultaMedidaExistente != null)
+        {
+            consultaMedidaExistente.Cantidad += presuArt.cantidad;
+        }
+        else
+        {
+            listaDeConsultasMedidas.Add(new ConsultaMedida
+            {
+                Medida = presuArt.Articulo.Medida.Codigo,
+                Cantidad = presuArt.cantidad
+            });
+        }
+    }
+
+    return listaDeConsultasMedidas;
+}
+
+
 
 
         private static Articulo ReadArticulo(NpgsqlDataReader reader)
