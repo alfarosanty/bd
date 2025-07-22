@@ -32,8 +32,8 @@ public  string getTabla()
     int idFactura = Convert.ToInt32(cmdSeq.ExecuteScalar());
 
     // CREO EL INSERT EN LA TABLA PRESUPUESTO
-    string sqlInsert = "INSERT INTO \"" + Factura.TABLA + "\" (\"ID_FACTURA\",\"ID_CLIENTE\", \"FECHA_FACTURA\", \"IMPORTE_BRUTO\", \"EXIMIR_IVA\", \"ID_PRESUPUESTO\", \"PUNTO_DE_VENTA\", \"NUMERO_FACTURA\", \"CAE_NUMERO\", \"FECHA_VENCIMIENTO\", \"IMPORTE_NETO\", \"IVA\", \"TIPO_FACTURA\") " +
-                       "VALUES(@FACTURA, @ID_CLIENTE, @FECHA_FACTURA, @IMPORTE_BRUTO, @EXIMIR_IVA, @ID_PRESUPUESTO, @PUNTO_DE_VENTA, @NUMERO_DE_FACTURA, @CAE_NUMERO, @FECHA_VENCIMIENTO, @IMPORTE_NETO, @IVA, @TIPO_FACTURA)";
+    string sqlInsert = "INSERT INTO \"" + Factura.TABLA + "\" (\"ID_FACTURA\",\"ID_CLIENTE\", \"FECHA_FACTURA\", \"IMPORTE_BRUTO\", \"EXIMIR_IVA\", \"ID_PRESUPUESTO\", \"PUNTO_DE_VENTA\", \"NUMERO_FACTURA\", \"CAE_NUMERO\", \"FECHA_VENCIMIENTO_CAE\", \"IMPORTE_NETO\", \"IVA\", \"TIPO_FACTURA\") " +
+                       "VALUES(@FACTURA, @ID_CLIENTE, @FECHA_FACTURA, @IMPORTE_BRUTO, @EXIMIR_IVA, @ID_PRESUPUESTO, @PUNTO_DE_VENTA, @NUMERO_DE_FACTURA, @CAE_NUMERO, @FECHA_VENCIMIENTO_CAE, @IMPORTE_NETO, @IVA, @TIPO_FACTURA)";
     NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
     cmd.Parameters.AddWithValue("FACTURA", idFactura);
     cmd.Parameters.AddWithValue("ID_CLIENTE", factura.Cliente.Id);
@@ -44,7 +44,7 @@ public  string getTabla()
     cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", factura.PuntoDeVenta);
     cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroFactura);
     cmd.Parameters.AddWithValue("CAE_NUMERO", (object?)factura.CaeNumero ?? DBNull.Value);
-    cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO", (object?)factura.FechaVencimiento ?? DBNull.Value);
+    cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", (object?)factura.FechaVencimiento ?? DBNull.Value);
     cmd.Parameters.AddWithValue("IMPORTE_NETO", factura.ImporteNeto);
     cmd.Parameters.AddWithValue("IVA", factura.Iva);
     cmd.Parameters.AddWithValue("TIPO_FACTURA", factura.TipoFactura);
@@ -83,22 +83,36 @@ public List<RespuestaEstadistica> facturacionXCliente(DateTime? fechaInicio, Dat
 {
     List<RespuestaEstadistica> lista = new List<RespuestaEstadistica>();
 
-    // Base del query
-    string sqlSelect = @"SELECT c.""ID_CLIENTE"", c.""RAZON_SOCIAL"", SUM(f.""IMPORTE_BRUTO"") AS ""MONTO_TOTAL"", SUM(af.""CANTIDAD"") AS ""CANTIDAD_TOTAL""
-                         FROM """ + Cliente.TABLA + @""" c
-                         JOIN """ + Factura.TABLA + @""" f ON c.""ID_CLIENTE"" = f.""ID_CLIENTE""
-                         JOIN """ + ArticuloFactura.TABLA + @""" af ON f.""ID_FACTURA"" = af.""ID_FACTURA""";
+string sqlSelect = @"
+SELECT 
+  c.""ID_CLIENTE"", 
+  c.""RAZON_SOCIAL"",
+  COALESCE(facturas.MONTO_TOTAL, 0) AS MONTO_TOTAL,
+  COALESCE(articulos.CANTIDAD_TOTAL, 0) AS CANTIDAD_TOTAL
+FROM """ + Cliente.TABLA + @""" c
+LEFT JOIN (
+    SELECT ""ID_CLIENTE"", SUM(""IMPORTE_BRUTO"") AS MONTO_TOTAL
+    FROM """ + Factura.TABLA + @"""
+    GROUP BY ""ID_CLIENTE""
+) facturas ON c.""ID_CLIENTE"" = facturas.""ID_CLIENTE""
+LEFT JOIN (
+    SELECT f.""ID_CLIENTE"", SUM(af.""CANTIDAD"") AS CANTIDAD_TOTAL
+    FROM """ + Factura.TABLA + @""" f
+    JOIN """ + ArticuloFactura.TABLA + @""" af ON f.""ID_FACTURA"" = af.""ID_FACTURA""
+    GROUP BY f.""ID_CLIENTE""
+) articulos ON c.""ID_CLIENTE"" = articulos.""ID_CLIENTE""";
 
-    // Condición para el filtro de fechas si alguna fecha existe
-    string whereClause = "";
-    if (fechaInicio.HasValue && fechaFin.HasValue)
-    {
-        whereClause = @" WHERE f.""FECHA_FACTURA"" BETWEEN @fechaInicio AND @fechaFin";
-    }
+string whereClause = "";
+if (fechaInicio.HasValue && fechaFin.HasValue)
+{
+    whereClause = @" WHERE EXISTS (
+        SELECT 1 FROM """ + Factura.TABLA + @""" f2 
+        WHERE f2.""ID_CLIENTE"" = c.""ID_CLIENTE""
+        AND f2.""FECHA_FACTURA"" BETWEEN @fechaInicio AND @fechaFin
+    )";
+}
+string finalQuery = sqlSelect + whereClause;
 
-    string groupBy = @" GROUP BY c.""ID_CLIENTE"", c.""RAZON_SOCIAL""";
-
-    string finalQuery = sqlSelect + whereClause + groupBy;
 
     using (var cmd = new NpgsqlCommand(finalQuery, npgsqlConnection))
     {
@@ -117,10 +131,11 @@ public List<RespuestaEstadistica> facturacionXCliente(DateTime? fechaInicio, Dat
                     Id = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE")),
                     RazonSocial = reader.GetString(reader.GetOrdinal("RAZON_SOCIAL"))
                 };
-                var montoDecimal = reader.GetDecimal(reader.GetOrdinal("MONTO_TOTAL"));
-                var monto = (int)montoDecimal;
+            var montoDecimal = reader.GetDecimal(reader.GetOrdinal("MONTO_TOTAL"));
+            int monto = (int)montoDecimal;
 
-                var cantidadArticulos = reader.GetInt32(reader.GetOrdinal("CANTIDAD_TOTAL"));
+            int cantidadArticulos = reader.GetInt32(reader.GetOrdinal("CANTIDAD_TOTAL"));
+
 
                 lista.Add(new RespuestaEstadistica
                 {
