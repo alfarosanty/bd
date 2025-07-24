@@ -26,10 +26,23 @@ using System.Threading.Tasks;
 
         public int? Stock{ get; set; }
 
+        public int? CantidadEnCorte{ get; set; }
+
+        public int? CantidadEnTaller{ get; set; }
+
     }
 
     public class ConsultaMedida{
         public string Medida{ get; set; }
 
         public int Cantidad{ get; set; }
+    }
+
+    public class ConsultaTallerCorte{
+        public Articulo articulo{ get; set; }
+
+        public int CantidadEnCorte{ get; set; }
+
+        public int CantidadEnTaller{ get; set; }
+
     }

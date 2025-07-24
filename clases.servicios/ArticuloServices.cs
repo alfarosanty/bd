@@ -432,6 +432,74 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
     return listaDeConsultasMedidas;
 }
 
+public List<ConsultaTallerCorte> ConsultarCantidadesTallerCorte(int idArticuloPrecio, Npgsql.NpgsqlConnection connection)
+{
+    var articulosSeleccionados = new List<Articulo>();
+
+    // 1. Traer todos los artículos que tengan el ID_ARTICULO_PRECIO correspondiente
+    string queryArticulos = $"SELECT * FROM \"{Articulo.TABLA}\" WHERE \"ID_ARTICULO_PRECIO\" = @idArticuloPrecio";
+    
+    using (var cmd = new NpgsqlCommand(queryArticulos, connection))
+{
+    cmd.Parameters.AddWithValue("@idArticuloPrecio", idArticuloPrecio);
+
+    using (var reader = cmd.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            var articulo = new Articulo
+            {
+                Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
+                Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                // Agregá acá otros campos si los necesitás
+            };
+            articulosSeleccionados.Add(articulo);
+        }
+    }
+}
+
+
+    // 2. Por cada artículo, consultar las cantidades y construir el objeto resultado
+    var resultado = new List<ConsultaTallerCorte>();
+
+foreach (var articulo in articulosSeleccionados)
+{
+    string queryCantidades = $@"
+        SELECT 
+            SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END) as CantidadEnCorte,
+            SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END) as CantidadEnTaller
+        FROM ""{PedidoProduccionArticulo.TABLA}"" ppa
+        JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+        WHERE ppa.""ID_ARTICULO"" = @idArticulo";
+
+    int enCorte = 0, enTaller = 0;
+
+    using (var cmd = new NpgsqlCommand(queryCantidades, connection))
+    {
+        cmd.Parameters.AddWithValue("@idArticulo", articulo.Id);
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            if (reader.Read())
+            {
+                enCorte = reader["CantidadEnCorte"] != DBNull.Value ? Convert.ToInt32(reader["CantidadEnCorte"]) : 0;
+                enTaller = reader["CantidadEnTaller"] != DBNull.Value ? Convert.ToInt32(reader["CantidadEnTaller"]) : 0;
+            }
+        }
+    }
+
+    resultado.Add(new ConsultaTallerCorte
+    {
+        articulo = articulo,
+        CantidadEnCorte = enCorte,
+        CantidadEnTaller = enTaller
+    });
+}
+
+
+    return resultado;
+}
 
 
 

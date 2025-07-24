@@ -76,6 +76,20 @@ public class ArticuloController : ControllerBase
          return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
       }
 
+        [HttpGet("{idArticuloPrecio}/cantidades-taller-corte")]
+        public ConsultaTallerCorte[] ConsultarCantidadesTallerCorte(int idArticuloPrecio)
+
+     {
+         ArticuloServices articuloService = new ArticuloServices();
+         CConexion con =  new CConexion();
+         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+
+         var resultado = articuloService.ConsultarCantidadesTallerCorte(idArticuloPrecio,npgsqlConnection);
+
+         return resultado.ToArray();
+      }
+
 // ARTICULO PRECIO
 
     [HttpGet("GetArticulosPrecio")]
