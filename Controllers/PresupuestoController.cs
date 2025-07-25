@@ -41,6 +41,8 @@ public class PresupuestoController : ControllerBase
     {
     CConexion con = new CConexion();
     Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    
+    Console.WriteLine("Está entrandooo");
 
     PresupuestoServices ps = new PresupuestoServices();
     int id = ps.actualizar(presupuesto, npgsqlConnection);

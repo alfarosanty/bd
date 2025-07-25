@@ -432,73 +432,87 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
     return listaDeConsultasMedidas;
 }
 
-public List<ConsultaTallerCorte> ConsultarCantidadesTallerCorte(int idArticuloPrecio, Npgsql.NpgsqlConnection connection)
+public List<ConsultaTallerCortePorCodigo> ConsultarTodosArticulosCantidadesTallerCorte(NpgsqlConnection connection)
 {
-    var articulosSeleccionados = new List<Articulo>();
+    return ObtenerTallerCorteAgrupadoPorCodigo("", null, connection);
+}
 
-    // 1. Traer todos los artículos que tengan el ID_ARTICULO_PRECIO correspondiente
-    string queryArticulos = $"SELECT * FROM \"{Articulo.TABLA}\" WHERE \"ID_ARTICULO_PRECIO\" = @idArticuloPrecio";
-    
-    using (var cmd = new NpgsqlCommand(queryArticulos, connection))
+public List<ConsultaTallerCortePorCodigo> ConsultarCantidadesTallerCorte(int idArticuloPrecio, NpgsqlConnection connection)
 {
-    cmd.Parameters.AddWithValue("@idArticuloPrecio", idArticuloPrecio);
-
-    using (var reader = cmd.ExecuteReader())
-    {
-        while (reader.Read())
-        {
-            var articulo = new Articulo
-            {
-                Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
-                Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
-                Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"))
-                // Agregá acá otros campos si los necesitás
-            };
-            articulosSeleccionados.Add(articulo);
-        }
-    }
+    return ObtenerTallerCorteAgrupadoPorCodigo(
+        "WHERE ar.\"ID_ARTICULO_PRECIO\" = @idArticuloPrecio",
+        cmd => cmd.Parameters.AddWithValue("@idArticuloPrecio", idArticuloPrecio),
+        connection
+    );
 }
 
 
-    // 2. Por cada artículo, consultar las cantidades y construir el objeto resultado
+
+private List<ConsultaTallerCorte> EjecutarConsultaTallerCorte(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
+{
     var resultado = new List<ConsultaTallerCorte>();
 
-foreach (var articulo in articulosSeleccionados)
-{
-    string queryCantidades = $@"
+    string query = $@"
         SELECT 
-            SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END) as CantidadEnCorte,
-            SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END) as CantidadEnTaller
-        FROM ""{PedidoProduccionArticulo.TABLA}"" ppa
-        JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
-        WHERE ppa.""ID_ARTICULO"" = @idArticulo";
+            ar.""ID_ARTICULO"",
+            ar.""CODIGO"",
+            ar.""DESCRIPCION"",
+            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnCorte"",
+            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnTaller""
+        FROM ""{Articulo.TABLA}"" ar
+        LEFT JOIN ""{PedidoProduccionArticulo.TABLA}"" ppa ON ppa.""ID_ARTICULO"" = ar.""ID_ARTICULO""
+        LEFT JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+        {whereClause}
+        GROUP BY ar.""ID_ARTICULO"", ar.""CODIGO"", ar.""DESCRIPCION""
+        ORDER BY ar.""ID_ARTICULO"";";
 
-    int enCorte = 0, enTaller = 0;
-
-    using (var cmd = new NpgsqlCommand(queryCantidades, connection))
+    using (var cmd = new NpgsqlCommand(query, connection))
     {
-        cmd.Parameters.AddWithValue("@idArticulo", articulo.Id);
+        addParams?.Invoke(cmd); // agrega parámetros si hace falta
 
         using (var reader = cmd.ExecuteReader())
         {
-            if (reader.Read())
+            while (reader.Read())
             {
-                enCorte = reader["CantidadEnCorte"] != DBNull.Value ? Convert.ToInt32(reader["CantidadEnCorte"]) : 0;
-                enTaller = reader["CantidadEnTaller"] != DBNull.Value ? Convert.ToInt32(reader["CantidadEnTaller"]) : 0;
+                var articulo = new Articulo
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
+                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                };
+
+                int cantidadEnCorte = Convert.ToInt32(reader["CantidadEnCorte"]);
+                int cantidadEnTaller = Convert.ToInt32(reader["CantidadEnTaller"]);
+
+                resultado.Add(new ConsultaTallerCorte
+                {
+                    articulo = articulo,
+                    CantidadEnCorte = cantidadEnCorte,
+                    CantidadEnTaller = cantidadEnTaller
+                });
             }
         }
     }
 
-    resultado.Add(new ConsultaTallerCorte
-    {
-        articulo = articulo,
-        CantidadEnCorte = enCorte,
-        CantidadEnTaller = enTaller
-    });
+    return resultado;
 }
 
+public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteAgrupadoPorCodigo(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
+{
+    var consultasIndividuales = EjecutarConsultaTallerCorte(whereClause, addParams, connection);
 
-    return resultado;
+    var agrupado = consultasIndividuales
+        .GroupBy(c => c.articulo.Codigo)
+        .Select(grupo => new ConsultaTallerCortePorCodigo
+        {
+            Codigo = grupo.Key,
+            CantidadEnCorteTotal = grupo.Sum(x => x.CantidadEnCorte),
+            CantidadEnTallerTotal = grupo.Sum(x => x.CantidadEnTaller),
+            Consultas = grupo.ToList()
+        })
+        .ToList();
+
+    return agrupado;
 }
 
 
