@@ -453,18 +453,27 @@ private List<ConsultaTallerCorte> EjecutarConsultaTallerCorte(string whereClause
     var resultado = new List<ConsultaTallerCorte>();
 
     string query = $@"
-        SELECT 
-            ar.""ID_ARTICULO"",
-            ar.""CODIGO"",
-            ar.""DESCRIPCION"",
-            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnCorte"",
-            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnTaller""
-        FROM ""{Articulo.TABLA}"" ar
-        LEFT JOIN ""{PedidoProduccionArticulo.TABLA}"" ppa ON ppa.""ID_ARTICULO"" = ar.""ID_ARTICULO""
-        LEFT JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
-        {whereClause}
-        GROUP BY ar.""ID_ARTICULO"", ar.""CODIGO"", ar.""DESCRIPCION""
-        ORDER BY ar.""ID_ARTICULO"";";
+SELECT 
+    ar.""ID_ARTICULO"",
+    ar.""CODIGO"",
+    ar.""DESCRIPCION"",
+    ar.""ID_COLOR"",
+    ar.""STOCK"",
+    c.""CODIGO"" AS ""CodigoColor"",
+    c.""DESCRIPCION"" AS ""DescripcionColor"",
+    c.""HEXA"" AS ""HexaColor"",
+    COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnCorte"",
+    COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnTaller""
+FROM ""{Articulo.TABLA}"" ar
+LEFT JOIN ""{Color.TABLA}"" c ON c.""ID_COLOR"" = ar.""ID_COLOR""
+LEFT JOIN ""{PedidoProduccionArticulo.TABLA}"" ppa ON ppa.""ID_ARTICULO"" = ar.""ID_ARTICULO""
+LEFT JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+{whereClause}
+GROUP BY ar.""ID_ARTICULO"", ar.""CODIGO"", ar.""DESCRIPCION"", ar.""ID_COLOR"", ar.""STOCK"", c.""CODIGO"", c.""DESCRIPCION"", c.""HEXA""
+ORDER BY ar.""ID_ARTICULO"";
+";
+
+
 
     using (var cmd = new NpgsqlCommand(query, connection))
     {
@@ -478,17 +487,31 @@ private List<ConsultaTallerCorte> EjecutarConsultaTallerCorte(string whereClause
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
                     Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
-                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
+                    // Aquí asumimos que tienes un objeto Color dentro de Articulo:
+                    Color = new Color
+                    {
+                        Codigo = reader.GetString(reader.GetOrdinal("CodigoColor")),
+                        Descripcion = reader.GetString(reader.GetOrdinal("DescripcionColor")),
+                        ColorHexa = reader.IsDBNull(reader.GetOrdinal("HexaColor")) 
+                            ? "" 
+                            : reader.GetString(reader.GetOrdinal("HexaColor"))
+                    }
+
                 };
+
 
                 int cantidadEnCorte = Convert.ToInt32(reader["CantidadEnCorte"]);
                 int cantidadEnTaller = Convert.ToInt32(reader["CantidadEnTaller"]);
+                int stockUnitario = reader.GetInt32(reader.GetOrdinal("STOCK"));
+
 
                 resultado.Add(new ConsultaTallerCorte
                 {
                     articulo = articulo,
-                    CantidadEnCorte = cantidadEnCorte,
-                    CantidadEnTaller = cantidadEnTaller
+                    CantidadEnCorteUnitario = cantidadEnCorte,
+                    CantidadEnTallerUnitario = cantidadEnTaller,
+                    StockUnitario = stockUnitario
                 });
             }
         }
@@ -506,8 +529,9 @@ public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteAgrupadoPorCodigo(st
         .Select(grupo => new ConsultaTallerCortePorCodigo
         {
             Codigo = grupo.Key,
-            CantidadEnCorteTotal = grupo.Sum(x => x.CantidadEnCorte),
-            CantidadEnTallerTotal = grupo.Sum(x => x.CantidadEnTaller),
+            CantidadEnCorteTotal = grupo.Sum(x => x.CantidadEnCorteUnitario),
+            CantidadEnTallerTotal = grupo.Sum(x => x.CantidadEnTallerUnitario),
+            StockTotal = grupo.Sum(x => x.StockUnitario),
             Consultas = grupo.ToList()
         })
         .ToList();
