@@ -71,7 +71,11 @@ public class ArticuloController : ControllerBase
      {
          ArticuloServices articuloService = new ArticuloServices();
 
-         var resultado = articuloService.ConsultarMedidasNecesarias(articulos);
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+
+         var resultado = articuloService.ConsultarMedidasNecesarias(articulos, npgsqlConnection);
 
          return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
       }

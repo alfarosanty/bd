@@ -343,7 +343,8 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
     string updatePrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET " +
                               "\"PRECIO1\" = @PRECIO1, " +
                               "\"PRECIO2\" = @PRECIO2, " +
-                              "\"PRECIO3\" = @PRECIO3 " +
+                              "\"PRECIO3\" = @PRECIO3, " +
+                              "\"RELLENO\" = @RELLENO " +
                               "WHERE \"CODIGO\" = @CODIGO";
 
     string updateDescripcionPrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION " +
@@ -375,6 +376,7 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
                 cmdPrecio.Parameters.AddWithValue("@PRECIO1", articuloPrecio.Precio1 ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@PRECIO2", articuloPrecio.Precio2 ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@PRECIO3", articuloPrecio.Precio3 ?? 0);
+                cmdPrecio.Parameters.AddWithValue("@RELLENO", articuloPrecio.Relleno ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
                 int filasAfectadas = cmdPrecio.ExecuteNonQuery();
 
@@ -406,30 +408,106 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
 
 
 
-public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] presupuestosArticulos)
+public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] presupuestosArticulos,NpgsqlConnection connection)
 {
     var listaDeConsultasMedidas = new List<ConsultaMedida>();
 
+    // 1. Obtener los ID_ARTICULO_PRECIO únicos
+    var ids = presupuestosArticulos
+        .Select(pa => pa.Articulo.articuloPrecio.Id)
+        .Where(id => id != null)
+        .Distinct()
+        .ToArray();
+
+    // 2. Traer todos los precios en un solo query
+    var preciosPorId = ObtenerPreciosPorIds(ids, connection);
+
+    // 3. Recorrer los artículos del presupuesto
     foreach (var presuArt in presupuestosArticulos)
     {
-        var consultaMedidaExistente = listaDeConsultasMedidas
-            .FirstOrDefault(cm => cm.Medida == presuArt.Articulo.Medida.Codigo);
+        if (presuArt?.Articulo?.Medida == null)
+            continue;
 
-        if (consultaMedidaExistente != null)
+        string codigoMedida = presuArt.Articulo.Medida.Codigo;
+        int cantidad = presuArt.cantidad;
+
+        // Buscar el relleno desde el diccionario
+        int relleno = 1;
+        if (preciosPorId.TryGetValue(presuArt.Articulo.articuloPrecio.Id, out var articuloPrecio))
         {
-            consultaMedidaExistente.Cantidad += presuArt.cantidad;
+            relleno = (int?)articuloPrecio.Relleno ?? 1;
+        }
+
+        int cantidadFinal = cantidad * relleno;
+
+        // Acumular en lista
+        var existente = listaDeConsultasMedidas.FirstOrDefault(cm => cm.Medida == codigoMedida);
+        if (existente != null)
+        {
+            existente.Cantidad += cantidadFinal;
         }
         else
         {
             listaDeConsultasMedidas.Add(new ConsultaMedida
             {
-                Medida = presuArt.Articulo.Medida.Codigo,
-                Cantidad = presuArt.cantidad
+                Medida = codigoMedida,
+                Cantidad = cantidadFinal
             });
         }
     }
 
     return listaDeConsultasMedidas;
+}
+
+
+
+public Dictionary<int, ArticuloPrecio> ObtenerPreciosPorIds(int[] ids, NpgsqlConnection connection)
+{
+    var resultado = new Dictionary<int, ArticuloPrecio>();
+
+    if (ids == null || ids.Length == 0)
+        return resultado;
+
+    string query = @"
+        SELECT 
+            ""ID_ARTICULO_PRECIO"",
+            ""CODIGO"",
+            ""DESCRIPCION"",
+            ""PRECIO1"",
+            ""PRECIO2"",
+            ""PRECIO3"",
+            ""RELLENO""
+        FROM ""ARTICULO_PRECIO""
+        WHERE ""ID_ARTICULO_PRECIO"" = ANY(@ids)";
+
+    using (var cmd = new NpgsqlCommand(query, connection))
+    {
+        cmd.Parameters.AddWithValue("@ids", ids);
+
+        if (connection.State != System.Data.ConnectionState.Open)
+            connection.Open();
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var precio = new ArticuloPrecio
+                {
+                    Id = reader.GetInt32(0),
+                    Codigo = reader.GetString(1),
+                    Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2),
+                    Precio1 = reader.IsDBNull(3) ? null : reader.GetDecimal(3),
+                    Precio2 = reader.IsDBNull(4) ? null : reader.GetDecimal(4),
+                    Precio3 = reader.IsDBNull(5) ? null : reader.GetDecimal(5),
+                    Relleno = reader.IsDBNull(6) ? null : reader.GetInt32(6)
+                };
+
+                resultado[precio.Id] = precio;
+            }
+        }
+    }
+
+    return resultado;
 }
 
 public List<ConsultaTallerCortePorCodigo> ConsultarTodosArticulosCantidadesTallerCorte(NpgsqlConnection connection)

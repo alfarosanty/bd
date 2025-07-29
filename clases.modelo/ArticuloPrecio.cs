@@ -16,6 +16,7 @@ using System.Threading.Tasks;
         public decimal? Precio1 { get; set; }
         public decimal? Precio2 { get; set; }
         public decimal ?Precio3 { get; set; }
+        public decimal? Relleno { get; set; }
         
 
     }
