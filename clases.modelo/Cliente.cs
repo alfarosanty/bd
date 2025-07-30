@@ -15,7 +15,7 @@ using System.Threading.Tasks;
     public string? Domicilio{ get; set; }
     public string? Localidad{ get; set; }
     public string? Provincia { get; set; }
-    public string Cuit{ get; set; }
+    public string? Cuit{ get; set; }
 
     public CondicionFiscal? CondicionFiscal{ get; set; }
 

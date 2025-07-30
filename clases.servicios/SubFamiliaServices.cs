@@ -48,9 +48,9 @@ private static string GetFromText()
 private static SubFamilia ReadSubFamilia(NpgsqlDataReader reader)
         {
             int? id = reader["ID_" + SubFamilia.TABLA] as int?;
-            string codigo = reader["CODIGO"] as string;
-            string descripcion = reader["DESCRIPCION"] as string;
-                
+            string codigo = reader.GetString(reader.GetOrdinal("CODIGO"));
+            string descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
+            
 
             return new SubFamilia
             {

@@ -55,16 +55,18 @@ public class ArticuloController : ControllerBase
     }
 
 
-    [HttpPost("crearArticulos")]
-    public void crearArticulos(Articulo[] articulos)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+[HttpPost("crearArticulos")]
+public List<int> crearArticulos(Articulo[] articulos)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
-        ArticuloServices  articuloService = new ArticuloServices();
-        articuloService.crearArticulos(articulos, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        }
+    ArticuloServices articuloService = new ArticuloServices();
+    List<int> idsGenerados = articuloService.crearArticulos(articulos, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+    return idsGenerados;
+}
 
     [HttpPost("ConsultarMedidasNecesarias")]
     public ConsultaMedida[] ConsultarMedidasNecesarias([FromBody] ArticuloPresupuesto[] articulos)
