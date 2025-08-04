@@ -10,6 +10,15 @@ using System.Threading.Tasks;
 
     public  class EstadoPedidoProduccion: Basico
     {
-                public static String TABLA="ESTADO_PEDIDO_PRODUCCION";
+    public static String TABLA="ESTADO_PEDIDO_PRODUCCION";
+        public int Id {get; set;}
+
+        public string? Codigo {get; set;}
+
+        public string? Descripcion {get; set;}
+
+
+
+
 
     }

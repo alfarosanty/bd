@@ -46,4 +46,36 @@ public ActionResult<List<RespuestaEstadistica>> facturacionXCliente([FromQuery] 
 
 
 
+[HttpGet("GetPorFiltros")]
+public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idCliente, [FromQuery] string? tipoFactura,[FromQuery] int? puntoDeVenta,[FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    FacturaServices fs = new FacturaServices();
+
+    // Llamás al servicio pasando las fechas recibidas
+    List<Factura> listaDeFacturas = fs.getFacturaPorFiltro(idCliente, tipoFactura, puntoDeVenta, fechaInicio, fechaFin, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+
+    return listaDeFacturas;
+}
+
+[HttpGet("GetArticulos/{id}")]
+public ActionResult<List<ArticuloFactura>> getArticulosXFactura(int idFactura)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    FacturaServices fs = new FacturaServices();
+
+    // Llamás al servicio pasando las fechas recibidas
+    List<ArticuloFactura> listaDeArticulosFactura = fs.getFacturaPorFiltro(idFactura, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+
+    return listaDeArticulosFactura;
+}
+
 }

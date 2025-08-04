@@ -64,6 +64,32 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
 }
 
     
+public List<EstadoPedidoProduccion> getEstadosPedidoProduccion(NpgsqlConnection conex)
+{
+    List<EstadoPedidoProduccion> estadosPedidoProduccion = new List<EstadoPedidoProduccion>();
+    string query = "SELECT \"ID_ESTADO_PRODUCCION\", \"CODIGO\", \"DESCRIPCION\" FROM \"ESTADO_PEDIDO_PRODUCCION\" ORDER BY \"ID_ESTADO_PRODUCCION\"";
+
+    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conex))
+    {
+        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                EstadoPedidoProduccion estado = new EstadoPedidoProduccion
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ESTADO_PRODUCCION")),
+                    Codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) ? null : reader.GetString(reader.GetOrdinal("CODIGO")),
+                    Descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? null : reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                };
+                estadosPedidoProduccion.Add(estado);
+            }
+        }
+    }
+
+    return estadosPedidoProduccion;
+}
+
+
 
     
         public  int crear(PedidoProduccion pedidoProduccion, Npgsql.NpgsqlConnection npgsqlConnection)

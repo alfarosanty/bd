@@ -62,4 +62,15 @@ public class PedidoProduccionController : ControllerBase
         return pedidoProduccion;
     }
 
+
+         [HttpGet("GetEstadosPedidoProduccion")]
+    public List<EstadoPedidoProduccion> GetEstadosPedidoProduccion()
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        PedidoProduccionService  pps = new PedidoProduccionService();
+        List<EstadoPedidoProduccion> estadosPedidoProduccion = pps.getEstadosPedidoProduccion(npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return estadosPedidoProduccion;
+    }
 }
