@@ -4,7 +4,7 @@ using Npgsql;
 
 public class PedidoProduccionService
 {
-    public  string getTabla()
+        public  string getTabla()
     {
         return PedidoProduccion.TABLA;
     }
@@ -173,6 +173,79 @@ string sqlUpdateTotal = "UPDATE \"" + PedidoProduccion.TABLA + "\" " +
 
     return pedidoProduccion.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
     }
+
+
+
+public List<int> actualizarEstadosPedidoProduccion(NpgsqlConnection conexion, List<PedidoProduccionEstadoDTO> lista)
+{
+    List<int> idsActualizados = new List<int>();
+
+    foreach (var item in lista)
+    {
+        string query = $"UPDATE \"{PedidoProduccion.TABLA}\" SET \"ID_ESTADO_PEDIDO_PROD\" = @estado WHERE \"ID_{PedidoProduccion.TABLA}\" = @id";
+        using (var cmd = new NpgsqlCommand(query, conexion))
+        {
+            cmd.Parameters.AddWithValue("@estado", item.IdEstadoPedidoProduccion);
+            cmd.Parameters.AddWithValue("@id", item.IdPedidoProduccion);
+            int result = cmd.ExecuteNonQuery();
+            if (result > 0)
+            {
+                idsActualizados.Add(item.IdPedidoProduccion);
+            }
+        }
+    }
+
+    return idsActualizados;
+}
+
+public List<ClienteXPedidoProduccionOutputDTO> obtenerClientes(NpgsqlConnection conexion, List<int> idsPedidosProduccion)
+{
+    List<ClienteXPedidoProduccionOutputDTO> resultados = new();
+    PresupuestoServices presupuestoServices = new PresupuestoServices();
+
+    foreach (int id in idsPedidosProduccion)
+    {
+        PedidoProduccion pedido = getPedidoProduccion(id, conexion);
+
+        if (pedido != null)
+        {
+            if (pedido.IDPresupuesto.HasValue)
+            {
+                Presupuesto presupuesto = presupuestoServices.GetPresupuesto(pedido.IDPresupuesto.Value, conexion);
+
+                if (presupuesto != null && presupuesto.Cliente != null)
+                {
+                    resultados.Add(new ClienteXPedidoProduccionOutputDTO
+                    {
+                        IdPedidoProduccion = id,
+                        Cliente = presupuesto.Cliente
+                    });
+                }
+                else
+                {
+                    // Si no encuentra cliente, lo marcás como desconocido
+                    resultados.Add(new ClienteXPedidoProduccionOutputDTO
+                    {
+                        IdPedidoProduccion = id,
+                        Cliente = {RazonSocial = "stock"}
+                    });
+                }
+            }
+            else
+            {
+                // Sin presupuesto → es stock
+                resultados.Add(new ClienteXPedidoProduccionOutputDTO
+                {
+                    IdPedidoProduccion = id,
+                    Cliente =new Cliente{RazonSocial = "stock"}
+                });
+            }
+        }
+    }
+
+    return resultados;
+}
+
 
 
 

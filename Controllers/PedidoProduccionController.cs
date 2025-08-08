@@ -39,6 +39,18 @@ public class PedidoProduccionController : ControllerBase
     return id;
     }
 
+[HttpPost("ObtenerClientes")]
+public List<ClienteXPedidoProduccionOutputDTO> ObtenerClientes([FromBody] List<int> idPedidos)
+{
+    using var conexion = new CConexion().establecerConexion();
+
+    PedidoProduccionService pps = new PedidoProduccionService();
+    var clientesXPedidoProduccion = pps.obtenerClientes(conexion, idPedidos);
+
+    return clientesXPedidoProduccion;
+}
+
+
 
       [HttpGet("GetPedidoProduccionByTaller/{idTaller}")]
     public List<PedidoProduccion> GetByTaller(int idTaller)
@@ -73,4 +85,19 @@ public class PedidoProduccionController : ControllerBase
         con.cerrarConexion(npgsqlConnection);
         return estadosPedidoProduccion;
     }
+
+
+    [HttpPatch("ActualizarEstadosPedidoProduccion")]
+    public List<int> ActualizarEstadosPedidoProduccion([FromBody] List<PedidoProduccionEstadoDTO> lista)
+    {
+        CConexion con = new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+        PedidoProduccionService pps = new PedidoProduccionService();
+        List<int> idsPedidosProducionActualizados = pps.actualizarEstadosPedidoProduccion(npgsqlConnection, lista);
+
+        con.cerrarConexion(npgsqlConnection);
+        return idsPedidosProducionActualizados;
+    }
+
 }

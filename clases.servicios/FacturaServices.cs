@@ -197,7 +197,7 @@ public List<Factura> getFacturaPorFiltro(int? idCliente, string? tipoFactura, in
     
     }
 
-public List<ArticuloFactura> getArticulosPorIdFactura(int idFactura, NpgsqlConnection con)
+/*public List<ArticuloFactura> getArticulosPorIdFactura(int idFactura, NpgsqlConnection con)
 {
     List<ArticuloFactura> articulos = new List<ArticuloFactura>();
 
@@ -215,7 +215,7 @@ public List<ArticuloFactura> getArticulosPorIdFactura(int idFactura, NpgsqlConne
     return articulos;
 }
 
-
+*/
 
     private decimal calcularPrecioFinal(List<ArticuloFactura> articulosFacturas)
 {
@@ -324,7 +324,7 @@ private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection con
         DescuentoGeneral = descuentoGeneral
     };
 }
-
+/*
 private static ArticuloFactura ReadArticuloFactura(NpgsqlDataReader reader, NpgsqlConnection conex)
 {
     // Campos del artículo en la factura
@@ -340,19 +340,20 @@ private static ArticuloFactura ReadArticuloFactura(NpgsqlDataReader reader, Npgs
     Articulo articulo = new ArticuloServices().GetArticulo(idArticulo, conex);
     Factura factura = {Id:idFactura};
 
-    return new ArticuloFactura
-    {
-        Articulo = articulo,
-        Factura = factura,
-        Cantidad = cantidad,
-        PrecioUnitario = precioUnitario,
-        Descuento = descuento,
-        Codigo = codigo,
-        Descripcion = descripcion
-    };
+    articuloFactura = new ArticuloFactura()
+
+    
+        articuloFactura.Articulo = articulo;
+        articuloFactura.Factura = factura;
+        articuloFactura.Cantidad = cantidad;
+        articuloFactura.PrecioUnitario = precioUnitario;
+        articuloFactura.Descuento = descuento;
+        articuloFactura.Codigo = codigo;
+        articuloFactura.Descripcion = descripcion
+    
 }
 
 
 
-
+*/
 }

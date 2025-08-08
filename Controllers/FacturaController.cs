@@ -61,7 +61,7 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
 
     return listaDeFacturas;
 }
-
+/*
 [HttpGet("GetArticulos/{id}")]
 public ActionResult<List<ArticuloFactura>> getArticulosXFactura(int idFactura)
 {
@@ -77,5 +77,5 @@ public ActionResult<List<ArticuloFactura>> getArticulosXFactura(int idFactura)
 
     return listaDeArticulosFactura;
 }
-
+*/
 }

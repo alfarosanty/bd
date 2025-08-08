@@ -376,7 +376,6 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
                 cmdPrecio.Parameters.AddWithValue("@PRECIO1", articuloPrecio.Precio1 ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@PRECIO2", articuloPrecio.Precio2 ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@PRECIO3", articuloPrecio.Precio3 ?? 0);
-                cmdPrecio.Parameters.AddWithValue("@RELLENO", articuloPrecio.Relleno ?? 0);
                 cmdPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
                 int filasAfectadas = cmdPrecio.ExecuteNonQuery();
 

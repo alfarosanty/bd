@@ -19,5 +19,7 @@ using System.Threading.Tasks;
 
     public CondicionFiscal? CondicionFiscal{ get; set; }
 
+    
+
     }
 
