@@ -4024,3 +4024,410 @@
 2025-08-08 11:07:37.065 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.Get (BlumeAPI) in 43.4801ms
 2025-08-08 11:07:37.065 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.Get (BlumeAPI)'
 2025-08-08 11:07:37.066 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByNumero/97 - - - 200 - application/json;+charset=utf-8 44.4529ms
+2025-08-08 11:11:03.799 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-08 11:11:04.032 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-08 11:11:04.036 -03:00 [INF] Hosting environment: Development
+2025-08-08 11:11:04.037 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-08 11:36:25.235 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:36:25.487 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-08 11:36:25.643 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:25.680 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:36:25.828 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:36:28.334 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:36:29.175 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 3323.4148ms
+2025-08-08 11:36:29.192 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:36:29.218 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 4007.7296ms
+2025-08-08 11:36:37.084 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-08-08 11:36:37.100 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:37.101 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-08-08 11:36:37.201 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:36:37.653 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:36:37.934 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 733.1275ms
+2025-08-08 11:36:37.934 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-08-08 11:36:37.934 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 850.0331ms
+2025-08-08 11:36:42.361 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:36:42.369 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:36:42.371 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:42.371 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:36:42.371 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:42.371 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:36:42.372 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:36:42.376 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:36:42.400 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:36:42.412 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 40.398ms
+2025-08-08 11:36:42.412 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:36:42.413 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 51.8240ms
+2025-08-08 11:36:42.414 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:36:42.421 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:42.421 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:36:42.425 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:36:42.439 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:36:42.472 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 96.3229ms
+2025-08-08 11:36:42.473 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:36:42.473 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 104.2976ms
+2025-08-08 11:36:42.780 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:36:42.816 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 390.7065ms
+2025-08-08 11:36:42.816 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:36:42.816 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 402.0272ms
+2025-08-08 11:36:46.491 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:36:46.491 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:46.499 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 8.0928ms
+2025-08-08 11:36:46.503 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4558
+2025-08-08 11:36:46.503 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:36:46.503 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:36:46.507 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:36:47.129 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:36:47.158 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 649.9683ms
+2025-08-08 11:36:47.158 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:36:47.158 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4558 - 200 - application/json;+charset=utf-8 654.7695ms
+2025-08-08 11:39:55.747 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:39:55.747 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:39:55.760 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:39:55.761 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:39:55.769 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:39:55.801 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:39:55.804 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:39:55.804 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:39:55.804 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:39:55.836 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:39:55.836 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:39:55.836 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:39:55.842 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:39:55.849 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 12.751ms
+2025-08-08 11:39:55.849 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:39:55.855 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 105.5358ms
+2025-08-08 11:39:55.909 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:39:55.925 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 155.6219ms
+2025-08-08 11:39:55.925 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:39:55.925 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 178.6035ms
+2025-08-08 11:39:56.087 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:39:56.088 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 252.0645ms
+2025-08-08 11:39:56.088 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:39:56.088 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 292.7583ms
+2025-08-08 11:39:59.435 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:39:59.435 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:39:59.435 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:39:59.436 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:39:59.464 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:39:59.476 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 39.8779ms
+2025-08-08 11:39:59.476 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:39:59.476 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 40.9175ms
+2025-08-08 11:40:02.665 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:40:02.666 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:02.666 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:02.666 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:40:02.671 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:02.675 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 9.0213ms
+2025-08-08 11:40:02.675 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:02.676 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 10.2640ms
+2025-08-08 11:40:05.315 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:40:05.315 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:05.316 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:05.316 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:40:05.316 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-08-08 11:40:05.317 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-08-08 11:40:05.317 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:05.318 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:05.318 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-08-08 11:40:05.318 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-08-08 11:40:05.320 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:05.321 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-08-08 11:40:05.324 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 7.7234ms
+2025-08-08 11:40:05.324 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:05.324 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 9.4193ms
+2025-08-08 11:40:05.329 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-08-08 11:40:05.337 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:05.341 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 19.0476ms
+2025-08-08 11:40:05.341 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-08-08 11:40:05.341 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 23.9477ms
+2025-08-08 11:40:05.345 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:05.348 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 18.3039ms
+2025-08-08 11:40:05.348 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-08-08 11:40:05.348 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 32.0461ms
+2025-08-08 11:40:06.295 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:40:06.295 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:06.295 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:40:06.295 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:06.296 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:06.296 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:40:06.296 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:06.296 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:40:06.300 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:06.307 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 11.4544ms
+2025-08-08 11:40:06.308 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:06.308 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 12.6614ms
+2025-08-08 11:40:06.345 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:06.362 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 66.3356ms
+2025-08-08 11:40:06.362 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:06.363 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 67.6599ms
+2025-08-08 11:40:08.826 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:40:08.826 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:08.826 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:08.826 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:40:08.852 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:08.861 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 34.7913ms
+2025-08-08 11:40:08.861 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:08.862 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 35.8890ms
+2025-08-08 11:40:16.784 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:40:16.785 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:16.785 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:16.785 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:40:16.809 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:16.819 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 34.1154ms
+2025-08-08 11:40:16.819 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:16.819 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 35.0592ms
+2025-08-08 11:40:44.632 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:40:44.632 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:44.633 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:40:44.633 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:40:44.680 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:40:44.680 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 47.5765ms
+2025-08-08 11:40:44.680 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:40:44.681 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 48.5519ms
+2025-08-08 11:40:45.979 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:40:45.980 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:45.985 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:45.985 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:40:45.986 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:40:45.986 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:45.986 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:45.986 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:40:45.990 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:45.996 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 10.7332ms
+2025-08-08 11:40:45.997 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:40:45.997 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 17.5662ms
+2025-08-08 11:40:45.998 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:40:45.998 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:45.999 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:40:45.999 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:40:46.017 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:40:46.034 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 47.3383ms
+2025-08-08 11:40:46.034 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:40:46.034 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 48.5688ms
+2025-08-08 11:40:46.044 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:40:46.045 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 46.0547ms
+2025-08-08 11:40:46.045 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:40:46.045 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 47.1966ms
+2025-08-08 11:40:56.998 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:40:56.998 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:56.998 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 0.8352ms
+2025-08-08 11:40:57.002 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559
+2025-08-08 11:40:57.002 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:40:57.002 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:40:57.002 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:40:57.025 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:40:57.025 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 22.5677ms
+2025-08-08 11:40:57.025 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:40:57.026 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559 - 200 - application/json;+charset=utf-8 23.8223ms
+2025-08-08 11:43:14.572 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:43:14.574 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:14.575 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:43:14.580 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:43:14.582 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:43:14.582 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:14.583 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:43:14.583 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:43:14.583 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:14.583 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:43:14.583 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:43:14.584 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:43:14.621 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:43:14.669 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 88.3936ms
+2025-08-08 11:43:14.669 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:43:14.670 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 98.0055ms
+2025-08-08 11:43:14.816 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:43:14.822 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 238.7718ms
+2025-08-08 11:43:14.823 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:43:14.823 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 241.4438ms
+2025-08-08 11:43:14.850 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:43:14.857 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 272.6249ms
+2025-08-08 11:43:14.857 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:43:14.857 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 274.2831ms
+2025-08-08 11:43:52.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:43:52.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:43:52.999 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:52.999 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:53.000 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:43:53.004 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:43:53.004 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:43:53.006 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:43:53.029 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:43:53.029 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:53.029 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:43:53.030 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:43:53.045 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:43:53.061 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 55.0219ms
+2025-08-08 11:43:53.062 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:43:53.062 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 62.7522ms
+2025-08-08 11:43:53.100 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:43:53.116 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 109.4367ms
+2025-08-08 11:43:53.116 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:43:53.116 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 117.0998ms
+2025-08-08 11:43:53.276 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:43:53.276 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 246.7485ms
+2025-08-08 11:43:53.277 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:43:53.277 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 248.0686ms
+2025-08-08 11:43:57.120 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:43:57.120 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:57.120 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 0.5503ms
+2025-08-08 11:43:57.124 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4558
+2025-08-08 11:43:57.124 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:43:57.124 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:43:57.124 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:43:57.151 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:43:57.152 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 27.2648ms
+2025-08-08 11:43:57.152 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:43:57.152 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4558 - 200 - application/json;+charset=utf-8 28.3762ms
+2025-08-08 11:44:39.536 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:44:39.536 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:44:39.537 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:44:39.537 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:44:39.537 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:44:39.537 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:44:39.544 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:44:39.544 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:44:39.555 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:44:39.555 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:44:39.555 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:44:39.556 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:44:39.570 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:44:39.586 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 41.8088ms
+2025-08-08 11:44:39.586 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:44:39.586 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 51.7370ms
+2025-08-08 11:44:39.617 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:44:39.623 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:44:39.651 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 95.5175ms
+2025-08-08 11:44:39.651 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:44:39.652 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 97.9256ms
+2025-08-08 11:44:39.788 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 243.8544ms
+2025-08-08 11:44:39.788 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:44:39.789 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 252.1577ms
+2025-08-08 11:44:43.798 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:44:43.798 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:44:43.798 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 0.5563ms
+2025-08-08 11:44:43.800 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559
+2025-08-08 11:44:43.801 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:44:43.801 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:44:43.801 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:44:43.815 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:44:43.815 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 14.2957ms
+2025-08-08 11:44:43.815 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:44:43.816 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559 - 200 - application/json;+charset=utf-8 15.1130ms
+2025-08-08 11:45:55.690 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:45:55.691 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:45:55.693 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:45:55.693 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:45:55.693 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:45:55.693 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:45:55.694 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:45:55.698 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:45:55.716 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:45:55.722 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:45:55.725 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:45:55.725 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:45:55.725 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:45:55.741 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 47.3961ms
+2025-08-08 11:45:55.741 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:45:55.741 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 51.1364ms
+2025-08-08 11:45:55.777 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:45:55.779 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:45:55.780 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 54.7967ms
+2025-08-08 11:45:55.780 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:45:55.780 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 58.3140ms
+2025-08-08 11:45:55.808 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 108.1963ms
+2025-08-08 11:45:55.809 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:45:55.809 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 118.2402ms
+2025-08-08 11:46:01.570 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:46:01.571 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:01.571 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 0.5063ms
+2025-08-08 11:46:01.573 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559
+2025-08-08 11:46:01.573 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:01.574 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:46:01.574 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:46:01.604 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:46:01.604 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 30.6591ms
+2025-08-08 11:46:01.605 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:46:01.605 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4559 - 200 - application/json;+charset=utf-8 31.5211ms
+2025-08-08 11:46:47.890 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:46:47.890 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:47.891 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:46:47.891 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:46:47.964 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:46:47.964 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:47.964 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:46:47.965 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:46:48.009 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:46:48.009 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:48.009 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:46:48.010 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:46:48.279 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:46:48.302 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:46:48.314 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 349.529ms
+2025-08-08 11:46:48.315 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:46:48.352 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 460.5077ms
+2025-08-08 11:46:48.352 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:46:48.352 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 462.4382ms
+2025-08-08 11:46:48.425 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 461.1290ms
+2025-08-08 11:46:48.482 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:46:48.483 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 473.6497ms
+2025-08-08 11:46:48.484 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:46:48.484 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 474.9736ms
+2025-08-08 11:46:56.960 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:46:56.961 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:56.961 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:46:56.961 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:46:56.961 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:46:56.961 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:56.961 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:46:56.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-08-08 11:46:56.962 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:46:56.962 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:46:56.962 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:46:56.962 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Presupuesto Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:46:56.967 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:46:56.973 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 11.3597ms
+2025-08-08 11:46:56.973 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:46:56.974 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 12.8331ms
+2025-08-08 11:46:57.022 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:46:57.068 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 106.8389ms
+2025-08-08 11:46:57.068 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:46:57.069 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 108.4300ms
+2025-08-08 11:46:57.300 -03:00 [INF] Executing ObjectResult, writing value of type 'Presupuesto'.
+2025-08-08 11:46:57.301 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 339.2797ms
+2025-08-08 11:46:57.302 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-08-08 11:46:57.302 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 340.2490ms
+2025-08-08 11:47:03.986 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - -
+2025-08-08 11:47:03.986 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:47:03.986 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Presupuesto/actualizar - - - 204 - - 0.4464ms
+2025-08-08 11:47:03.988 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4565
+2025-08-08 11:47:03.988 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:47:03.988 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:47:03.988 -03:00 [INF] Route matched with {action = "Actualizar", controller = "Presupuesto"}. Executing controller action with signature Int32 Actualizar(Presupuesto) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-08-08 11:47:04.018 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-08-08 11:47:04.018 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI) in 29.9269ms
+2025-08-08 11:47:04.019 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Actualizar (BlumeAPI)'
+2025-08-08 11:47:04.019 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Presupuesto/actualizar application/json 4565 - 200 - application/json;+charset=utf-8 30.7602ms
+2025-08-08 11:47:51.821 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-08-08 11:47:51.825 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:47:51.825 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:47:51.825 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:47:51.844 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:47:51.855 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-08-08 11:47:51.855 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:47:51.855 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:47:51.856 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-08-08 11:47:51.870 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 45.4592ms
+2025-08-08 11:47:51.871 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-08-08 11:47:51.871 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 49.5660ms
+2025-08-08 11:47:51.900 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:47:51.913 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 56.8126ms
+2025-08-08 11:47:51.913 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-08-08 11:47:51.913 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 57.8104ms
+2025-08-08 11:47:56.601 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-08-08 11:47:56.601 -03:00 [INF] CORS policy execution successful.
+2025-08-08 11:47:56.602 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-08-08 11:47:56.608 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-08 11:47:56.673 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-08 11:47:56.676 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 67.36ms
+2025-08-08 11:47:56.676 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-08-08 11:47:56.676 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 75.3270ms

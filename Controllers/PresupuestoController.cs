@@ -14,16 +14,32 @@ public class PresupuestoController : ControllerBase
         _logger = logger;
     }
 
-     [HttpGet("GetPresupuestoByNumero/{idPresupuesto}")]
-    public Presupuesto Get(int idPresupuesto)
+[HttpGet("GetPresupuestoByNumero/{idPresupuesto}")]
+public IActionResult Get(int idPresupuesto)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    PresupuestoServices ps = new PresupuestoServices();
+
+    try
     {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-       PresupuestoServices  ps = new PresupuestoServices();
-        Presupuesto presu = ps.GetPresupuesto(idPresupuesto,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-         return presu;
+        Presupuesto presu = ps.GetPresupuesto(idPresupuesto, npgsqlConnection);
+        return Ok(presu); // HTTP 200 con datos
     }
+    catch (Exception ex)
+    {
+        if (ex.Message.Contains("No se encontró presupuesto"))
+            return NotFound(new { mensaje = ex.Message }); // HTTP 404
+        else
+            return StatusCode(500, new { mensaje = "Error interno del servidor." });
+    }
+    finally
+    {
+        con.cerrarConexion(npgsqlConnection); // Aseguramos cierre de conexión
+    }
+}
+
+
  
     [HttpPost("crear")]
     public int  Crear(Presupuesto presupuesto){
@@ -36,19 +52,38 @@ public class PresupuestoController : ControllerBase
         return id;  
     }
 
-    [HttpPost("actualizar")]
-    public int Actualizar(Presupuesto presupuesto)
-    {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-    
-    Console.WriteLine("Está entrandooo");
+[HttpPost("actualizar")]
+public IActionResult Actualizar([FromBody] Presupuesto presupuesto)
+{
+    if (presupuesto == null)
+        return BadRequest("El cuerpo de la solicitud está vacío o mal formado.");
 
-    PresupuestoServices ps = new PresupuestoServices();
-    int id = ps.actualizar(presupuesto, npgsqlConnection);
-    con.cerrarConexion(npgsqlConnection);
-    return id;
+    if (!ModelState.IsValid)
+        return BadRequest(ModelState);
+
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = null;
+
+    try
+    {
+        npgsqlConnection = con.establecerConexion();
+        PresupuestoServices ps = new PresupuestoServices();
+        int id = ps.actualizar(presupuesto, npgsqlConnection);
+        return Ok(new { id });
     }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = "Error al actualizar presupuesto", details = ex.Message });
+    }
+    finally
+    {
+        if (npgsqlConnection != null && npgsqlConnection.State == System.Data.ConnectionState.Open)
+        {
+            con.cerrarConexion(npgsqlConnection);
+        }
+    }
+}
+
 
 
       [HttpGet("GetPresupuestoByCliente/{idCliente}")]
@@ -61,5 +96,25 @@ public class PresupuestoController : ControllerBase
          con.cerrarConexion(npgsqlConnection);
          return presu;
     }
+
+[HttpGet("GetEstadosPresupuesto")]
+public IActionResult GetEstadosPresupuesto()
+{
+    try
+    {
+        CConexion con = new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        PresupuestoServices ps = new PresupuestoServices();
+        List<EstadoPresupuesto> estadosPresupuesto = ps.getEstadosPresupuesto(npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+
+        return Ok(estadosPresupuesto);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { mensaje = "Error al obtener estados de presupuesto.", detalle = ex.Message });
+    }
+}
+
 
 }

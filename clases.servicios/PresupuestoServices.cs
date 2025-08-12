@@ -17,23 +17,36 @@ public class PresupuestoServices
     }
 
 
-     public Presupuesto GetPresupuesto(int id, NpgsqlConnection conex ){
-        Presupuesto presupuesto = new Presupuesto();
-            string commandText =  getSelect() + GetFromText()+ " WHERE PR.\"ID_PRESUPUESTO\" = @id";
-            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-               {
-                 Console.WriteLine("Consulta: "+ commandText);
-                    cmd.Parameters.AddWithValue("id", id);
-                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                        while (reader.Read())
-                        {
-                            presupuesto = ReadPresupeusto(reader, conex);                           
-                            
-                        }
+public Presupuesto GetPresupuesto(int id, NpgsqlConnection conex) {
+    try {
+        Presupuesto presupuesto = null;
+        string commandText = getSelect() + GetFromText() + " WHERE PR.\"ID_PRESUPUESTO\" = @id";
+
+        using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex)) {
+            Console.WriteLine("Consulta: " + commandText);
+            cmd.Parameters.AddWithValue("id", id);
+
+            using (NpgsqlDataReader reader = cmd.ExecuteReader()) {
+                if (reader.Read()) {
+                    presupuesto = ReadPresupeusto(reader, conex);
                 }
-                presupuesto.Articulos =  getArticuloPresupuesto(presupuesto,conex);
-                return presupuesto;
-                }
+            }
+        }
+
+        if (presupuesto == null) {
+            throw new Exception($"No se encontró presupuesto con id {id}");
+        }
+
+        presupuesto.Articulos = getArticuloPresupuesto(presupuesto, conex);
+        return presupuesto;
+    }
+    catch (Exception ex) {
+        // Aquí podés lanzar una excepción más específica o simplemente relanzar la actual
+        throw new Exception($"{ex.Message}", ex);
+    }
+}
+
+
 
 
 
@@ -58,6 +71,35 @@ public class PresupuestoServices
                 return presupuestos;
         }
     
+public List<EstadoPresupuesto> getEstadosPresupuesto(NpgsqlConnection conex)
+{
+    if (conex == null)
+        throw new ArgumentNullException(nameof(conex), "La conexión no puede ser null.");
+
+    var estadosPresupuesto = new List<EstadoPresupuesto>();
+
+    string query = "SELECT \"ID_ESTADO\", \"CODIGO\", \"DESCRIPCION\" FROM \"ESTADO_PRESUPUESTO\" ORDER BY \"ID_ESTADO\"";
+
+    using (var cmd = new NpgsqlCommand(query, conex))
+    {
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var estado = new EstadoPresupuesto
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ESTADO")),
+                    Codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) ? null : reader.GetString(reader.GetOrdinal("CODIGO")),
+                    Descripcion = reader.IsDBNull(reader.GetOrdinal("DESCRIPCION")) ? null : reader.GetString(reader.GetOrdinal("DESCRIPCION"))
+                };
+                estadosPresupuesto.Add(estado);
+            }
+        }
+    }
+
+    return estadosPresupuesto;
+}
+
 
     
 public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnection)
@@ -110,53 +152,87 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
 }
 
 
-        public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnection)
+public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnection)
 {
-    // Elimina los artículos antiguos asociados a este presupuesto
-    string sqlDelete = "DELETE FROM \"" + ArticuloPresupuesto.TABLA + "\" WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
-    NpgsqlCommand cmdDelete = new NpgsqlCommand(sqlDelete, npgsqlConnection);
-    cmdDelete.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
-    cmdDelete.ExecuteNonQuery();
+    if (presupuesto == null)
+        throw new ArgumentNullException(nameof(presupuesto));
 
-    // Ahora inserta los nuevos artículos
-    if (presupuesto.Articulos != null)
+    if (npgsqlConnection == null)
+        throw new ArgumentNullException(nameof(npgsqlConnection));
+
+    using (var transaction = npgsqlConnection.BeginTransaction())
     {
-        foreach (ArticuloPresupuesto ap in presupuesto.Articulos)
+        try
         {
-            string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
-                               "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\", \"DESCRIPCION\", \"CODIGO\") " +
-                               "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK, @DESCRIPCION, @CODIGO)";
-            NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
-            cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
-            cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
-            cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
-            cmdInsert.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
-            cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
-            cmdInsert.Parameters.AddWithValue("DESCUENTO",ap.Descuento);
-            cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock);
-            cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
-            cmdInsert.Parameters.AddWithValue("CODIGO", ap.codigo);
-            cmdInsert.ExecuteNonQuery();
+            // Delete artículos antiguos
+            string sqlDelete = "DELETE FROM \"" + ArticuloPresupuesto.TABLA + "\" WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+            using (var cmdDelete = new NpgsqlCommand(sqlDelete, npgsqlConnection, transaction))
+            {
+                cmdDelete.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+                cmdDelete.ExecuteNonQuery();
+            }
+
+            // Insert artículos nuevos
+            if (presupuesto.Articulos != null)
+            {
+                foreach (var ap in presupuesto.Articulos)
+                {
+                    string sqlInsert = "INSERT INTO \"" + ArticuloPresupuesto.TABLA + "\" " +
+                                       "(\"ID_ARTICULO\", \"ID_PRESUPUESTO\", \"CANTIDAD\", \"PENDIENTE\" , \"PRECIO_UNITARIO\",\"DESCUENTO\" , \"HAY_STOCK\", \"DESCRIPCION\", \"CODIGO\") " +
+                                       "VALUES(@ID_ARTICULO, @ID_PRESUPUESTO, @CANTIDAD, @PENDIENTE, @PRECIO_UNITARIO, @DESCUENTO, @HAY_STOCK, @DESCRIPCION, @CODIGO)";
+                    using (var cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection, transaction))
+                    {
+                        cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+                        cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
+                        cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
+                        cmdInsert.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
+                        cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
+                        cmdInsert.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
+                        cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock);
+                        cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
+                        cmdInsert.Parameters.AddWithValue("CODIGO", ap.codigo);
+                        cmdInsert.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            // Actualizar total y estado
+            string sqlUpdateTotal = "UPDATE \"" + Presupuesto.TABLA + "\" " +
+                                    "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO, " +
+                                    "\"FECHA_PRESUPUESTO\" = @FECHA_PRESUPUESTO, " +
+                                    "\"ID_ESTADO\" = @ID_ESTADO, " +
+                                    "\"DESCUENTO\" = @DESCUENTO " +
+                                    "WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
+            using (var cmdUpdateTotal = new NpgsqlCommand(sqlUpdateTotal, npgsqlConnection, transaction))
+            {
+                cmdUpdateTotal.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
+                cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
+                cmdUpdateTotal.Parameters.AddWithValue("FECHA_PRESUPUESTO", presupuesto.Fecha);
+                cmdUpdateTotal.Parameters.AddWithValue("ID_ESTADO", presupuesto.EstadoPresupuesto.Id);
+                cmdUpdateTotal.Parameters.AddWithValue("DESCUENTO", presupuesto.descuentoGeneral ?? 0);
+                cmdUpdateTotal.ExecuteNonQuery();
+            }
+
+            transaction.Commit();
+            return presupuesto.Id;
+        }
+        catch (Exception ex)
+        {
+            try
+            {
+                transaction.Rollback();
+            }
+            catch
+            {
+                // opcional: loggear fallo en rollback, no re-lanzar para no esconder la excepción original
+            }
+
+            // Re-lanzar la excepción para que la maneje la capa superior
+            throw new Exception("Error al actualizar presupuesto: " + ex.Message, ex);
         }
     }
-
-    // Actualiza el total y el estado del presupuesto
-    string sqlUpdateTotal = "UPDATE \"" + Presupuesto.TABLA + "\" " +
-                            "SET \"TOTAL_PRESUPUESTO\" = @TOTAL_PRESUPUESTO, " +
-                            "\"FECHA_PRESUPUESTO\" = @FECHA_PRESUPUESTO, " +
-                            "\"ID_ESTADO\" = @ID_ESTADO, " +
-                             "\"DESCUENTO\" = @DESCUENTO " +
-                            "WHERE \"ID_PRESUPUESTO\" = @ID_PRESUPUESTO";
-    NpgsqlCommand cmdUpdateTotal = new NpgsqlCommand(sqlUpdateTotal, npgsqlConnection);
-    cmdUpdateTotal.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
-    cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
-    cmdUpdateTotal.Parameters.AddWithValue("FECHA_PRESUPUESTO", presupuesto.Fecha);
-    cmdUpdateTotal.Parameters.AddWithValue("ID_ESTADO", presupuesto.EstadoPresupuesto.Id);
-    cmdUpdateTotal.Parameters.AddWithValue("DESCUENTO", presupuesto.descuentoGeneral ?? 0);
-    cmdUpdateTotal.ExecuteNonQuery();  // Ejecuta la actualización
-
-    return presupuesto.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
 }
+
 
 
 
@@ -168,13 +244,24 @@ private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnect
        bool eximirIVA = (bool)reader["EXMIR_IVA"];
        int idCliente =(int) reader["ID_CLIENTE"];
        int? descGeneral = reader["DESCUENTO"] != DBNull.Value ? (int?)reader["DESCUENTO"] : null;
+       int? idEstadoPresupuesto = reader["ID_ESTADO"] != DBNull.Value ? (int?)reader["ID_ESTADO"] : null;
 
-      
+        EstadoPresupuesto estadoPresupuesto = null;
+
+        if (idEstadoPresupuesto.HasValue)
+        {
+            estadoPresupuesto = new EstadoPresupuesto
+            {
+                Id = idEstadoPresupuesto.Value
+            };
+        }
+
        Presupuesto presupuesto = new Presupuesto{
              Id = id,
              Fecha = fecha,
              EximirIVA = eximirIVA,
-             descuentoGeneral = descGeneral
+             descuentoGeneral = descGeneral,
+             EstadoPresupuesto = estadoPresupuesto,
              };
 
            CConexion cconexio =  new CConexion();
