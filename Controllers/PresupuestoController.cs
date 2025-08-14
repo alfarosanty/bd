@@ -69,7 +69,7 @@ public IActionResult Actualizar([FromBody] Presupuesto presupuesto)
         npgsqlConnection = con.establecerConexion();
         PresupuestoServices ps = new PresupuestoServices();
         int id = ps.actualizar(presupuesto, npgsqlConnection);
-        return Ok(new { id });
+        return Ok( id );
     }
     catch (Exception ex)
     {
