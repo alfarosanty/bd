@@ -39,15 +39,41 @@ public class PedidoProduccionController : ControllerBase
     return id;
     }
 
-[HttpPost("ObtenerClientes")]
-public List<ClienteXPedidoProduccionOutputDTO> ObtenerClientes([FromBody] List<int> idPedidos)
+    [HttpPost("ObtenerClientes")]
+    public List<ClienteXPedidoProduccionOutputDTO> ObtenerClientes([FromBody] List<int> idPedidos)
+    {
+        using var conexion = new CConexion().establecerConexion();
+
+        PedidoProduccionService pps = new PedidoProduccionService();
+        var clientesXPedidoProduccion = pps.obtenerClientes(conexion, idPedidos);
+
+        return clientesXPedidoProduccion;
+    }
+
+[HttpPost("EliminarPedidosProduccion")]
+public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> idPedidos)
 {
-    using var conexion = new CConexion().establecerConexion();
+    if (idPedidos == null || idPedidos.Count == 0)
+        return BadRequest("No se enviaron IDs para eliminar.");
 
-    PedidoProduccionService pps = new PedidoProduccionService();
-    var clientesXPedidoProduccion = pps.obtenerClientes(conexion, idPedidos);
+    try
+    {
+        using var conexion = new CConexion().establecerConexion();
 
-    return clientesXPedidoProduccion;
+        PedidoProduccionService pps = new PedidoProduccionService();
+        var idsEliminados = pps.eliminarPedidosProduccion(conexion, idPedidos);
+
+        if (idsEliminados.Count == 0)
+            return NotFound("No se encontraron pedidos para eliminar con los IDs enviados.");
+
+        return Ok(idsEliminados);
+    }
+    catch (Exception ex)
+    {
+        Console.Error.WriteLine($"Error al eliminar pedidos: {ex}");
+        return StatusCode(StatusCodes.Status500InternalServerError,
+            $"Ocurrió un error al eliminar los pedidos: {ex.Message}");
+    }
 }
 
 

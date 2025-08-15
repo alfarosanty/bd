@@ -248,6 +248,53 @@ public List<ClienteXPedidoProduccionOutputDTO> obtenerClientes(NpgsqlConnection 
 
 
 
+public List<int> eliminarPedidosProduccion(NpgsqlConnection conexion, List<int> idPedidos)
+{
+    if (idPedidos == null || idPedidos.Count == 0)
+        return new List<int>();
+
+    var eliminados = new List<int>();
+
+    using var transaction = conexion.BeginTransaction();
+    try
+    {
+        foreach (var id in idPedidos)
+        {
+            // 1️⃣ Borrar artículos del pedido
+            string deleteArticulos = $@"
+                DELETE FROM ""{PedidoProduccionArticulo.TABLA}""
+                WHERE ""ID_PEDIDO_PRODUCCION"" = @id";
+            using (var cmdArt = new NpgsqlCommand(deleteArticulos, conexion))
+            {
+                cmdArt.Parameters.AddWithValue("@id", id);
+                cmdArt.ExecuteNonQuery();
+            }
+
+            // 2️⃣ Borrar el pedido
+            string deletePedido = $@"
+                DELETE FROM ""{PedidoProduccion.TABLA}""
+                WHERE ""ID_PEDIDO_PRODUCCION"" = @id";
+            using (var cmdPedido = new NpgsqlCommand(deletePedido, conexion))
+            {
+                cmdPedido.Parameters.AddWithValue("@id", id);
+                int rowsAffected = cmdPedido.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                    eliminados.Add(id);
+            }
+        }
+
+        transaction.Commit();
+    }
+    catch (Exception ex)
+    {
+        transaction.Rollback();
+        Console.Error.WriteLine($"Error eliminando pedidos: {ex}");
+        throw; // Lo maneja el controlador
+    }
+
+    return eliminados;
+}
 
 
 
