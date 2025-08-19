@@ -137,3 +137,15 @@ Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in 
 2025-08-19 09:02:40.122 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 3121.1918ms
 2025-08-19 09:02:40.140 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
 2025-08-19 09:02:40.151 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - - - 200 - application/json;+charset=utf-8 3726.2061ms
+2025-08-19 09:10:14.436 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 09:10:14.612 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 09:10:14.614 -03:00 [INF] Hosting environment: Development
+2025-08-19 09:10:14.615 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 09:10:27.556 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - -
+2025-08-19 09:10:27.750 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 09:10:27.886 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 09:10:28.036 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 09:10:30.320 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2025-08-19 09:10:30.996 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 2938.5392ms
+2025-08-19 09:10:31.009 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 09:10:31.019 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - - - 200 - application/json;+charset=utf-8 3484.8226ms
