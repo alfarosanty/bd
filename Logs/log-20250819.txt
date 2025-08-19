@@ -1,0 +1,139 @@
+2025-08-19 08:50:56.580 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 08:50:56.784 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 08:50:56.787 -03:00 [INF] Hosting environment: Development
+2025-08-19 08:50:56.788 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 08:51:09.978 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-08-19 08:51:11.034 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 1076.5347ms
+2025-08-19 08:51:11.134 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-08-19 08:51:11.149 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-08-19 08:51:11.176 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-08-19 08:51:11.299 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-08-19 08:51:11.299 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 122.9233ms
+2025-08-19 08:51:11.339 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-08-19 08:51:11.347 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-08-19 08:51:11.357 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 209.1843ms
+2025-08-19 08:51:11.357 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 229.3118ms
+2025-08-19 08:51:12.005 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-08-19 08:51:12.093 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2025-08-19 08:51:12.094 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-08-19 08:51:12.094 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 1.1993ms
+2025-08-19 08:51:12.588 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 582.3806ms
+2025-08-19 08:51:42.075 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17 - -
+2025-08-19 08:51:42.114 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 08:51:42.233 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 08:51:42.406 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[EstadisticaArticuloDTO] GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 08:53:06.922 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 84490.2784ms
+2025-08-19 08:53:06.944 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 08:53:06.948 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42P01: no existe la relación «articulo_presupuesto»
+
+POSITION: 46
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|233_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ArticuloServices.GetArticulosPresupuestados(Int32 idArticulo, Nullable`1 fechaDesde, Nullable`1 fechaHasta, NpgsqlConnection connection) in G:\Desa\programa\bd\clases.servicios\ArticuloServices.cs:line 338
+   at BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados(Int32 idArticulo, Nullable`1 fechaDesde, Nullable`1 fechaHasta) in G:\Desa\programa\bd\Controllers\ArticuloController.cs:line 164
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: no existe la relación «articulo_presupuesto»
+    Position: 46
+    File: parse_relation.c
+    Line: 1395
+    Routine: parserOpenTable
+2025-08-19 08:53:07.197 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17 - - - 500 - text/plain;+charset=utf-8 85121.6232ms
+2025-08-19 08:53:35.667 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 08:53:35.866 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 08:53:35.869 -03:00 [INF] Hosting environment: Development
+2025-08-19 08:53:35.869 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 08:53:38.360 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17 - -
+2025-08-19 08:53:38.579 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 08:53:38.738 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 08:53:38.916 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[EstadisticaArticuloDTO] GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 08:54:56.936 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 08:54:57.113 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 08:54:57.116 -03:00 [INF] Hosting environment: Development
+2025-08-19 08:54:57.116 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 08:55:06.523 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17 - -
+2025-08-19 08:55:06.724 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 08:55:06.889 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 08:55:07.053 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[EstadisticaArticuloDTO] GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 08:56:30.908 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 08:56:31.086 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 08:56:31.089 -03:00 [INF] Hosting environment: Development
+2025-08-19 08:56:31.089 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 08:56:41.867 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - -
+2025-08-19 08:56:42.062 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 08:56:42.214 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 08:56:42.378 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[EstadisticaArticuloDTO] GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 09:00:37.689 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 235279.346ms
+2025-08-19 09:00:37.719 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 09:00:37.724 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: 
+    SELECT ap.*, p."FECHA_PRESUPUESTO"
+    FROM "ARTICULO_PRESUPUESTO" ap
+    INNER JOIN "PRESUPUESTO" p ON ap."ID_PRESUPUESTO" = p."ID_PRESUPUESTO"
+    WHERE ap."ID_ARTICULO" = @ID_ARTICULO
+      AND (@FECHADESDE IS NULL OR p."FECHA_PRESUPUESTO" >= @FECHADESDE)
+      AND (@FECHAHASTA IS NULL OR p."FECHA_PRESUPUESTO" <= @FECHAHASTA)
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|278_0(ConnectorState newState, NpgsqlCommand command, <>c__DisplayClass278_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ArticuloServices.GetArticulo(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\clases.servicios\ArticuloServices.cs:line 47
+   at ArticuloServices.GetArticulosPresupuestados(Int32 idArticulo, Nullable`1 fechaDesde, Nullable`1 fechaHasta, NpgsqlConnection connection) in G:\Desa\programa\bd\clases.servicios\ArticuloServices.cs:line 343
+   at BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados(Int32 idArticulo, Nullable`1 fechaDesde, Nullable`1 fechaHasta) in G:\Desa\programa\bd\Controllers\ArticuloController.cs:line 164
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-08-19 09:00:37.975 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - - - 500 - text/plain;+charset=utf-8 236131.2078ms
+2025-08-19 09:02:20.094 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-08-19 09:02:20.270 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-19 09:02:20.273 -03:00 [INF] Hosting environment: Development
+2025-08-19 09:02:20.273 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-08-19 09:02:36.447 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - -
+2025-08-19 09:02:36.653 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-08-19 09:02:36.817 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 09:02:36.969 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[EstadisticaArticuloDTO] GetArticulosPresupuestados(Int32, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-08-19 09:02:39.390 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadisticaArticuloDTO, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-08-19 09:02:40.122 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 3121.1918ms
+2025-08-19 09:02:40.140 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2025-08-19 09:02:40.151 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/17?fechaDesde=01%2F01%2F2025&fechaHasta=12%2F12%2F2025 - - - 200 - application/json;+charset=utf-8 3726.2061ms

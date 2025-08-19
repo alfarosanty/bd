@@ -155,4 +155,19 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, 
         return articulosPrecioId;
     }
 
+[HttpGet("Presupuestados/{idArticulo}")]
+public EstadisticaArticuloDTO GetArticulosPresupuestados(
+    int idArticulo,
+    [FromQuery] DateTime? fechaDesde,
+    [FromQuery] DateTime? fechaHasta)
+{
+    CConexion con = new CConexion();
+    using (var npgsqlConnection = con.establecerConexion())
+    {
+        return new ArticuloServices()
+            .GetArticuloPresupuestado(idArticulo, fechaDesde, fechaHasta, npgsqlConnection);
+    }
+}
+
+
 }

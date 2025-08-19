@@ -313,6 +313,50 @@ public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.
 
     return idsGenerados;
 }
+public EstadisticaArticuloDTO GetArticuloPresupuestado(
+    int idArticulo,
+    DateTime? fechaDesde,
+    DateTime? fechaHasta,
+    NpgsqlConnection connection)
+{
+    string query = @"
+        SELECT ap.*, p.""FECHA_PRESUPUESTO""
+        FROM ""ARTICULO_PRESUPUESTO"" ap
+        INNER JOIN ""PRESUPUESTO"" p ON ap.""ID_PRESUPUESTO"" = p.""ID_PRESUPUESTO""
+        WHERE ap.""ID_ARTICULO"" = @ID_ARTICULO
+          AND (@FECHADESDE IS NULL OR p.""FECHA_PRESUPUESTO"" >= @FECHADESDE)
+          AND (@FECHAHASTA IS NULL OR p.""FECHA_PRESUPUESTO"" <= @FECHAHASTA)";
+
+    using var cmd = new NpgsqlCommand(query, connection);
+    cmd.Parameters.Add("ID_ARTICULO", NpgsqlTypes.NpgsqlDbType.Integer).Value = idArticulo;
+    cmd.Parameters.Add("FECHADESDE", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaDesde ?? DBNull.Value;
+    cmd.Parameters.Add("FECHAHASTA", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaHasta ?? DBNull.Value;
+
+    // Leer todas las filas en memoria
+    int cantidadTotal = 0;
+    DateTime fechaUltimoPresupuesto = DateTime.MinValue;
+
+    using (var reader = cmd.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            cantidadTotal += reader.GetInt32(reader.GetOrdinal("CANTIDAD"));
+            var fecha = reader.GetDateTime(reader.GetOrdinal("FECHA_PRESUPUESTO"));
+            if (fecha > fechaUltimoPresupuesto)
+                fechaUltimoPresupuesto = fecha; // opcional, si querés registrar la última fecha
+        }
+    }
+
+    // Crear el DTO con un solo artículo
+    var dto = new EstadisticaArticuloDTO
+    {
+        Articulo = GetArticulo(idArticulo, connection),
+        CantidadPresupuestada = cantidadTotal,
+    };
+
+    return dto;
+}
+
 
 public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.NpgsqlConnection connection)
 {

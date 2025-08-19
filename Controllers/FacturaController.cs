@@ -78,4 +78,26 @@ public ActionResult<List<ArticuloFactura>> getArticulosXFactura(int idFactura)
     return listaDeArticulosFactura;
 }
 */
+/*
+    [HttpPost("Autenticar")]
+    public IActionResult Autenticar([FromBody] AutenticacionDTO request)
+    {
+        try
+        {
+            var service = new FacturaServices();
+            var auth = service.autenticar(
+                request.Cuit,
+                request.PfxPath,
+                request.PfxPassword,
+                request.Servicio
+            );
+
+            return Ok(new { Token = auth.Token, Sign = auth.Sign });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Error = ex.Message });
+        }
+    }*/
 }
+

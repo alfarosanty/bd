@@ -217,6 +217,8 @@ public List<Factura> getFacturaPorFiltro(int? idCliente, string? tipoFactura, in
 
 */
 
+
+
     private decimal calcularPrecioFinal(List<ArticuloFactura> articulosFacturas)
 {
     decimal precioConDescuento = 0;
