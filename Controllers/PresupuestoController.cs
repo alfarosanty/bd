@@ -117,4 +117,21 @@ public IActionResult GetEstadosPresupuesto()
 }
 
 
+[HttpGet("ArticulosPresupuestados")]
+public ActionResult<List<ArticuloPresupuesto>> articulosPresupuestados([FromQuery] int idArticuloPrecio, [FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    PresupuestoServices ps = new PresupuestoServices();
+
+    // Llamás al servicio pasando las fechas recibidas
+    List<ArticuloPresupuesto> listaDeArticulosPresupuestados = ps.articulosPresupuestados(idArticuloPrecio, fechaInicio, fechaFin, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+
+    return listaDeArticulosPresupuestados;
+}
+
+
 }

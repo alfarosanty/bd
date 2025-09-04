@@ -155,9 +155,28 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, 
         return articulosPrecioId;
     }
 
-[HttpGet("Presupuestados/{idArticulo}")]
+[HttpPost("ActualizarStock")]
+public IActionResult ActualizarStock([FromBody] ActualizacionStockInutDTO[] articulos)
+{
+    try
+    {
+        CConexion con =  new CConexion();
+        using var npgsqlConnection = con.establecerConexion();
+
+        int cantidadAfectados = new ArticuloServices().ActualizarStock(articulos, npgsqlConnection);
+
+        return Ok(cantidadAfectados);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, $"Error al actualizar stock: {ex.Message}");
+    }
+}
+
+
+[HttpGet("Presupuestados/{idArticuloPrecio}")]
 public EstadisticaArticuloDTO GetArticulosPresupuestados(
-    int idArticulo,
+    int idArticuloPrecio,
     [FromQuery] DateTime? fechaDesde,
     [FromQuery] DateTime? fechaHasta)
 {
@@ -165,7 +184,7 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     using (var npgsqlConnection = con.establecerConexion())
     {
         return new ArticuloServices()
-            .GetArticuloPresupuestado(idArticulo, fechaDesde, fechaHasta, npgsqlConnection);
+            .GetArticuloPresupuestado(idArticuloPrecio, fechaDesde, fechaHasta, npgsqlConnection);
     }
 }
 

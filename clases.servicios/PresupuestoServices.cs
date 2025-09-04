@@ -304,8 +304,10 @@ private static string GetFromTextByArticulo()
 
     private static List<ArticuloPresupuesto> getArticuloPresupuesto(Presupuesto presupuesto,NpgsqlConnection conex ){
         List<ArticuloPresupuesto> articuloPresupuesto = new List<ArticuloPresupuesto>();
-        string commandText = "SELECT AP.* FROM \"ARTICULO_PRESUPUESTO\" AP WHERE AP.\"ID_PRESUPUESTO\"=@IDPRESUPUESTO";
-        using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+    string commandText = "SELECT AP.* FROM \"ARTICULO_PRESUPUESTO\" AP " +
+                         "WHERE AP.\"ID_PRESUPUESTO\" = @IDPRESUPUESTO " +
+                         "ORDER BY AP.\"ID_ARTICULO_PRESUPUESTO\""; 
+                using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
                {
                  Console.WriteLine("Consulta: "+ commandText);
                     cmd.Parameters.AddWithValue("IDPRESUPUESTO", presupuesto.Id);
@@ -366,6 +368,94 @@ private static int calcularTotal(List<ArticuloPresupuesto> articulos)
     int sumaTotalRedondeada = (int)Math.Round(sumaTotal);
     return sumaTotalRedondeada;
 }
+
+
+public List<ArticuloPresupuesto> articulosPresupuestados(
+    int idPrecioArticulo, 
+    DateTime? fechaInicio, 
+    DateTime? fechaFin, 
+    NpgsqlConnection npgsqlConnection)
+{
+    List<ArticuloPresupuesto> lista = new List<ArticuloPresupuesto>();
+
+    string sqlSelect = @"
+        SELECT 
+            a.""CODIGO"",
+            a.""DESCRIPCION"" AS articuloDescripcion,
+            a.""ID_ARTICULO"",
+            a.""ID_COLOR"",
+            cl.""DESCRIPCION"" AS colorDescripcion,
+            cl.""HEXA"" AS colorHexa,
+            SUM(ap.""CANTIDAD"") AS cantidad_total
+        FROM public.""ARTICULO_PRESUPUESTO"" ap
+        JOIN public.""ARTICULO"" a ON ap.""ID_ARTICULO"" = a.""ID_ARTICULO""
+        JOIN public.""COLOR"" cl ON cl.""ID_COLOR"" = a.""ID_COLOR""
+        JOIN public.""PRESUPUESTO"" pr ON pr.""ID_PRESUPUESTO"" = ap.""ID_PRESUPUESTO""
+        WHERE a.""ID_ARTICULO_PRECIO"" = @idArticuloPrecio
+          AND (@fechaInicio IS NULL OR pr.""FECHA_PRESUPUESTO"" >= @fechaInicio)
+          AND (@fechaFin IS NULL OR pr.""FECHA_PRESUPUESTO"" <= @fechaFin)
+        GROUP BY a.""CODIGO"", a.""DESCRIPCION"", a.""ID_ARTICULO"", a.""ID_COLOR"", cl.""DESCRIPCION"", cl.""HEXA""
+        ORDER BY cantidad_total DESC;
+    ";
+
+    using (var cmd = new NpgsqlCommand(sqlSelect, npgsqlConnection))
+    {
+        cmd.Parameters.AddWithValue("idArticuloPrecio", idPrecioArticulo);
+        cmd.Parameters.AddWithValue("fechaInicio", fechaInicio.HasValue ? (object)fechaInicio.Value : DBNull.Value);
+        cmd.Parameters.AddWithValue("fechaFin", fechaFin.HasValue ? (object)fechaFin.Value : DBNull.Value);
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var articulo = new Articulo
+                {
+                    Id = reader.IsDBNull(reader.GetOrdinal("ID_ARTICULO")) 
+                            ? 0 
+                            : reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                    Codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) 
+                            ? null 
+                            : reader.GetString(reader.GetOrdinal("CODIGO")),
+                    Descripcion = reader.IsDBNull(reader.GetOrdinal("articuloDescripcion")) 
+                            ? null 
+                            : reader.GetString(reader.GetOrdinal("articuloDescripcion")),
+                    articuloPrecio = new ArticuloPrecio { Id = idPrecioArticulo },
+                    Color = new Color
+                    {
+                        Id = reader.IsDBNull(reader.GetOrdinal("ID_COLOR")) 
+                                ? 0 
+                                : reader.GetInt32(reader.GetOrdinal("ID_COLOR")),
+                        Descripcion = reader.IsDBNull(reader.GetOrdinal("colorDescripcion")) 
+                                ? null 
+                                : reader.GetString(reader.GetOrdinal("colorDescripcion")),
+                        ColorHexa = reader.IsDBNull(reader.GetOrdinal("colorHexa")) 
+                                ? null 
+                                : reader.GetString(reader.GetOrdinal("colorHexa"))
+                    }
+                };
+
+                var presuArt = new ArticuloPresupuesto
+                {
+                    Articulo = articulo,
+                    cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad_total")) 
+                                ? 0 
+                                : reader.GetInt32(reader.GetOrdinal("cantidad_total")),
+                    codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) 
+                            ? null 
+                            : reader.GetString(reader.GetOrdinal("CODIGO")),
+                    descripcion = reader.IsDBNull(reader.GetOrdinal("articuloDescripcion")) 
+                            ? null 
+                            : reader.GetString(reader.GetOrdinal("articuloDescripcion"))
+                };
+
+                lista.Add(presuArt);
+            }
+        }
+    }
+
+    return lista;
+}
+
 
 
 }

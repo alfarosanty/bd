@@ -358,4 +358,5 @@ private static ArticuloFactura ReadArticuloFactura(NpgsqlDataReader reader, Npgs
 
 
 */
+
 }

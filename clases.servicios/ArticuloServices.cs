@@ -185,8 +185,8 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
 
 
 
-            public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
-    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\" FROM \"ARTICULO_PRECIO\"";
+    public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
+    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\", \"RELLENO\" FROM \"ARTICULO_PRECIO\"";
     
     List<ArticuloPrecio> articulosPrecios = new List<ArticuloPrecio>();
     
@@ -203,7 +203,7 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
                     Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
                     Precio1 = reader.IsDBNull(reader.GetOrdinal("PRECIO1")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO1")),
                     Precio2 = reader.IsDBNull(reader.GetOrdinal("PRECIO2")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO2")),
-                    Precio3 = reader.IsDBNull(reader.GetOrdinal("PRECIO3")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO3"))
+                    Precio3 = reader.IsDBNull(reader.GetOrdinal("PRECIO3")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO3")),
                 };
                 articulosPrecios.Add(precio);
             }
@@ -314,7 +314,7 @@ public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.
     return idsGenerados;
 }
 public EstadisticaArticuloDTO GetArticuloPresupuestado(
-    int idArticulo,
+    int idArticuloPrecio,
     DateTime? fechaDesde,
     DateTime? fechaHasta,
     NpgsqlConnection connection)
@@ -328,7 +328,7 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
           AND (@FECHAHASTA IS NULL OR p.""FECHA_PRESUPUESTO"" <= @FECHAHASTA)";
 
     using var cmd = new NpgsqlCommand(query, connection);
-    cmd.Parameters.Add("ID_ARTICULO", NpgsqlTypes.NpgsqlDbType.Integer).Value = idArticulo;
+    cmd.Parameters.Add("ID_ARTICULO", NpgsqlTypes.NpgsqlDbType.Integer).Value = idArticuloPrecio;
     cmd.Parameters.Add("FECHADESDE", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaDesde ?? DBNull.Value;
     cmd.Parameters.Add("FECHAHASTA", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaHasta ?? DBNull.Value;
 
@@ -350,7 +350,7 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
     // Crear el DTO con un solo artículo
     var dto = new EstadisticaArticuloDTO
     {
-        Articulo = GetArticulo(idArticulo, connection),
+        Articulo = GetArticulo(idArticuloPrecio, connection),
         CantidadPresupuestada = cantidadTotal,
     };
 
@@ -360,93 +360,72 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
 
 public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.NpgsqlConnection connection)
 {
-    var filasAfectadasPorArticulo = new List<int>();
+    var filasAfectadas = new List<int>();
 
-    var descripcionesActuales = new Dictionary<string, string>();
-    string selectQuery = $"SELECT \"CODIGO\", \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = ANY(@codigos)";
-    
-    using (var cmdSelect = new NpgsqlCommand(selectQuery, connection))
+    if (connection.State != System.Data.ConnectionState.Open)
+        connection.Open();
+
+    foreach (var articulo in articuloPrecios)
     {
-        if (connection.State != System.Data.ConnectionState.Open)
-            connection.Open();
+        int afectadas = 0;
 
-        var codigos = articuloPrecios.Select(ap => ap.Codigo).ToArray();
-        cmdSelect.Parameters.AddWithValue("@codigos", codigos);
-
-        using (var reader = cmdSelect.ExecuteReader())
+        // 1️⃣ Actualizar precios
+        using (var cmdPrecio = new NpgsqlCommand(
+            $"UPDATE \"{ArticuloPrecio.TABLA}\" SET " +
+            "\"PRECIO1\" = @PRECIO1, " +
+            "\"PRECIO2\" = @PRECIO2, " +
+            "\"PRECIO3\" = @PRECIO3 " +
+            "WHERE \"CODIGO\" = @CODIGO", connection))
         {
-            while (reader.Read())
+            cmdPrecio.Parameters.AddWithValue("@PRECIO1", articulo.Precio1 ?? 0);
+            cmdPrecio.Parameters.AddWithValue("@PRECIO2", articulo.Precio2 ?? 0);
+            cmdPrecio.Parameters.AddWithValue("@PRECIO3", articulo.Precio3 ?? 0);
+            cmdPrecio.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
+
+            afectadas += cmdPrecio.ExecuteNonQuery();
+        }
+
+        // 2️⃣ Verificar si la descripción cambió
+        string descripcionActual = null;
+
+        using (var cmdSelect = new NpgsqlCommand(
+            $"SELECT \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = @CODIGO", connection))
+        {
+            cmdSelect.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
+            descripcionActual = cmdSelect.ExecuteScalar() as string;
+        }
+
+        bool descripcionDiferente = !string.Equals(
+            articulo.Descripcion ?? "",
+            descripcionActual ?? "",
+            StringComparison.OrdinalIgnoreCase
+        );
+
+        if (descripcionDiferente)
+        {
+            // Actualizar en ARTICULO_PRECIO
+            using (var cmdDescPrecio = new NpgsqlCommand(
+                $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO", connection))
             {
-                string codigo = reader.GetString(0);
-                string descripcion = reader.IsDBNull(1) ? null : reader.GetString(1);
-                descripcionesActuales[codigo] = descripcion;
+                cmdDescPrecio.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
+                cmdDescPrecio.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
+                afectadas += cmdDescPrecio.ExecuteNonQuery();
+            }
+
+            // Actualizar en ARTICULO
+            using (var cmdDescArticulo = new NpgsqlCommand(
+                $"UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO", connection))
+            {
+                cmdDescArticulo.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
+                cmdDescArticulo.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
+                afectadas += cmdDescArticulo.ExecuteNonQuery();
             }
         }
+
+        filasAfectadas.Add(afectadas);
     }
 
-    string updatePrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET " +
-                              "\"PRECIO1\" = @PRECIO1, " +
-                              "\"PRECIO2\" = @PRECIO2, " +
-                              "\"PRECIO3\" = @PRECIO3, " +
-                              "\"RELLENO\" = @RELLENO " +
-                              "WHERE \"CODIGO\" = @CODIGO";
-
-    string updateDescripcionPrecioQuery = $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION " +
-                                          "WHERE \"CODIGO\" = @CODIGO";
-
-    string updateDescripcionArticuloQuery = "UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO";
-
-    using (var cmdPrecio = new NpgsqlCommand(updatePrecioQuery, connection))
-    using (var cmdDescripcionPrecio = new NpgsqlCommand(updateDescripcionPrecioQuery, connection))
-    using (var cmdDescripcionArticulo = new NpgsqlCommand(updateDescripcionArticuloQuery, connection))
-    {
-        foreach (var articuloPrecio in articuloPrecios)
-        {
-            bool actualizoDescripcion = false;
-
-            string descripcionActual = null;
-            descripcionesActuales.TryGetValue(articuloPrecio.Codigo, out descripcionActual);
-
-            // Comparación SIN trim
-            bool descripcionDiferente = !string.Equals(
-                articuloPrecio.Descripcion ?? "",
-                descripcionActual ?? "",
-                StringComparison.OrdinalIgnoreCase
-            );
-
-            try
-            {
-                cmdPrecio.Parameters.Clear();
-                cmdPrecio.Parameters.AddWithValue("@PRECIO1", articuloPrecio.Precio1 ?? 0);
-                cmdPrecio.Parameters.AddWithValue("@PRECIO2", articuloPrecio.Precio2 ?? 0);
-                cmdPrecio.Parameters.AddWithValue("@PRECIO3", articuloPrecio.Precio3 ?? 0);
-                cmdPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
-                int filasAfectadas = cmdPrecio.ExecuteNonQuery();
-
-                if (descripcionDiferente)
-                {
-                    cmdDescripcionPrecio.Parameters.Clear();
-                    cmdDescripcionPrecio.Parameters.AddWithValue("@DESCRIPCION", articuloPrecio.Descripcion ?? (object)DBNull.Value);
-                    cmdDescripcionPrecio.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
-                    filasAfectadas += cmdDescripcionPrecio.ExecuteNonQuery();
-
-                    cmdDescripcionArticulo.Parameters.Clear();
-                    cmdDescripcionArticulo.Parameters.AddWithValue("@DESCRIPCION", articuloPrecio.Descripcion ?? (object)DBNull.Value);
-                    cmdDescripcionArticulo.Parameters.AddWithValue("@CODIGO", articuloPrecio.Codigo ?? (object)DBNull.Value);
-                    filasAfectadas += cmdDescripcionArticulo.ExecuteNonQuery();
-                }
-
-                filasAfectadasPorArticulo.Add(filasAfectadas);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error al actualizar artículo con código {articuloPrecio.Codigo}: {ex.Message}");
-                filasAfectadasPorArticulo.Add(0);
-            }
-        }
-    }
-
-    return filasAfectadasPorArticulo;
+    return filasAfectadas;
 }
 
 
@@ -748,6 +727,37 @@ public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteAgrupadoPorCodigo(st
             return articulo;
         }
 
+
+public int ActualizarStock(ActualizacionStockInutDTO[] articulos, NpgsqlConnection connection)
+    {
+        int cantidadTotal = 0;
+
+        using var transaction = connection.BeginTransaction();
+        try
+        {
+            foreach (var articulo in articulos)
+            {
+                using var cmd = new NpgsqlCommand(
+                    @"UPDATE ""ARTICULO"" 
+                      SET ""STOCK"" = @stock 
+                      WHERE ""ID_ARTICULO"" = @idArticulo", connection, transaction);
+
+                cmd.Parameters.AddWithValue("@stock", articulo.CantidadStock);
+                cmd.Parameters.AddWithValue("@idArticulo", articulo.IdArticulo);
+
+                cantidadTotal += cmd.ExecuteNonQuery();
+            }
+
+            transaction.Commit();
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
+        }
+
+        return cantidadTotal;
+    }
 
     }
 

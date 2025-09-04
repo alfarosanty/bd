@@ -47,6 +47,98 @@ using System.Threading.Tasks;
 
        
     }
+
+public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
+{
+    var lista = new List<CondicionFiscal>();
+
+    string query = "SELECT \"ID_CONDICION\", \"CODIGO\", \"DESCRIPCION\" FROM \"CONDICION_AFIP\" ORDER BY \"DESCRIPCION\"";
+
+    using (var cmd = new NpgsqlCommand(query, conex))
+    {
+        if (conex.State != System.Data.ConnectionState.Open)
+            conex.Open();
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var item = new CondicionFiscal
+                {
+                    Id = reader.GetInt32(0),
+                    Codigo = reader.IsDBNull(1) ? null : reader.GetString(1),
+                    Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2)
+                };
+                lista.Add(item);
+            }
+        }
+    }
+
+    return lista;
+}
+
+
+ public Cliente Crear(NpgsqlConnection conn, Cliente cliente)
+    {
+        string query = @"
+            INSERT INTO ""CLIENTE"" 
+            (""RAZON_SOCIAL"", ""TELEFONO"", ""CONTACTO"", ""DOMICILIO"", ""LOCALIDAD"", ""CUIT"", ""ID_CONDICION_AFIP"", ""PROVINCIA"", ""TRANSPORTE"")
+            VALUES (@razonSocial, @telefono, @contacto, @domicilio, @localidad, @cuit, @idCondicionAfip, @provincia, @transporte)
+            RETURNING ""ID_CLIENTE"";
+        ";
+
+
+        using var cmd = new NpgsqlCommand(query, conn);
+
+        cmd.Parameters.AddWithValue("@razonSocial", cliente.RazonSocial ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@telefono", cliente.Telefono ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@contacto", cliente.Contacto ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@domicilio", cliente.Domicilio ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@localidad", cliente.Localidad ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@cuit", cliente.Cuit ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
+        cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
+
+        cliente.Id = (int)cmd.ExecuteScalar();
+        return cliente;
+    }
+
+public int Actualizar(NpgsqlConnection conn, Cliente cliente)
+{
+    string query = @"
+        UPDATE ""CLIENTE"" SET
+            ""RAZON_SOCIAL"" = @razonSocial,
+            ""TELEFONO"" = @telefono,
+            ""CONTACTO"" = @contacto,
+            ""DOMICILIO"" = @domicilio,
+            ""LOCALIDAD"" = @localidad,
+            ""CUIT"" = @cuit,
+            ""ID_CONDICION_AFIP"" = @idCondicionAfip,
+            ""PROVINCIA"" = @provincia,
+            ""TRANSPORTE"" = @transporte
+        WHERE ""ID_CLIENTE"" = @idCliente;
+    ";
+
+    using var cmd = new NpgsqlCommand(query, conn);
+    cmd.Parameters.AddWithValue("@idCliente", cliente.Id);
+    cmd.Parameters.AddWithValue("@razonSocial", cliente.RazonSocial ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@telefono", cliente.Telefono ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@contacto", cliente.Contacto ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@domicilio", cliente.Domicilio ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@localidad", cliente.Localidad ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@cuit", cliente.Cuit ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
+    cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
+
+    int filasAfectadas = cmd.ExecuteNonQuery();
+    return filasAfectadas;
+}
+
+
+
+
  private static string getSelect()
         {
             return  $"SELECT CL.* ,CF.\"CODIGO\" AS CF_CODIGO, CF.\"DESCRIPCION\" AS CF_DESCRIPCION ";
@@ -74,6 +166,10 @@ using System.Threading.Tasks;
             string domicilio = reader["DOMICILIO"] as string;
             string localidad = reader["LOCALIDAD"] as string;
             string telefono = reader["CUIT"] as string;
+            string provincia = reader["PROVINCIA"] as string;
+            string transporte = reader["TRANSPORTE"] as string;
+
+
 
              int? cfId = reader["ID_CONDICION_AFIP"] as int?;
             string cfCodigo = reader["CF_CODIGO"] as string;
@@ -94,7 +190,9 @@ using System.Threading.Tasks;
                 Domicilio = domicilio,
                 Localidad = localidad,
                 Cuit = telefono,
-                CondicionFiscal = cf
+                CondicionFiscal = cf,
+                Provincia = provincia,
+                Transporte = transporte
 
             };
 
