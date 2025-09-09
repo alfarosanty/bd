@@ -40,6 +40,31 @@ public class IngresoController : ControllerBase
     }
 
 
+        // POST api/ingresodetalle
+[HttpPost("detalles-ingreso-pedido-produccion")]
+public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<PedidoProduccionIngresoDetalle> detalles)
+{
+    try
+    {
+        CConexion con = new CConexion();
+        using var npgsqlConnection = con.establecerConexion();
+        using var transaction = npgsqlConnection.BeginTransaction();
+
+        IngresoService ingresoService = new IngresoService();
+        // Guardamos los IDs creados
+        List<int> idsCreados = ingresoService.CrearDetallesIngresoPedidoProduccion(detalles, npgsqlConnection);
+
+        transaction.Commit();
+
+        return Ok(new { ids = idsCreados, mensaje = "Detalles guardados correctamente" });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, $"Error al guardar los detalles: {ex.Message}");
+    }
+}
+
+
       [HttpGet("GetIngresoByTaller/{idTaller}")]
     public List<Ingreso> GetByTaller(int idTaller)
     {

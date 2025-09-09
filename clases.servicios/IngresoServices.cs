@@ -35,25 +35,33 @@ public class IngresoService
                 return ingreso;
                 }
 
-    public List<Ingreso> GetIngresoByTaller(int idTaller, NpgsqlConnection conex ){
-            List<Ingreso> ingresos = new List<Ingreso>();
-            string commandText =  getSelect() + GetFromText()+ " WHERE I.\"ID_FABRICANTE\" = @id";
-            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-               {
-                 Console.WriteLine("Consulta: "+ commandText);
-                    cmd.Parameters.AddWithValue("id", idTaller);
-                     
-                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                        while (reader.Read())
-                        {
-                            ingresos.Add(ReadIngreso(reader, conex));
-                            
-                            
-                        }
-                }
-                return ingresos;
+public List<Ingreso> GetIngresoByTaller(int idTaller, NpgsqlConnection conex)
+{
+    List<Ingreso> ingresos = new List<Ingreso>();
+    string commandText = getSelect() + GetFromText() + " WHERE I.\"ID_FABRICANTE\" = @id";
+
+    using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+    {
+        Console.WriteLine("Consulta: " + commandText);
+        cmd.Parameters.AddWithValue("id", idTaller);
+
+        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                ingresos.Add(ReadIngreso(reader, conex));
+            }
         }
-    
+    }
+
+    // ===== Aquí llenamos los artículos de cada ingreso =====
+    foreach (var ingreso in ingresos)
+    {
+        ingreso.Articulos = getArticulosIngreso(ingreso, conex);
+    }
+
+    return ingresos;
+}
 
     
         public  int crear(Ingreso ingreso, Npgsql.NpgsqlConnection npgsqlConnection)
@@ -131,6 +139,35 @@ public class IngresoService
     return ingreso.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
     }
 
+public List<int> CrearDetallesIngresoPedidoProduccion(
+    List<PedidoProduccionIngresoDetalle> detalles, 
+    NpgsqlConnection npgsqlConnection)
+{
+    List<int> idsCreados = new List<int>();
+
+    foreach (var detalle in detalles)
+    {
+        string sqlInsert = $@"
+INSERT INTO public.""{PedidoProduccionIngresoDetalle.TABLA}"" 
+(""ID_PEDIDO_PRODUCCION"", ""ID_INGRESO"", ""ID_PRESUPUESTO"", ""ID_ARTICULO"", ""CANTIDAD_DESCONTADA"")
+VALUES (@idPedido, @idIngreso, @idPresupuesto, @idArticulo, @cantidadDescontada)
+RETURNING ""ID_DETALLE"";";
+
+        using var cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
+
+        cmd.Parameters.AddWithValue("idPedido", detalle.PedidoProduccion.Id);
+        cmd.Parameters.AddWithValue("idIngreso", detalle.Ingreso.Id);
+        cmd.Parameters.AddWithValue("idPresupuesto", detalle.Presupuesto != null ? detalle.Presupuesto.Id : (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("idArticulo", detalle.Articulo.Id);
+        cmd.Parameters.AddWithValue("cantidadDescontada", detalle.CantidadDescontada);
+
+        // Ejecutamos y obtenemos el ID generado
+        int idCreado = Convert.ToInt32(cmd.ExecuteScalar());
+        idsCreados.Add(idCreado);
+    }
+
+    return idsCreados;
+}
 
 
 

@@ -32,8 +32,8 @@ public  string getTabla()
     int idFactura = Convert.ToInt32(cmdSeq.ExecuteScalar());
 
     // CREO EL INSERT EN LA TABLA PRESUPUESTO
-    string sqlInsert = "INSERT INTO \"" + Factura.TABLA + "\" (\"ID_FACTURA\",\"ID_CLIENTE\", \"FECHA_FACTURA\", \"IMPORTE_BRUTO\", \"EXIMIR_IVA\", \"ID_PRESUPUESTO\", \"PUNTO_DE_VENTA\", \"NUMERO_FACTURA\", \"CAE_NUMERO\", \"FECHA_VENCIMIENTO_CAE\", \"IMPORTE_NETO\", \"IVA\", \"TIPO_FACTURA\") " +
-                       "VALUES(@FACTURA, @ID_CLIENTE, @FECHA_FACTURA, @IMPORTE_BRUTO, @EXIMIR_IVA, @ID_PRESUPUESTO, @PUNTO_DE_VENTA, @NUMERO_DE_FACTURA, @CAE_NUMERO, @FECHA_VENCIMIENTO_CAE, @IMPORTE_NETO, @IVA, @TIPO_FACTURA)";
+    string sqlInsert = "INSERT INTO \"" + Factura.TABLA + "\" (\"ID_FACTURA\",\"ID_CLIENTE\", \"FECHA_FACTURA\", \"IMPORTE_BRUTO\", \"EXIMIR_IVA\", \"ID_PRESUPUESTO\", \"PUNTO_DE_VENTA\", \"NUMERO_FACTURA\", \"CAE_NUMERO\", \"FECHA_VENCIMIENTO_CAE\", \"IMPORTE_NETO\", \"IVA\", \"TIPO_FACTURA\", \"DESCUENTO\") " +
+                       "VALUES(@FACTURA, @ID_CLIENTE, @FECHA_FACTURA, @IMPORTE_BRUTO, @EXIMIR_IVA, @ID_PRESUPUESTO, @PUNTO_DE_VENTA, @NUMERO_DE_FACTURA, @CAE_NUMERO, @FECHA_VENCIMIENTO_CAE, @IMPORTE_NETO, @IVA, @TIPO_FACTURA, @DESCUENTO)";
     NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
     cmd.Parameters.AddWithValue("FACTURA", idFactura);
     cmd.Parameters.AddWithValue("ID_CLIENTE", factura.Cliente.Id);
@@ -83,43 +83,24 @@ public List<RespuestaEstadistica> facturacionXCliente(DateTime? fechaInicio, Dat
 {
     List<RespuestaEstadistica> lista = new List<RespuestaEstadistica>();
 
-string sqlSelect = @"
+    string sqlSelect = @"
 SELECT 
-  c.""ID_CLIENTE"", 
-  c.""RAZON_SOCIAL"",
-  COALESCE(facturas.MONTO_TOTAL, 0) AS MONTO_TOTAL,
-  COALESCE(articulos.CANTIDAD_TOTAL, 0) AS CANTIDAD_TOTAL
-FROM """ + Cliente.TABLA + @""" c
-LEFT JOIN (
-    SELECT ""ID_CLIENTE"", SUM(""IMPORTE_BRUTO"") AS MONTO_TOTAL
-    FROM """ + Factura.TABLA + @"""
-    GROUP BY ""ID_CLIENTE""
-) facturas ON c.""ID_CLIENTE"" = facturas.""ID_CLIENTE""
-LEFT JOIN (
-    SELECT f.""ID_CLIENTE"", SUM(af.""CANTIDAD"") AS CANTIDAD_TOTAL
-    FROM """ + Factura.TABLA + @""" f
-    JOIN """ + ArticuloFactura.TABLA + @""" af ON f.""ID_FACTURA"" = af.""ID_FACTURA""
-    GROUP BY f.""ID_CLIENTE""
-) articulos ON c.""ID_CLIENTE"" = articulos.""ID_CLIENTE""";
+    CLI.""RAZON_SOCIAL"",
+    CLI.""ID_CLIENTE"", 
+    SUM(DISTINCT (FA.""IMPORTE_BRUTO"" * (100 - COALESCE(FA.""DESCUENTO"", 0))/100)) AS MONTO_TOTAL,
+    SUM(AF.""CANTIDAD"") AS CANTIDAD_TOTAL
+FROM public.""FACTURA"" FA
+JOIN public.""CLIENTE"" CLI ON FA.""ID_CLIENTE"" = CLI.""ID_CLIENTE""
+JOIN public.""ARTICULO_FACTURA"" AF ON FA.""ID_FACTURA"" = AF.""ID_FACTURA""
+WHERE FA.""FECHA_FACTURA"" BETWEEN @fechaInicio AND @fechaFin
+GROUP BY CLI.""RAZON_SOCIAL"", CLI.""ID_CLIENTE""";
 
-string whereClause = "";
-if (fechaInicio.HasValue && fechaFin.HasValue)
-{
-    whereClause = @" WHERE EXISTS (
-        SELECT 1 FROM """ + Factura.TABLA + @""" f2 
-        WHERE f2.""ID_CLIENTE"" = c.""ID_CLIENTE""
-        AND f2.""FECHA_FACTURA"" BETWEEN @fechaInicio AND @fechaFin
-    )";
-}
-string finalQuery = sqlSelect + whereClause;
-
-
-    using (var cmd = new NpgsqlCommand(finalQuery, npgsqlConnection))
+    using (var cmd = new NpgsqlCommand(sqlSelect, npgsqlConnection))
     {
         if (fechaInicio.HasValue && fechaFin.HasValue)
         {
-            cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio.Value);
-            cmd.Parameters.AddWithValue("@fechaFin", fechaFin.Value);
+            cmd.Parameters.AddWithValue("fechaInicio", fechaInicio.Value);
+            cmd.Parameters.AddWithValue("fechaFin", fechaFin.Value);
         }
 
         using (var reader = cmd.ExecuteReader())
@@ -131,11 +112,14 @@ string finalQuery = sqlSelect + whereClause;
                     Id = reader.GetInt32(reader.GetOrdinal("ID_CLIENTE")),
                     RazonSocial = reader.GetString(reader.GetOrdinal("RAZON_SOCIAL"))
                 };
-            var montoDecimal = reader.GetDecimal(reader.GetOrdinal("MONTO_TOTAL"));
-            int monto = (int)montoDecimal;
 
-            int cantidadArticulos = reader.GetInt32(reader.GetOrdinal("CANTIDAD_TOTAL"));
+                // MONTO_TOTAL viene como decimal
+                decimal montoDecimal = reader.GetDecimal(reader.GetOrdinal("MONTO_TOTAL"));
+                int monto = (int)montoDecimal;
 
+                // CANTIDAD_TOTAL puede ser bigint
+                long cantidadArticulosLong = reader.GetInt64(reader.GetOrdinal("CANTIDAD_TOTAL"));
+                int cantidadArticulos = (int)cantidadArticulosLong;
 
                 lista.Add(new RespuestaEstadistica
                 {

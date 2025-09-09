@@ -3616,3 +3616,879 @@
 2025-09-04 11:16:17.708 -03:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-09-04 11:16:17.709 -03:00 [INF] Hosting environment: Development
 2025-09-04 11:16:17.709 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-09-04 11:24:37.172 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-09-04 11:24:37.241 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 11:24:37.243 -03:00 [INF] Hosting environment: Development
+2025-09-04 11:24:37.243 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-09-04 11:24:41.181 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - -
+2025-09-04 11:24:41.255 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-09-04 11:24:41.321 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:24:41.387 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "Ingreso"}. Executing controller action with signature System.Collections.Generic.List`1[Ingreso] GetByTaller(Int32) on controller BlumeAPI.Controllers.IngresoController (BlumeAPI).
+2025-09-04 11:26:48.039 -03:00 [INF] Executed action BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI) in 126644.5595ms
+2025-09-04 11:26:48.046 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:26:48.048 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT I.* FROM "INGRESO" I WHERE I."ID_FABRICANTE" = @id
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|278_0(ConnectorState newState, NpgsqlCommand command, <>c__DisplayClass278_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at TallerServices.GetTaller(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\clases.servicios\Tallerservices.cs:line 20
+   at IngresoService.ReadIngreso(NpgsqlDataReader reader, NpgsqlConnection conex) in G:\Desa\programa\bd\clases.servicios\IngresoServices.cs:line 151
+   at IngresoService.GetIngresoByTaller(Int32 idTaller, NpgsqlConnection conex) in G:\Desa\programa\bd\clases.servicios\IngresoServices.cs:line 56
+   at BlumeAPI.Controllers.IngresoController.GetByTaller(Int32 idTaller) in G:\Desa\programa\bd\Controllers\IngresoController.cs:line 49
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-09-04 11:26:48.180 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - - - 500 - text/plain;+charset=utf-8 127005.6666ms
+2025-09-04 11:38:31.386 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-09-04 11:38:31.427 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 11:38:31.427 -03:00 [INF] Hosting environment: Development
+2025-09-04 11:38:31.427 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-09-04 11:38:42.427 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - -
+2025-09-04 11:38:42.482 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-09-04 11:38:42.524 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:38:42.568 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "Ingreso"}. Executing controller action with signature System.Collections.Generic.List`1[Ingreso] GetByTaller(Int32) on controller BlumeAPI.Controllers.IngresoController (BlumeAPI).
+2025-09-04 11:38:43.337 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ingreso, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:38:43.573 -03:00 [INF] Executed action BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI) in 997.0299ms
+2025-09-04 11:38:43.576 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:38:43.581 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - - - 200 - application/json;+charset=utf-8 1158.6474ms
+2025-09-04 11:39:44.040 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:39:44.040 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:39:44.055 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:44.056 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:44.058 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:39:44.058 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:39:44.062 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:39:44.062 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:39:44.074 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:39:44.077 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 11.3377ms
+2025-09-04 11:39:44.077 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:39:44.077 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 37.2348ms
+2025-09-04 11:39:44.085 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:39:44.087 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 24.9719ms
+2025-09-04 11:39:44.088 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:39:44.088 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 47.3933ms
+2025-09-04 11:39:46.602 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/undefined - -
+2025-09-04 11:39:46.612 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:46.612 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:46.612 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "Ingreso"}. Executing controller action with signature System.Collections.Generic.List`1[Ingreso] GetByTaller(Int32) on controller BlumeAPI.Controllers.IngresoController (BlumeAPI).
+2025-09-04 11:39:46.626 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:39:46.640 -03:00 [INF] Executed action BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI) in 28.0465ms
+2025-09-04 11:39:46.641 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:46.641 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 38.4821ms
+2025-09-04 11:39:48.103 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - -
+2025-09-04 11:39:48.103 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:48.103 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:48.103 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "Ingreso"}. Executing controller action with signature System.Collections.Generic.List`1[Ingreso] GetByTaller(Int32) on controller BlumeAPI.Controllers.IngresoController (BlumeAPI).
+2025-09-04 11:39:48.155 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ingreso, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:39:48.156 -03:00 [INF] Executed action BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI) in 52.7619ms
+2025-09-04 11:39:48.156 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:48.156 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - - - 200 - application/json;+charset=utf-8 53.2222ms
+2025-09-04 11:39:55.247 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:39:55.247 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:55.247 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:39:55.248 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:39:55.249 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:39:55.249 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.3418ms
+2025-09-04 11:39:55.249 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:39:55.249 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.9003ms
+2025-09-04 11:39:55.250 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:39:55.263 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:55.263 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:39:55.263 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:39:55.267 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:39:55.267 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 3.8683ms
+2025-09-04 11:39:55.267 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:39:55.267 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 17.2469ms
+2025-09-04 11:39:56.714 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - -
+2025-09-04 11:39:56.714 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:39:56.714 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:56.716 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:39:56.716 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:39:56.716 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 0.7884ms
+2025-09-04 11:39:56.717 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:39:56.717 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 2.6908ms
+2025-09-04 11:40:40.002 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:40:40.022 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:40:40.027 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:40:40.027 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:40:40.027 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:40:40.027 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:40:40.031 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:40:40.036 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:40:40.036 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:40:40.037 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 5.7673ms
+2025-09-04 11:40:40.037 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:40:40.037 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 14.2820ms
+2025-09-04 11:40:40.037 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:40:40.038 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.2868ms
+2025-09-04 11:40:40.038 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:40:40.038 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 37.1535ms
+2025-09-04 11:40:52.330 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:40:52.330 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:40:52.330 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:40:52.330 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:40:52.331 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:40:52.331 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:40:52.332 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.2144ms
+2025-09-04 11:40:52.332 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:40:52.332 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:40:52.332 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:40:52.332 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.9136ms
+2025-09-04 11:40:52.332 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:40:52.333 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:40:52.333 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 0.9728ms
+2025-09-04 11:40:52.333 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:40:52.333 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 1.6732ms
+2025-09-04 11:41:08.735 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:41:08.736 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:41:08.736 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:41:08.736 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:41:08.738 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:41:08.738 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.9143ms
+2025-09-04 11:41:08.738 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:41:08.738 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 2.6905ms
+2025-09-04 11:41:08.746 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:41:08.746 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:41:08.747 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:41:08.747 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:41:08.748 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:41:08.749 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 2.1018ms
+2025-09-04 11:41:08.749 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:41:08.749 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.7215ms
+2025-09-04 11:41:10.503 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - -
+2025-09-04 11:41:10.503 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:41:10.503 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:41:10.503 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:41:10.504 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:41:10.504 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 0.5739ms
+2025-09-04 11:41:10.504 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:41:10.504 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 0.9841ms
+2025-09-04 11:42:12.686 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:42:12.692 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:12.697 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:12.698 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:42:12.698 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:42:12.701 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:12.702 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:12.708 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:12.712 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:42:12.712 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 14.64ms
+2025-09-04 11:42:12.715 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:12.715 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 29.4587ms
+2025-09-04 11:42:12.715 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:12.716 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 0.9512ms
+2025-09-04 11:42:12.716 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:12.716 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 17.4755ms
+2025-09-04 11:42:14.404 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - -
+2025-09-04 11:42:14.404 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:14.404 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:42:14.404 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:42:14.417 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:42:14.417 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 13.0292ms
+2025-09-04 11:42:14.417 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:42:14.417 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 13.5183ms
+2025-09-04 11:42:44.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:42:44.839 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:44.849 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:44.883 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:42:44.906 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:44.906 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 23.3242ms
+2025-09-04 11:42:44.906 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:44.906 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 80.3104ms
+2025-09-04 11:42:44.918 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:42:44.919 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:44.919 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:44.948 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:42:44.958 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:44.959 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 9.2906ms
+2025-09-04 11:42:44.959 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:44.960 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 43.5068ms
+2025-09-04 11:42:47.070 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:42:47.070 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:47.070 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:47.070 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:42:47.073 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:47.074 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 3.1848ms
+2025-09-04 11:42:47.074 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:42:47.074 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 3.8985ms
+2025-09-04 11:42:47.088 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:42:47.088 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:47.088 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:47.088 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:42:47.091 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:42:47.091 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 2.3531ms
+2025-09-04 11:42:47.091 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:42:47.091 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 3.0633ms
+2025-09-04 11:42:48.469 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - -
+2025-09-04 11:42:48.469 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:42:48.469 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:42:48.469 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:42:48.470 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:42:48.471 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 1.4145ms
+2025-09-04 11:42:48.472 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:42:48.472 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 3.6688ms
+2025-09-04 11:44:26.343 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:44:26.343 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:44:26.343 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:44:26.343 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:44:26.344 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:44:26.344 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:44:26.344 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:44:26.344 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:44:26.433 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:44:26.434 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 89.4731ms
+2025-09-04 11:44:26.434 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:44:26.434 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 89.8720ms
+2025-09-04 11:44:26.436 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:44:26.436 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 92.92ms
+2025-09-04 11:44:26.437 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:44:26.437 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 93.8713ms
+2025-09-04 11:44:27.878 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - -
+2025-09-04 11:44:27.878 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:44:27.879 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:44:27.879 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:44:27.879 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 11:44:27.879 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 0.7697ms
+2025-09-04 11:44:27.879 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:44:27.880 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/undefined - - - 400 - application/problem+json;+charset=utf-8 1.2214ms
+2025-09-04 11:46:27.341 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:46:27.345 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:46:27.346 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:46:27.353 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:46:27.354 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:46:27.384 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:46:27.384 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:46:27.389 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:46:27.389 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:46:27.389 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 36.3037ms
+2025-09-04 11:46:27.389 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:46:27.389 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 50.3086ms
+2025-09-04 11:46:27.393 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:46:27.394 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 4.3021ms
+2025-09-04 11:46:27.394 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:46:27.394 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 39.8792ms
+2025-09-04 11:46:32.821 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 11:46:32.822 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:46:32.822 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:46:32.822 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:46:32.915 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:46:32.933 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 111.5424ms
+2025-09-04 11:46:32.933 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 11:46:32.933 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 112.0458ms
+2025-09-04 11:46:32.979 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 11:46:32.979 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:46:32.979 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 11:46:32.982 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 11:46:33.044 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 11:46:33.082 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 99.4408ms
+2025-09-04 11:46:33.082 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 11:46:33.082 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 103.3429ms
+2025-09-04 11:46:37.116 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - -
+2025-09-04 11:46:37.117 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:46:37.117 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:46:37.117 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "Ingreso"}. Executing controller action with signature System.Collections.Generic.List`1[Ingreso] GetByTaller(Int32) on controller BlumeAPI.Controllers.IngresoController (BlumeAPI).
+2025-09-04 11:46:37.163 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ingreso, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:46:37.163 -03:00 [INF] Executed action BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI) in 46.3746ms
+2025-09-04 11:46:37.163 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.IngresoController.GetByTaller (BlumeAPI)'
+2025-09-04 11:46:37.163 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Ingreso/GetIngresoByTaller/1 - - - 200 - application/json;+charset=utf-8 46.7909ms
+2025-09-04 11:50:04.045 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:50:04.045 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:50:04.051 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:50:04.051 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:50:04.057 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:50:04.057 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:50:04.057 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:50:04.057 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:50:04.146 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:50:04.147 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 89.5014ms
+2025-09-04 11:50:04.147 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:50:04.147 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 103.7233ms
+2025-09-04 11:50:04.251 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:50:04.251 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 194.1601ms
+2025-09-04 11:50:04.251 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:50:04.252 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 208.2756ms
+2025-09-04 11:50:17.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:50:17.820 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:50:17.820 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:50:17.820 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:50:17.822 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:50:17.822 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.4706ms
+2025-09-04 11:50:17.822 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:50:17.822 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 2.3416ms
+2025-09-04 11:50:17.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:50:17.831 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:50:17.831 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:50:17.831 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:50:17.832 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:50:17.832 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.4442ms
+2025-09-04 11:50:17.832 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:50:17.833 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 1.9945ms
+2025-09-04 11:54:21.804 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:54:21.812 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:54:21.844 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:54:21.845 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:54:21.845 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:54:21.846 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:54:21.852 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:54:21.852 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:54:21.852 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:54:21.859 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 13.8335ms
+2025-09-04 11:54:21.859 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:54:21.859 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:54:21.859 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 55.6923ms
+2025-09-04 11:54:21.859 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 6.7232ms
+2025-09-04 11:54:21.859 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:54:21.859 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 14.3604ms
+2025-09-04 11:59:07.314 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-09-04 11:59:07.320 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:59:07.320 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-09-04 11:59:07.328 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-09-04 11:59:07.494 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:59:07.497 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 168.6036ms
+2025-09-04 11:59:07.497 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-09-04 11:59:07.497 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 184.1814ms
+2025-09-04 11:59:08.799 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 11:59:08.800 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 11:59:08.800 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:59:08.800 -03:00 [INF] CORS policy execution successful.
+2025-09-04 11:59:08.800 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:59:08.800 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:59:08.800 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 11:59:08.800 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 11:59:08.804 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:59:08.804 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 4.4705ms
+2025-09-04 11:59:08.804 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 11:59:08.804 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 4.9084ms
+2025-09-04 11:59:08.852 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 11:59:08.852 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 52.355ms
+2025-09-04 11:59:08.852 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 11:59:08.852 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 52.9262ms
+2025-09-04 12:01:03.706 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:01:03.711 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:01:03.717 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:01:03.717 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:01:03.775 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:01:03.776 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 58.7531ms
+2025-09-04 12:01:03.776 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:01:03.776 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 69.8579ms
+2025-09-04 12:01:03.797 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:01:03.799 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:01:03.799 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:01:03.799 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:01:03.831 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:01:03.831 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 31.7688ms
+2025-09-04 12:01:03.831 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:01:03.831 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 34.4034ms
+2025-09-04 12:14:52.215 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:14:52.220 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:14:52.220 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:14:52.222 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:14:52.222 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:14:52.223 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:14:52.223 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:14:52.223 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:14:52.304 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:14:52.305 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 82.3867ms
+2025-09-04 12:14:52.305 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:14:52.305 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 91.5845ms
+2025-09-04 12:14:52.308 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:14:52.308 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 84.4651ms
+2025-09-04 12:14:52.308 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:14:52.309 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 88.1019ms
+2025-09-04 12:14:58.276 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:14:58.276 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:14:58.277 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:14:58.277 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:14:58.277 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:14:58.277 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:14:58.277 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:14:58.277 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:14:58.280 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:14:58.280 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:14:58.281 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 3.6929ms
+2025-09-04 12:14:58.281 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:14:58.281 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 4.0265ms
+2025-09-04 12:14:58.281 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 4.0439ms
+2025-09-04 12:14:58.281 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:14:58.281 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 5.2386ms
+2025-09-04 12:15:38.418 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:15:38.420 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:15:38.427 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:15:38.427 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:15:38.439 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:15:38.443 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:15:38.443 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 15.4501ms
+2025-09-04 12:15:38.444 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:15:38.444 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:15:38.444 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 26.3983ms
+2025-09-04 12:15:38.444 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:15:38.444 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:15:38.453 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:15:38.453 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 5.2793ms
+2025-09-04 12:15:38.453 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:15:38.453 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 10.4356ms
+2025-09-04 12:15:54.133 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:15:54.133 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:15:54.136 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:15:54.136 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:15:54.136 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:15:54.136 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:15:54.136 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:15:54.136 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:15:54.137 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:15:54.137 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:15:54.137 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 0.6922ms
+2025-09-04 12:15:54.137 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 0.8137ms
+2025-09-04 12:15:54.137 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:15:54.137 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:15:54.137 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 4.0244ms
+2025-09-04 12:15:54.137 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.0359ms
+2025-09-04 12:16:08.592 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:16:08.592 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:08.595 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:08.595 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:16:08.595 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:16:08.595 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:08.595 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:08.595 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:16:08.596 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:08.596 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 0.8331ms
+2025-09-04 12:16:08.596 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:08.596 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:08.596 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 0.7448ms
+2025-09-04 12:16:08.596 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:08.596 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.1751ms
+2025-09-04 12:16:08.599 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 3.7677ms
+2025-09-04 12:16:16.667 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:16:16.667 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:16.667 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:16:16.667 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:16:16.749 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:16.750 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 82.8873ms
+2025-09-04 12:16:16.750 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:16:16.750 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 83.3029ms
+2025-09-04 12:16:16.766 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:16:16.766 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:16.766 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:16:16.766 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:16:16.795 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:16:16.796 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 29.658ms
+2025-09-04 12:16:16.796 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:16:16.796 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 30.0263ms
+2025-09-04 12:16:31.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:16:31.685 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:31.685 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:31.685 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:16:31.687 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:16:31.687 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:31.688 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:31.689 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.4033ms
+2025-09-04 12:16:31.689 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:31.689 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 4.0749ms
+2025-09-04 12:16:31.702 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:31.706 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:16:31.712 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:31.712 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 5.8949ms
+2025-09-04 12:16:31.712 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:31.712 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 26.9038ms
+2025-09-04 12:16:34.330 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:16:34.330 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:34.330 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:16:34.330 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:16:34.379 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:34.379 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 48.9127ms
+2025-09-04 12:16:34.379 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:16:34.380 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 49.4346ms
+2025-09-04 12:16:34.393 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:16:34.393 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:34.393 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:16:34.393 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:16:34.407 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:16:34.408 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 14.3802ms
+2025-09-04 12:16:34.408 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:16:34.408 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 14.8281ms
+2025-09-04 12:16:56.648 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:16:56.649 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:56.649 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:56.649 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:16:56.650 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:56.662 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 13.0339ms
+2025-09-04 12:16:56.662 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:16:56.662 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 14.4894ms
+2025-09-04 12:16:56.671 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:16:56.672 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:16:56.676 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:56.676 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:16:56.685 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:16:56.689 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 12.6833ms
+2025-09-04 12:16:56.689 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:16:56.689 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 18.6309ms
+2025-09-04 12:17:36.478 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:17:36.479 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:17:36.482 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:17:36.483 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:17:36.539 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:17:36.540 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 57.3337ms
+2025-09-04 12:17:36.540 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:17:36.540 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 61.8480ms
+2025-09-04 12:17:36.563 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:17:36.564 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:17:36.564 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:17:36.564 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:17:36.582 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:17:36.583 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 18.8568ms
+2025-09-04 12:17:36.583 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:17:36.583 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 19.3646ms
+2025-09-04 12:18:14.254 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:18:14.257 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:14.262 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:14.264 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:18:14.268 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:18:14.269 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:14.269 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:14.269 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:14.273 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 9.0211ms
+2025-09-04 12:18:14.273 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:18:14.273 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:14.278 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 18.9032ms
+2025-09-04 12:18:14.283 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:14.283 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 10.1645ms
+2025-09-04 12:18:14.283 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:14.283 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 16.1631ms
+2025-09-04 12:18:17.933 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:18:17.933 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:17.933 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:17.933 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:18:17.934 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:17.934 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.2675ms
+2025-09-04 12:18:17.934 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:17.935 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 2.0013ms
+2025-09-04 12:18:17.935 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:18:17.935 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:17.935 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:17.935 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:18:17.936 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:17.936 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.2305ms
+2025-09-04 12:18:17.937 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:17.937 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 1.7782ms
+2025-09-04 12:18:22.864 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:18:22.864 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:22.864 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:22.864 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:18:22.865 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:22.866 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.1276ms
+2025-09-04 12:18:22.866 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:18:22.866 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.6606ms
+2025-09-04 12:18:22.876 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:18:22.877 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:22.877 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:22.877 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:18:22.878 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:22.878 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.1941ms
+2025-09-04 12:18:22.878 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:18:22.881 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 1.9652ms
+2025-09-04 12:18:29.397 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:18:29.397 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:29.397 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:18:29.397 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:18:29.451 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:18:29.452 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 54.5618ms
+2025-09-04 12:18:29.452 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:18:29.452 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 55.1633ms
+2025-09-04 12:18:29.483 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:18:29.483 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:18:29.483 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:18:29.483 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:18:29.498 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:18:29.499 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 15.4753ms
+2025-09-04 12:18:29.499 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:18:29.499 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 16.0459ms
+2025-09-04 12:29:02.653 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:29:02.657 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:02.657 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:29:02.661 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:29:02.661 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:29:02.662 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:02.662 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:29:02.662 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:29:02.812 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:29:02.812 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 150.0964ms
+2025-09-04 12:29:02.812 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:29:02.812 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 150.7256ms
+2025-09-04 12:29:02.847 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:29:02.847 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 185.8163ms
+2025-09-04 12:29:02.847 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:29:02.847 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 194.7395ms
+2025-09-04 12:29:05.185 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:29:05.185 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:05.185 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:29:05.185 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:29:05.187 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:29:05.187 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:05.187 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:29:05.187 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:29:05.194 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:29:05.194 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:29:05.194 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 9.064ms
+2025-09-04 12:29:05.194 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 6.8657ms
+2025-09-04 12:29:05.194 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:29:05.194 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:29:05.194 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 9.8524ms
+2025-09-04 12:29:05.194 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 7.3968ms
+2025-09-04 12:29:08.523 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:29:08.523 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:08.523 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:29:08.523 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:29:08.595 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:29:08.596 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 72.9288ms
+2025-09-04 12:29:08.596 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:29:08.596 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 73.5678ms
+2025-09-04 12:29:08.616 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:29:08.617 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:29:08.617 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:29:08.617 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:29:08.652 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:29:08.652 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 35.5369ms
+2025-09-04 12:29:08.652 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:29:08.653 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 36.1768ms
+2025-09-04 12:33:43.695 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:33:43.695 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:33:43.695 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:33:43.695 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:33:43.696 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:33:43.697 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.2584ms
+2025-09-04 12:33:43.697 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:33:43.697 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 2.1134ms
+2025-09-04 12:33:43.700 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:33:43.701 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:33:43.701 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:33:43.701 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:33:43.703 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:33:43.703 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.655ms
+2025-09-04 12:33:43.703 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:33:43.703 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.8780ms
+2025-09-04 12:58:30.595 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:58:30.596 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:30.627 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:30.627 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:58:30.655 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:58:30.655 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:30.655 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:30.656 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:58:30.744 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:30.747 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 119.6541ms
+2025-09-04 12:58:30.747 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:30.747 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 153.2332ms
+2025-09-04 12:58:30.773 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:30.774 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 117.9031ms
+2025-09-04 12:58:30.774 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:30.774 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 118.4944ms
+2025-09-04 12:58:33.222 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:58:33.222 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:33.222 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:58:33.222 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:58:33.291 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:33.292 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 70.0627ms
+2025-09-04 12:58:33.292 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:58:33.292 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 70.6328ms
+2025-09-04 12:58:33.311 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:58:33.311 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:33.311 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:58:33.312 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:58:33.345 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:58:33.345 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 32.5839ms
+2025-09-04 12:58:33.345 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:58:33.345 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 34.9370ms
+2025-09-04 12:58:44.980 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:58:44.980 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:44.980 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:44.981 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:58:44.982 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:44.983 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.9229ms
+2025-09-04 12:58:44.983 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:44.984 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 3.7887ms
+2025-09-04 12:58:44.986 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:58:44.997 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:44.999 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:45.013 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:58:45.015 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:45.015 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.9653ms
+2025-09-04 12:58:45.016 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:45.016 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 31.4251ms
+2025-09-04 12:58:50.443 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:58:50.444 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:50.444 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:50.444 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:58:50.445 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:50.448 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 3.8001ms
+2025-09-04 12:58:50.453 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:58:50.453 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:58:50.453 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 9.6220ms
+2025-09-04 12:58:50.453 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:50.453 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:50.453 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:58:50.454 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:50.455 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.3046ms
+2025-09-04 12:58:50.455 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:58:50.455 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.0268ms
+2025-09-04 12:58:53.874 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:58:53.874 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:53.874 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:58:53.874 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:58:53.928 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:58:53.929 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 54.703ms
+2025-09-04 12:58:53.929 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:58:53.929 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 55.3822ms
+2025-09-04 12:58:53.948 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:58:53.948 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:58:53.948 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:58:53.949 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:58:53.965 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:58:53.966 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 17.2311ms
+2025-09-04 12:58:53.966 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:58:53.966 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 18.0615ms
+2025-09-04 12:59:00.317 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:59:00.317 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:00.317 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:00.317 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:59:00.318 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:00.319 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.6592ms
+2025-09-04 12:59:00.319 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:00.319 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 2.2814ms
+2025-09-04 12:59:00.327 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:59:00.327 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:00.327 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:00.327 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:00.329 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:00.329 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.3642ms
+2025-09-04 12:59:00.329 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:00.329 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.0100ms
+2025-09-04 12:59:03.217 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:59:03.217 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:03.217 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:03.218 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:03.271 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:03.272 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 53.8641ms
+2025-09-04 12:59:03.272 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:03.272 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 54.4574ms
+2025-09-04 12:59:03.291 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:59:03.291 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:03.291 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:03.291 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:59:03.307 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:59:03.307 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 16.4684ms
+2025-09-04 12:59:03.308 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:03.308 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 17.0139ms
+2025-09-04 12:59:27.563 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:59:27.576 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:27.576 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:27.576 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:59:27.585 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:27.588 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 11.8849ms
+2025-09-04 12:59:27.596 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:27.601 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 38.3213ms
+2025-09-04 12:59:27.617 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:59:27.621 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:27.621 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:27.626 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:27.633 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:27.633 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 5.6852ms
+2025-09-04 12:59:27.633 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:27.633 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 16.6389ms
+2025-09-04 12:59:30.170 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:59:30.170 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:30.170 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:30.170 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:30.238 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:30.239 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 68.5382ms
+2025-09-04 12:59:30.239 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:30.239 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 69.2264ms
+2025-09-04 12:59:30.267 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:59:30.268 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:30.268 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:30.268 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:59:30.290 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:59:30.292 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 23.6697ms
+2025-09-04 12:59:30.292 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:30.292 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 24.9803ms
+2025-09-04 12:59:57.518 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 12:59:57.519 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:57.519 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:57.519 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 12:59:57.520 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:57.520 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.2415ms
+2025-09-04 12:59:57.520 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 12:59:57.520 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.8980ms
+2025-09-04 12:59:57.527 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 12:59:57.527 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:57.527 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:57.527 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:57.529 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:57.529 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 2.068ms
+2025-09-04 12:59:57.529 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 12:59:57.529 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.7343ms
+2025-09-04 12:59:59.769 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - -
+2025-09-04 12:59:59.769 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:59.770 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:59.770 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[PedidoProduccion] GetByTaller(Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 12:59:59.829 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[PedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 12:59:59.830 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 60.1095ms
+2025-09-04 12:59:59.830 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2025-09-04 12:59:59.830 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetPedidoProduccionByTaller/1 - - - 200 - application/json;+charset=utf-8 60.5435ms
+2025-09-04 12:59:59.849 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - -
+2025-09-04 12:59:59.849 -03:00 [INF] CORS policy execution successful.
+2025-09-04 12:59:59.849 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:59.849 -03:00 [INF] Route matched with {action = "Get", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-09-04 12:59:59.866 -03:00 [INF] Executing OkObjectResult, writing value of type 'Presupuesto'.
+2025-09-04 12:59:59.866 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI) in 16.6143ms
+2025-09-04 12:59:59.866 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.Get (BlumeAPI)'
+2025-09-04 12:59:59.866 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByNumero/35 - - - 200 - application/json;+charset=utf-8 17.1167ms
+2025-09-04 13:00:46.627 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 13:00:46.629 -03:00 [INF] CORS policy execution successful.
+2025-09-04 13:00:46.629 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 13:00:46.635 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 13:00:46.640 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:00:46.645 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 10.2188ms
+2025-09-04 13:00:46.646 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 13:00:46.646 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 13:00:46.646 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 18.9951ms
+2025-09-04 13:00:46.646 -03:00 [INF] CORS policy execution successful.
+2025-09-04 13:00:46.684 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 13:00:46.685 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 13:00:46.689 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:00:46.690 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 4.401ms
+2025-09-04 13:00:46.690 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 13:00:46.690 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 43.4808ms
+2025-09-04 13:00:50.400 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-09-04 13:00:50.400 -03:00 [INF] CORS policy execution successful.
+2025-09-04 13:00:50.400 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 13:00:50.400 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-09-04 13:00:50.401 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:00:50.401 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 1.3593ms
+2025-09-04 13:00:50.401 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-09-04 13:00:50.401 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 1.8506ms
+2025-09-04 13:00:50.403 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-09-04 13:00:50.404 -03:00 [INF] CORS policy execution successful.
+2025-09-04 13:00:50.404 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 13:00:50.404 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-09-04 13:00:50.405 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:00:50.406 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 1.7782ms
+2025-09-04 13:00:50.406 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-09-04 13:00:50.406 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 2.4811ms
