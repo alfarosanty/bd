@@ -10,11 +10,11 @@ using System.Threading.Tasks;
     public static String TABLA="PRESUPUESTO";
     public int Id { get; set; }
 
-    public DateTime Fecha { get; set; }
+    public DateTime? Fecha { get; set; }
 
-    public Cliente Cliente { get; set; }
+    public Cliente? Cliente { get; set; }
 
-    public bool EximirIVA { get; set; }
+    public bool? EximirIVA { get; set; }
 
     public EstadoPresupuesto? EstadoPresupuesto{ get; set; }
 

@@ -139,33 +139,54 @@ public List<Ingreso> GetIngresoByTaller(int idTaller, NpgsqlConnection conex)
     return ingreso.Id;  // Devuelve el mismo ID del presupuesto que fue actualizado
     }
 
-public List<int> CrearDetallesIngresoPedidoProduccion(
-    List<PedidoProduccionIngresoDetalle> detalles, 
-    NpgsqlConnection npgsqlConnection)
+public List<int> CrearDetallesIngresoPedidoProduccion(List<PedidoProduccionIngresoDetalle> detalles, NpgsqlConnection npgsqlConnection)
 {
     List<int> idsCreados = new List<int>();
 
     foreach (var detalle in detalles)
     {
-        string sqlInsert = $@"
-INSERT INTO public.""{PedidoProduccionIngresoDetalle.TABLA}"" 
-(""ID_PEDIDO_PRODUCCION"", ""ID_INGRESO"", ""ID_PRESUPUESTO"", ""ID_ARTICULO"", ""CANTIDAD_DESCONTADA"")
-VALUES (@idPedido, @idIngreso, @idPresupuesto, @idArticulo, @cantidadDescontada)
-RETURNING ""ID_DETALLE"";";
+        try
+        {
+            string sqlInsert = $@"
+            INSERT INTO public.""{PedidoProduccionIngresoDetalle.TABLA}"" 
+            (""ID_PEDIDO_PRODUCCION"", ""ID_INGRESO"", ""ID_PRESUPUESTO"", ""ID_ARTICULO"", ""CANTIDAD_DESCONTADA"")
+            VALUES (@ID_PEDIDO_PRODUCCION, @ID_INGRESO, @ID_PRESUPUESTO, @ID_ARTICULO, @CANTIDAD_DESCONTADA)
+            RETURNING ""ID_DETALLE"";";
 
-        using var cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
+            Console.WriteLine("SQL generado:");
+            Console.WriteLine(sqlInsert);
 
-        cmd.Parameters.AddWithValue("idPedido", detalle.PedidoProduccion.Id);
-        cmd.Parameters.AddWithValue("idIngreso", detalle.Ingreso.Id);
-        cmd.Parameters.AddWithValue("idPresupuesto", detalle.Presupuesto != null ? detalle.Presupuesto.Id : (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("idArticulo", detalle.Articulo.Id);
-        cmd.Parameters.AddWithValue("cantidadDescontada", detalle.CantidadDescontada);
+            using var cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
 
-        // Ejecutamos y obtenemos el ID generado
-        int idCreado = Convert.ToInt32(cmd.ExecuteScalar());
-        idsCreados.Add(idCreado);
+            Console.WriteLine($"-> ID_PEDIDO_PRODUCCION = {detalle.PedidoProduccion?.Id}");
+            Console.WriteLine($"-> ID_INGRESO = {detalle.Ingreso?.Id}");
+            Console.WriteLine($"-> ID_PRESUPUESTO = {(detalle.Presupuesto != null ? detalle.Presupuesto.Id.ToString() : "NULL")}");
+            Console.WriteLine($"-> ID_ARTICULO = {detalle.Articulo?.Id}");
+            Console.WriteLine($"-> CANTIDAD_DESCONTADA = {detalle.CantidadDescontada}");
+
+            cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", detalle.PedidoProduccion.Id);
+            cmd.Parameters.AddWithValue("ID_INGRESO", detalle.Ingreso.Id);
+            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", (detalle.Presupuesto == null || detalle.Presupuesto.Id == 0) ? (object)DBNull.Value : detalle.Presupuesto.Id);
+            cmd.Parameters.AddWithValue("ID_ARTICULO", detalle.Articulo.Id);
+            cmd.Parameters.AddWithValue("CANTIDAD_DESCONTADA", detalle.CantidadDescontada);
+
+            var result = cmd.ExecuteScalar();
+            Console.WriteLine($"ExecuteScalar result = {result}");
+
+            int idCreado = Convert.ToInt32(result);
+            idsCreados.Add(idCreado);
+
+            Console.WriteLine($"✅ Insert realizado. ID_DETALLE = {idCreado}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error insertando detalle: {ex.Message}");
+            Console.WriteLine(ex.StackTrace);
+            throw; // re-lanzo para no ocultar el error
+        }
     }
 
+    Console.WriteLine($"Total inserts realizados: {idsCreados.Count}");
     return idsCreados;
 }
 

@@ -41,7 +41,7 @@ public class IngresoController : ControllerBase
 
 
         // POST api/ingresodetalle
-[HttpPost("detalles-ingreso-pedido-produccion")]
+[HttpPost("DetallesIngresoPedidoProduccion")]
 public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<PedidoProduccionIngresoDetalle> detalles)
 {
     try
@@ -76,7 +76,7 @@ public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<Pedido
          return ingresos;
     }
 
-         [HttpGet("GetIngresoByNumero/{idIngreso}")]
+    [HttpGet("GetIngresoByNumero/{idIngreso}")]
     public Ingreso Get(int idIngreso)
     {
         CConexion con =  new CConexion();
@@ -86,5 +86,7 @@ public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<Pedido
         con.cerrarConexion(npgsqlConnection);
         return ingreso;
     }
+
+
 
 }
