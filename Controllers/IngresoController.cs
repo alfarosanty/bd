@@ -40,6 +40,8 @@ public class IngresoController : ControllerBase
     }
 
 
+
+
         // POST api/ingresodetalle
 [HttpPost("DetallesIngresoPedidoProduccion")]
 public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<PedidoProduccionIngresoDetalle> detalles)
@@ -65,7 +67,7 @@ public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<Pedido
 }
 
 
-      [HttpGet("GetIngresoByTaller/{idTaller}")]
+      [HttpGet("IngresoByTaller/{idTaller}")]
     public List<Ingreso> GetByTaller(int idTaller)
     {
          CConexion con =  new CConexion();
@@ -76,7 +78,7 @@ public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<Pedido
          return ingresos;
     }
 
-    [HttpGet("GetIngresoByNumero/{idIngreso}")]
+    [HttpGet("IngresoByNumero/{idIngreso}")]
     public Ingreso Get(int idIngreso)
     {
         CConexion con =  new CConexion();
@@ -87,6 +89,50 @@ public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<Pedido
         return ingreso;
     }
 
+    [HttpGet("IngresosByIds")]
+    public List<Ingreso> GetByIds([FromQuery] string ids)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        IngresoService  ingresoService = new IngresoService();
+        var idsIngresos = ids.Split(',').Select(int.Parse).ToList();
+        List<Ingreso> ingresos = ingresoService.GetIngresosByIds(idsIngresos,npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return ingresos;
+    }
+
+[HttpGet("DetallesIngresoPedidoProduccion/{idIngreso}")]
+public List<PedidoProduccionIngresoDetalle> GetDetallePPI(int idIngreso)
+{
+    CConexion con =  new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    IngresoService  ingresoService = new IngresoService();
+    List<PedidoProduccionIngresoDetalle> detallesPPI = ingresoService.GetDetallesPPI(idIngreso,npgsqlConnection);
+    con.cerrarConexion(npgsqlConnection);
+    return detallesPPI;
+}
+
+[HttpDelete("borrar")]
+public IActionResult Borrar([FromBody] Ingreso ingreso)
+{
+    if (ingreso == null) return BadRequest("Ingreso no puede ser null");
+
+    try
+    {
+        CConexion con = new CConexion();
+        using var npgsqlConnection = con.establecerConexion();
+
+        IngresoService ingresoService = new IngresoService();
+        int id = ingresoService.BorrarIngreso(ingreso, npgsqlConnection);
+
+        con.cerrarConexion(npgsqlConnection);
+        return Ok(new { id, mensaje = "Ingreso borrado correctamente" });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, $"Error al borrar el ingreso: {ex.Message}");
+    }
+}
 
 
 }

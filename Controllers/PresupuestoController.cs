@@ -133,5 +133,16 @@ public ActionResult<List<ArticuloPresupuesto>> articulosPresupuestados([FromQuer
     return listaDeArticulosPresupuestados;
 }
 
+    [HttpGet("PresupuestosByIds")]
+    public List<Presupuesto> GetByIds([FromQuery] string ids)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        PresupuestoServices  presupuestoService = new PresupuestoServices();
+        var idsPresupuestos = ids.Split(',').Select(int.Parse).ToList();
+        List<Presupuesto> presupuestos = presupuestoService.GetPresupuestosByIds(idsPresupuestos,npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return presupuestos;
+    }
 
 }

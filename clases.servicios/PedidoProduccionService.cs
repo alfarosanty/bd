@@ -175,6 +175,23 @@ string sqlUpdateTotal = "UPDATE \"" + PedidoProduccion.TABLA + "\" " +
     }
 
 
+public List<PedidoProduccion> GetPedidosProduccionByIds(List<int> idsPedidosProduccion, NpgsqlConnection conex)
+{
+    var pedidosProduccion = new List<PedidoProduccion>();
+
+    foreach (var id in idsPedidosProduccion)
+    {
+        var pedidoProduccion = getPedidoProduccion(id, conex); // tu método que devuelve un Ingreso
+        if (pedidoProduccion != null)
+        {
+            pedidosProduccion.Add(pedidoProduccion);
+        }
+    }
+
+    return pedidosProduccion;
+}
+
+
 
 public List<int> actualizarEstadosPedidoProduccion(NpgsqlConnection conexion, List<PedidoProduccionEstadoDTO> lista)
 {

@@ -234,7 +234,21 @@ public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlCon
 }
 
 
+public List<Presupuesto> GetPresupuestosByIds(List<int> idsPresupuestos, NpgsqlConnection conex)
+{
+    var presupuestos = new List<Presupuesto>();
 
+    foreach (var id in idsPresupuestos)
+    {
+        var presupuesto = GetPresupuesto(id, conex); // tu método que devuelve un Ingreso
+        if (presupuesto != null)
+        {
+            presupuestos.Add(presupuesto);
+        }
+    }
+
+    return presupuestos;
+}
 
 
 

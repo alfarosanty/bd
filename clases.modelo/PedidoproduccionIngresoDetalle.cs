@@ -1,6 +1,6 @@
     public  class PedidoProduccionIngresoDetalle
         {
-        public static String TABLA="PEDIDO_PRODUCCION_INGRESO_DETALLE";
+        public static string TABLA = "\"PEDIDO_PRODUCCION_INGRESO_DETALLE\"";
         public PedidoProduccion PedidoProduccion { get; set; }
 
         public Ingreso Ingreso { get; set; }

@@ -126,4 +126,17 @@ public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> id
         return idsPedidosProducionActualizados;
     }
 
+    [HttpGet("PedidosProduccionByIds")]
+    public List<PedidoProduccion> GetByIds([FromQuery] string ids)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        PedidoProduccionService  pedidoProduccionService = new PedidoProduccionService();
+        var idsPedidosProduccion = ids.Split(',').Select(int.Parse).ToList();
+        List<PedidoProduccion> pedidosProduccion = pedidoProduccionService.GetPedidosProduccionByIds(idsPedidosProduccion,npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return pedidosProduccion;
+    }
+
+
 }
