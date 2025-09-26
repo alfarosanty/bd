@@ -17,7 +17,6 @@ public class LoginTicket
     public string? Token; // Token de seguridad recibido en la respuesta
     public XmlDocument? XmlLoginTicketRequest = null;
     public XmlDocument? XmlLoginTicketResponse = null;
-    public byte[]? certBytes;
 
     public string XmlStrLoginTicketRequestTemplate = "<loginTicketRequest><header><uniqueId></uniqueId><generationTime></generationTime><expirationTime></expirationTime></header><service></service></loginTicketRequest>";
     private bool _verboseMode = true;
@@ -35,7 +34,7 @@ public class LoginTicket
     /// <param name="argProxyPassword">Password del proxy</param>
     /// <param name="argVerbose">Nivel detallado de descripcion? true/false</param>
     /// <remarks></remarks>
-    public async Task<LoginTicketResponseData> ObtenerLoginTicketResponse(string argServicio, string argUrlWsaa, bool argVerbose)
+    public async Task<LoginTicketResponseData> ObtenerLoginTicketResponse(byte[] argcertBytes, SecureString argpasswordSecure , string argServicio, string argUrlWsaa, bool argVerbose)
     {
         const string ID_FNC = "[ObtenerLoginTicketResponse]";
         this._verboseMode = argVerbose;
@@ -85,32 +84,9 @@ public class LoginTicket
             if (this._verboseMode) Console.WriteLine(ID_FNC + "***Leyendo certificado desde BD");
 
             // Abrimos la conexión usando tu clase CConexion
-            CConexion con = new CConexion();
-            using Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-            npgsqlConnection.Open();
-
-            // Obtenemos los bytes del certificado
-            byte[] certBytes;
-            using (var cmd = new Npgsql.NpgsqlCommand(@"SELECT ""CERTIFICADO"" FROM ""DATOS_AFIP"" LIMIT 1", npgsqlConnection))
-            {
-                var result = await cmd.ExecuteScalarAsync();
-                if (result == null || result == DBNull.Value)
-                    throw new Exception("No se encontró ningún certificado en la tabla DATOS_AFIP.");
-
-                certBytes = (byte[])result;
-            }
-
-            // Creamos un SecureString a partir de la contraseña hardcodeada
-            SecureString passwordSecure = new SecureString();
-            foreach (char c in "BlumeDesign")
-            {
-                passwordSecure.AppendChar(c);
-            }
-            passwordSecure.MakeReadOnly(); // buena práctica
-
-
+            
             // Cargamos el certificado en X509Certificate2
-            X509Certificate2 certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeBytes(certBytes, passwordSecure);
+            X509Certificate2 certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeBytes(argcertBytes, argpasswordSecure);
 
             if (this._verboseMode)
             {
