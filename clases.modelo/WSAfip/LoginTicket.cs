@@ -67,6 +67,7 @@ public class LoginTicket
             xmlNodoExpirationTime.InnerText = DateTime.Now.AddMinutes(+10).ToString("s");
             xmlNodoUniqueId.InnerText = _globalUniqueID.ToString();
             xmlNodoService.InnerText = argServicio;
+
             this.Service = argServicio;
 
             if (this._verboseMode) 

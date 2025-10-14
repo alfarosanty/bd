@@ -534,12 +534,12 @@ public Dictionary<int, ArticuloPrecio> ObtenerPreciosPorIds(int[] ids, NpgsqlCon
 
 public List<ConsultaTallerCortePorCodigo> ConsultarTodosArticulosCantidadesTallerCorte(NpgsqlConnection connection)
 {
-    return ObtenerTallerCorteAgrupadoPorCodigo("", null, connection);
+    return ObtenerTallerCorteSeparadoAgrupadoPorCodigo("", null, connection);
 }
 
 public List<ConsultaTallerCortePorCodigo> ConsultarCantidadesTallerCorte(int idArticuloPrecio, NpgsqlConnection connection)
 {
-    return ObtenerTallerCorteAgrupadoPorCodigo(
+    return ObtenerTallerCorteSeparadoAgrupadoPorCodigo(
         "WHERE ar.\"ID_ARTICULO_PRECIO\" = @idArticuloPrecio",
         cmd => cmd.Parameters.AddWithValue("@idArticuloPrecio", idArticuloPrecio),
         connection
@@ -548,30 +548,73 @@ public List<ConsultaTallerCortePorCodigo> ConsultarCantidadesTallerCorte(int idA
 
 
 
-private List<ConsultaTallerCorte> EjecutarConsultaTallerCorte(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
+private List<ConsultaTallerCorte> EjecutarConsultaTallerCorteSeparado(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
 {
     var resultado = new List<ConsultaTallerCorte>();
 
-    string query = $@"
+string query = $@"
 SELECT 
     ar.""ID_ARTICULO"",
-    ar.""CODIGO"",
-    ar.""DESCRIPCION"",
+    ar.""CODIGO"" AS ""CodigoArticulo"",
+    ar.""DESCRIPCION"" AS ""DescripcionArticulo"",
     ar.""ID_COLOR"",
     ar.""STOCK"",
     c.""CODIGO"" AS ""CodigoColor"",
     c.""DESCRIPCION"" AS ""DescripcionColor"",
     c.""HEXA"" AS ""HexaColor"",
-    COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnCorte"",
-    COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN ppa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnTaller""
+    COALESCE(pp_corte.""CantidadEnCorte"", 0) AS ""CantidadEnCorte"",
+    COALESCE(pp_taller.""CantidadEnTaller"", 0) AS ""CantidadEnTaller"",
+    COALESCE(ap_sep.""CantidadSeparada"", 0) AS ""CantidadSeparada""
 FROM ""{Articulo.TABLA}"" ar
-LEFT JOIN ""{Color.TABLA}"" c ON c.""ID_COLOR"" = ar.""ID_COLOR""
-LEFT JOIN ""{PedidoProduccionArticulo.TABLA}"" ppa ON ppa.""ID_ARTICULO"" = ar.""ID_ARTICULO""
-LEFT JOIN ""{PedidoProduccion.TABLA}"" pp ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+LEFT JOIN ""{Color.TABLA}"" c 
+    ON c.""ID_COLOR"" = ar.""ID_COLOR""
+
+-- Subconsulta: cantidades en Corte (estado 2)
+LEFT JOIN (
+    SELECT 
+        ppa.""ID_ARTICULO"",
+        SUM(ppa.""CANTIDAD"") AS ""CantidadEnCorte""
+    FROM ""PRODUCCION_ARTICULO"" ppa
+    INNER JOIN ""{PedidoProduccion.TABLA}"" pp 
+        ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+    WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 2
+    GROUP BY ppa.""ID_ARTICULO""
+) pp_corte 
+    ON pp_corte.""ID_ARTICULO"" = ar.""ID_ARTICULO""
+
+-- Subconsulta: cantidades en Taller (estado 3)
+LEFT JOIN (
+    SELECT 
+        ppa.""ID_ARTICULO"",
+        SUM(ppa.""CANTIDAD"") AS ""CantidadEnTaller""
+    FROM ""PRODUCCION_ARTICULO"" ppa
+    INNER JOIN ""{PedidoProduccion.TABLA}"" pp 
+        ON pp.""ID_PEDIDO_PRODUCCION"" = ppa.""ID_PEDIDO_PRODUCCION""
+    WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 3
+    GROUP BY ppa.""ID_ARTICULO""
+) pp_taller 
+    ON pp_taller.""ID_ARTICULO"" = ar.""ID_ARTICULO""
+
+-- Subconsulta: artículos separados (HAY_STOCK = TRUE y PRESUPUESTO.ID_ESTADO != 5)
+LEFT JOIN (
+    SELECT 
+        ap.""ID_ARTICULO"",
+        SUM(ap.""CANTIDAD"") AS ""CantidadSeparada""
+    FROM ""ARTICULO_PRESUPUESTO"" ap
+    JOIN ""PRESUPUESTO"" p 
+        ON p.""ID_PRESUPUESTO"" = ap.""ID_PRESUPUESTO""
+    WHERE ap.""HAY_STOCK"" = TRUE
+      AND p.""ID_ESTADO"" != 5
+    GROUP BY ap.""ID_ARTICULO""
+) ap_sep 
+    ON ap_sep.""ID_ARTICULO"" = ar.""ID_ARTICULO""
+
 {whereClause}
-GROUP BY ar.""ID_ARTICULO"", ar.""CODIGO"", ar.""DESCRIPCION"", ar.""ID_COLOR"", ar.""STOCK"", c.""CODIGO"", c.""DESCRIPCION"", c.""HEXA""
+
 ORDER BY ar.""ID_ARTICULO"";
 ";
+
+
 
 
 
@@ -586,8 +629,8 @@ ORDER BY ar.""ID_ARTICULO"";
                 var articulo = new Articulo
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
-                    Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
-                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoArticulo")),
+                    Descripcion = reader.GetString(reader.GetOrdinal("DescripcionArticulo")),
                     // Aquí asumimos que tienes un objeto Color dentro de Articulo:
                     Color = new Color
                     {
@@ -603,6 +646,7 @@ ORDER BY ar.""ID_ARTICULO"";
 
                 int cantidadEnCorte = Convert.ToInt32(reader["CantidadEnCorte"]);
                 int cantidadEnTaller = Convert.ToInt32(reader["CantidadEnTaller"]);
+                int cantidadSeparada = Convert.ToInt32(reader["CantidadSeparada"]);
                 int stockUnitario = reader.GetInt32(reader.GetOrdinal("STOCK"));
 
 
@@ -611,6 +655,7 @@ ORDER BY ar.""ID_ARTICULO"";
                     articulo = articulo,
                     CantidadEnCorteUnitario = cantidadEnCorte,
                     CantidadEnTallerUnitario = cantidadEnTaller,
+                    CantidadSeparadoUnitario = cantidadSeparada,
                     StockUnitario = stockUnitario
                 });
             }
@@ -620,9 +665,9 @@ ORDER BY ar.""ID_ARTICULO"";
     return resultado;
 }
 
-public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteAgrupadoPorCodigo(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
+public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteSeparadoAgrupadoPorCodigo(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
 {
-    var consultasIndividuales = EjecutarConsultaTallerCorte(whereClause, addParams, connection);
+    var consultasIndividuales = EjecutarConsultaTallerCorteSeparado(whereClause, addParams, connection);
 
     var agrupado = consultasIndividuales
         .GroupBy(c => c.articulo.Codigo)
@@ -631,6 +676,7 @@ public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteAgrupadoPorCodigo(st
             Codigo = grupo.Key,
             CantidadEnCorteTotal = grupo.Sum(x => x.CantidadEnCorteUnitario),
             CantidadEnTallerTotal = grupo.Sum(x => x.CantidadEnTallerUnitario),
+            CantidadSeparadoTotal = grupo.Sum(x => x.CantidadSeparadoUnitario),
             StockTotal = grupo.Sum(x => x.StockUnitario),
             Consultas = grupo.ToList()
         })

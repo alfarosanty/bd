@@ -1,10 +1,217 @@
+using System.Text;
+using System.Xml;
 using Npgsql;
+using System.Globalization;
+
 
 namespace BlumeAPI.Services;
 
 public class FacturaServices
 {
 
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+private readonly HttpClient _httpClient;
+
+    public FacturaServices()
+    {
+        _httpClient = new HttpClient();
+    }
+
+public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTicketResponseData loginTicket, long cuit)
+{
+    // Construir XML
+    string soapEnvelope = CrearSoapEnvelopeMTXCA(factura, loginTicket, cuit,
+        Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2),
+        Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 0.21m, 2),
+        Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 1.21m, 2));
+
+    Console.WriteLine("=== XML ENVIADO A AFIP ===");
+    Console.WriteLine(soapEnvelope);
+
+    // Crear request HTTP
+    var httpRequest = new HttpRequestMessage(HttpMethod.Post,
+        "https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService")
+    {
+        Content = new StringContent(soapEnvelope, Encoding.UTF8, "text/xml")
+    };
+    httpRequest.Headers.Add("SOAPAction", "autorizarComprobante");
+
+    try
+    {
+        var response = await _httpClient.SendAsync(httpRequest);
+
+        // Verificar si AFIP respondió con error HTTP
+        if (!response.IsSuccessStatusCode)
+        {
+            string errorHtml = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"❌ Error HTTP {(int)response.StatusCode}: {response.ReasonPhrase}");
+            Console.WriteLine(errorHtml);
+            throw new Exception($"Error HTTP al contactar AFIP: {response.StatusCode}");
+        }
+
+        // Leer respuesta
+        string responseXml = await response.Content.ReadAsStringAsync();
+
+        Console.WriteLine("=== XML RECIBIDO DE AFIP ===");
+        Console.WriteLine(responseXml);
+
+        // Parsear respuesta
+        var feResponse = ParseResponse(responseXml);
+
+        // Verificar resultado del comprobante
+        var det = feResponse.FECAESolicitarResult.FeDetResp.FirstOrDefault();
+        if (det == null)
+            throw new Exception("No se encontró el detalle en la respuesta de AFIP.");
+
+        if (det.Resultado == "A")
+        {
+            factura.CaeNumero = int.Parse(det.CAE);
+            factura.FechaVencimiento = DateTime.ParseExact(det.CAEFchVto, "yyyyMMdd", null);
+            Console.WriteLine($"✅ Factura autorizada. CAE: {det.CAE}");
+        }
+        else
+        {
+            Console.WriteLine("⚠️ Factura rechazada por AFIP.");
+            Console.WriteLine(responseXml);
+        }
+
+        return feResponse;
+    }
+    catch (HttpRequestException ex)
+    {
+        Console.WriteLine("❌ Error de conexión al WS de AFIP: " + ex.Message);
+        throw;
+    }
+    catch (XmlException ex)
+    {
+        Console.WriteLine("❌ Error al parsear XML de respuesta: " + ex.Message);
+        throw;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("❌ Error general en FacturarAsync: " + ex.Message);
+        throw;
+    }
+}
+
+
+private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData loginTicket, long cuit,
+    decimal neto, decimal iva, decimal total)
+{
+    var sbItems = new StringBuilder();
+
+    foreach (var art in factura.Articulos)
+    {
+        decimal importeItem = Math.Round(art.PrecioUnitario * art.Cantidad * 1.21m, 2);
+        decimal importeIVA = Math.Round(art.PrecioUnitario * art.Cantidad * 0.21m, 2);
+
+        sbItems.Append($@"
+        <item>
+            <unidadesMtx>{art.Cantidad}</unidadesMtx>
+            <codigoMtx>{"0000000000000"}</codigoMtx>
+            <codigo>{art.Codigo}</codigo>
+            <descripcion>{System.Security.SecurityElement.Escape(art.Descripcion)}</descripcion>
+            <cantidad>{art.Cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</cantidad>
+            <codigoUnidadMedida>7</codigoUnidadMedida>
+            <precioUnitario>{art.PrecioUnitario.ToString("0.00", CultureInfo.InvariantCulture)}</precioUnitario>
+            <importeBonificacion>0.00</importeBonificacion>
+            <codigoCondicionIVA>5</codigoCondicionIVA>
+            <importeIVA>{importeIVA.ToString("0.00", CultureInfo.InvariantCulture)}</importeIVA>
+            <importeItem>{importeItem.ToString("0.00", CultureInfo.InvariantCulture)}</importeItem>
+        </item>");
+    }
+
+    // SOAP completo
+    string soap = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/""
+                  xmlns:ser=""http://impl.service.wsmtxca.afip.gob.ar/service/"">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:autorizarComprobanteRequest>
+         <authRequest>
+            <token>{loginTicket.Token}</token>
+            <sign>{loginTicket.Sign}</sign>
+            <cuitRepresentada>{cuit}</cuitRepresentada>
+         </authRequest>
+         <comprobanteCAERequest>
+            <codigoTipoComprobante>1</codigoTipoComprobante>
+            <numeroPuntoVenta> 3 </numeroPuntoVenta>
+            <numeroComprobante>{factura.NumeroFactura ?? 1}</numeroComprobante>
+            <fechaEmision>{factura.FechaFactura:yyyy-MM-dd}</fechaEmision>
+            <codigoTipoDocumento>80</codigoTipoDocumento>
+            <numeroDocumento>{factura.Cliente.Cuit.Replace("-", "")}</numeroDocumento>
+            <condicionIVAReceptor>1</condicionIVAReceptor>
+            <importeGravado>{neto.ToString("0.00", CultureInfo.InvariantCulture)}</importeGravado>
+            <importeNoGravado>0.00</importeNoGravado>
+            <importeExento>0.00</importeExento>
+            <importeSubtotal>{neto.ToString("0.00", CultureInfo.InvariantCulture)}</importeSubtotal>
+            <importeTotal>{total.ToString("0.00", CultureInfo.InvariantCulture)}</importeTotal>
+            <codigoMoneda>PES</codigoMoneda>
+            <cotizacionMoneda>1</cotizacionMoneda>
+            <cancelaEnMismaMonedaExtranjera>N</cancelaEnMismaMonedaExtranjera>
+            <codigoConcepto>1</codigoConcepto>
+
+            <arrayItems>
+                {sbItems}
+            </arrayItems>
+
+            <arraySubtotalesIVA>
+                <subtotalIVA>
+                    <codigo>5</codigo>
+                    <importe>{iva.ToString("0.00", CultureInfo.InvariantCulture)}</importe>
+                </subtotalIVA>
+            </arraySubtotalesIVA>
+
+            <arrayActividades>
+                <actividad><codigo>120010</codigo></actividad>
+                <actividad><codigo>463300</codigo></actividad>
+            </arrayActividades>
+         </comprobanteCAERequest>
+      </ser:autorizarComprobanteRequest>
+   </soapenv:Body>
+</soapenv:Envelope>";
+
+    return soap;
+}
+
+    private FECAESolicitarResponse ParseResponse(string xml)
+{
+    var doc = new XmlDocument();
+    doc.LoadXml(xml);
+
+    // Namespace principal del servicio MTXCA
+    var ns = new XmlNamespaceManager(doc.NameTable);
+    ns.AddNamespace("ser", "http://impl.service.wsmtxca.afip.gob.ar/service/");
+
+    // Buscar nodos en la respuesta MTXCA
+    var caeNode = doc.SelectSingleNode("//ser:cae", ns);
+    var vtoNode = doc.SelectSingleNode("//ser:fechaVencimientoCAE", ns);
+    var resultNode = doc.SelectSingleNode("//ser:resultado", ns);
+
+    // Armar la estructura similar a FECAESolicitarResponse (por compatibilidad)
+    return new FECAESolicitarResponse
+    {
+        FECAESolicitarResult = new FECAESolicitarResult
+        {
+            FeDetResp = new List<FEDetResponse>
+            {
+                new FEDetResponse
+                {
+                    Resultado = resultNode?.InnerText,
+                    CAE = caeNode?.InnerText,
+                    CAEFchVto = vtoNode?.InnerText
+                }
+            }
+        }
+    };
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 public  string getTabla()
     {
         return Presupuesto.TABLA;   
@@ -256,7 +463,7 @@ private static void completarDatosFactura(Factura factura, Npgsql.NpgsqlConnecti
 {
     factura.ImporteBruto = CalcularTotal(factura.Articulos);
     
-    int iva = (int)Math.Round((factura.ImporteBruto ?? 0) * 0.21);
+    int iva = (int)Math.Round((factura.ImporteBruto ?? 0) * 0.21m);
     factura.Iva = iva;
     factura.ImporteNeto = factura.ImporteBruto - iva;
 

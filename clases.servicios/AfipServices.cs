@@ -10,8 +10,10 @@ using System.Security.Cryptography.X509Certificates;
 public class AfipServices
 {
 
-public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose = false, NpgsqlConnection con = null)
+public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, NpgsqlConnection con)
 {
+
+    Console.WriteLine("Estoy en la fncion del login");
     if (con == null)
         throw new ArgumentNullException(nameof(con), "La conexión no puede ser null");
 
@@ -28,9 +30,23 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose = fal
         {
             if (await reader.ReadAsync())
             {
-                horaExpiracion = reader.IsDBNull(reader.GetOrdinal("EXPIRACION"))
-                    ? DateTime.MinValue
-                    : reader.GetFieldValue<DateTime>(reader.GetOrdinal("EXPIRACION"));
+                // Obtén el índice de la columna una sola vez
+            int indexExpiracion = reader.GetOrdinal("EXPIRACION");
+
+// Lee el valor de manera segura
+                if (reader.IsDBNull(indexExpiracion))
+                {
+                    horaExpiracion = DateTime.MinValue; // o cualquier valor por defecto
+                }
+                else
+                {
+                    // PostgreSQL timestamp without time zone → DateTimeKind.Unspecified
+                    var dbValue = reader.GetFieldValue<DateTime>(indexExpiracion);
+
+                    // Si querés tratarlo como UTC o Local, especifica el Kind
+                    horaExpiracion = DateTime.SpecifyKind(dbValue, DateTimeKind.Utc); // o Local
+                    Console.WriteLine("este es la fecha que me trae: " + horaExpiracion);
+                }
 
                 token = reader.IsDBNull(reader.GetOrdinal("TOKEN")) ? null! : reader.GetString(reader.GetOrdinal("TOKEN"));
                 firma = reader.IsDBNull(reader.GetOrdinal("FIRMA")) ? null! : reader.GetString(reader.GetOrdinal("FIRMA"));

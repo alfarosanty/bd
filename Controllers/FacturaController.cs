@@ -4,6 +4,7 @@ using BlumeAPI.Services;  // Cambia esto si tu servicio está en otro namespace
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Xml;
+using Microsoft.OpenApi.Any;
 
 namespace BlumeAPI.Controllers;
 
@@ -29,6 +30,35 @@ public class FacturaController : ControllerBase
         int id =  fs.crear(factura, npgsqlConnection);
          con.cerrarConexion(npgsqlConnection);
         return id;
+    }
+
+
+
+ [HttpPost("pruebaAFIP")]
+    public async Task<ActionResult<FECAESolicitarResponse>> CrearAFIPAsync([FromBody] Factura factura)
+    {
+        try
+        {
+            // Conexión a BD
+            CConexion con = new CConexion();
+            using var npgsqlConnection = con.establecerConexion();
+
+            // Autenticación AFIP
+            AfipServices afipServices = new AfipServices();
+            var loginTicket = await afipServices.AutenticacionAsync(verbose: true, npgsqlConnection);
+
+            // Facturar en AFIP
+            FacturaServices fs = new FacturaServices();
+            var facturaAfipResponse = await fs.FacturarAsync(factura, loginTicket, Convert.ToInt64(30716479966));
+
+            con.cerrarConexion(npgsqlConnection);
+
+            return Ok(facturaAfipResponse);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
 
 [HttpGet("FacturacionXCliente")]

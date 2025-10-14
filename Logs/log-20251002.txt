@@ -1,0 +1,328 @@
+2025-10-02 10:31:26.089 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 10:31:26.299 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 10:31:26.302 -03:00 [INF] Hosting environment: Development
+2025-10-02 10:31:26.302 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 10:32:02.810 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-10-02 10:32:03.898 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 1110.7502ms
+2025-10-02 10:32:04.310 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-10-02 10:32:04.949 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 639.7542ms
+2025-10-02 10:34:31.057 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 728
+2025-10-02 10:34:31.085 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 10:34:31.190 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:34:31.220 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:34:31.415 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:34:32.006 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-10-02 10:34:32.132 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 695.4619ms
+2025-10-02 10:34:32.145 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:34:32.145 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 728 - 400 - application/problem+json;+charset=utf-8 1087.9754ms
+2025-10-02 10:39:25.499 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-10-02 10:39:25.522 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-10-02 10:39:25.549 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:25.549 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:25.549 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-10-02 10:39:25.549 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-10-02 10:39:25.554 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-10-02 10:39:25.554 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-10-02 10:39:26.462 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-10-02 10:39:26.464 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:26.465 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-10-02 10:39:26.470 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-10-02 10:39:27.822 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:27.822 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:27.822 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:27.830 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 2276.1432ms
+2025-10-02 10:39:27.830 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-10-02 10:39:27.831 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 2331.8098ms
+2025-10-02 10:39:27.839 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-10-02 10:39:27.847 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:27.847 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-10-02 10:39:27.847 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-10-02 10:39:27.856 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:27.856 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 8.7566ms
+2025-10-02 10:39:27.856 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-10-02 10:39:27.857 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 17.9323ms
+2025-10-02 10:39:27.860 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 1389.9095ms
+2025-10-02 10:39:27.860 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-10-02 10:39:27.860 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 1398.5957ms
+2025-10-02 10:39:27.861 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-10-02 10:39:27.869 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 2315.2725ms
+2025-10-02 10:39:27.870 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-10-02 10:39:27.870 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:27.870 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 2348.1195ms
+2025-10-02 10:39:27.870 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-10-02 10:39:27.870 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-10-02 10:39:27.906 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:27.917 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 46.3123ms
+2025-10-02 10:39:27.917 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-10-02 10:39:27.917 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 55.8119ms
+2025-10-02 10:39:31.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-10-02 10:39:31.221 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:31.221 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-10-02 10:39:31.227 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-10-02 10:39:31.389 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:31.452 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 224.5181ms
+2025-10-02 10:39:31.452 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-10-02 10:39:31.453 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 232.8236ms
+2025-10-02 10:39:35.777 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-10-02 10:39:35.790 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:35.790 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-10-02 10:39:35.794 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-10-02 10:39:35.864 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:35.875 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 80.1717ms
+2025-10-02 10:39:35.875 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-10-02 10:39:35.875 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 97.8134ms
+2025-10-02 10:39:38.231 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-10-02 10:39:38.231 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:38.231 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-10-02 10:39:38.231 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-10-02 10:39:38.255 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-02 10:39:38.256 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 24.7318ms
+2025-10-02 10:39:38.256 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-10-02 10:39:38.257 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 25.9064ms
+2025-10-02 10:39:49.261 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - -
+2025-10-02 10:39:49.268 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:49.274 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - - - 204 - - 12.7764ms
+2025-10-02 10:39:49.277 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1809
+2025-10-02 10:39:49.277 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:39:49.278 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-10-02 10:39:49.282 -03:00 [INF] Route matched with {action = "Crear", controller = "Factura"}. Executing controller action with signature Int32 Crear(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:39:49.645 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Int32'.
+2025-10-02 10:39:49.673 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI) in 390.6698ms
+2025-10-02 10:39:49.673 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-10-02 10:39:49.673 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1809 - 200 - application/json;+charset=utf-8 395.8059ms
+2025-10-02 10:40:18.343 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 10:40:18.344 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:40:18.344 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:40:18.344 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:40:24.957 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-02 10:40:25.002 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 6657.4424ms
+2025-10-02 10:40:25.005 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:40:25.018 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 400 - application/json;+charset=utf-8 6674.6947ms
+2025-10-02 10:43:28.744 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 10:43:28.923 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 10:43:28.926 -03:00 [INF] Hosting environment: Development
+2025-10-02 10:43:28.926 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 10:45:48.868 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 10:45:49.074 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 10:45:49.077 -03:00 [INF] Hosting environment: Development
+2025-10-02 10:45:49.077 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 10:45:49.268 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 10:45:49.383 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 10:45:49.517 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:45:49.545 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:45:49.736 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:45:53.979 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 10:45:54.195 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4436.5665ms
+2025-10-02 10:45:54.212 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:45:54.234 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4988.3313ms
+2025-10-02 10:50:04.407 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 10:50:04.585 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 10:50:04.588 -03:00 [INF] Hosting environment: Development
+2025-10-02 10:50:04.588 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 10:51:05.452 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 10:51:05.557 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 10:51:05.691 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:51:05.716 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:51:05.892 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:51:09.842 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 10:51:10.040 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4126.4533ms
+2025-10-02 10:51:10.055 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:51:10.078 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4647.6440ms
+2025-10-02 10:53:17.742 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 10:53:17.919 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 10:53:17.922 -03:00 [INF] Hosting environment: Development
+2025-10-02 10:53:17.922 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 10:53:33.425 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 10:53:33.536 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 10:53:33.656 -03:00 [INF] CORS policy execution successful.
+2025-10-02 10:53:33.680 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:53:33.849 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 10:53:37.681 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 10:53:37.899 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4028.8297ms
+2025-10-02 10:53:37.934 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 10:53:37.967 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4563.0330ms
+2025-10-02 11:49:18.471 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 11:49:18.658 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 11:49:18.662 -03:00 [INF] Hosting environment: Development
+2025-10-02 11:49:18.662 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 11:50:34.171 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 11:50:34.370 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 11:50:34.373 -03:00 [INF] Hosting environment: Development
+2025-10-02 11:50:34.374 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 11:50:35.415 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 11:50:35.554 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 11:50:35.700 -03:00 [INF] CORS policy execution successful.
+2025-10-02 11:50:35.735 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:50:35.950 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 11:50:40.521 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 11:50:40.770 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4795.4112ms
+2025-10-02 11:50:40.786 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:50:40.823 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5438.7963ms
+2025-10-02 11:51:59.952 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 11:51:59.984 -03:00 [INF] CORS policy execution successful.
+2025-10-02 11:51:59.984 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:51:59.985 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 11:52:01.311 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 11:52:01.313 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 1327.6929ms
+2025-10-02 11:52:01.313 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:52:01.314 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 1362.2122ms
+2025-10-02 11:55:04.705 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 11:55:04.884 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 11:55:04.887 -03:00 [INF] Hosting environment: Development
+2025-10-02 11:55:04.888 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 11:56:21.731 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 11:56:21.856 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 11:56:21.988 -03:00 [INF] CORS policy execution successful.
+2025-10-02 11:56:22.017 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:56:22.225 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 11:56:27.979 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 11:56:28.207 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 5960.8457ms
+2025-10-02 11:56:28.222 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 11:56:28.253 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 6544.2039ms
+2025-10-02 12:00:40.122 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:00:40.298 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:00:40.301 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:00:40.301 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:01:22.958 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:01:23.143 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:01:23.146 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:01:23.147 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:01:23.613 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:01:23.723 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:01:23.842 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:01:23.870 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:01:24.040 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:01:28.356 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:01:28.570 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4504.0219ms
+2025-10-02 12:01:28.594 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:01:28.625 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5033.8526ms
+2025-10-02 12:03:29.553 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:03:29.732 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:03:29.735 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:03:29.735 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:03:44.231 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:03:44.336 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:03:44.460 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:03:44.483 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:03:44.683 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:03:49.543 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:03:49.753 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 5050.3753ms
+2025-10-02 12:03:49.768 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:03:49.793 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5585.2204ms
+2025-10-02 12:08:48.413 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:08:48.603 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:08:48.607 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:08:48.607 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:08:53.243 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:08:53.347 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:08:53.466 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:08:53.490 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:08:53.656 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:08:58.292 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:08:58.492 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4815.1314ms
+2025-10-02 12:08:58.507 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:08:58.537 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5317.9322ms
+2025-10-02 12:31:45.485 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:31:45.662 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:31:45.665 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:31:45.665 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:32:21.859 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:32:22.053 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:32:22.218 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:32:22.243 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:32:22.427 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:32:26.297 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:32:26.507 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4058.0898ms
+2025-10-02 12:32:26.523 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:32:26.549 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4732.7562ms
+2025-10-02 12:40:07.646 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:40:07.834 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:40:07.837 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:40:07.837 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:40:29.152 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:40:29.280 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:40:29.417 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:40:29.443 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:40:29.645 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:40:33.791 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:40:34.004 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4337.8842ms
+2025-10-02 12:40:34.019 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:40:34.044 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4917.1277ms
+2025-10-02 12:42:47.136 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:42:47.349 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:42:47.352 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:42:47.352 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:42:47.678 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:42:47.788 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:42:47.922 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:42:47.951 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:42:48.172 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:42:52.278 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:42:52.491 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4297.2702ms
+2025-10-02 12:42:52.507 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:42:52.530 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4873.8938ms
+2025-10-02 12:44:18.320 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:44:18.555 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:44:18.559 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:44:18.559 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:44:18.632 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:44:18.735 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:44:18.861 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:44:18.890 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:44:19.091 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:44:23.028 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:44:23.328 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4215.372ms
+2025-10-02 12:44:23.345 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:44:23.375 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 4765.2371ms
+2025-10-02 12:48:56.752 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:48:56.947 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:48:56.950 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:48:56.950 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:49:52.402 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:49:52.523 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:49:52.656 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:49:52.680 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:49:52.853 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:49:59.119 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-02 12:49:59.337 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 6462.0894ms
+2025-10-02 12:49:59.352 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:49:59.375 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 400 - application/json;+charset=utf-8 6996.0789ms
+2025-10-02 12:55:52.013 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:55:52.233 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:55:52.236 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:55:52.236 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:56:53.299 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:56:53.421 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:56:53.556 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:56:53.582 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:56:53.753 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:56:58.318 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 12:56:58.560 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 4782.5422ms
+2025-10-02 12:56:58.576 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:56:58.602 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5324.9026ms
+2025-10-02 12:58:50.358 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:58:50.549 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:58:50.552 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:58:50.552 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 12:58:59.434 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 12:58:59.556 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 12:58:59.688 -03:00 [INF] CORS policy execution successful.
+2025-10-02 12:58:59.715 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:58:59.881 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 12:59:05.174 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-02 12:59:05.400 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 5495.6218ms
+2025-10-02 12:59:05.417 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 12:59:05.447 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 400 - application/json;+charset=utf-8 6035.6179ms
+2025-10-02 12:59:47.845 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-10-02 12:59:48.060 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-02 12:59:48.063 -03:00 [INF] Hosting environment: Development
+2025-10-02 12:59:48.063 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-10-02 13:00:03.570 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641
+2025-10-02 13:00:03.714 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-02 13:00:03.842 -03:00 [INF] CORS policy execution successful.
+2025-10-02 13:00:03.867 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 13:00:04.043 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-10-02 13:00:08.995 -03:00 [INF] Executing OkObjectResult, writing value of type 'FECAESolicitarResponse'.
+2025-10-02 13:00:09.205 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 5141.3569ms
+2025-10-02 13:00:09.220 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-10-02 13:00:09.245 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3641 - 200 - application/json;+charset=utf-8 5704.7326ms

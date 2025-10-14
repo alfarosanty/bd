@@ -366,8 +366,7 @@ private static string GetFromTextByArticulo()
         CantidadPendiente = pendiente,
         descripcion = desc,
         codigo = cod
-
-    };
+    };  
 }
 
 

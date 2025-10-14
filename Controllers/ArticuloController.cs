@@ -82,7 +82,7 @@ public List<int> crearArticulos(Articulo[] articulos)
          return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
       }
 
-        [HttpGet("{idArticuloPrecio}/cantidades-taller-corte")]
+        [HttpGet("{idArticuloPrecio}/cantidades-taller-corte-separado")]
         public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte(int idArticuloPrecio)
 
      {
@@ -96,7 +96,7 @@ public List<int> crearArticulos(Articulo[] articulos)
          return resultado.ToArray();
       }
 
-        [HttpGet("cantidades-taller-corte")]
+        [HttpGet("cantidades-taller-corte-separado")]
         public ConsultaTallerCortePorCodigo[] ConsultarTodosArticulosConCantidades()
 
      {

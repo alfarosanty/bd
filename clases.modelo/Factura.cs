@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
     public Presupuesto? Presupuesto{ get; set; }
 
-    public int? ImporteBruto  { get; set; }
+    public decimal? ImporteBruto  { get; set; }
 
     public int PuntoDeVenta { get; set; }
 
@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
     public DateTime? FechaVencimiento { get; set; }
 
-    public int? ImporteNeto  { get; set; }
+    public decimal? ImporteNeto  { get; set; }
 
     public int? Iva { get; set; }
 
