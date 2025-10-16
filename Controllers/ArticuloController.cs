@@ -82,33 +82,27 @@ public List<int> crearArticulos(Articulo[] articulos)
          return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
       }
 
-        [HttpGet("{idArticuloPrecio}/cantidades-taller-corte-separado")]
-        public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte(int idArticuloPrecio)
+[HttpGet("cantidades-taller-corte-separado")]
+public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte([FromQuery] string? codigo = null)
+{
+    ArticuloServices articuloService = new ArticuloServices();
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
-     {
-         ArticuloServices articuloService = new ArticuloServices();
-         CConexion con =  new CConexion();
-         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    if (!string.IsNullOrEmpty(codigo))
+    {
+        // Si viene código, filtramos
+        var resultado = articuloService.ConsultarCantidadesTallerCorte(codigo, npgsqlConnection);
+        return resultado.ToArray();
+    }
+    else
+    {
+        // Si no viene código, devolvemos todas
+        var resultado = articuloService.ConsultarTodosArticulosCantidadesTallerCorte(npgsqlConnection);
+        return resultado.ToArray();
+    }
+}
 
-
-         var resultado = articuloService.ConsultarCantidadesTallerCorte(idArticuloPrecio,npgsqlConnection);
-
-         return resultado.ToArray();
-      }
-
-        [HttpGet("cantidades-taller-corte-separado")]
-        public ConsultaTallerCortePorCodigo[] ConsultarTodosArticulosConCantidades()
-
-     {
-         ArticuloServices articuloService = new ArticuloServices();
-         CConexion con =  new CConexion();
-         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-
-         var resultado = articuloService.ConsultarTodosArticulosCantidadesTallerCorte(npgsqlConnection);
-
-         return resultado.ToArray();
-      }
 
 // ARTICULO PRECIO
 
