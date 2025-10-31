@@ -53,7 +53,7 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
             }
         }
 
-        // 2️⃣ Si token aún es válido, lo devolvemos
+        //* 2️⃣ Si token aún es válido, lo devolvemos
         if (horaExpiracion > DateTime.UtcNow)
         {
             if (verbose) Console.WriteLine("Token válido encontrado en BD");
@@ -68,7 +68,7 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
         }
 
         if (verbose) Console.WriteLine("Token expirado o no encontrado, solicitando nuevo...");
-
+//*/
         // 3️⃣ Leemos certificado, contraseña, servicio y URLWSAA
         byte[] certBytes;
         string contrasena;

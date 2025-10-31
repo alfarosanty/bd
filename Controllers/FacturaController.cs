@@ -49,7 +49,7 @@ public class FacturaController : ControllerBase
 
             // Facturar en AFIP
             FacturaServices fs = new FacturaServices();
-            var facturaAfipResponse = await fs.FacturarAsync(factura, loginTicket, Convert.ToInt64(30716479966));
+            var facturaAfipResponse = await fs.FacturarAsync(factura, loginTicket, Convert.ToInt64(20302367613));
 
             con.cerrarConexion(npgsqlConnection);
 

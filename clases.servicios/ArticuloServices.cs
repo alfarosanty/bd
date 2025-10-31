@@ -186,7 +186,7 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
 
 
     public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
-    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\", \"RELLENO\" FROM \"ARTICULO_PRECIO\"";
+    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\", \"RELLENO\" FROM \"ARTICULO_PRECIO\" ORDER BY \"ID_ARTICULO_PRECIO\"" ;
     
     List<ArticuloPrecio> articulosPrecios = new List<ArticuloPrecio>();
     
@@ -204,6 +204,8 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
                     Precio1 = reader.IsDBNull(reader.GetOrdinal("PRECIO1")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO1")),
                     Precio2 = reader.IsDBNull(reader.GetOrdinal("PRECIO2")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO2")),
                     Precio3 = reader.IsDBNull(reader.GetOrdinal("PRECIO3")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO3")),
+                    Relleno = reader.IsDBNull(reader.GetOrdinal("RELLENO")) ? 0 : reader.GetInt32(reader.GetOrdinal("RELLENO")),
+
                 };
                 articulosPrecios.Add(precio);
             }
@@ -434,17 +436,7 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
 {
     var listaDeConsultasMedidas = new List<ConsultaMedida>();
 
-    // 1. Obtener los ID_ARTICULO_PRECIO únicos
-    var ids = presupuestosArticulos
-        .Select(pa => pa.Articulo.articuloPrecio.Id)
-        .Where(id => id != null)
-        .Distinct()
-        .ToArray();
 
-    // 2. Traer todos los precios en un solo query
-    var preciosPorId = ObtenerPreciosPorIds(ids, connection);
-
-    // 3. Recorrer los artículos del presupuesto
     foreach (var presuArt in presupuestosArticulos)
     {
         if (presuArt?.Articulo?.Medida == null)
@@ -454,11 +446,7 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
         int cantidad = presuArt.cantidad;
 
         // Buscar el relleno desde el diccionario
-        int relleno = 1;
-        if (preciosPorId.TryGetValue(presuArt.Articulo.articuloPrecio.Id, out var articuloPrecio))
-        {
-            relleno = (int?)articuloPrecio.Relleno ?? 1;
-        }
+        int relleno = presuArt.Articulo.articuloPrecio.Relleno ?? 1;
 
         int cantidadFinal = cantidad * relleno;
 
@@ -534,129 +522,203 @@ public Dictionary<int, ArticuloPrecio> ObtenerPreciosPorIds(int[] ids, NpgsqlCon
 
 public List<ConsultaTallerCortePorCodigo> ConsultarTodosArticulosCantidadesTallerCorte(NpgsqlConnection connection)
 {
-    return ObtenerTallerCorteSeparadoAgrupadoPorCodigo("", null, connection);
+    return ConsultarCantidadesTallerCorte("", connection);
 }
 
 public List<ConsultaTallerCortePorCodigo> ConsultarCantidadesTallerCorte(string codigo, NpgsqlConnection connection)
 {
-    return ObtenerTallerCorteSeparadoAgrupadoPorCodigo(
-        " a.\"CODIGO\" = @codigo",
-        cmd => cmd.Parameters.AddWithValue("@codigo", codigo),
-        connection
-    );
+    var stock = consultarStock(codigo, connection);
+    var enCorte = consultarEnCorte(codigo, connection);
+    var enTaller = consultarEnTaller(codigo, connection);
+    var separados = consultarSeparados(codigo, connection);
+
+    var resultado = new List<ConsultaTallerCorte>();
+
+    foreach (var s in stock)
+    {
+        var articulo = s.articulo;
+
+        var corte = enCorte.FirstOrDefault(x => x.articulo.Id == articulo.Id);
+        var taller = enTaller.FirstOrDefault(x => x.articulo.Id == articulo.Id);
+        var separado = separados.FirstOrDefault(x => x.articulo.Id == articulo.Id);
+
+        var consulta = new ConsultaTallerCorte
+        {
+            articulo = articulo,
+            StockUnitario = s.StockUnitario,
+            CantidadEnCorteUnitario = corte?.CantidadEnCorteUnitario ?? 0,
+            CantidadEnTallerUnitario = taller?.CantidadEnTallerUnitario ?? 0,
+            CantidadSeparadoUnitario = separado?.CantidadSeparadoUnitario ?? 0,
+            CantidadEstanteriaUnitario = s.StockUnitario - (separado?.CantidadSeparadoUnitario ?? 0)
+        };
+
+        resultado.Add(consulta);
+    }
+
+    // Si se pidió un código específico, devolvemos una sola agrupación
+    if (!string.IsNullOrEmpty(codigo))
+    {
+        var agrupado = new ConsultaTallerCortePorCodigo
+        {
+            Codigo = codigo,
+            StockTotal = resultado.Sum(x => x.StockUnitario),
+            CantidadEnCorteTotal = resultado.Sum(x => x.CantidadEnCorteUnitario),
+            CantidadEnTallerTotal = resultado.Sum(x => x.CantidadEnTallerUnitario),
+            CantidadSeparadoTotal = resultado.Sum(x => x.CantidadSeparadoUnitario),
+            CantidadEstanteriaTotal = resultado.Sum(x => x.CantidadEstanteriaUnitario),
+            Consultas = resultado
+        };
+
+        return new List<ConsultaTallerCortePorCodigo> { agrupado };
+    }
+
+    // Si no se pidió un código, agrupamos por cada código real de artículo
+    var agrupadoPorCodigo = resultado
+        .GroupBy(r => r.articulo.Codigo)
+        .Select(g => new ConsultaTallerCortePorCodigo
+        {
+            Codigo = g.Key,
+            StockTotal = g.Sum(x => x.StockUnitario),
+            CantidadEnCorteTotal = g.Sum(x => x.CantidadEnCorteUnitario),
+            CantidadEnTallerTotal = g.Sum(x => x.CantidadEnTallerUnitario),
+            CantidadSeparadoTotal = g.Sum(x => x.CantidadSeparadoUnitario),
+            CantidadEstanteriaTotal = g.Sum(x => x.CantidadEstanteriaUnitario),
+            Consultas = g.ToList()
+        })
+        .ToList();
+
+    return agrupadoPorCodigo;
 }
 
 
-
-private List<ConsultaTallerCorte> EjecutarConsultaTallerCorteSeparado(
-    string whereClause,
-    Action<NpgsqlCommand>? addParams,
-    NpgsqlConnection connection)
+private List<ConsultaTallerCorte> consultarStock(string? codigo, NpgsqlConnection connection)
 {
     var resultado = new List<ConsultaTallerCorte>();
 
-    // 1️⃣ Query principal: Corte y Taller
-    string queryCorteTaller = $@"
-        SELECT
-            a.""ID_ARTICULO"",
-            a.""CODIGO"",
-            a.""DESCRIPCION"" || ' ' || COALESCE(c.""DESCRIPCION"", '') AS ""DescripcionCompleta"",
-            a.""STOCK"",
-            c.""CODIGO"" AS ""CodigoColor"",
+    string query = @"
+        SELECT 
+            a.""ID_ARTICULO"", 
+            a.""CODIGO"" AS ""CodigoArticulo"",
+            a.""DESCRIPCION"" AS ""DescripcionArticulo"",  
+            c.""CODIGO"" AS ""CodigoColor"", 
             c.""DESCRIPCION"" AS ""DescripcionColor"",
-            c.""HEXA"" AS ""HexaColor"",
-            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 2 THEN pa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnCorte"",
-            COALESCE(SUM(CASE WHEN pp.""ID_ESTADO_PEDIDO_PROD"" = 3 THEN pa.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadEnTaller""
-        FROM ""PRODUCCION_ARTICULO"" pa
-        LEFT JOIN ""ARTICULO"" a ON a.""ID_ARTICULO"" = pa.""ID_ARTICULO""
-        LEFT JOIN ""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
-        LEFT JOIN ""PEDIDO_PRODUCCION"" pp ON pa.""ID_PEDIDO_PRODUCCION"" = pp.""ID_PEDIDO_PRODUCCION""
-        {(string.IsNullOrEmpty(whereClause) ? "" : "WHERE " + whereClause)}
-        GROUP BY 
-            a.""ID_ARTICULO"",
-            a.""CODIGO"",
-            a.""DESCRIPCION"",
-            a.""STOCK"",
-            c.""CODIGO"",
-            c.""DESCRIPCION"",
-            c.""HEXA""
+            c.""HEXA"" AS ""ColorHexa"",  
+            c.""ID_COLOR"",
+            a.""STOCK""
+        FROM PUBLIC.""ARTICULO"" a
+        JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        /**where**/
+        GROUP BY a.""ID_ARTICULO"", a.""CODIGO"", a.""DESCRIPCION"", c.""CODIGO"", a.""STOCK"", c.""ID_COLOR"", c.""HEXA"", c.""DESCRIPCION""
         ORDER BY a.""ID_ARTICULO"";";
 
-    using (var cmd = new NpgsqlCommand(queryCorteTaller, connection))
-    {
-        addParams?.Invoke(cmd);
+    // Agregar condición opcional
+    if (!string.IsNullOrEmpty(codigo))
+        query = query.Replace("/**where**/", "WHERE a.\"CODIGO\" = @codigo");
+    else
+        query = query.Replace("/**where**/", "");
 
-        using (var reader = cmd.ExecuteReader())
+    using (var command = new NpgsqlCommand(query, connection))
+    {
+        if (!string.IsNullOrEmpty(codigo))
+            command.Parameters.AddWithValue("@codigo", codigo);
+
+        using (var reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var color = new Color
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_COLOR")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoColor")),
+                    Descripcion = reader.GetString(reader.GetOrdinal("DescripcionColor")),
+                    ColorHexa = reader["ColorHexa"] == DBNull.Value ? null : reader["ColorHexa"].ToString(),
+
+                };
+                var articulo = new Articulo
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoArticulo")),
+                    Descripcion = reader.GetString(reader.GetOrdinal("DescripcionArticulo")),
+                    Color = color
+                };
+
+                var consulta = new ConsultaTallerCorte
+                {
+                    articulo = articulo,
+                    StockUnitario = reader.GetInt32(reader.GetOrdinal("STOCK")),
+                    CantidadEnCorteUnitario = 0,
+                    CantidadEnTallerUnitario = 0,
+                    CantidadSeparadoUnitario = 0,
+                    CantidadEstanteriaUnitario = 0
+                };
+
+                resultado.Add(consulta);
+            }
+        }
+    }
+
+    return resultado;
+}
+
+private List<ConsultaTallerCorte> consultarEnCorte(string? codigo, NpgsqlConnection connection)
+{
+    var resultado = new List<ConsultaTallerCorte>();
+
+    string query = @"
+        SELECT 
+            a.""ID_ARTICULO"",
+            pa.""CODIGO"" AS ""CodigoArticulo"",
+            c.""ID_COLOR"",
+            c.""CODIGO"" AS ""CodigoColor"",
+            SUM(pa.""CANTIDAD"") AS ""CORTE""
+        FROM PUBLIC.""PEDIDO_PRODUCCION"" pp
+        JOIN PUBLIC.""PRODUCCION_ARTICULO"" pa ON pp.""ID_PEDIDO_PRODUCCION"" = pa.""ID_PEDIDO_PRODUCCION""
+        JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = pa.""ID_ARTICULO""
+        JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 2
+        /**where**/
+        GROUP BY a.""ID_ARTICULO"", pa.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
+        ORDER BY a.""ID_ARTICULO"";";
+
+    if (!string.IsNullOrEmpty(codigo))
+        query = query.Replace("/**where**/", "AND pa.\"CODIGO\" = @codigo");
+    else
+        query = query.Replace("/**where**/", "");
+
+    using (var command = new NpgsqlCommand(query, connection))
+    {
+        if (!string.IsNullOrEmpty(codigo))
+            command.Parameters.AddWithValue("@codigo", codigo);
+
+        using (var reader = command.ExecuteReader())
         {
             while (reader.Read())
             {
                 var articulo = new Articulo
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
-                    Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
-                    Descripcion = reader.GetString(reader.GetOrdinal("DescripcionCompleta")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoArticulo")),
                     Color = new Color
                     {
-                        Codigo = reader.GetString(reader.GetOrdinal("CodigoColor")),
-                        Descripcion = reader.GetString(reader.GetOrdinal("DescripcionColor")),
-                        ColorHexa = reader.IsDBNull(reader.GetOrdinal("HexaColor"))
-                            ? ""
-                            : reader.GetString(reader.GetOrdinal("HexaColor"))
+                        Id = reader.GetInt32(reader.GetOrdinal("ID_COLOR")),
+                        Codigo = reader.GetString(reader.GetOrdinal("CodigoColor"))
                     }
                 };
 
-                int cantidadEnCorte = Convert.ToInt32(reader["CantidadEnCorte"]);
-                int cantidadEnTaller = Convert.ToInt32(reader["CantidadEnTaller"]);
-                int stockUnitario = reader.GetInt32(reader.GetOrdinal("STOCK"));
-
-                resultado.Add(new ConsultaTallerCorte
+                var consulta = new ConsultaTallerCorte
                 {
                     articulo = articulo,
-                    CantidadEnCorteUnitario = cantidadEnCorte,
-                    CantidadEnTallerUnitario = cantidadEnTaller,
-                    StockUnitario = stockUnitario
-                });
+                    CantidadEnCorteUnitario = reader.IsDBNull(reader.GetOrdinal("CORTE"))
+                        ? 0
+                        : reader.GetInt32(reader.GetOrdinal("CORTE")),
+                    CantidadEnTallerUnitario = 0,
+                    CantidadSeparadoUnitario = 0,
+                    StockUnitario = 0,
+                    CantidadEstanteriaUnitario = 0
+                };
+
+                resultado.Add(consulta);
             }
-        }
-    }
-
-    // 2️⃣ Query separada: Cantidad separada (ARTICULO_PRESUPUESTO)
-    string querySeparadas = $@"
-        SELECT 
-            a.""ID_ARTICULO"",
-            COALESCE(SUM(CASE WHEN ap.""HAY_STOCK"" = TRUE THEN ap.""CANTIDAD"" ELSE 0 END), 0) AS ""CantidadSeparada""
-        FROM ""ARTICULO"" a
-        LEFT JOIN ""ARTICULO_PRESUPUESTO"" ap ON a.""ID_ARTICULO"" = ap.""ID_ARTICULO""
-        LEFT JOIN ""PRESUPUESTO"" p ON ap.""ID_PRESUPUESTO"" = p.""ID_PRESUPUESTO"" AND p.""ID_ESTADO"" = 2
-        {(string.IsNullOrEmpty(whereClause) ? "" : "WHERE " + whereClause)}
-        GROUP BY a.""ID_ARTICULO""
-        ORDER BY a.""ID_ARTICULO"";";
-
-    var cantidadesSeparadas = new Dictionary<int, int>();
-    using (var cmdSep = new NpgsqlCommand(querySeparadas, connection))
-    {
-        // ✅ Pasamos los mismos parámetros que la primera query
-        addParams?.Invoke(cmdSep);
-
-        using var reader = cmdSep.ExecuteReader();
-        while (reader.Read())
-        {
-            int idArticulo = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO"));
-            int cantidadSeparada = reader.GetInt32(reader.GetOrdinal("CantidadSeparada"));
-            cantidadesSeparadas[idArticulo] = cantidadSeparada;
-        }
-    }
-
-    // 3️⃣ Combinar resultados
-    foreach (var item in resultado)
-    {
-        if (cantidadesSeparadas.TryGetValue(item.articulo.Id, out int cantidadSeparada))
-        {
-            item.CantidadSeparadoUnitario = cantidadSeparada;
-        }
-        else
-        {
-            item.CantidadSeparadoUnitario = 0;
         }
     }
 
@@ -664,25 +726,135 @@ private List<ConsultaTallerCorte> EjecutarConsultaTallerCorteSeparado(
 }
 
 
-
-public List<ConsultaTallerCortePorCodigo> ObtenerTallerCorteSeparadoAgrupadoPorCodigo(string whereClause, Action<NpgsqlCommand>? addParams, NpgsqlConnection connection)
+private List<ConsultaTallerCorte> consultarEnTaller(string? codigo, NpgsqlConnection connection)
 {
-    var consultasIndividuales = EjecutarConsultaTallerCorteSeparado(whereClause, addParams, connection);
+    var resultado = new List<ConsultaTallerCorte>();
 
-    var agrupado = consultasIndividuales
-        .GroupBy(c => c.articulo.Codigo)
-        .Select(grupo => new ConsultaTallerCortePorCodigo
+    string query = @"
+        SELECT 
+            a.""ID_ARTICULO"",
+            pa.""CODIGO"" AS ""CodigoArticulo"",
+            c.""ID_COLOR"",
+            c.""CODIGO"" AS ""CodigoColor"",
+            SUM(pa.""CANTIDAD"") AS ""TALLER""
+        FROM PUBLIC.""PEDIDO_PRODUCCION"" pp
+        JOIN PUBLIC.""PRODUCCION_ARTICULO"" pa ON pp.""ID_PEDIDO_PRODUCCION"" = pa.""ID_PEDIDO_PRODUCCION""
+        JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = pa.""ID_ARTICULO""
+        JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 3
+        /**where**/
+        GROUP BY a.""ID_ARTICULO"", pa.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
+        ORDER BY a.""ID_ARTICULO"";";
+
+    if (!string.IsNullOrEmpty(codigo))
+        query = query.Replace("/**where**/", "AND pa.\"CODIGO\" = @codigo");
+    else
+        query = query.Replace("/**where**/", "");
+
+    using (var command = new NpgsqlCommand(query, connection))
+    {
+        if (!string.IsNullOrEmpty(codigo))
+            command.Parameters.AddWithValue("@codigo", codigo);
+
+        using (var reader = command.ExecuteReader())
         {
-            Codigo = grupo.Key,
-            CantidadEnCorteTotal = grupo.Sum(x => x.CantidadEnCorteUnitario),
-            CantidadEnTallerTotal = grupo.Sum(x => x.CantidadEnTallerUnitario),
-            CantidadSeparadoTotal = grupo.Sum(x => x.CantidadSeparadoUnitario),
-            StockTotal = grupo.Sum(x => x.StockUnitario),
-            Consultas = grupo.ToList()
-        })
-        .ToList();
+            while (reader.Read())
+            {
+                var articulo = new Articulo
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoArticulo")),
+                    Color = new Color
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("ID_COLOR")),
+                        Codigo = reader.GetString(reader.GetOrdinal("CodigoColor"))
+                    }
+                };
 
-    return agrupado;
+                var consulta = new ConsultaTallerCorte
+                {
+                    articulo = articulo,
+                    CantidadEnCorteUnitario = 0,
+                    CantidadEnTallerUnitario = reader.IsDBNull(reader.GetOrdinal("TALLER"))
+                        ? 0
+                        : reader.GetInt32(reader.GetOrdinal("TALLER")),
+                    CantidadSeparadoUnitario = 0,
+                    StockUnitario = 0,
+                    CantidadEstanteriaUnitario = 0
+                };
+
+                resultado.Add(consulta);
+            }
+        }
+    }
+
+    return resultado;
+}
+
+private List<ConsultaTallerCorte> consultarSeparados(string? codigo, NpgsqlConnection connection)
+{
+    var resultado = new List<ConsultaTallerCorte>();
+
+    string query = @"
+        SELECT 
+            a.""ID_ARTICULO"",
+            ap.""CODIGO"" AS ""CodigoArticulo"",
+            c.""ID_COLOR"",
+            c.""CODIGO"" AS ""CodigoColor"",
+            SUM(ap.""CANTIDAD"") AS ""SEPARADO""
+        FROM PUBLIC.""PRESUPUESTO"" p
+        JOIN PUBLIC.""ARTICULO_PRESUPUESTO"" ap ON p.""ID_PRESUPUESTO"" = ap.""ID_PRESUPUESTO""
+        JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = ap.""ID_ARTICULO""
+        JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        WHERE p.""ID_ESTADO"" = 2 
+          AND ap.""HAY_STOCK"" = TRUE
+        /**where**/
+        GROUP BY a.""ID_ARTICULO"", ap.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
+        ORDER BY a.""ID_ARTICULO"";";
+
+    if (!string.IsNullOrEmpty(codigo))
+        query = query.Replace("/**where**/", "AND ap.\"CODIGO\" = @codigo");
+    else
+        query = query.Replace("/**where**/", "");
+
+    using (var command = new NpgsqlCommand(query, connection))
+    {
+        if (!string.IsNullOrEmpty(codigo))
+            command.Parameters.AddWithValue("@codigo", codigo);
+
+        using (var reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var articulo = new Articulo
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO")),
+                    Codigo = reader.GetString(reader.GetOrdinal("CodigoArticulo")),
+                    Color = new Color
+                    {
+                        Id = reader.GetInt32(reader.GetOrdinal("ID_COLOR")),
+                        Codigo = reader.GetString(reader.GetOrdinal("CodigoColor"))
+                    }
+                };
+
+                var consulta = new ConsultaTallerCorte
+                {
+                    articulo = articulo,
+                    CantidadEnCorteUnitario = 0,
+                    CantidadEnTallerUnitario = 0,
+                    CantidadSeparadoUnitario = reader.IsDBNull(reader.GetOrdinal("SEPARADO"))
+                        ? 0
+                        : reader.GetInt32(reader.GetOrdinal("SEPARADO")),
+                    StockUnitario = 0,
+                    CantidadEstanteriaUnitario = 0
+                };
+
+                resultado.Add(consulta);
+            }
+        }
+    }
+
+    return resultado;
 }
 
 

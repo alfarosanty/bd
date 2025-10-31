@@ -34,7 +34,7 @@ public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTi
 
     // Crear request HTTP
     var httpRequest = new HttpRequestMessage(HttpMethod.Post,
-        "https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService")
+        "https://serviciosjava.afip.gob.ar/wsmtxca/services/MTXCAService")
     {
         Content = new StringContent(soapEnvelope, Encoding.UTF8, "text/xml")
     };
@@ -48,6 +48,8 @@ public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTi
         if (!response.IsSuccessStatusCode)
         {
             string errorHtml = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("==========ERROR DE LA AFIP==========");
+            Console.WriteLine(response);
             Console.WriteLine($"❌ Error HTTP {(int)response.StatusCode}: {response.ReasonPhrase}");
             Console.WriteLine(errorHtml);
             throw new Exception($"Error HTTP al contactar AFIP: {response.StatusCode}");
@@ -106,18 +108,20 @@ private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData l
 
     foreach (var art in factura.Articulos)
     {
+        decimal cantidad = art.Cantidad;
+        decimal precioUnitario = art.PrecioUnitario;
         decimal importeItem = Math.Round(art.PrecioUnitario * art.Cantidad * 1.21m, 2);
         decimal importeIVA = Math.Round(art.PrecioUnitario * art.Cantidad * 0.21m, 2);
 
-        sbItems.Append($@"
+    sbItems.Append($@"
         <item>
-            <unidadesMtx>{art.Cantidad}</unidadesMtx>
-            <codigoMtx>{"0000000000000"}</codigoMtx>
+            <unidadesMtx>{cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</unidadesMtx>
+            <codigoMtx>0000000000000</codigoMtx>
             <codigo>{art.Codigo}</codigo>
             <descripcion>{System.Security.SecurityElement.Escape(art.Descripcion)}</descripcion>
-            <cantidad>{art.Cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</cantidad>
+            <cantidad>{cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</cantidad>
             <codigoUnidadMedida>7</codigoUnidadMedida>
-            <precioUnitario>{art.PrecioUnitario.ToString("0.00", CultureInfo.InvariantCulture)}</precioUnitario>
+            <precioUnitario>{precioUnitario.ToString("0.00", CultureInfo.InvariantCulture)}</precioUnitario>
             <importeBonificacion>0.00</importeBonificacion>
             <codigoCondicionIVA>5</codigoCondicionIVA>
             <importeIVA>{importeIVA.ToString("0.00", CultureInfo.InvariantCulture)}</importeIVA>
@@ -126,9 +130,9 @@ private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData l
     }
 
     // SOAP completo
-    string soap = $@"<?xml version=""1.0"" encoding=""utf-8""?>
+string soap = $@"<?xml version=""1.0"" encoding=""utf-8""?>
 <soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/""
-                  xmlns:ser=""http://impl.service.wsmtxca.afip.gob.ar/service/"">
+                  xmlns:ser=""http://service.wsmtxca.afip.gov.ar/"">
    <soapenv:Header/>
    <soapenv:Body>
       <ser:autorizarComprobanteRequest>
@@ -137,9 +141,9 @@ private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData l
             <sign>{loginTicket.Sign}</sign>
             <cuitRepresentada>{cuit}</cuitRepresentada>
          </authRequest>
-         <comprobanteCAERequest>
+         <comprobanteRequest>
             <codigoTipoComprobante>1</codigoTipoComprobante>
-            <numeroPuntoVenta> 3 </numeroPuntoVenta>
+            <numeroPuntoVenta>2</numeroPuntoVenta>
             <numeroComprobante>{factura.NumeroFactura ?? 1}</numeroComprobante>
             <fechaEmision>{factura.FechaFactura:yyyy-MM-dd}</fechaEmision>
             <codigoTipoDocumento>80</codigoTipoDocumento>
@@ -156,7 +160,7 @@ private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData l
             <codigoConcepto>1</codigoConcepto>
 
             <arrayItems>
-                {sbItems}
+                {sbItems} <!-- Asegurate de que cada item no tenga espacios innecesarios en números -->
             </arrayItems>
 
             <arraySubtotalesIVA>
@@ -170,10 +174,11 @@ private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData l
                 <actividad><codigo>120010</codigo></actividad>
                 <actividad><codigo>463300</codigo></actividad>
             </arrayActividades>
-         </comprobanteCAERequest>
+         </comprobanteRequest>
       </ser:autorizarComprobanteRequest>
    </soapenv:Body>
 </soapenv:Envelope>";
+
 
     return soap;
 }

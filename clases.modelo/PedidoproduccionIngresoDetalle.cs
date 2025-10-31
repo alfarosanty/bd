@@ -11,6 +11,8 @@
         public Articulo Articulo { get; set; }
                 
         public int CantidadDescontada { get; set; }
+        public int CantidadPendienteAntes { get; set; }
+        public int CantidadPendienteDespues { get; set; }
 
 
     }

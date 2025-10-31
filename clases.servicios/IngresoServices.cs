@@ -219,17 +219,28 @@ public List<PedidoProduccionIngresoDetalle> GetDetallesPPI(int idIngreso, Npgsql
 {
     var detalles = new List<PedidoProduccionIngresoDetalle>();
 
-string sqlSelect = $@"
-    SELECT 
-        ""ID_DETALLE"", 
-        ""ID_PEDIDO_PRODUCCION"", 
-        ""ID_INGRESO"", 
-        ""ID_PRESUPUESTO"", 
-        ""ID_ARTICULO"", 
-        ""CANTIDAD_DESCONTADA""
-    FROM {PedidoProduccionIngresoDetalle.TABLA}
-    WHERE ""ID_INGRESO"" = @idIngreso";
-
+    string sqlSelect = @"
+        SELECT 
+            PPI.""ID_DETALLE"", 
+            PPI.""ID_PEDIDO_PRODUCCION"", 
+            PPI.""ID_INGRESO"", 
+            PPI.""ID_PRESUPUESTO"", 
+            PPI.""ID_ARTICULO"", 
+            PPI.""CANTIDAD_DESCONTADA"",
+            PPI.""CANTIDAD_PENDIENTE_ANTES"",
+            PPI.""CANTIDAD_PENDIENTE_DESPUES"",
+            COALESCE(CLI.""RAZON_SOCIAL"", 'Stock') AS ""RAZON_SOCIAL"",
+            A.""CODIGO"" AS ""CODIGO_ARTICULO"",
+            A.""DESCRIPCION"" AS ""DESCRIPCION_ARTICULO"",
+            COL.""CODIGO"" AS ""CODIGO_COLOR""
+        FROM public.""PEDIDO_PRODUCCION_INGRESO_DETALLE"" PPI
+        LEFT JOIN public.""PRESUPUESTO"" P ON P.""ID_PRESUPUESTO"" = PPI.""ID_PRESUPUESTO""
+        LEFT JOIN public.""CLIENTE"" CLI ON CLI.""ID_CLIENTE"" = P.""ID_CLIENTE""
+        JOIN public.""ARTICULO"" A ON A.""ID_ARTICULO"" = PPI.""ID_ARTICULO""
+        JOIN public.""COLOR"" COL ON COL.""ID_COLOR"" = A.""ID_COLOR""
+        WHERE PPI.""ID_INGRESO"" = @idIngreso
+        ORDER BY PPI.""ID_DETALLE"" ASC;
+    ";
 
     using (var cmd = new NpgsqlCommand(sqlSelect, conex))
     {
@@ -251,18 +262,34 @@ string sqlSelect = $@"
                     },
                     Articulo = new Articulo
                     {
-                        Id = (int)reader["ID_ARTICULO"]
+                        Id = (int)reader["ID_ARTICULO"],
+                        Codigo = reader["CODIGO_ARTICULO"].ToString(),
+                        Descripcion = reader["DESCRIPCION_ARTICULO"].ToString(),
+                        Color = new Color
+                        {
+                            Codigo = reader["CODIGO_COLOR"].ToString()
+                        }
                     },
-                    CantidadDescontada = (int)reader["CANTIDAD_DESCONTADA"]
+                    CantidadDescontada = reader["CANTIDAD_DESCONTADA"] != DBNull.Value ? (int)reader["CANTIDAD_DESCONTADA"] : 0,
+                    CantidadPendienteAntes = reader["CANTIDAD_PENDIENTE_ANTES"] != DBNull.Value ? (int)reader["CANTIDAD_PENDIENTE_ANTES"] : 0,
+                    CantidadPendienteDespues = reader["CANTIDAD_PENDIENTE_DESPUES"] != DBNull.Value ? (int)reader["CANTIDAD_PENDIENTE_DESPUES"] : 0
                 };
 
-                // Si puede venir nulo el presupuesto
+                // Presupuesto (puede ser nulo)
                 if (reader["ID_PRESUPUESTO"] != DBNull.Value)
                 {
                     detalle.Presupuesto = new Presupuesto
                     {
-                        Id = (int)reader["ID_PRESUPUESTO"]
+                        Id = (int)reader["ID_PRESUPUESTO"],
+                        Cliente = new Cliente
+                        {
+                            RazonSocial = reader["RAZON_SOCIAL"].ToString()
+                        }
                     };
+                }
+                else
+                {
+                    detalle.Presupuesto = null;
                 }
 
                 detalles.Add(detalle);
@@ -272,6 +299,7 @@ string sqlSelect = $@"
 
     return detalles;
 }
+
 
 
 
@@ -285,8 +313,8 @@ public List<int> CrearDetallesIngresoPedidoProduccion(List<PedidoProduccionIngre
         {
             string sqlInsert = $@"
             INSERT INTO public.{PedidoProduccionIngresoDetalle.TABLA}
-            (""ID_PEDIDO_PRODUCCION"", ""ID_INGRESO"", ""ID_PRESUPUESTO"", ""ID_ARTICULO"", ""CANTIDAD_DESCONTADA"")
-            VALUES (@ID_PEDIDO_PRODUCCION, @ID_INGRESO, @ID_PRESUPUESTO, @ID_ARTICULO, @CANTIDAD_DESCONTADA)
+            (""ID_PEDIDO_PRODUCCION"", ""ID_INGRESO"", ""ID_PRESUPUESTO"", ""ID_ARTICULO"", ""CANTIDAD_DESCONTADA"", ""CANTIDAD_PENDIENTE_ANTES"", ""CANTIDAD_PENDIENTE_DESPUES"")
+            VALUES (@ID_PEDIDO_PRODUCCION, @ID_INGRESO, @ID_PRESUPUESTO, @ID_ARTICULO, @CANTIDAD_DESCONTADA, @CANTIDAD_PENDIENTE_ANTES, @CANTIDAD_PENDIENTE_DESPUES)
             RETURNING ""ID_DETALLE"";";
 
             Console.WriteLine("SQL generado:");
@@ -305,6 +333,9 @@ public List<int> CrearDetallesIngresoPedidoProduccion(List<PedidoProduccionIngre
             cmd.Parameters.AddWithValue("ID_PRESUPUESTO", (detalle.Presupuesto == null || detalle.Presupuesto.Id == 0) ? (object)DBNull.Value : detalle.Presupuesto.Id);
             cmd.Parameters.AddWithValue("ID_ARTICULO", detalle.Articulo.Id);
             cmd.Parameters.AddWithValue("CANTIDAD_DESCONTADA", detalle.CantidadDescontada);
+            cmd.Parameters.AddWithValue("CANTIDAD_PENDIENTE_ANTES", detalle.CantidadPendienteAntes);
+            cmd.Parameters.AddWithValue("CANTIDAD_PENDIENTE_DESPUES", detalle.CantidadPendienteDespues);
+
 
             var result = cmd.ExecuteScalar();
             Console.WriteLine($"ExecuteScalar result = {result}");

@@ -45,6 +45,7 @@ app.UseRouting();
 app.UseCors("AllowAll");
 
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

@@ -44,6 +44,8 @@ using System.Threading.Tasks;
         public int CantidadEnCorteUnitario{ get; set; }
         public int CantidadEnTallerUnitario{ get; set; }
         public int CantidadSeparadoUnitario{ get; set; }
+        public int CantidadEstanteriaUnitario{ get; set; }
+
         public int StockUnitario{ get; set; }
 
 
@@ -54,6 +56,7 @@ public class ConsultaTallerCortePorCodigo {
     public int CantidadEnCorteTotal { get; set; }
     public int CantidadEnTallerTotal { get; set; }
     public int CantidadSeparadoTotal { get; set; }
+    public int CantidadEstanteriaTotal { get; set; }
     public int StockTotal { get; set; }
     public List<ConsultaTallerCorte> Consultas { get; set; } // ahora es una lista
 }
