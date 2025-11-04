@@ -31,24 +31,21 @@ public async Task<IActionResult> Login([FromBody] UsuarioLoginRequest userReques
     if (usuario == null)
         return Unauthorized("Usuario o contraseña incorrectos");
 
-    // Creamos los claims con el rol real
-    var claims = new List<Claim>
-    {
-        new Claim(ClaimTypes.Name, usuario.UserName),
-        new Claim(ClaimTypes.Role, usuario.Rol.ToString())
-    };
+var claims = new List<Claim>
+{
+    new Claim(ClaimTypes.Name, usuario.UserName), // este debería ser el "identificador"
+    new Claim(ClaimTypes.Role, usuario.Rol.ToString()),
+    new Claim("Nombre", usuario.Nombre),
+    new Claim("Apellido", usuario.Apellido),
+};
+
 
     var identity = new ClaimsIdentity(claims, "MiCookieAuth");
     var principal = new ClaimsPrincipal(identity);
 
     await HttpContext.SignInAsync("MiCookieAuth", principal);
 
-    return Ok(new
-    {
-        message = "Login exitoso",
-        usuario = usuario.UserName,
-        rol = usuario.Rol.ToString()
-    });
+    return Ok(usuario);
 }
 
 
@@ -60,10 +57,18 @@ public async Task<IActionResult> Login([FromBody] UsuarioLoginRequest userReques
         return Ok(new { message = "Logout correcto" });
     }
 
-    [Authorize]
-    [HttpGet("me")]
-    public IActionResult Me()
-    {
-        return Ok(new { user = User.Identity?.Name, roles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value) });
-    }
+[Authorize]
+[HttpGet("me")]
+public IActionResult Me()
+{
+    Console.WriteLine("🔍 /me fue llamado. Usuario autenticado: " + User.Identity?.Name);
+    return Ok(new 
+    { 
+        userName = User.Identity?.Name, 
+        roles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value),
+        nombre = User.Claims.FirstOrDefault(c => c.Type == "Nombre")?.Value,
+        apellido = User.Claims.FirstOrDefault(c => c.Type == "Apellido")?.Value,        
+    });
+}
+
 }

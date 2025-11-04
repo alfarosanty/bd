@@ -50,7 +50,7 @@ builder.Services.AddAuthentication("MiCookieAuth")
         options.LoginPath = "/api/auth/login";
         options.AccessDeniedPath = "/api/auth/denied";
         options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.Strict;
+        options.Cookie.SameSite = SameSiteMode.None;
         options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
         options.ExpireTimeSpan = TimeSpan.FromHours(8);
         options.SlidingExpiration = true;

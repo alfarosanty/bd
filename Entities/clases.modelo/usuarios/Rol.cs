@@ -4,5 +4,6 @@ namespace BlumeAPI.Models;
         ADMIN,
         CONTROL,
         ARMADO,
-        TALLER
+        TALLER,
+        CONTROL_FINANZAS
     }
