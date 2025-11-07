@@ -1,4 +1,5 @@
 using BlumeAPI.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -50,10 +51,25 @@ builder.Services.AddAuthentication("MiCookieAuth")
         options.LoginPath = "/api/auth/login";
         options.AccessDeniedPath = "/api/auth/denied";
         options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.None;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        options.ExpireTimeSpan = TimeSpan.FromHours(8);
+        options.Cookie.SameSite = SameSiteMode.Lax;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+
+        options.ExpireTimeSpan = TimeSpan.FromHours(10);
         options.SlidingExpiration = true;
+
+        options.Events = new CookieAuthenticationEvents
+        {
+            OnRedirectToLogin = ctx =>
+            {
+                ctx.Response.StatusCode = 401;
+                return Task.CompletedTask;
+            },
+            OnRedirectToAccessDenied = ctx =>
+            {
+                ctx.Response.StatusCode = 403;
+                return Task.CompletedTask;
+            }
+        };
     });
 
 builder.Services.AddAuthorization();
@@ -62,7 +78,10 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 // Para producción:
-var connectionString = builder.Configuration.GetConnectionString("BDPruebas"/*BDProduccion*/);
+var connectionString = builder.Configuration.GetConnectionString(
+    //"BDPruebas"
+    "BDProduccion"
+    );
 
 // Para pruebas/desarrollo:
 // var connectionString = builder.Configuration.GetConnectionString("BDPruebas");

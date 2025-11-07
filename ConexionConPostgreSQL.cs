@@ -11,8 +11,8 @@ using System.Threading.Tasks;
         static String servidor=
         
         
-        "localhost"; //pruebas
-        //"192.168.1.104";//ofi
+        //"localhost"; //pruebas
+        "192.168.1.104";//ofi
         //"192.168.1.40";//casa
         static String bd="BD";
         static String usuario="postgres";
@@ -45,7 +45,7 @@ using System.Threading.Tasks;
             
             }
         }
-
+/*
         public Color GetColor(int id, NpgsqlConnection conex ){
             string commandText = $"SELECT * FROM \"COLOR\"WHERE \"ID_COLOR\" = @id";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
@@ -95,6 +95,6 @@ using System.Threading.Tasks;
             };
             return color;
         }
-
+*/
 
     }

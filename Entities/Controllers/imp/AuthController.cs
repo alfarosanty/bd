@@ -62,13 +62,16 @@ var claims = new List<Claim>
 public IActionResult Me()
 {
     Console.WriteLine("🔍 /me fue llamado. Usuario autenticado: " + User.Identity?.Name);
-    return Ok(new 
-    { 
-        userName = User.Identity?.Name, 
-        roles = User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value),
+    return Ok(new
+    {
+        userName = User.Identity?.Name,
+        roles = User.Claims
+                    .Where(c => c.Type == ClaimTypes.Role)
+                    .Select(c => c.Value),
         nombre = User.Claims.FirstOrDefault(c => c.Type == "Nombre")?.Value,
-        apellido = User.Claims.FirstOrDefault(c => c.Type == "Apellido")?.Value,        
+        apellido = User.Claims.FirstOrDefault(c => c.Type == "Apellido")?.Value
     });
+
 }
 
 }
