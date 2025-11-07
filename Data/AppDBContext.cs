@@ -8,8 +8,9 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<Color> Colores { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Solo tratamos el enum Rol para guardarlo como texto
         modelBuilder.Entity<Usuario>()

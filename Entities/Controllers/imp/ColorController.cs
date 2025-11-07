@@ -1,31 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace BlumeAPI.Controllers;
-
 [ApiController]
 [Route("[controller]")]
-
-public class ColorController : ControllerBase{
-
+public class ColorController : ControllerBase, IColorController
+{
     private readonly ILogger<ColorController> _logger;
+    private readonly IColorService _colorService;
 
-    public ColorController(ILogger<ColorController> logger)
+    public ColorController(ILogger<ColorController> logger, IColorService colorService)
     {
         _logger = logger;
+        _colorService = colorService;
     }
-
 
     [HttpGet("GetColores")]
-    public IEnumerable<Color> Get()
+    public async Task<IActionResult> ListarColores()
     {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Color> colores = new ColorServices().listarColores(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return colores;
+        var colores = await _colorService.ListarColoresAsync();
+        return Ok(colores);
     }
-
-
-
 }

@@ -11,8 +11,8 @@ using System.Threading.Tasks;
         static String servidor=
         
         
-        //"localhost"; //pruebas
-        "192.168.1.104";//ofi
+        "localhost"; //pruebas
+        //"192.168.1.104";//ofi
         //"192.168.1.40";//casa
         static String bd="BD";
         static String usuario="postgres";

@@ -1,5 +1,6 @@
 
 
+using BlumeAPI;
 using Npgsql;
 
 public class IngresoService
