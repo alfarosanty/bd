@@ -79,6 +79,10 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IColorRepository, ColorRepository>();
 builder.Services.AddScoped<IColorService, ColorService>();
 
+
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 // Para producción:
 var connectionString = builder.Configuration.GetConnectionString(

@@ -1,34 +1,52 @@
-﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using BlumeApi.Models;
 
 
- public class ArticuloPresupuesto
-        {
-            public static String TABLA="ARTICULO_PRESUPUESTO";
+namespace BlumeAPI.Models{
+    
+[Table("ARTICULO_PRESUPUESTO")]
+public class ArticuloPresupuesto
+{
+    public static string TABLA = "ARTICULO_PRESUPUESTO";
 
-            public Articulo Articulo { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("ID_ARTICULO_PRESUPUESTO")]
+    public int Id { get; set; }
 
-            public Presupuesto? Presupuesto { get; set; }
+    [Column("ID_ARTICULO")]
+    [ForeignKey(nameof(Articulo))]
+    public int IdArticulo { get; set; }
 
-            public int cantidad { get; set; }
+    public Articulo Articulo { get; set; } = null!;
 
-            public int? CantidadPendiente { get; set; }
+    [Column("ID_PRESUPUESTO")]
+    [ForeignKey(nameof(Presupuesto))]
+    public int? IdPresupuesto { get; set; }
 
+    public Presupuesto? Presupuesto { get; set; }
 
-            public decimal PrecioUnitario { get; set; }
+    [Column("CANTIDAD")]
+    public int Cantidad { get; set; }
 
-            public decimal Descuento { get; set; }
+    [Column("CANTIDAD_PENDIENTE")]
+    public int? CantidadPendiente { get; set; }
 
-            public string? descripcion { get; set; }
+    [Column("PRECIO_UNITARIO", TypeName = "numeric(18,2)")]
+    public decimal PrecioUnitario { get; set; }
 
-            public bool hayStock {get; set; }
+    [Column("DESCUENTO", TypeName = "numeric(5,2)")]
+    public decimal Descuento { get; set; }
 
-            public string? codigo {get; set; }
+    [Column("DESCRIPCION")]
+    public string? Descripcion { get; set; }
 
-            /**INCLUIR UN ESTAOD PARA SABER SI ESTA SEPARADO O SE MANDO A PRODUCCION**/
+    [Column("HAY_STOCK")]
+    public bool HayStock { get; set; }
 
-    }
+    [Column("CODIGO")]
+    public string? Codigo { get; set; }
+}
+
+}

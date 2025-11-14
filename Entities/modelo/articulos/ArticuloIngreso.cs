@@ -1,22 +1,34 @@
-﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using BlumeAPI.Models;
 
+namespace BlumeApi.Models
+{
+    [Table("ARTICULO_INGRESO")]
+    public class ArticuloIngreso
+    {
+        public static string TABLA = "ARTICULO_INGRESO";
 
- public class ArticuloIngreso
-        {
-            public static String TABLA="ARTICULO_INGRESO";
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_ARTICULO_INGRESO")]
+        public int Id { get; set; }
 
-            public Articulo Articulo { get; set; }
+        [Column("ID_ARTICULO")]
+        [ForeignKey(nameof(Articulo))]
+        public int IdArticulo { get; set; }
+        public Articulo Articulo { get; set; } = null!;
 
-            public int? IdIngreso { get; set; }
+        [Column("ID_INGRESO")]
+        public int? IdIngreso { get; set; }
 
-            public int cantidad { get; set; }
+        [Column("CANTIDAD")]
+        public int Cantidad { get; set; }
 
-            public string Codigo { get; set; }
+        [Column("CODIGO")]
+        public string Codigo { get; set; } = string.Empty;
 
-            public string Descripcion { get; set; }
+        [Column("DESCRIPCION")]
+        public string Descripcion { get; set; } = string.Empty;
     }
+}

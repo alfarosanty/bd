@@ -1,22 +1,28 @@
-﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-
-    public  class Taller
+namespace BlumeApi.Models
+{
+    [Table("FABRICANTE")]
+    public class Taller
     {
-        public static String TABLA="FABRICANTE";
+        public static string TABLA = "FABRICANTE";
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_FABRICANTE")]
         public int Id { get; set; }
-        public string telefono { get; set; }
-        public string razonSocial {get;set;}
 
-        public string direccion {get;set;}
+        [Column("TELEFONO")]
+        public string? Telefono { get; set; }
 
-        public string provincia {get;set;}
+        [Column("RAZON_SOCIAL")]
+        public string RazonSocial { get; set; } = string.Empty;
+
+        [Column("DIRECCION")]
+        public string? Direccion { get; set; }
+
+        [Column("PROVINCIA")]
+        public string? Provincia { get; set; }
     }
-
-
+}

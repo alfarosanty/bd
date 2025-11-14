@@ -1,24 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-    public  class EstadoPedidoProduccion: Basico
+namespace BlumeApi.Models
+{
+    [Table("ESTADO_PEDIDO_PRODUCCION")]
+    public class EstadoPedidoProduccion
     {
-    public static String TABLA="ESTADO_PEDIDO_PRODUCCION";
-        public int Id {get; set;}
+        public static string TABLA = "ESTADO_PEDIDO_PRODUCCION";
 
-        public string? Codigo {get; set;}
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_ESTADO_PEDIDO_PRODUCCION")]
+        public int Id { get; set; }
 
-        public string? Descripcion {get; set;}
+        [Column("CODIGO")]
+        public string? Codigo { get; set; }
 
-
-
-
-
+        [Column("DESCRIPCION")]
+        public string? Descripcion { get; set; }
     }
+}

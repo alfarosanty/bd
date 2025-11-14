@@ -1,18 +1,22 @@
-﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-
-
-    public  class SubFamilia: Basico
+namespace BlumeApi.Models
+{
+    [Table("SUBFAMILIA")]
+    public class SubFamilia
     {
-    public static String TABLA="SUBFAMILIA";
+        public static string TABLA = "SUBFAMILIA";
 
-    public int? Id { get; set; }
-    public string? Codigo { get; set; }
-    public string? Descripcion { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_SUBFAMILIA")]
+        public int? Id { get; set; }
+
+        [Column("CODIGO")]
+        public string? Codigo { get; set; }
+
+        [Column("DESCRIPCION")]
+        public string? Descripcion { get; set; }
     }
-
+}

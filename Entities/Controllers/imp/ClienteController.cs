@@ -1,101 +1,76 @@
 using Microsoft.AspNetCore.Mvc;
-using Npgsql;
 
-
-namespace BlumeAPI.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class ClienteController : ControllerBase
+namespace BlumeAPI.Controllers
 {
-
-    private readonly ILogger<ClienteController> _logger;
-
-    public ClienteController(ILogger<ClienteController> logger)
+    [ApiController]
+    [Route("[controller]")]
+    public class ClienteController : ControllerBase
     {
-        _logger = logger;
+        private readonly ILogger<ClienteController> _logger;
+        private readonly IClienteService _clienteService;
+
+        public ClienteController(ILogger<ClienteController> logger, IClienteService clienteService)
+        {
+            _logger = logger;
+            _clienteService = clienteService;
+        }
+
+        [HttpGet("GetClientes")]
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
+        {
+            var clientes = await _clienteService.ListarClientesAsync();
+            return Ok(clientes);
+        }
+
+        [HttpGet("GetClienteById/{idCliente}")]
+        public async Task<ActionResult<Cliente>> GetClienteById(int idCliente)
+        {
+            var cliente = await _clienteService.GetClienteAsync(idCliente);
+
+            if (cliente == null)
+                return NotFound($"No se encontró el cliente con ID {idCliente}");
+
+            return Ok(cliente);
+        }
+
+        [HttpGet("GetCondicionFiscal")]
+        public async Task<ActionResult<IEnumerable<CondicionFiscal>>> GetCondicionFiscal()
+        {
+            var condiciones = await _clienteService.GetCondicionesFiscalesAsync();
+            return Ok(condiciones);
+        }
+
+        [HttpPost("Crear")]
+        public async Task<ActionResult<Cliente>> Crear([FromBody] Cliente cliente)
+        {
+            try
+            {
+                var nuevoCliente = await _clienteService.CrearAsync(cliente);
+                return CreatedAtAction(nameof(GetClienteById), new { idCliente = nuevoCliente.Id }, nuevoCliente);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al crear el cliente");
+                return StatusCode(500, $"Error al crear el cliente: {ex.Message}");
+            }
+        }
+
+        [HttpPut("Actualizar")]
+        public async Task<ActionResult> Actualizar([FromBody] Cliente cliente)
+        {
+            try
+            {
+                var filasAfectadas = await _clienteService.ActualizarAsync(cliente);
+                if (filasAfectadas == 0)
+                    return NotFound($"No se encontró el cliente con ID {cliente.Id}");
+
+                return Ok($"Cliente {cliente.Id} actualizado correctamente");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al actualizar el cliente");
+                return StatusCode(500, $"Error al actualizar el cliente: {ex.Message}");
+            }
+        }
     }
-
-    [HttpGet("GetClientes")]
-    public IEnumerable<Cliente> Get()
-    {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Cliente> clientes = new ClienteServices().listarClientes(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return clientes;
-    }
-
-     [HttpGet("GetClienteById/{idCliente}")]
-    public Cliente GetById(int idCliente)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        Cliente cliente = new ClienteServices().GetCliente(idCliente, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return cliente;
-    }
-
-[HttpGet("GetCondicionFiscal")]
-public IEnumerable<CondicionFiscal> GetCondicionFiscal()
-{
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    ClienteServices clienteServices = new ClienteServices();
-    List<CondicionFiscal> condicionesFiscales = clienteServices.GetCondicionFiscal(npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
-    return condicionesFiscales;
-}
-
-[HttpPost("Crear")]
-public IActionResult Crear([FromBody] Cliente cliente)
-{
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    try
-    {
-        var clienteServices = new ClienteServices();
-        var clienteCreado = clienteServices.Crear(npgsqlConnection, cliente);
-        return Ok(clienteCreado);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        return StatusCode(500, $"Error al crear el cliente: {ex.Message}");
-    }
-    finally
-    {
-        con.cerrarConexion(npgsqlConnection); // cerrar manualmente
-    }
-}
-
-
-[HttpPost("Actualizar")]
-public IActionResult Actualizar([FromBody] Cliente cliente)
-{
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    try
-    {
-        var clienteServices = new ClienteServices();
-        var clienteActualizado = clienteServices.Actualizar(npgsqlConnection, cliente);
-        return Ok(clienteActualizado);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        return StatusCode(500, $"Error al actualizar el cliente: {ex.Message}");
-    }
-    finally
-    {
-        con.cerrarConexion(npgsqlConnection); // cerrar manualmente
-    }
-}
-
-
 }

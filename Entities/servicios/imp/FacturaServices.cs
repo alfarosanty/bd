@@ -2,6 +2,8 @@ using System.Text;
 using System.Xml;
 using Npgsql;
 using System.Globalization;
+using BlumeAPI.Services;  // o donde esté tu IClienteService
+
 
 
 namespace BlumeAPI.Services;
@@ -15,10 +17,13 @@ public class FacturaServices
 
 
 private readonly HttpClient _httpClient;
+private readonly IClienteService _clienteService;
 
-    public FacturaServices()
+    public FacturaServices( IClienteService clienteService)
     {
         _httpClient = new HttpClient();
+        _clienteService = clienteService;
+
     }
 
 public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTicketResponseData loginTicket, long cuit)
@@ -481,7 +486,7 @@ private static void completarDatosFactura(Factura factura, Npgsql.NpgsqlConnecti
     }
 }
 
-private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection conex)
+private async Task<Factura> ReadFactura(NpgsqlDataReader reader, NpgsqlConnection conex)
 {
     int id = (int)reader["ID_FACTURA"];
     int idCliente = (int)reader["ID_CLIENTE"];
@@ -499,10 +504,8 @@ private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection con
     string tipoFactura = reader["TIPO_FACTURA"].ToString();
     int? descuentoGeneral = reader["DESCUENTO"] != DBNull.Value ? Convert.ToInt32(reader["DESCUENTO"]) : (int?)null;
 
-    // Usar la misma conexión para obtener Cliente y Presupuesto
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection2 = con.establecerConexion();
-    Cliente cliente = new ClienteServices().GetCliente(idCliente, npgsqlConnection2);
+
+    Cliente cliente = await _clienteService.GetClienteAsync(idCliente);
 
     return new Factura
     {

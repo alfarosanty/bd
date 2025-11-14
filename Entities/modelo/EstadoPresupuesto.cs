@@ -1,15 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-    public  class EstadoPresupuesto: Basico
+namespace BlumeApi.Models
+{
+    [Table("ESTADO_PRESUPUESTO")]
+    public class EstadoPresupuesto
     {
-                public static String TABLA="ESTADO_PRESUPUESTO";
+        public static string TABLA = "ESTADO_PRESUPUESTO";
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_ESTADO_PRESUPUESTO")]
+        public int Id { get; set; }
+
+        [Column("CODIGO")]
+        public string? Codigo { get; set; }
+
+        [Column("DESCRIPCION")]
+        public string? Descripcion { get; set; }
     }
+}

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using BlumeAPI.Services;
+using BlumeAPI.Models;
 
 namespace BlumeAPI.Controllers;
 
@@ -6,181 +8,72 @@ namespace BlumeAPI.Controllers;
 [Route("[controller]")]
 public class ArticuloController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly IArticuloService iarticuloService;
 
-    private readonly ILogger<ArticuloController> _logger;
-
-    public ArticuloController(ILogger<ArticuloController> logger)
+    public ArticuloController(IArticuloService service)
     {
-        _logger = logger;
+        iarticuloService = service;
     }
 
-// ARTICULO
+    [HttpGet("GetArticulos")]
+    public async Task<ActionResult<IEnumerable<Articulo>>> GetArticulos()
+        => Ok(await iarticuloService.GetAllAsync());
 
-     [HttpGet("GetArticulos")]
-    public IEnumerable<Articulo> GetArticulos()
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().getAll(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulos;
-    }
+    [HttpPost("crearArticulos")]
+    public async Task<ActionResult<List<int>>> CrearArticulos([FromBody] List<Articulo> articulos)
+        => Ok(await iarticuloService.CrearArticulosAsync(articulos));
 
-
-
-
-
- [HttpGet("ByFamilias/{familia}")]
-    public IEnumerable<Articulo> GetArticulosByFamilia(string familia)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().GetArticuloByFamiliaMedida(familia, null, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulos;
-    }
-
-    [HttpGet("ByFamiliaMedida/{familia}/{medida}")]
-    public IEnumerable<Articulo> GetArticulosByFamilia(string familia, string medida)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Articulo> articulos = new ArticuloServices().GetArticuloByFamiliaMedida(familia, medida, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulos;
-    }
-
-
-[HttpPost("crearArticulos")]
-public List<int> crearArticulos(Articulo[] articulos)
+[HttpPost("ConsultarMedidasNecesarias")]
+public async Task<ActionResult<ConsultaMedida[]>> ConsultarMedidasNecesarias([FromBody] ArticuloPresupuesto[] articulos)
 {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    ArticuloServices articuloService = new ArticuloServices();
-    List<int> idsGenerados = articuloService.crearArticulos(articulos, npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
-    return idsGenerados;
+    var resultado = await iarticuloService.ConsultarMedidasNecesarias(articulos);
+    return Ok(resultado.ToArray());
 }
 
-    [HttpPost("ConsultarMedidasNecesarias")]
-    public ConsultaMedida[] ConsultarMedidasNecesarias([FromBody] ArticuloPresupuesto[] articulos)
-     {
-         ArticuloServices articuloService = new ArticuloServices();
-
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-
-         var resultado = articuloService.ConsultarMedidasNecesarias(articulos, npgsqlConnection);
-
-         return resultado.ToArray(); // convertís List<ConsultaMedida> a ConsultaMedida[]
-      }
 
 [HttpGet("cantidades-taller-corte-separado")]
-public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte([FromQuery] string? codigo = null)
+public async Task<ActionResult<ConsultaTallerCortePorCodigo[]>> ConsultarCantidadesTallerCorte([FromQuery] string? codigo = null)
 {
-    ArticuloServices articuloService = new ArticuloServices();
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
     if (!string.IsNullOrEmpty(codigo))
     {
-        // Si viene código, filtramos
-        var resultado = articuloService.ConsultarCantidadesTallerCorte(codigo, npgsqlConnection);
-        return resultado.ToArray();
+        var resultado = await iarticuloService.ConsultarCantidadesTallerCorte(codigo);
+        return Ok(resultado.ToArray());
     }
     else
     {
-        // Si no viene código, devolvemos todas
-        var resultado = articuloService.ConsultarTodosArticulosCantidadesTallerCorte(npgsqlConnection);
-        return resultado.ToArray();
+        var resultado = await iarticuloService.ConsultarTodosArticulosCantidadesTallerCorte();
+        return Ok(resultado.ToArray());
     }
 }
 
 
-// ARTICULO PRECIO
+
+
+
+// ======================= ARTICULOS PRECIO =======================
 
     [HttpGet("GetArticulosPrecio")]
-    public IEnumerable<ArticuloPrecio> GetArticuloPrecio()
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecio;
-    }
+    public async Task<ActionResult<IEnumerable<ArticuloPrecio>>> GetArticulosPrecio()
+        => Ok(await iarticuloService.GetArticulosPrecioAsync());
 
-
-[HttpGet("ByArticuloPrecio/{articuloPrecio}")]
-public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
-{
-    CConexion con = new CConexion();
-    using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
-    {
-        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, npgsqlConnection);
-        // No necesitás llamar a cerrarConexion si usás "using"
-        return articulos;
-    }
-}
+    [HttpGet("ByArticuloPrecio/{articuloPrecio}")]
+    public async Task<ActionResult<IEnumerable<Articulo>>> GetByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
+        => Ok(await iarticuloService.ObtenerPreciosPorIdsAsync([articuloPrecio], habilitados ?? false));
 
     [HttpPost("CrearArticulosPrecios")]
-    public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<int> articulosPrecioId = new ArticuloServices().CrearArticulosPrecios(articuloPrecios, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecioId;
-    }
+    public async Task<ActionResult<List<int>>> CrearArticulosPrecios([FromBody] ArticuloPrecio[] articuloPrecios)
+        => Ok(await iarticuloService.CrearArticulosPreciosAsync(articuloPrecios));
 
     [HttpPost("ActualizarArticulosPrecios")]
-    public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<int> articulosPrecioId = new ArticuloServices().ActualizarArticulosPrecios(articuloPrecios, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecioId;
-    }
+    public async Task<ActionResult<List<int>>> ActualizarArticulosPrecios([FromBody] ArticuloPrecio[] articuloPrecios)
+        => Ok(await iarticuloService.ActualizarArticulosPreciosAsync(articuloPrecios));
 
-[HttpPost("ActualizarStock")]
-public IActionResult ActualizarStock([FromBody] ActualizacionStockInutDTO[] articulos)
-{
-    try
-    {
-        CConexion con =  new CConexion();
-        using var npgsqlConnection = con.establecerConexion();
+    [HttpPost("ActualizarStock")]
+    public async Task<ActionResult<int>> ActualizarStock([FromBody] ActualizacionStockInutDTO[] articulos)
+        => Ok(await iarticuloService.ActualizarStockAsync(articulos));
 
-        int cantidadAfectados = new ArticuloServices().ActualizarStock(articulos, npgsqlConnection);
-
-        return Ok(cantidadAfectados);
-    }
-    catch (Exception ex)
-    {
-        return StatusCode(500, $"Error al actualizar stock: {ex.Message}");
-    }
-}
-
-
-[HttpGet("Presupuestados/{idArticuloPrecio}")]
-public EstadisticaArticuloDTO GetArticulosPresupuestados(
-    int idArticuloPrecio,
-    [FromQuery] DateTime? fechaDesde,
-    [FromQuery] DateTime? fechaHasta)
-{
-    CConexion con = new CConexion();
-    using (var npgsqlConnection = con.establecerConexion())
-    {
-        return new ArticuloServices()
-            .GetArticuloPresupuestado(idArticuloPrecio, fechaDesde, fechaHasta, npgsqlConnection);
-    }
-}
-
-
+    [HttpGet("Presupuestados/{idArticuloPrecio}")]
+    public async Task<ActionResult<EstadisticaArticuloDTO>> GetArticulosPresupuestados(
+        int idArticuloPrecio, [FromQuery] DateTime? fechaDesde, [FromQuery] DateTime? fechaHasta)
+        => Ok(await iarticuloService.GetArticuloPresupuestadoAsync(idArticuloPrecio, fechaDesde, fechaHasta));
 }

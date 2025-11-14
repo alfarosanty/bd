@@ -1452,3 +1452,8 @@ FROM "COLOR" AS c
 2025-11-07 11:54:51.136 -03:00 [INF] Executed action ColorController.ListarColores (BlumeAPI) in 8211.2042ms
 2025-11-07 11:54:51.143 -03:00 [INF] Executed endpoint 'ColorController.ListarColores (BlumeAPI)'
 2025-11-07 11:54:51.198 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Color/GetColores - - - 200 - application/json;+charset=utf-8 8572.5467ms
+2025-11-07 11:59:43.584 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-07 11:59:44.266 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-07 11:59:44.291 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-07 11:59:44.293 -03:00 [INF] Hosting environment: Development
+2025-11-07 11:59:44.294 -03:00 [INF] Content root path: G:\Desa\programa\bd\

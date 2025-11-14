@@ -1,28 +1,37 @@
-﻿using Npgsql;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using BlumeApi.Models;
 
+namespace BlumeApi.Models
+{
+    [Table("PEDIDO_PRODUCCION")]
+    public class PedidoProduccion
+    {
+        public static string TABLA = "PEDIDO_PRODUCCION";
 
-
-    public  class PedidoProduccion
-        {
-        public static String TABLA="PEDIDO_PRODUCCION";
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ID_PEDIDO_PRODUCCION")]
         public int Id { get; set; }
-        
+
+        [Column("FECHA")]
         public DateTime Fecha { get; set; }
-        
-        public Taller taller { get; set; }
 
+        [Column("ID_TALLER")]
+        public int IdTaller { get; set; }
+        public Taller Taller { get; set; } = null!;
+
+        [Column("ID_ESTADO_PEDIDO_PRODUCCION")]
         public int IdEstadoPedidoProduccion { get; set; }
+        public EstadoPedidoProduccion EstadoPedidoProduccion { get; set; } = null!;
 
-        public int? IDPresupuesto {get; set; }
+        [Column("ID_PRESUPUESTO")]
+        public int? IdPresupuesto { get; set; }
+        public Presupuesto? Presupuesto { get; set; }
 
-        public List<PedidoProduccionArticulo> Articulos { get; set; }
-        
-
-
-
+        [InverseProperty("PedidoProduccion")]
+        public List<PedidoProduccionArticulo> Articulos { get; set; } = new();
     }
+}

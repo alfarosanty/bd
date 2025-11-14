@@ -1,22 +1,37 @@
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-    public  class ArticuloPrecio
-        {
-        public static String TABLA="ARTICULO_PRECIO";
-        public int Id { get; set; }
-        public string? Codigo { get; set; }
-        public string? Descripcion { get; set; }
-        public decimal? Precio1 { get; set; }
-        public decimal? Precio2 { get; set; }
-        public decimal? Precio3 { get; set; }
-        public int? Relleno { get; set; }
-        
+namespace BlumeAPI.Models{
 
-    }
+[Table("ARTICULO_PRECIO")]
+public class ArticuloPrecio
+{
+    public static string TABLA = "ARTICULO_PRECIO";
+
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("ID_ARTICULO_PRECIO")]
+    public int Id { get; set; }
+
+    [Column("CODIGO")]
+    public string? Codigo { get; set; }
+
+    [Column("DESCRIPCION")]
+    public string? Descripcion { get; set; }
+
+    [Column("PRECIO_1", TypeName = "numeric(18,2)")]
+    public decimal? Precio1 { get; set; }
+
+    [Column("PRECIO_2", TypeName = "numeric(18,2)")]
+    public decimal? Precio2 { get; set; }
+
+    [Column("PRECIO_3", TypeName = "numeric(18,2)")]
+    public decimal? Precio3 { get; set; }
+
+    [Column("RELLENO")]
+    public int? Relleno { get; set; }
+}
+
+}

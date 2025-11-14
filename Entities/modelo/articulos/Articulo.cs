@@ -1,37 +1,64 @@
-﻿using BlumeAPI;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlumeApi.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace BlumeAPI.Models{
 
+[Table("ARTICULO")]
+public class Articulo
+{
+    public static string TABLA = "ARTICULO";
 
-    public  class Articulo
-        {
-        public static String TABLA="ARTICULO";
-        public int Id { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public Color Color{ get; set; }
-        public Medida Medida{ get; set; }
-        public SubFamilia? SubFamilia{ get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("ID_ARTICULO")]
+    public int Id { get; set; }
 
-        public ArticuloPrecio articuloPrecio{ get; set; }
-        public int IdFabricante{ get; set; }
+    [Column("CODIGO")]
+    public string Codigo { get; set; }
 
-        public bool? Nuevo{ get; set; }
-        
-        public bool? Habilitado{ get; set; }
+    [Column("DESCRIPCION")]
+    public string Descripcion { get; set; }
 
-        public int? Stock{ get; set; }
+    // --- Relaciones ---
+    [Column("ID_COLOR")]
+    public int? IdColor { get; set; }       // FK
+    public Color? Color { get; set; }       // Navegación
 
-        public int? CantidadEnCorte{ get; set; }
+    [Column("ID_MEDIDA")]
+    public int? IdMedida { get; set; }
+    public Medida? Medida { get; set; }
 
-        public int? CantidadEnTaller{ get; set; }
+    [Column("ID_SUBFAMILIA")]
+    public int? IdSubFamilia { get; set; }
+    public SubFamilia? SubFamilia { get; set; }
 
-    }
+    [Column("ID_ARTICULO_PRECIO")]
+    public int? IdArticuloPrecio { get; set; }
+    public ArticuloPrecio? ArticuloPrecio { get; set; }
+
+    [Column("ID_FABRICANTE")]
+    public int IdFabricante { get; set; }
+
+    // --- Otros ---
+    [Column("HABILITADO")]
+    public bool? Habilitado { get; set; }
+
+    [Column("STOCK")]
+    public int? Stock { get; set; }
+
+    // --- No están en la BD ---
+    [NotMapped]
+    public bool? Nuevo { get; set; }
+
+    [NotMapped]
+    public int? CantidadEnCorte { get; set; }
+
+    [NotMapped]
+    public int? CantidadEnTaller { get; set; }
+}
+
 
     public class ConsultaMedida{
         public string Medida{ get; set; }
@@ -61,4 +88,7 @@ public class ConsultaTallerCortePorCodigo {
     public int StockTotal { get; set; }
     public List<ConsultaTallerCorte> Consultas { get; set; } // ahora es una lista
 }
+
+}
+
 
