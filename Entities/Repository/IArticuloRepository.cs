@@ -11,9 +11,6 @@ public interface IArticuloRepository
     Task< List<ConsultaTallerCorte>> ConsultarEnTallerAsync(string codigo);
     Task< List<ConsultaTallerCorte>> ConsultarSeparadosAsync(string codigo);
     Task<int> ActualizarStockAsync(ActualizacionStockInutDTO[] articulos);
-
-
-
     Task<List<Articulo>> GetArticulosByArticuloPrecioIdAsync(int articuloPrecioId, bool habilitados);
     
 }

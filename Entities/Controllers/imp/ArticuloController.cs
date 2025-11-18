@@ -58,7 +58,7 @@ public async Task<ActionResult<ConsultaTallerCortePorCodigo[]>> ConsultarCantida
 
     [HttpGet("ByArticuloPrecio/{articuloPrecio}")]
     public async Task<ActionResult<IEnumerable<Articulo>>> GetByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
-        => Ok(await iarticuloService.ObtenerPreciosPorIdsAsync([articuloPrecio], habilitados ?? false));
+        => Ok(await iarticuloService.GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false));
 
     [HttpPost("CrearArticulosPrecios")]
     public async Task<ActionResult<List<int>>> CrearArticulosPrecios([FromBody] ArticuloPrecio[] articuloPrecios)

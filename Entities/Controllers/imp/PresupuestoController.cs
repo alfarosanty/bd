@@ -1,3 +1,5 @@
+using BlumeApi.Models;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -8,6 +10,8 @@ public class PresupuestoController : ControllerBase
 {
 
     private readonly ILogger<ClienteController> _logger;
+    private readonly IPresupuestoService iPresupuestoService;
+
 
     public PresupuestoController(ILogger<ClienteController> logger)
     {
@@ -23,7 +27,7 @@ public IActionResult Get(int idPresupuesto)
 
     try
     {
-        Presupuesto presu = ps.GetPresupuesto(idPresupuesto, npgsqlConnection);
+        Presupuesto presu = iPresupuestoService.GetPresupuesto(idPresupuesto);
         return Ok(presu); // HTTP 200 con datos
     }
     catch (Exception ex)
@@ -32,10 +36,6 @@ public IActionResult Get(int idPresupuesto)
             return NotFound(new { mensaje = ex.Message }); // HTTP 404
         else
             return StatusCode(500, new { mensaje = "Error interno del servidor." });
-    }
-    finally
-    {
-        con.cerrarConexion(npgsqlConnection); // Aseguramos cierre de conexión
     }
 }
 

@@ -257,18 +257,43 @@ public async Task<int> ActualizarStockAsync(ActualizacionStockInutDTO[] articulo
         }
     }
 
-    public Task<List<Articulo>> GetAllAsync()
+    public async Task<List<Articulo>> GetArticulosByArticuloPrecioIdAsync(int articuloPrecioId, bool habilitados)
     {
-        throw new NotImplementedException();
+        var query = _context.Articulos
+            .Include(a => a.Medida)
+            .Include(a => a.SubFamilia)
+            .Include(a => a.Color)
+            .Include(a => a.ArticuloPrecio)
+            .Where(a => a.ArticuloPrecio.Id == articuloPrecioId);
+
+        if (habilitados)
+            query = query.Where(a => a.Habilitado == true);
+
+        return await query
+            .OrderBy(a => a.Id)
+            .ToListAsync();
     }
 
-    public Task<List<Articulo>> GetArticulosByArticuloPrecioIdAsync(int articuloPrecioId, bool habilitados)
-    {
-        throw new NotImplementedException();
-    }
+public async Task<List<Articulo>> GetAllAsync()
+{
+    return await _context.Articulos
+        .Include(a => a.Color)
+        .Include(a => a.Medida)
+        .Include(a => a.SubFamilia)
+        .Include(a => a.ArticuloPrecio)
+        .OrderBy(a => a.Id)
+        .ToListAsync();
+}
 
-    public Task<Articulo> GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
+
+public async Task<Articulo> GetByIdAsync(int id)
+{
+    return await _context.Articulos
+        .Include(a => a.Color)
+        .Include(a => a.Medida)
+        .Include(a => a.SubFamilia)
+        .Include(a => a.ArticuloPrecio)
+        .FirstOrDefaultAsync(a => a.Id == id);
+}
+
 }

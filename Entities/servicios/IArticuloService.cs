@@ -15,7 +15,7 @@ public interface IArticuloService
     Task<List<ArticuloPrecio>> GetArticulosPrecioAsync();
     Task<List<int>> CrearArticulosPreciosAsync(ArticuloPrecio[] articuloPrecios);
     Task<List<int>> ActualizarArticulosPreciosAsync(ArticuloPrecio[] articuloPrecios);
-    Task<Dictionary<int, ArticuloPrecio>> ObtenerPreciosPorIdsAsync(int[] ids, bool habilitados);
+    Task<List<Articulo>> GetArticulosByArticuloPrecioId(int id, bool habilitados);
     Task<EstadisticaArticuloDTO> GetArticuloPresupuestadoAsync(int idArticuloPrecio, DateTime? fechaDesde, DateTime? fechaHasta);
 
 

@@ -1,5 +1,6 @@
 
 
+using BlumeApi.Models;
 using Npgsql;
 
 public class PedidoProduccionService
@@ -104,9 +105,9 @@ public List<EstadoPedidoProduccion> getEstadosPedidoProduccion(NpgsqlConnection 
             NpgsqlCommand cmd = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", idPedidoProduccion);
             cmd.Parameters.AddWithValue("FECHA", pedidoProduccion.Fecha);
-            cmd.Parameters.AddWithValue("ID_FABRICANTE", pedidoProduccion.taller.Id);
+            cmd.Parameters.AddWithValue("ID_FABRICANTE", pedidoProduccion.Taller.Id);
             cmd.Parameters.AddWithValue("ID_ESTADO_PEDIDO_PROD", pedidoProduccion.IdEstadoPedidoProduccion);
-            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", pedidoProduccion.IDPresupuesto?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("ID_PRESUPUESTO", pedidoProduccion.IdPresupuesto?? (object)DBNull.Value);
             cmd.ExecuteNonQuery();
               
             //RECORRO Y GUARDO LOS PRESUPUESTOS
@@ -118,9 +119,9 @@ public List<EstadoPedidoProduccion> getEstadosPedidoProduccion(NpgsqlConnection 
                             cmd.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION",idPedidoProduccion);
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ppa.Articulo.Id);
                             cmd.Parameters.AddWithValue("CANTIDAD",ppa.Cantidad);
-                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.cantidadPendiente);
-                            cmd.Parameters.AddWithValue("CODIGO",ppa.codigo);
-                            cmd.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("CANT_PENDIENTE",ppa.CantidadPendiente);
+                            cmd.Parameters.AddWithValue("CODIGO",ppa.Codigo);
+                            cmd.Parameters.AddWithValue("DESCRIPCION", ppa.Descripcion ?? (object)DBNull.Value);
                             cmd.ExecuteNonQuery();
                             Console.WriteLine("Ingreso el  " + PedidoProduccionArticulo.TABLA +   " el articulo" + ppa.Articulo.Id);
                         }
@@ -151,9 +152,9 @@ public List<EstadoPedidoProduccion> getEstadosPedidoProduccion(NpgsqlConnection 
             cmdInsert.Parameters.AddWithValue("ID_PEDIDO_PRODUCCION", pedidoProduccion.Id);  // Usa el mismo ID del presupuesto existente
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ppa.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("CANTIDAD", ppa.Cantidad);
-            cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.cantidadPendiente);
-            cmdInsert.Parameters.AddWithValue("CODIGO", ppa.codigo);
-            cmdInsert.Parameters.AddWithValue("DESCRIPCION", ppa.descripcion);
+            cmdInsert.Parameters.AddWithValue("CANT_PENDIENTE", ppa.CantidadPendiente);
+            cmdInsert.Parameters.AddWithValue("CODIGO", ppa.Codigo);
+            cmdInsert.Parameters.AddWithValue("DESCRIPCION", ppa.Descripcion);
             cmdInsert.ExecuteNonQuery();
         }
     }
@@ -226,9 +227,9 @@ public List<ClienteXPedidoProduccionOutputDTO> obtenerClientes(NpgsqlConnection 
 
         if (pedido != null)
         {
-            if (pedido.IDPresupuesto.HasValue)
+            if (pedido.IdPresupuesto.HasValue)
             {
-                Presupuesto presupuesto = presupuestoServices.GetPresupuesto(pedido.IDPresupuesto.Value, conexion);
+                Presupuesto presupuesto = presupuestoServices.GetPresupuesto(pedido.IdPresupuesto.Value, conexion);
 
                 if (presupuesto != null && presupuesto.Cliente != null)
                 {

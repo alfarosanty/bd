@@ -24,7 +24,7 @@ public class ArticuloService : IArticuloService
         return await iarticuloRepository.GetByIdAsync(id);
     }
 
-    public async Task<List<Articulo>> GetArticulosByArticuloPrecioIdAsync(int articuloPrecioId, bool habilitados)
+    public async Task<List<Articulo>> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool habilitados)
     {
         return await iarticuloRepository.GetArticulosByArticuloPrecioIdAsync( articuloPrecioId, habilitados);
     }
@@ -165,11 +165,6 @@ public async Task<List<ConsultaTallerCortePorCodigo>> ConsultarCantidadesTallerC
         public async Task<List<int>> ActualizarArticulosPreciosAsync(ArticuloPrecio[] articuloPrecios)
     {
         return await iarticuloPrecioRepository.ActualizarArticulosPreciosAsync(articuloPrecios);
-    }
-
-        public async Task<Dictionary<int, ArticuloPrecio>> ObtenerPreciosPorIdsAsync(int[] ids, bool habilitados)
-    {
-        return await iarticuloPrecioRepository.ObtenerPreciosPorIdsAsync(ids, habilitados);
     }
 
     public Task<EstadisticaArticuloDTO> GetArticuloPresupuestadoAsync(int idArticuloPrecio, DateTime? fechaDesde, DateTime? fechaHasta)
