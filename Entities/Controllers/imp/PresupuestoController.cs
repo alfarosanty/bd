@@ -21,9 +21,6 @@ public class PresupuestoController : ControllerBase
 [HttpGet("GetPresupuestoByNumero/{idPresupuesto}")]
 public IActionResult Get(int idPresupuesto)
 {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-    PresupuestoServices ps = new PresupuestoServices();
 
     try
     {
@@ -42,14 +39,14 @@ public IActionResult Get(int idPresupuesto)
 
  
     [HttpPost("crear")]
-    public int  Crear(Presupuesto presupuesto){
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        public async Task<IActionResult> Crear(Presupuesto presupuesto)
+    {
+        if (!ModelState.IsValid)
+            return View(presupuesto);
 
-        PresupuestoServices  ps = new PresupuestoServices();
-        int id =  ps.crear(presupuesto, npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-        return id;  
+        int id = await ipresupuestoService.CrearPresupuestoAsync(presupuesto);
+
+        return Ok(id);
     }
 
 [HttpPost("actualizar")]

@@ -31,4 +31,12 @@ public class PresupuestoRepository : IPresupuestoRepository{
 
             .FirstOrDefaultAsync(p => p.Id == idPresupuesto);
     }
+
+        public async Task<int> CrearPresupuestoAsync(Presupuesto presupuesto)
+    {
+        context.Presupuestos.Add(presupuesto);
+        await context.SaveChangesAsync();
+
+        return presupuesto.Id;
+    }
 }

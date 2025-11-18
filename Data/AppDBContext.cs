@@ -31,34 +31,71 @@ public class AppDbContext : DbContext
     public DbSet<Medida> Medidas { get; set; }
     public DbSet<SubFamilia> SubFamilias { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        // Guarda el enum Rol como texto
-        modelBuilder.Entity<Usuario>()
-            .Property(u => u.Rol)
-            .HasConversion<string>();
+ protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Usuario>()
+        .Property(u => u.Rol)
+        .HasConversion<string>();
 
-        // Relaciones personalizadas o restricciones adicionales si las necesitás
-        modelBuilder.Entity<Factura>()
-            .HasOne(f => f.Cliente)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
 
-        modelBuilder.Entity<ArticuloFactura>()
-            .HasOne(af => af.Articulo)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
+    modelBuilder.Entity<Factura>()
+        .HasOne(f => f.Cliente)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
 
-        modelBuilder.Entity<ArticuloPresupuesto>()
-            .HasOne(ap => ap.Articulo)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
 
-        modelBuilder.Entity<PedidoProduccion>()
-            .HasOne(p => p.Taller)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Restrict);
+    modelBuilder.Entity<ArticuloFactura>()
+        .HasOne(af => af.Articulo)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
 
-        base.OnModelCreating(modelBuilder);
-    }
+    modelBuilder.Entity<ArticuloFactura>()
+        .HasOne(af => af.Factura)
+        .WithMany(f => f.Articulos)
+        .HasForeignKey(af => af.IdFactura)
+        .OnDelete(DeleteBehavior.Cascade);
+
+
+    modelBuilder.Entity<Presupuesto>()
+        .HasOne(p => p.Cliente)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
+
+    modelBuilder.Entity<Presupuesto>()
+        .HasOne(p => p.EstadoPresupuesto)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
+
+    modelBuilder.Entity<Presupuesto>()
+        .HasOne(p => p.Factura)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
+
+    modelBuilder.Entity<Presupuesto>()
+        .HasMany(p => p.Articulos)
+        .WithOne(ap => ap.Presupuesto)
+        .HasForeignKey(ap => ap.IdPresupuesto)
+        .OnDelete(DeleteBehavior.Cascade);
+
+
+    modelBuilder.Entity<ArticuloPresupuesto>()
+        .HasOne(ap => ap.Articulo)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
+
+
+    modelBuilder.Entity<PedidoProduccion>()
+        .HasOne(p => p.Taller)
+        .WithMany()
+        .OnDelete(DeleteBehavior.Restrict);
+
+    modelBuilder.Entity<PedidoProduccion>()
+        .HasOne(p => p.Presupuesto)
+        .WithMany()
+        .HasForeignKey(p => p.IdPresupuesto)
+        .OnDelete(DeleteBehavior.Restrict);
+
+    base.OnModelCreating(modelBuilder);
+}
+
 }

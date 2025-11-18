@@ -14,4 +14,9 @@ public class PresupuestoService : IPresupuestoService{
     {
         return iPresupuestoReporitory.GetPresupuesto(idPresupuesto);
     }
+
+    public async Task<int> CrearPresupuestoAsync(Presupuesto presupuesto)
+    {
+        return await iPresupuestoReporitory.CrearPresupuestoAsync(presupuesto);
+    }
 }
