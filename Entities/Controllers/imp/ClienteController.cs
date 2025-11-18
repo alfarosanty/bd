@@ -1,3 +1,4 @@
+using BlumeAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers

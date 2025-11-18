@@ -2,13 +2,15 @@ using System.Text;
 using System.Xml;
 using Npgsql;
 using System.Globalization;
-using BlumeAPI.Services;  // o donde esté tu IClienteService
+using BlumeAPI.Services;
+using BlumeAPI.Repository;
+using BlumeApi.Models;  // o donde esté tu IClienteService
 
 
 
 namespace BlumeAPI.Services;
 
-public class FacturaServices
+public class FacturaServices : IFacturaService
 {
 
 
@@ -17,14 +19,33 @@ public class FacturaServices
 
 
 private readonly HttpClient _httpClient;
-private readonly IClienteService _clienteService;
+private readonly IFacturaRepository iFacturaRepository;
+private readonly IClienteService iClienteService;
 
-    public FacturaServices( IClienteService clienteService)
+    public FacturaServices( IClienteService clienteService, IFacturaRepository facturaRepository)
     {
         _httpClient = new HttpClient();
-        _clienteService = clienteService;
+        iFacturaRepository = facturaRepository;
+        iClienteService = clienteService;
 
     }
+
+    public async Task<int> crear(Factura factura){
+        return await iFacturaRepository.crear(factura);
+    }
+
+    public async Task<List<RespuestaEstadistica>> facturacionXCliente(DateTime fechaInicio, DateTime fechaFin){
+        return await iFacturaRepository.facturacionXCliente(fechaInicio, fechaFin);
+    }
+
+    public async Task<List<Factura>> getFacturasPorFiltro(int? idCliente, string? tipoFactura, int? puntoDeVenta, DateTime fechaInicio, DateTime fechaFin){
+        return await iFacturaRepository.getFacturasPorFiltro(idCliente, tipoFactura, puntoDeVenta, fechaInicio, fechaFin);
+
+    }
+
+
+
+/*
 
 public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTicketResponseData loginTicket, long cuit)
 {
@@ -417,7 +438,7 @@ public List<Factura> getFacturaPorFiltro(int? idCliente, string? tipoFactura, in
 }
 
 */
-
+/*
 
 
     private decimal calcularPrecioFinal(List<ArticuloFactura> articulosFacturas)

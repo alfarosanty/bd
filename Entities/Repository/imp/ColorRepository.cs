@@ -1,5 +1,5 @@
 using BlumeAPI;
-
+using BlumeAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class ColorRepository : IColorRepository

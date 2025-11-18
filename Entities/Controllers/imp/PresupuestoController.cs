@@ -1,4 +1,5 @@
 using BlumeApi.Models;
+using BlumeAPI.Models;
 using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,18 +20,17 @@ public class PresupuestoController : ControllerBase
     }
 
 [HttpGet("GetPresupuestoByNumero/{idPresupuesto}")]
-public IActionResult Get(int idPresupuesto)
+public async Task<IActionResult> Get(int idPresupuesto)
 {
-
     try
     {
-        Presupuesto presu = iPresupuestoService.GetPresupuesto(idPresupuesto);
-        return Ok(presu); // HTTP 200 con datos
+        Presupuesto? presu = await iPresupuestoService.GetPresupuesto(idPresupuesto);
+        return Ok(presu);
     }
     catch (Exception ex)
     {
         if (ex.Message.Contains("No se encontró presupuesto"))
-            return NotFound(new { mensaje = ex.Message }); // HTTP 404
+            return NotFound(new { mensaje = ex.Message });
         else
             return StatusCode(500, new { mensaje = "Error interno del servidor." });
     }
@@ -41,16 +41,14 @@ public IActionResult Get(int idPresupuesto)
     [HttpPost("crear")]
         public async Task<IActionResult> Crear(Presupuesto presupuesto)
     {
-        if (!ModelState.IsValid)
-            return View(presupuesto);
 
-        int id = await ipresupuestoService.CrearPresupuestoAsync(presupuesto);
+        int id = await iPresupuestoService.CrearPresupuestoAsync(presupuesto);
 
         return Ok(id);
     }
 
 [HttpPost("actualizar")]
-public IActionResult Actualizar([FromBody] Presupuesto presupuesto)
+public async Task<IActionResult> Actualizar([FromBody] Presupuesto presupuesto)
 {
     if (presupuesto == null)
         return BadRequest("El cuerpo de la solicitud está vacío o mal formado.");
@@ -58,52 +56,41 @@ public IActionResult Actualizar([FromBody] Presupuesto presupuesto)
     if (!ModelState.IsValid)
         return BadRequest(ModelState);
 
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = null;
-
     try
     {
-        npgsqlConnection = con.establecerConexion();
-        PresupuestoServices ps = new PresupuestoServices();
-        int id = ps.actualizar(presupuesto, npgsqlConnection);
-        return Ok( id );
+        bool ok = await iPresupuestoService.ActualizarPresupuestoAsync(presupuesto);
+
+        if (!ok)
+            return NotFound("No se encontró el presupuesto a actualizar.");
+
+        return Ok(new { message = "Presupuesto actualizado correctamente", id = presupuesto.Id });
     }
     catch (Exception ex)
     {
-        return StatusCode(500, new { message = "Error al actualizar presupuesto", details = ex.Message });
-    }
-    finally
-    {
-        if (npgsqlConnection != null && npgsqlConnection.State == System.Data.ConnectionState.Open)
+        return StatusCode(500, new
         {
-            con.cerrarConexion(npgsqlConnection);
-        }
+            message = "Error al actualizar el presupuesto",
+            details = ex.Message
+        });
     }
 }
 
 
 
+
       [HttpGet("GetPresupuestoByCliente/{idCliente}")]
-    public List<Presupuesto> GetByCliente(int idCliente)
+    public async Task<List<Presupuesto>> GetPresupuestosByCliente(int idCliente)
     {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-       PresupuestoServices  ps = new PresupuestoServices();
-        List<Presupuesto> presu = ps.GetPresupuestoByCliente(idCliente,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-         return presu;
+        List<Presupuesto> presus = await iPresupuestoService.GetPresupuestoByCliente(idCliente);
+         return presus;
     }
 
 [HttpGet("GetEstadosPresupuesto")]
-public IActionResult GetEstadosPresupuesto()
+public async Task<IActionResult> GetEstadosPresupuesto()
 {
     try
     {
-        CConexion con = new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PresupuestoServices ps = new PresupuestoServices();
-        List<EstadoPresupuesto> estadosPresupuesto = ps.getEstadosPresupuesto(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<EstadoPresupuesto> estadosPresupuesto = await iPresupuestoService.getEstadosPresupuesto();
 
         return Ok(estadosPresupuesto);
     }
@@ -115,30 +102,20 @@ public IActionResult GetEstadosPresupuesto()
 
 
 [HttpGet("ArticulosPresupuestados")]
-public ActionResult<List<ArticuloPresupuesto>> articulosPresupuestados([FromQuery] int idArticuloPrecio, [FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
+public async Task< ActionResult<List<ArticuloPresupuesto>>> articulosPresupuestados([FromQuery] int idArticuloPrecio, [FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
 {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
-    PresupuestoServices ps = new PresupuestoServices();
+    List<ArticuloPresupuesto> listaDeArticulosPresupuestados = await iPresupuestoService.articulosPresupuestados(idArticuloPrecio, fechaInicio, fechaFin);
 
-    // Llamás al servicio pasando las fechas recibidas
-    List<ArticuloPresupuesto> listaDeArticulosPresupuestados = ps.articulosPresupuestados(idArticuloPrecio, fechaInicio, fechaFin, npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
 
     return listaDeArticulosPresupuestados;
 }
 
     [HttpGet("PresupuestosByIds")]
-    public List<Presupuesto> GetByIds([FromQuery] string ids)
+    public async Task< List<Presupuesto>> GetByIds([FromQuery] string ids)
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PresupuestoServices  presupuestoService = new PresupuestoServices();
         var idsPresupuestos = ids.Split(',').Select(int.Parse).ToList();
-        List<Presupuesto> presupuestos = presupuestoService.GetPresupuestosByIds(idsPresupuestos,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<Presupuesto> presupuestos = await iPresupuestoService.GetPresupuestosByIds(idsPresupuestos);
         return presupuestos;
     }
 

@@ -1,4 +1,5 @@
 using BlumeAPI;
+using BlumeAPI.Models;
 
 public class ClienteXPedidoProduccionOutputDTO{
     public int IdPedidoProduccion {get; set;}

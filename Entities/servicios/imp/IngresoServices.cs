@@ -1,18 +1,28 @@
 
 
 using BlumeAPI;
+using Entities.Repository;
+using Entities.servicios;
 using Npgsql;
 
-public class IngresoService
+public class IngresoService : IIngresoService
 {
     public  string getTabla()
     {
         return Ingreso.TABLA;
     }
 
+    private readonly IIngresoRepository iingresoRepository;
+
+    public IngresoService(IIngresoRepository ingresoRepository)
+    {
+        iingresoRepository = ingresoRepository;
+    }
 
 
 
+
+/*
     public  Ingreso readBasico(NpgsqlDataReader reader)
     {
         throw new NotImplementedException();
@@ -492,5 +502,5 @@ string updateQuery = @"
         }
     }
 }
-
+*/
 }

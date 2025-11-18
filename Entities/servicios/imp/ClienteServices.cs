@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using BlumeAPI;
+using BlumeAPI.Models;
 
 public class ClienteService : IClienteService
 {

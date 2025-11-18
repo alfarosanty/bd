@@ -1,4 +1,5 @@
 using BlumeAPI;
+using BlumeAPI.Models;
 
 public class ColorService : IColorService
 {
@@ -13,5 +14,4 @@ public class ColorService : IColorService
     {
         return await _colorRepository.ListarColoresAsync();
     }
-
 }

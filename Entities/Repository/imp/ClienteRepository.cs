@@ -1,4 +1,5 @@
 using BlumeAPI;
+using BlumeAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class ClienteRepository : IClienteRepository
