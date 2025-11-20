@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
-public class ColorController : ControllerBase, IColorController
+public class ColorController : ControllerBase
 {
     private readonly ILogger<ColorController> _logger;
     private readonly IColorService _colorService;

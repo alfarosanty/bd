@@ -1,5 +1,6 @@
 
 
+using BlumeApi.Models;
 using BlumeAPI;
 using Entities.Repository;
 using Entities.servicios;
@@ -7,11 +8,11 @@ using Npgsql;
 
 public class IngresoService : IIngresoService
 {
-    public  string getTabla()
+    /*public  string getTabla()
     {
         return Ingreso.TABLA;
     }
-
+*/
     private readonly IIngresoRepository iingresoRepository;
 
     public IngresoService(IIngresoRepository ingresoRepository)
@@ -20,6 +21,66 @@ public class IngresoService : IIngresoService
     }
 
 
+public async Task<int> CrearAsync(Ingreso ingreso)
+{
+    // Crear el ingreso y obtener su ID
+    var ingresoId = await iingresoRepository.CrearAsync(ingreso);
+
+    // Asociar el ingresoId a cada IngresoArticulo
+    foreach (var ingresoArticulo in ingreso.Articulos)
+    {
+        ingresoArticulo.IdIngreso = ingresoId;
+        await iingresoRepository.CrearIngresoArticuloAsync(ingresoArticulo);
+    }
+
+    return ingresoId;
+}
+
+    public async Task<int> actualizarAsync(Ingreso ingreso)
+    {
+        return await iingresoRepository.actualizarAsync(ingreso);
+    }
+
+    public async Task<List<int>> CrearDetallesIngresoPedidoProduccionAsync(List<PedidoProduccionIngresoDetalle> detalles)
+    {
+        return await iingresoRepository.CrearDetallesIngresoPedidoProduccionAsync(detalles);
+    }
+
+    public async Task<List<Ingreso>> GetIngresoByTallerAsync(int idTaller)
+    {
+        return await iingresoRepository.GetIngresoByTallerAsync(idTaller);
+    }
+
+    public async Task<Ingreso> GetIngresoAsync(int idIngreso)
+    {
+        return await iingresoRepository.GetIngresoAsync(idIngreso);
+    }
+
+    public async Task<List<Ingreso>> GetIngresosByIdsAsync(List<int> idsIngresos)
+    {
+        var ingresos = new List<Ingreso>();
+
+        foreach (var id in idsIngresos)
+        {
+            var ingreso = await GetIngresoAsync(id);
+            if (ingreso != null)
+            {
+                ingresos.Add(ingreso);
+            }
+        }
+
+        return ingresos;
+    }
+
+    public async Task<List<PedidoProduccionIngresoDetalle>> GetDetallesPPIAsync(int idIngreso)
+    {
+        return await iingresoRepository.GetDetallesPPIAsync(idIngreso);
+    }
+
+    public async Task<int> BorrarIngresoAsync(Ingreso ingreso)
+    {
+        return await iingresoRepository.BorrarIngresoAsync(ingreso);
+    }
 
 
 /*

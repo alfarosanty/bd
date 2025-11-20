@@ -1,4 +1,8 @@
+using BlumeAPI.Repository;
 using BlumeAPI.Services;
+using BlumeAPI.servicios;
+using Entities.Repository;
+using Entities.servicios;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -82,6 +86,32 @@ builder.Services.AddScoped<IColorService, ColorService>();
 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
+
+builder.Services.AddScoped<IArticuloRepository, ArticuloRepository>();
+builder.Services.AddScoped<IArticuloPrecioRepository, ArticuloPrecioRepository>();
+builder.Services.AddScoped<IArticuloService, ArticuloService>();
+
+builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
+builder.Services.AddScoped<IFacturaService, FacturaServices>();
+
+builder.Services.AddScoped<IIngresoRepository, IngresoRepository>();
+builder.Services.AddScoped<IIngresoService, IngresoService>();
+
+builder.Services.AddScoped<IMedidaRepository, MedidaRepository>();
+builder.Services.AddScoped<IMedidaService, MedidaServices>();
+
+builder.Services.AddScoped<IPedidoProduccionRepository, PedidoProduccionRepository>();
+builder.Services.AddScoped<IPedidoProduccionService, PedidoProduccionService>();
+
+builder.Services.AddScoped<IPresupuestoRepository, PresupuestoRepository>();
+builder.Services.AddScoped<IPresupuestoService, PresupuestoServices>();
+
+builder.Services.AddScoped<ISubFamiliaRepository, SubFamiliaRepository>();
+builder.Services.AddScoped<ISubFamiliaService, SubFamiliaServices>();
+
+builder.Services.AddScoped<ITallerRepository, TallerRepository>();
+builder.Services.AddScoped<ITallerService, TallerServices>();
+
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 // Para producción:

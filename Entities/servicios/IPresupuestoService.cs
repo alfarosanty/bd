@@ -5,7 +5,7 @@ namespace BlumeAPI.Services{
 
 public interface IPresupuestoService{
 
-    Task<Presupuesto?>GetPresupuesto(int idPresupuesto);
+    Task<Presupuesto?>GetPresupuestoAsync(int idPresupuesto);
     Task<int>CrearPresupuestoAsync(Presupuesto presupuesto);
     Task<bool>ActualizarPresupuestoAsync(Presupuesto presupuesto);
     Task<List<Presupuesto>>GetPresupuestoByCliente(int idCliente);

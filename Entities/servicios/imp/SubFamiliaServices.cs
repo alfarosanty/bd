@@ -1,9 +1,26 @@
 
 
+using BlumeApi.Models;
+using BlumeAPI.Repository;
+using BlumeAPI.Services;
 using Npgsql;
 
-public class SubFamiliaServices: BasicoServices 
+public class SubFamiliaServices: ISubFamiliaService
 {
+    
+    private readonly ISubFamiliaRepository isubFamiliaRepository;
+    
+    public SubFamiliaServices(ISubFamiliaRepository subFamiliaRepository)
+    {
+        isubFamiliaRepository = subFamiliaRepository;
+    }
+
+    public async Task<List<SubFamilia>> listarSubFamiliasAsync()
+    {
+        return await isubFamiliaRepository.listarSubFamiliasAsync();
+    }
+
+    /*
     public override string getTabla()
     {
         return SubFamilia.TABLA;
@@ -64,5 +81,5 @@ private static SubFamilia ReadSubFamilia(NpgsqlDataReader reader)
         }
 
 
-
+*/
 }

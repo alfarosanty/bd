@@ -1,9 +1,24 @@
 
 
+using BlumeApi.Models;
+using BlumeAPI.Repository;
+using BlumeAPI.Services;
 using Npgsql;
 
-public class TallerServices
+public class TallerServices:ITallerService
 {
+    private readonly ITallerRepository itallerRepository;
+
+    public TallerServices(ITallerRepository _tallerRepository)
+    {
+        itallerRepository = _tallerRepository;
+    }
+
+    public async Task<List<Taller>> listarTalleresAsync(){
+        return await itallerRepository.listarTalleresAsync();
+    }
+
+    /*
     public string getTabla()
     {
         return Taller.TABLA;
@@ -82,5 +97,5 @@ public Taller GetTaller(int id, NpgsqlConnection conex ){
     {
         return "FROM \"FABRICANTE\" F";
     }
-
+*/
 }

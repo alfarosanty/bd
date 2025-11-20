@@ -1,9 +1,25 @@
 
 
+using BlumeApi.Models;
+using BlumeAPI.Repository;
+using BlumeAPI.Services;
 using Npgsql;
 
-public class MedidaServices: BasicoServices 
+public class MedidaServices: IMedidaService 
 {
+
+    private readonly IMedidaRepository iMedidaRepository;
+    public MedidaServices(IMedidaRepository _medidaRepository)
+    {
+        iMedidaRepository = _medidaRepository;
+    }
+
+    public async Task<List<Medida>> GetMedidasAsync()
+    {
+        return await iMedidaRepository.GetMedidasAsync();
+    }
+
+    /*
     public override string getTabla()
     {
         return Medida.TABLA;
@@ -63,6 +79,6 @@ private static Medida ReadMedida(NpgsqlDataReader reader)
             
         }
 
-
+*/
 
 }

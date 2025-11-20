@@ -1,4 +1,5 @@
 using BlumeApi.Models;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -9,20 +10,18 @@ public class TallerController : ControllerBase
 {
 
     private readonly ILogger<TallerController> _logger;
+    private readonly ITallerService iTallerService;
 
-    public TallerController(ILogger<TallerController> logger)
+    public TallerController(ILogger<TallerController> logger, ITallerService _iTallerService)
     {
+        iTallerService = _iTallerService;
         _logger = logger;
     }
 
     [HttpGet("GetTalleres")]
-    public IEnumerable<Taller> Get()
+    public async Task<IEnumerable<Taller>> Get()
     {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Taller> talleres = new TallerServices().listarTalleres(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<Taller> talleres = await iTallerService.listarTalleresAsync();
         return talleres;
     }
 

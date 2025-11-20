@@ -41,6 +41,12 @@ public class FacturaRepository : IFacturaRepository{
 
     public Task<List<Factura>> getFacturasPorFiltro(int? idCliente, string? tipoFactura, int? puntoDeVenta, DateTime fechaInicio, DateTime fechaFin)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException(); //TODO: implementar esta logica
+    }
+
+    public Task CrearArticuloFacturaAsync(ArticuloFactura articuloFactura)
+    {
+        _context.ArticulosFactura.Add(articuloFactura);
+        return _context.SaveChangesAsync();
     }
 }

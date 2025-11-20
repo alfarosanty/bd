@@ -11,6 +11,7 @@ public interface IPresupuestoRepository{
         Task<List<Presupuesto>> GetPresupuestoByCliente(int idCliente);
         Task<List<EstadoPresupuesto>> getEstadosPresupuesto();
         Task<List<ArticuloPresupuesto>> articulosPresupuestados(int idArticuloPrecio, DateTime fechaInicio, DateTime fechaFin);
+        Task AgregarArticuloPresupuestoAsync(ArticuloPresupuesto articulo);
     }
 
 }

@@ -14,8 +14,9 @@ public class PresupuestoController : ControllerBase
     private readonly IPresupuestoService iPresupuestoService;
 
 
-    public PresupuestoController(ILogger<ClienteController> logger)
+    public PresupuestoController(ILogger<ClienteController> logger, IPresupuestoService _iPresupuestoService)
     {
+        iPresupuestoService = _iPresupuestoService;
         _logger = logger;
     }
 
@@ -24,7 +25,7 @@ public async Task<IActionResult> Get(int idPresupuesto)
 {
     try
     {
-        Presupuesto? presu = await iPresupuestoService.GetPresupuesto(idPresupuesto);
+        Presupuesto? presu = await iPresupuestoService.GetPresupuestoAsync(idPresupuesto);
         return Ok(presu);
     }
     catch (Exception ex)

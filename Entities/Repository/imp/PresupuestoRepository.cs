@@ -74,4 +74,11 @@ public Task<List<ArticuloPresupuesto>> articulosPresupuestados(int idArticuloPre
 
     return Task.FromResult(query.ToList());
 }
+
+public async Task AgregarArticuloPresupuestoAsync(ArticuloPresupuesto articulo)
+{
+    _context.ArticulosPresupuesto.Add(articulo);
+    await _context.SaveChangesAsync();
+
+}
 }

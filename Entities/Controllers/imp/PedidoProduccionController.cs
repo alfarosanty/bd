@@ -1,3 +1,5 @@
+using BlumeApi.Models;
+using BlumeAPI.servicios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -8,60 +10,47 @@ public class PedidoProduccionController : ControllerBase
 {
 
     private readonly ILogger<PedidoProduccionController> _logger;
+    private readonly IPedidoProduccionService iPedidoProduccionService;
 
-    public PedidoProduccionController(ILogger<PedidoProduccionController> logger)
+    public PedidoProduccionController(ILogger<PedidoProduccionController> logger, IPedidoProduccionService _pedidoProduccionService)
     {
         _logger = logger;
+        iPedidoProduccionService = _pedidoProduccionService;
     }
  
     [HttpPost("crear")]
-    public int  Crear(PedidoProduccion pedidoProduccion){
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        int id =  pps.crear(pedidoProduccion, npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
+    public async Task<int>  Crear(PedidoProduccion pedidoProduccion){
+        int id =  await iPedidoProduccionService.CrearAsync(pedidoProduccion);
         return id;  
     }
 
 
 
     [HttpPost("actualizar")]
-    public int Actualizar(PedidoProduccion pedidoProduccion)
+    public async Task<int> Actualizar(PedidoProduccion pedidoProduccion)
     {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    PedidoProduccionService pps = new PedidoProduccionService();
-    int id = pps.actualizar(pedidoProduccion, npgsqlConnection);
-    con.cerrarConexion(npgsqlConnection);
+    int id = await iPedidoProduccionService.ActualizarAsync(pedidoProduccion);
     return id;
     }
 
     [HttpPost("ObtenerClientes")]
-    public List<ClienteXPedidoProduccionOutputDTO> ObtenerClientes([FromBody] List<int> idPedidos)
+    public async Task<List<ClienteXPedidoProduccionOutputDTO>> ObtenerClientes([FromBody] List<int> idPedidos)
     {
-        using var conexion = new CConexion().establecerConexion();
-
-        PedidoProduccionService pps = new PedidoProduccionService();
-        var clientesXPedidoProduccion = pps.obtenerClientes(conexion, idPedidos);
+        var clientesXPedidoProduccion = await iPedidoProduccionService.obtenerClientesAsync(idPedidos);
 
         return clientesXPedidoProduccion;
     }
 
 [HttpPost("EliminarPedidosProduccion")]
-public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> idPedidos)
+public async Task<ActionResult<List<int>>> EliminarPedidosProduccion([FromBody] List<int> idPedidos)
 {
     if (idPedidos == null || idPedidos.Count == 0)
         return BadRequest("No se enviaron IDs para eliminar.");
 
     try
     {
-        using var conexion = new CConexion().establecerConexion();
-
-        PedidoProduccionService pps = new PedidoProduccionService();
-        var idsEliminados = pps.eliminarPedidosProduccion(conexion, idPedidos);
+        
+        var idsEliminados = await iPedidoProduccionService.eliminarPedidosProduccion(idPedidos);
 
         if (idsEliminados.Count == 0)
             return NotFound("No se encontraron pedidos para eliminar con los IDs enviados.");
@@ -79,62 +68,42 @@ public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> id
 
 
       [HttpGet("GetPedidoProduccionByTaller/{idTaller}")]
-    public List<PedidoProduccion> GetByTaller(int idTaller)
+    public async Task<List<PedidoProduccion>> GetByTaller(int idTaller)
     {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-       PedidoProduccionService  pps = new PedidoProduccionService();
-        List<PedidoProduccion> pedidoProducciones = pps.GetPedidoProduccionByTaller(idTaller,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
+        List<PedidoProduccion> pedidoProducciones = await iPedidoProduccionService.GetPedidoProduccionByTaller(idTaller);
          return pedidoProducciones;
     }
 
          [HttpGet("GetPedidoProduccionByNumero/{idPedidoProduccion}")]
-    public PedidoProduccion Get(int idPedidoProduccion)
+    public async Task<PedidoProduccion> Get(int idPedidoProduccion)
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        PedidoProduccion pedidoProduccion = pps.getPedidoProduccion(idPedidoProduccion,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        PedidoProduccion pedidoProduccion = await iPedidoProduccionService.GetPedidoProduccionAsync(idPedidoProduccion);
         return pedidoProduccion;
     }
 
 
          [HttpGet("GetEstadosPedidoProduccion")]
-    public List<EstadoPedidoProduccion> GetEstadosPedidoProduccion()
+    public async Task<List<EstadoPedidoProduccion>> GetEstadosPedidoProduccion()
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        List<EstadoPedidoProduccion> estadosPedidoProduccion = pps.getEstadosPedidoProduccion(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<EstadoPedidoProduccion> estadosPedidoProduccion = await iPedidoProduccionService.GetEstadosPedidoProduccionAsync();
         return estadosPedidoProduccion;
     }
 
 
     [HttpPatch("ActualizarEstadosPedidoProduccion")]
-    public List<int> ActualizarEstadosPedidoProduccion([FromBody] List<PedidoProduccionEstadoDTO> lista)
+    public async Task<List<int>> ActualizarEstadosPedidoProduccion([FromBody] List<PedidoProduccionEstadoDTO> lista)
     {
-        CConexion con = new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
-        PedidoProduccionService pps = new PedidoProduccionService();
-        List<int> idsPedidosProducionActualizados = pps.actualizarEstadosPedidoProduccion(npgsqlConnection, lista);
+        List<int> idsPedidosProducionActualizados = await iPedidoProduccionService.actualizarEstadosPedidoProduccionAsync(lista);
 
-        con.cerrarConexion(npgsqlConnection);
         return idsPedidosProducionActualizados;
     }
 
     [HttpGet("PedidosProduccionByIds")]
-    public List<PedidoProduccion> GetByIds([FromQuery] string ids)
+    public async Task<List<PedidoProduccion>> GetByIds([FromQuery] string ids)
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pedidoProduccionService = new PedidoProduccionService();
         var idsPedidosProduccion = ids.Split(',').Select(int.Parse).ToList();
-        List<PedidoProduccion> pedidosProduccion = pedidoProduccionService.GetPedidosProduccionByIds(idsPedidosProduccion,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<PedidoProduccion> pedidosProduccion = await iPedidoProduccionService.GetPedidosProduccionByIdsAsync(idsPedidosProduccion);
         return pedidosProduccion;
     }
 

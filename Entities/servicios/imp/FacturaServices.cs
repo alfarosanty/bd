@@ -31,7 +31,16 @@ private readonly IClienteService iClienteService;
     }
 
     public async Task<int> crear(Factura factura){
-        return await iFacturaRepository.crear(factura);
+
+        var facturaId = await iFacturaRepository.crear(factura);
+
+    foreach (var articuloFactura in factura.Articulos)
+    {
+        articuloFactura.IdFactura = facturaId;
+        await iFacturaRepository.CrearArticuloFacturaAsync(articuloFactura);
+    }
+
+        return facturaId; 
     }
 
     public async Task<List<RespuestaEstadistica>> facturacionXCliente(DateTime fechaInicio, DateTime fechaFin){

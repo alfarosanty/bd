@@ -1,3 +1,5 @@
+using BlumeApi.Models;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -8,21 +10,18 @@ namespace BlumeAPI.Controllers;
 public class SubFamiliaController : ControllerBase{
 
     private readonly ILogger<SubFamiliaController> _logger;
+    private readonly ISubFamiliaService iSubFamiliaService;
 
-    public SubFamiliaController(ILogger<SubFamiliaController> logger)
+    public SubFamiliaController(ILogger<SubFamiliaController> logger, ISubFamiliaService subFamiliaService)
     {
         _logger = logger;
+        iSubFamiliaService = subFamiliaService;
     }
 
-
     [HttpGet("GetSubFamilias")]
-    public IEnumerable<SubFamilia> Get()
+    public async Task<IEnumerable<SubFamilia>> Get()
     {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<SubFamilia> subFamilias = new SubFamiliaServices().listarSubFamilias(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
+        List<SubFamilia> subFamilias = await iSubFamiliaService.listarSubFamiliasAsync();
         return subFamilias;
     }
 

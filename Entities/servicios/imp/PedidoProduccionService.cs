@@ -1,10 +1,132 @@
 
 
 using BlumeApi.Models;
+using BlumeAPI.Models;
+using BlumeAPI.Repository;
+using BlumeAPI.Services;
+using BlumeAPI.servicios;
 using Npgsql;
 
-public class PedidoProduccionService
+public class PedidoProduccionService:IPedidoProduccionService
 {
+
+    private readonly IPedidoProduccionRepository iPedidoProduccionRepository;
+    private readonly IPresupuestoService iPresupuestoService;
+
+    public PedidoProduccionService(IPedidoProduccionRepository _pedidoProduccionRepository, IPresupuestoService _presupuestoService){
+        iPedidoProduccionRepository = _pedidoProduccionRepository;
+        iPresupuestoService = _presupuestoService;
+    }
+
+    public async Task<int> CrearAsync(PedidoProduccion pedidoProduccion)
+    {
+        var idPedidoProduccion = await iPedidoProduccionRepository.CrearAsync(pedidoProduccion);
+
+        foreach (var articuloProduccion in pedidoProduccion.Articulos)
+        {
+            articuloProduccion.IdPedidoProduccion = idPedidoProduccion;
+            await iPedidoProduccionRepository.CrearArticuloAsync(articuloProduccion);
+        }
+
+        return idPedidoProduccion ?? 0;
+    }
+
+    public async Task<int> ActualizarAsync(PedidoProduccion pedidoProduccion)
+    {
+        return await iPedidoProduccionRepository.ActualizarAsync(pedidoProduccion);
+    }
+
+    public async Task<List<ClienteXPedidoProduccionOutputDTO>> obtenerClientesAsync(List<int> idPedidos)
+    {
+        var listaClienteXPedidoProduccion = new List<ClienteXPedidoProduccionOutputDTO>();
+
+        foreach(var id in idPedidos){
+            var pedidoProduccion = await iPedidoProduccionRepository.GetPedidoProduccionAsync(id);
+
+            if(pedidoProduccion != null){
+                Cliente cliente;
+
+                if(pedidoProduccion.IdPresupuesto.HasValue){
+                    var presupuesto = await iPresupuestoService.GetPresupuestoAsync(pedidoProduccion.IdPresupuesto.Value);
+                    cliente = presupuesto?.Cliente ?? new Cliente { RazonSocial = "stock" };
+                } else {
+                    cliente = new Cliente { RazonSocial = "stock" };
+                }
+
+                listaClienteXPedidoProduccion.Add(new ClienteXPedidoProduccionOutputDTO{
+                    IdPedidoProduccion = id,
+                    Cliente = cliente
+                });
+            }
+            
+        }
+
+        return listaClienteXPedidoProduccion;        
+    }
+
+    public async Task<List<int>> eliminarPedidosProduccion(List<int> idPedidos)
+    {
+        var idPedidosEliminados = new List<int>();
+
+        foreach(var idPedidoProduccio in idPedidos){
+            var idPedidoProduccion = await iPedidoProduccionRepository.EliminarPedidoProduccionAsync(idPedidoProduccio);
+
+                idPedidosEliminados.Add(idPedidoProduccion);
+            
+        }
+
+        return await Task.FromResult(idPedidosEliminados);
+    }
+
+    public async Task<List<PedidoProduccion>> GetPedidoProduccionByTaller(int idTaller)
+    {
+        return await iPedidoProduccionRepository.GetPedidoProduccionByTallerAsync(idTaller);            
+    }
+
+    public async Task<PedidoProduccion> GetPedidoProduccionAsync(int idPedidoProduccion)
+    {
+        return await iPedidoProduccionRepository.GetPedidoProduccionAsync(idPedidoProduccion);
+    }
+
+    public async Task<List<EstadoPedidoProduccion>> GetEstadosPedidoProduccionAsync()
+    {
+        return await iPedidoProduccionRepository.GetEstadosPedidoProduccionAsync();
+    }
+
+    public async Task<List<int>> actualizarEstadosPedidoProduccionAsync(List<PedidoProduccionEstadoDTO> lista)
+    {
+        var idsActualizados = new List<int>();
+
+        foreach(var item in lista){
+            var pedidoProduccion = await iPedidoProduccionRepository.GetPedidoProduccionAsync(item.IdPedidoProduccion);
+
+            if(pedidoProduccion != null){
+                pedidoProduccion.IdEstadoPedidoProduccion = item.IdEstadoPedidoProduccion;
+                await iPedidoProduccionRepository.ActualizarAsync(pedidoProduccion);
+                idsActualizados.Add(item.IdPedidoProduccion);
+            }
+        }
+
+        return await Task.FromResult(idsActualizados);
+    }
+
+    public async Task<List<PedidoProduccion>> GetPedidosProduccionByIdsAsync(List<int> idsPedidosProduccion)
+    {
+        var pedidosProduccion = new List<PedidoProduccion>();
+
+        foreach (var id in idsPedidosProduccion)
+        {
+            var pedidoProduccion = await iPedidoProduccionRepository.GetPedidoProduccionAsync(id);
+            if (pedidoProduccion != null)
+            {
+                pedidosProduccion.Add(pedidoProduccion);
+            }
+        }
+
+        return pedidosProduccion;
+    }
+
+/*
         public  string getTabla()
     {
         return PedidoProduccion.TABLA;
@@ -409,5 +531,5 @@ private static string GetFromTextByArticulo()
 
 
     }
-
+*/
 }
