@@ -2,6 +2,7 @@ using System.Text;
 using System.Xml;
 using Npgsql;
 using System.Globalization;
+using ServiceReference;
 
 
 namespace BlumeAPI.Services;
@@ -23,7 +24,94 @@ private readonly HttpClient _httpClient;
 
 public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTicketResponseData loginTicket, long cuit)
 {
-    // Construir XML
+// Crear el cliente del servicio
+var afipService = new MTXCAServicePortTypeClient();
+
+// Construir el request principal
+var request = new autorizarComprobanteRequest();
+
+// --- CABECERA DEL COMPROBANTE ---
+ServiceReference.ComprobanteType comprobanteCAERequest  = new ServiceReference.ComprobanteType();
+
+comprobanteCAERequest.codigoTipoComprobante = 1; // FACTURA A
+comprobanteCAERequest.numeroPuntoVenta = factura.PuntoDeVenta;
+comprobanteCAERequest.numeroComprobante = factura.NumeroFactura ?? 1;
+comprobanteCAERequest.fechaEmision = DateTime.UtcNow;
+comprobanteCAERequest.codigoTipoDocumento = 80; // CUIT
+//comprobanteCAERequest.codigoTipoAutorizacion = CodigoTipoAutorizacionSimpleType.A;
+// puede que falta otro
+comprobanteCAERequest.numeroDocumento = long.Parse(factura.Cliente.Cuit.Replace("-", ""));
+comprobanteCAERequest.condicionIVAReceptor = 1; // RESPONSABLE INSCRIPTO
+comprobanteCAERequest.importeGravado = Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2);
+comprobanteCAERequest.importeNoGravado = 0;
+comprobanteCAERequest.importeExento = 0;
+comprobanteCAERequest.importeSubtotal = Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2);
+comprobanteCAERequest.importeOtrosTributos = 0;
+comprobanteCAERequest.importeTotal = Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 1.21m, 2);
+comprobanteCAERequest.codigoMoneda = "PES";
+comprobanteCAERequest.cotizacionMoneda = 1;
+comprobanteCAERequest.cancelaEnMismaMonedaExtranjera = SiNoSimpleType.N;
+comprobanteCAERequest.codigoConcepto = 1; // Producto
+// Detalles de los items
+// Aquí deberías agregar los items de la factura al comprobanteCAERequest
+ItemType[] arrayOfItem = new ItemType[0]; // Initialize as an empty array
+
+ItemType itemACargar = new ItemType();
+itemACargar.codigo = "001";
+itemACargar.descripcion = "Producto de prueba";
+itemACargar.cantidad = 1;
+itemACargar.codigoUnidadMedida = 7; // Unidad
+itemACargar.precioUnitario = 100.00m;
+itemACargar.importeBonificacion = 0.00m;
+itemACargar.codigoCondicionIVA = 5; // Gravado
+itemACargar.importeIVA = 21.00m;
+itemACargar.importeItem = 121.00m;
+Array.Resize(ref arrayOfItem, arrayOfItem.Length + 1);
+arrayOfItem[arrayOfItem.Length - 1] = itemACargar;
+
+
+
+/*foreach(var articuloFactura in factura.Articulos ){
+    Array.Resize(ref arrayOfItem, arrayOfItem.Length + 1);
+    arrayOfItem[arrayOfItem.Length - 1] = new ItemType
+    {
+        
+    };
+}
+*/
+comprobanteCAERequest.arrayItems = arrayOfItem;
+
+
+
+// Si AFIP exige Auth
+request.authRequest = new AuthRequestType
+{
+    token = loginTicket.Token,
+    sign = loginTicket.Sign,
+    cuitRepresentada = cuit//30716479966
+};
+
+
+// --- LLAMADA A AFIP ---
+var response = await afipService.autorizarComprobanteAsync(request);
+
+
+
+// --- PROCESAR RESPUESTA ---
+if (response != null && response.comprobanteResponse != null)
+{
+    var resultado = response.comprobanteResponse;
+
+    Console.WriteLine("Resultado: " + resultado.ToString());
+    Console.WriteLine("CAE: " + resultado.CAE);
+    Console.WriteLine("Vencimiento CAE: " + resultado.fechaVencimientoCAE);
+}
+else
+{
+    Console.WriteLine("No se obtuvo respuesta válida");
+}
+
+/*
     string soapEnvelope = CrearSoapEnvelopeMTXCA(factura, loginTicket, cuit,
         Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2),
         Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 0.21m, 2),
@@ -97,7 +185,9 @@ public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTi
     {
         Console.WriteLine("❌ Error general en FacturarAsync: " + ex.Message);
         throw;
-    }
+    }*/
+
+    return null!;
 }
 
 

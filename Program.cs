@@ -79,10 +79,9 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 // Para producción:
 var connectionString = builder.Configuration.GetConnectionString(
-    //"BDPruebas"
-    "BDProduccion"
+    "BDPruebas"
+    //"BDProduccion"
     );
-
 // Para pruebas/desarrollo:
 // var connectionString = builder.Configuration.GetConnectionString("BDPruebas");
 

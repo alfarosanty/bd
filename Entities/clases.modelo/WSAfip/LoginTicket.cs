@@ -118,6 +118,7 @@ public class LoginTicket
             var servicioWsaa = new AFIP.Wsaa.LoginCMSClient();
             servicioWsaa.Endpoint.Address = new System.ServiceModel.EndpointAddress(argUrlWsaa);
             var response = await servicioWsaa.loginCmsAsync(cmsFirmadoBase64);
+            Console.WriteLine(response);
             loginTicketResponse = response.loginCmsReturn;
 
 

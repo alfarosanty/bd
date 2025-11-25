@@ -1,0 +1,430 @@
+2025-11-21 15:16:35.474 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 15:16:35.932 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 15:16:35.943 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 15:16:35.944 -03:00 [INF] Hosting environment: Development
+2025-11-21 15:16:35.944 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 15:17:01.775 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-11-21 15:17:02.180 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 411.3487ms
+2025-11-21 15:17:02.520 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-11-21 15:17:02.885 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 365.5566ms
+2025-11-21 15:17:15.837 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 15:17:15.852 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 15:17:15.888 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 15:17:15.897 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 15:17:15.956 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 15:17:19.366 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2025-11-21 15:17:19.436 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 3470.8537ms
+2025-11-21 15:17:19.442 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 15:17:19.449 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 3612.7534ms
+2025-11-21 16:25:56.526 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:25:57.214 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:25:57.236 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:25:57.238 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:25:57.238 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:29:23.075 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:29:23.720 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:29:23.735 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:29:23.737 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:29:23.738 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:33:45.842 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255
+2025-11-21 16:33:46.047 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:33:46.048 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:33:46.150 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:33:46.280 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:33:46.313 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:33:46.569 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:33:47.718 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-11-21 16:33:47.960 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 1363.857ms
+2025-11-21 16:33:47.977 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:33:47.988 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255 - 400 - application/problem+json;+charset=utf-8 2175.3740ms
+2025-11-21 16:38:19.582 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:38:20.191 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:38:20.213 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:38:20.215 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:38:20.215 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:38:38.763 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255
+2025-11-21 16:38:38.956 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:38:38.957 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:38:39.047 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:38:39.160 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:38:39.181 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:38:39.358 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:38:40.237 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-11-21 16:38:40.477 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 1096.8064ms
+2025-11-21 16:38:40.497 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:38:40.510 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255 - 400 - application/problem+json;+charset=utf-8 1779.6809ms
+2025-11-21 16:39:29.491 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:39:30.118 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:39:30.133 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:39:30.134 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:39:30.134 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:39:43.675 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255
+2025-11-21 16:39:43.867 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:39:43.867 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:39:43.957 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:39:44.066 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:39:44.095 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:39:44.354 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:39:45.760 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-11-21 16:39:46.094 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 1704.2902ms
+2025-11-21 16:39:46.112 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:39:46.127 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255 - 400 - application/problem+json;+charset=utf-8 2566.9006ms
+2025-11-21 16:39:58.041 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255
+2025-11-21 16:39:58.092 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:39:58.092 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:39:58.130 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:39:58.131 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:39:58.141 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:39:58.146 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-11-21 16:39:58.148 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 6.6115ms
+2025-11-21 16:39:58.148 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:39:58.148 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11255 - 400 - application/problem+json;+charset=utf-8 107.3903ms
+2025-11-21 16:40:04.410 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-11-21 16:40:04.959 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 548.4795ms
+2025-11-21 16:40:05.836 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-11-21 16:40:06.988 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1151.9092ms
+2025-11-21 16:40:19.228 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3529
+2025-11-21 16:40:19.228 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:40:19.228 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:40:19.247 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:40:19.247 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:40:19.247 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:40:19.513 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-11-21 16:40:19.513 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 265.8318ms
+2025-11-21 16:40:19.513 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:40:19.514 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 3529 - 400 - application/problem+json;+charset=utf-8 286.1635ms
+2025-11-21 16:41:01.794 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:41:02.446 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:41:02.463 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:41:02.465 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:41:02.465 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:41:50.174 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 16:41:50.432 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:41:50.434 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:41:50.537 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:41:50.645 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:41:50.679 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:41:50.869 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:42:06.489 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 16:42:06.699 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 15807.1797ms
+2025-11-21 16:42:06.716 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:42:06.727 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 16578.8570ms
+2025-11-21 16:42:38.210 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 16:42:38.230 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:42:38.230 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:42:38.330 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:42:38.330 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:42:38.331 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:44:03.906 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 16:44:03.911 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 85579.8458ms
+2025-11-21 16:44:03.924 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:44:03.947 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 85737.0250ms
+2025-11-21 16:44:07.346 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 16:44:07.348 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:44:07.348 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:44:07.366 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:44:07.366 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:44:07.366 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:44:26.969 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 16:44:26.970 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 19603.417ms
+2025-11-21 16:44:26.970 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:44:26.970 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 19624.0942ms
+2025-11-21 16:45:21.383 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:45:22.058 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:45:22.078 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:45:22.081 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:45:22.082 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:45:32.648 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 16:45:32.889 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:45:32.890 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:45:33.047 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:45:33.217 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:45:33.251 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:45:33.536 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:47:30.079 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 16:47:30.298 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 116741.4054ms
+2025-11-21 16:47:30.316 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:47:30.346 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 117730.5084ms
+2025-11-21 16:58:09.973 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:58:11.075 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 16:58:11.100 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:58:11.103 -03:00 [INF] Hosting environment: Development
+2025-11-21 16:58:11.103 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 16:58:16.356 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 16:58:16.661 -03:00 [INF] CORS policy execution failed.
+2025-11-21 16:58:16.662 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 16:58:16.795 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 16:58:17.120 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 16:58:17.163 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:58:17.427 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 16:58:31.611 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 16:58:31.914 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 14450.4446ms
+2025-11-21 16:58:31.944 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 16:58:31.989 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 15655.7586ms
+2025-11-21 17:10:31.354 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 17:10:32.257 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 17:10:32.279 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 17:10:32.282 -03:00 [INF] Hosting environment: Development
+2025-11-21 17:10:32.282 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 17:11:26.122 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-11-21 17:11:27.289 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 1196.5534ms
+2025-11-21 17:11:28.385 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-11-21 17:11:29.116 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 731.2428ms
+2025-11-21 17:11:55.433 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 17:11:55.457 -03:00 [INF] CORS policy execution failed.
+2025-11-21 17:11:55.458 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 17:11:55.478 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 17:11:55.581 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:11:55.610 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:11:55.833 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 17:12:13.530 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 17:12:13.763 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 17893.192ms
+2025-11-21 17:12:13.792 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:12:13.824 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 18391.4038ms
+2025-11-21 17:12:29.530 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 17:12:29.532 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:12:29.532 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 17:12:29.542 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 17:12:40.244 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 17:12:40.247 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 10705.5397ms
+2025-11-21 17:12:40.248 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 17:12:40.248 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 10718.4603ms
+2025-11-21 17:14:06.051 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 17:14:06.831 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 17:14:06.858 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 17:14:06.861 -03:00 [INF] Hosting environment: Development
+2025-11-21 17:14:06.861 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 17:14:09.216 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 17:14:09.432 -03:00 [INF] CORS policy execution failed.
+2025-11-21 17:14:09.433 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 17:14:09.546 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 17:14:10.231 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:14:10.260 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:14:10.537 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 17:15:56.018 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 17:15:56.267 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 105707.3808ms
+2025-11-21 17:15:56.284 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:15:56.315 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 107125.1450ms
+2025-11-21 17:53:01.825 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 17:53:02.220 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:53:02.223 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 17:53:02.257 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 17:53:03.189 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2025-11-21 17:53:03.256 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 998.8104ms
+2025-11-21 17:53:03.256 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 17:53:03.257 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 1432.7613ms
+2025-11-21 17:55:01.311 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 17:55:02.106 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 17:55:02.123 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 17:55:02.125 -03:00 [INF] Hosting environment: Development
+2025-11-21 17:55:02.125 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 17:55:31.933 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 17:55:32.150 -03:00 [INF] CORS policy execution failed.
+2025-11-21 17:55:32.150 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 17:55:32.242 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 17:55:32.360 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:55:32.384 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:55:32.580 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 17:55:41.707 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 17:55:41.940 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 9338.433ms
+2025-11-21 17:55:41.957 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:55:41.990 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 10084.2533ms
+2025-11-21 17:58:05.940 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 17:58:06.596 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 17:58:06.612 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 17:58:06.614 -03:00 [INF] Hosting environment: Development
+2025-11-21 17:58:06.614 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 17:58:59.703 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 17:58:59.885 -03:00 [INF] CORS policy execution failed.
+2025-11-21 17:58:59.886 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 17:58:59.966 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 17:59:00.096 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 17:59:00.120 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:59:00.319 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 17:59:09.642 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 17:59:09.885 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 9545.6254ms
+2025-11-21 17:59:09.908 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 17:59:09.933 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 10252.6502ms
+2025-11-21 18:00:18.975 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:00:18.988 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:00:18.988 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:00:19.093 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:00:19.093 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:00:19.095 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:00:25.662 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:00:25.663 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 6567.9136ms
+2025-11-21 18:00:25.663 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:00:25.664 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 6689.1587ms
+2025-11-21 18:00:33.057 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:00:33.059 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:00:33.059 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:00:33.070 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:00:33.070 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:00:33.070 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:03:07.253 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:03:07.337 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 154266.4923ms
+2025-11-21 18:03:07.359 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:03:07.363 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 154305.9301ms
+2025-11-21 18:03:10.443 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:03:10.444 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:03:10.444 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:03:10.444 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:03:10.444 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:03:10.445 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:05:14.465 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:05:14.551 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 124106.653ms
+2025-11-21 18:05:14.552 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:05:14.552 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 124108.4578ms
+2025-11-21 18:05:18.380 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:05:18.380 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:05:18.381 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:05:18.381 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:05:18.381 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:05:18.382 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:16:22.607 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:16:22.629 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 664247.0816ms
+2025-11-21 18:16:22.633 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:16:22.634 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 664253.5599ms
+2025-11-21 18:19:06.928 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 18:19:07.626 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 18:19:07.641 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 18:19:07.643 -03:00 [INF] Hosting environment: Development
+2025-11-21 18:19:07.643 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 18:40:26.379 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 18:40:27.237 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 18:40:27.259 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 18:40:27.262 -03:00 [INF] Hosting environment: Development
+2025-11-21 18:40:27.262 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 18:40:40.787 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 18:40:41.278 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 18:40:41.546 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:40:41.577 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:40:42.002 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 18:40:46.119 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2025-11-21 18:40:46.807 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 4780.2832ms
+2025-11-21 18:40:46.820 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:40:46.831 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 6077.4435ms
+2025-11-21 18:41:37.177 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 18:41:37.882 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 18:41:37.905 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 18:41:37.908 -03:00 [INF] Hosting environment: Development
+2025-11-21 18:41:37.908 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 18:42:07.465 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 18:42:07.855 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 18:42:07.968 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:42:08.012 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:42:08.363 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 18:42:14.293 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:42:15.021 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 6610.3848ms
+2025-11-21 18:42:15.034 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:42:15.044 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 7612.5128ms
+2025-11-21 18:43:07.664 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 18:43:07.787 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:43:07.809 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:43:07.810 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 18:43:08.733 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:43:08.740 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 930.393ms
+2025-11-21 18:43:08.745 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:43:08.774 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 1109.9675ms
+2025-11-21 18:43:52.649 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-11-21 18:43:52.667 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:43:52.668 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:43:52.668 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-11-21 18:45:11.957 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2025-11-21 18:45:12.083 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 79414.8139ms
+2025-11-21 18:45:12.083 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-11-21 18:45:12.084 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 79434.1129ms
+2025-11-21 18:48:26.756 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 18:48:27.691 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 18:48:27.714 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 18:48:27.717 -03:00 [INF] Hosting environment: Development
+2025-11-21 18:48:27.717 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 18:48:54.200 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:48:54.453 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:48:54.455 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:48:54.571 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 18:48:54.697 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:48:54.720 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:48:54.944 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:49:19.688 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:49:20.033 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 25052.5594ms
+2025-11-21 18:49:20.067 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:49:20.116 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 25938.7215ms
+2025-11-21 18:50:49.547 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 18:50:50.298 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 18:50:50.315 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 18:50:50.317 -03:00 [INF] Hosting environment: Development
+2025-11-21 18:50:50.317 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 18:51:20.615 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 18:51:20.797 -03:00 [INF] CORS policy execution failed.
+2025-11-21 18:51:20.798 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 18:51:20.890 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 18:51:21.006 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 18:51:21.031 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:51:21.254 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 18:51:42.700 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 18:51:42.989 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 21710.966ms
+2025-11-21 18:51:43.008 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 18:51:43.044 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 22454.3287ms
+2025-11-21 19:00:30.050 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 19:00:34.687 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 19:00:34.703 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 19:00:34.705 -03:00 [INF] Hosting environment: Development
+2025-11-21 19:00:34.705 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 19:00:56.426 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 19:00:56.605 -03:00 [INF] CORS policy execution failed.
+2025-11-21 19:00:56.606 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 19:00:56.689 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 19:00:56.799 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 19:00:56.821 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:00:57.009 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 19:01:22.562 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 19:01:22.893 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 25849.2198ms
+2025-11-21 19:01:22.915 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:01:22.929 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 26526.2322ms
+2025-11-21 19:01:40.310 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 19:01:40.333 -03:00 [INF] CORS policy execution failed.
+2025-11-21 19:01:40.334 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 19:01:40.391 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 19:01:40.391 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:01:40.418 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 19:02:01.086 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 19:02:01.091 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 20673.0128ms
+2025-11-21 19:02:01.096 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:02:01.115 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 20805.6442ms
+2025-11-21 19:03:40.534 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 19:03:41.171 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-11-21 19:03:41.186 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 19:03:41.188 -03:00 [INF] Hosting environment: Development
+2025-11-21 19:03:41.188 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-11-21 19:04:33.100 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 19:04:33.256 -03:00 [INF] CORS policy execution failed.
+2025-11-21 19:04:33.256 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 19:04:33.334 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-21 19:04:33.426 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 19:04:33.447 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:04:33.614 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 19:04:40.756 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 19:04:40.948 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 7313.2782ms
+2025-11-21 19:04:40.965 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:04:40.995 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 7915.5993ms
+2025-11-21 19:07:05.957 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 19:07:05.972 -03:00 [INF] CORS policy execution failed.
+2025-11-21 19:07:05.972 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 19:07:06.052 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 19:07:06.057 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:07:06.058 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 19:07:06.846 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 19:07:06.847 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 788.6873ms
+2025-11-21 19:07:06.847 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:07:06.848 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 890.5469ms
+2025-11-21 19:07:27.434 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236
+2025-11-21 19:07:27.439 -03:00 [INF] CORS policy execution failed.
+2025-11-21 19:07:27.439 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-11-21 19:07:27.449 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-11-21 19:07:27.450 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:07:27.450 -03:00 [INF] Route matched with {action = "CrearAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[FECAESolicitarResponse]] CrearAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-11-21 19:07:27.809 -03:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-21 19:07:27.809 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI) in 359.1733ms
+2025-11-21 19:07:27.809 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearAFIPAsync (BlumeAPI)'
+2025-11-21 19:07:27.809 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/pruebaAFIP application/json 11236 - 400 - application/json;+charset=utf-8 375.7285ms

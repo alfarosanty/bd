@@ -13,7 +13,7 @@ public class AfipServices
 public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, NpgsqlConnection con)
 {
 
-    Console.WriteLine("Estoy en la fncion del login");
+    Console.WriteLine("Estoy en la funcion del login");
     if (con == null)
         throw new ArgumentNullException(nameof(con), "La conexión no puede ser null");
 
@@ -25,31 +25,50 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
         string firma = null!;
 
         using (var cmd = new NpgsqlCommand(
-            @"SELECT ""EXPIRACION"", ""TOKEN"", ""FIRMA"" FROM ""DATOS_AUTENTICACION"" LIMIT 1", con))
+            @"SELECT ""TOKEN"", ""FIRMA"", ""EXPIRACION"" FROM ""DATOS_AUTENTICACION"" LIMIT 1", con))
         using (var reader = await cmd.ExecuteReaderAsync())
         {
             if (await reader.ReadAsync())
             {
-                // Obtén el índice de la columna una sola vez
-            int indexExpiracion = reader.GetOrdinal("EXPIRACION");
 
-// Lee el valor de manera segura
-                if (reader.IsDBNull(indexExpiracion))
+                object expObj = reader["EXPIRACION"];
+
+                if (expObj == DBNull.Value)
                 {
-                    horaExpiracion = DateTime.MinValue; // o cualquier valor por defecto
+                    horaExpiracion = DateTime.MinValue;
                 }
                 else
                 {
-                    // PostgreSQL timestamp without time zone → DateTimeKind.Unspecified
-                    var dbValue = reader.GetFieldValue<DateTime>(indexExpiracion);
+                    // Confirmar el tipo real que vino desde la BD
+                    Console.WriteLine("Tipo real recibido desde BD: " + expObj.GetType().Name);
+                    Console.WriteLine(">>> EXPIRACION - Valor recibido: " + (expObj == DBNull.Value ? "NULL" : expObj.ToString()));
 
-                    // Si querés tratarlo como UTC o Local, especifica el Kind
-                    horaExpiracion = DateTime.SpecifyKind(dbValue, DateTimeKind.Utc); // o Local
-                    Console.WriteLine("este es la fecha que me trae: " + horaExpiracion);
+
+                    if (expObj is DateTime dt)
+                    {
+                        // Si es timestamp without time zone → Kind.Unspecified
+                        horaExpiracion = DateTime.SpecifyKind(dt, DateTimeKind.Local);
+
+                        Console.WriteLine("Fecha expiración obtenida: " + horaExpiracion);
+                    }
+                    else
+                    {
+                        throw new InvalidCastException(
+                            $"La columna EXPIRACION no es DateTime, es {expObj.GetType().Name}"
+                        );
+                    }
                 }
 
-                token = reader.IsDBNull(reader.GetOrdinal("TOKEN")) ? null! : reader.GetString(reader.GetOrdinal("TOKEN"));
-                firma = reader.IsDBNull(reader.GetOrdinal("FIRMA")) ? null! : reader.GetString(reader.GetOrdinal("FIRMA"));
+
+                token = reader.IsDBNull(reader.GetOrdinal("TOKEN")) 
+                            ? null! 
+                            : reader.GetString(reader.GetOrdinal("TOKEN"));
+
+                firma = reader.IsDBNull(reader.GetOrdinal("FIRMA")) 
+                            ? null! 
+                            : reader.GetString(reader.GetOrdinal("FIRMA"));
+
+
             }
         }
 
