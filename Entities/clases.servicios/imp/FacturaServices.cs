@@ -34,13 +34,13 @@ var request = new autorizarComprobanteRequest();
 ServiceReference.ComprobanteType comprobanteCAERequest  = new ServiceReference.ComprobanteType();
 
 comprobanteCAERequest.codigoTipoComprobante = 1; // FACTURA A
-comprobanteCAERequest.numeroPuntoVenta = factura.PuntoDeVenta;
+comprobanteCAERequest.numeroPuntoVenta = 2; //factura.PuntoDeVenta;
 comprobanteCAERequest.numeroComprobante = factura.NumeroFactura ?? 1;
 comprobanteCAERequest.fechaEmision = DateTime.UtcNow;
 comprobanteCAERequest.codigoTipoDocumento = 80; // CUIT
 //comprobanteCAERequest.codigoTipoAutorizacion = CodigoTipoAutorizacionSimpleType.A;
 // puede que falta otro
-comprobanteCAERequest.numeroDocumento = long.Parse(factura.Cliente.Cuit.Replace("-", ""));
+comprobanteCAERequest.numeroDocumento = 30603833410;//long.Parse(factura.Cliente.Cuit.Replace("-", ""));
 comprobanteCAERequest.condicionIVAReceptor = 1; // RESPONSABLE INSCRIPTO
 comprobanteCAERequest.importeGravado = Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2);
 comprobanteCAERequest.importeNoGravado = 0;
@@ -88,7 +88,7 @@ request.authRequest = new AuthRequestType
 {
     token = loginTicket.Token,
     sign = loginTicket.Sign,
-    cuitRepresentada = cuit//30716479966
+    cuitRepresentada = /*20302367613*/ 30716479966
 };
 
 
