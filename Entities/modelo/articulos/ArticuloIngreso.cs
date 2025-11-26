@@ -22,6 +22,9 @@ namespace BlumeApi.Models
         [Column("ID_INGRESO")]
         public int? IdIngreso { get; set; }
 
+        [ForeignKey(nameof(IdIngreso))]
+        public Ingreso? Ingreso { get; set; }
+
         [Column("CANTIDAD")]
         public int Cantidad { get; set; }
 

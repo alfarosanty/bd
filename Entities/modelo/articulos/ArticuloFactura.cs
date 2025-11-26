@@ -22,6 +22,8 @@ namespace BlumeApi.Models
         [Column("ID_FACTURA")]
         [ForeignKey(nameof(Factura))]
         public int? IdFactura { get; set; }
+
+        [ForeignKey(nameof(IdFactura))]
         public Factura? Factura { get; set; }
 
         [Column("CANTIDAD")]

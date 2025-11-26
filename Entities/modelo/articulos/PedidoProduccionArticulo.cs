@@ -20,6 +20,9 @@ namespace BlumeApi.Models
         [Column("ID_PEDIDO_PRODUCCION")]
         public int? IdPedidoProduccion { get; set; }
 
+        [ForeignKey(nameof(IdPedidoProduccion))]
+        public PedidoProduccion? PedidoProduccion { get; set; }
+
         [Column("CANTIDAD")]
         public int Cantidad { get; set; }
 

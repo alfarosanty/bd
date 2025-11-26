@@ -21,13 +21,13 @@ public class ArticuloPrecio
     [Column("DESCRIPCION")]
     public string? Descripcion { get; set; }
 
-    [Column("PRECIO_1", TypeName = "numeric(18,2)")]
+    [Column("PRECIO1", TypeName = "numeric(18,2)")]
     public decimal? Precio1 { get; set; }
 
-    [Column("PRECIO_2", TypeName = "numeric(18,2)")]
+    [Column("PRECIO2", TypeName = "numeric(18,2)")]
     public decimal? Precio2 { get; set; }
 
-    [Column("PRECIO_3", TypeName = "numeric(18,2)")]
+    [Column("PRECIO3", TypeName = "numeric(18,2)")]
     public decimal? Precio3 { get; set; }
 
     [Column("RELLENO")]

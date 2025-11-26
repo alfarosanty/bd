@@ -25,6 +25,7 @@ public class ArticuloPresupuesto
     [ForeignKey(nameof(Presupuesto))]
     public int? IdPresupuesto { get; set; }
 
+    [ForeignKey(nameof(IdPresupuesto))]
     public Presupuesto? Presupuesto { get; set; }
 
     [Column("CANTIDAD")]
