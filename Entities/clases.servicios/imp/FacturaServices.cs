@@ -2,7 +2,6 @@ using System.Text;
 using System.Xml;
 using Npgsql;
 using System.Globalization;
-using ServiceReference;
 
 
 namespace BlumeAPI.Services;
@@ -21,290 +20,87 @@ private readonly HttpClient _httpClient;
     {
         _httpClient = new HttpClient();
     }
-
-public async Task<FECAESolicitarResponse> FacturarAsync(Factura factura, LoginTicketResponseData loginTicket, long cuit)
+public async Task<string> FacturarAsync(
+    Factura factura,
+    LoginTicketResponseData loginTicket,
+    long cuitRepresentada)
 {
-// Crear el cliente del servicio
-var afipService = new MTXCAServicePortTypeClient();
+    // 1️⃣ Crear el builder del comprobante
+    var builder = new ComprobanteCaeBuilder()
+        .FacturaA(1,3,4,new DateTime(2025, 11, 26)/*factura.PuntoDeVenta, factura.NumeroFactura ?? 1*/)
+        .Receptor(80,33693450239 /*long.Parse(factura.Cliente.Cuit.Replace("-", ""))*/, 1) // Responsable Inscripto
+        .Importes(100, 100, 121/*factura.ImporteNeto, factura.ImporteNeto * 1.21m*/);
 
-// Construir el request principal
-var request = new autorizarComprobanteRequest();
-
-// --- CABECERA DEL COMPROBANTE ---
-ServiceReference.ComprobanteType comprobanteCAERequest  = new ServiceReference.ComprobanteType();
-
-comprobanteCAERequest.codigoTipoComprobante = 1; // FACTURA A
-comprobanteCAERequest.numeroPuntoVenta = 2; //factura.PuntoDeVenta;
-comprobanteCAERequest.numeroComprobante = factura.NumeroFactura ?? 1;
-comprobanteCAERequest.fechaEmision = DateTime.UtcNow;
-comprobanteCAERequest.codigoTipoDocumento = 80; // CUIT
-//comprobanteCAERequest.codigoTipoAutorizacion = CodigoTipoAutorizacionSimpleType.A;
-// puede que falta otro
-comprobanteCAERequest.numeroDocumento = 30603833410;//long.Parse(factura.Cliente.Cuit.Replace("-", ""));
-comprobanteCAERequest.condicionIVAReceptor = 1; // RESPONSABLE INSCRIPTO
-comprobanteCAERequest.importeGravado = Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2);
-comprobanteCAERequest.importeNoGravado = 0;
-comprobanteCAERequest.importeExento = 0;
-comprobanteCAERequest.importeSubtotal = Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2);
-comprobanteCAERequest.importeOtrosTributos = 0;
-comprobanteCAERequest.importeTotal = Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 1.21m, 2);
-comprobanteCAERequest.codigoMoneda = "PES";
-comprobanteCAERequest.cotizacionMoneda = 1;
-comprobanteCAERequest.cancelaEnMismaMonedaExtranjera = SiNoSimpleType.N;
-comprobanteCAERequest.codigoConcepto = 1; // Producto
-// Detalles de los items
-// Aquí deberías agregar los items de la factura al comprobanteCAERequest
-ItemType[] arrayOfItem = new ItemType[0]; // Initialize as an empty array
-
-ItemType itemACargar = new ItemType();
-itemACargar.codigo = "001";
-itemACargar.descripcion = "Producto de prueba";
-itemACargar.cantidad = 1;
-itemACargar.codigoUnidadMedida = 7; // Unidad
-itemACargar.precioUnitario = 100.00m;
-itemACargar.importeBonificacion = 0.00m;
-itemACargar.codigoCondicionIVA = 5; // Gravado
-itemACargar.importeIVA = 21.00m;
-itemACargar.importeItem = 121.00m;
-Array.Resize(ref arrayOfItem, arrayOfItem.Length + 1);
-arrayOfItem[arrayOfItem.Length - 1] = itemACargar;
-
-
-
-/*foreach(var articuloFactura in factura.Articulos ){
-    Array.Resize(ref arrayOfItem, arrayOfItem.Length + 1);
-    arrayOfItem[arrayOfItem.Length - 1] = new ItemType
+    var item = new Item
     {
-        
+        unidadesMtx = 123456,
+        codigoMtx = "0123456789913",
+        codigo = "P0001",
+        descripcion = "Producto de prueba",
+        cantidad = 1,
+        codigoUnidadMedida = 7, // Unidad
+        precioUnitario = 100,
+        importeBonificacion = 0,
+        codigoCondicionIVA = 5, // IVA 21%
+        importeIVA = 21,
+        importeItem = 121
     };
-}
-*/
-comprobanteCAERequest.arrayItems = arrayOfItem;
+    builder.AgregarItem(item);
 
-
-
-// Si AFIP exige Auth
-request.authRequest = new AuthRequestType
-{
-    token = loginTicket.Token,
-    sign = loginTicket.Sign,
-    cuitRepresentada = /*20302367613*/ 30716479966
-};
-
-
-// --- LLAMADA A AFIP ---
-var response = await afipService.autorizarComprobanteAsync(request);
-
-
-
-// --- PROCESAR RESPUESTA ---
-if (response != null && response.comprobanteResponse != null)
-{
-    var resultado = response.comprobanteResponse;
-
-    Console.WriteLine("Resultado: " + resultado.ToString());
-    Console.WriteLine("CAE: " + resultado.CAE);
-    Console.WriteLine("Vencimiento CAE: " + resultado.fechaVencimientoCAE);
-}
-else
-{
-    Console.WriteLine("No se obtuvo respuesta válida");
-}
-
-/*
-    string soapEnvelope = CrearSoapEnvelopeMTXCA(factura, loginTicket, cuit,
-        Math.Round(Convert.ToDecimal(factura.ImporteNeto), 2),
-        Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 0.21m, 2),
-        Math.Round(Convert.ToDecimal(factura.ImporteNeto) * 1.21m, 2));
-
-    Console.WriteLine("=== XML ENVIADO A AFIP ===");
-    Console.WriteLine(soapEnvelope);
-
-    // Crear request HTTP
-    var httpRequest = new HttpRequestMessage(HttpMethod.Post,
-        "https://serviciosjava.afip.gob.ar/wsmtxca/services/MTXCAService")
+    var subtotalIVA = new SubtotalIVA
     {
-        Content = new StringContent(soapEnvelope, Encoding.UTF8, "text/xml")
+        codigo = 5, // IVA 21%
+        importe = 21
     };
-    httpRequest.Headers.Add("SOAPAction", "autorizarComprobante");
-
-    try
-    {
-        var response = await _httpClient.SendAsync(httpRequest);
-
-        // Verificar si AFIP respondió con error HTTP
-        if (!response.IsSuccessStatusCode)
-        {
-            string errorHtml = await response.Content.ReadAsStringAsync();
-            Console.WriteLine("==========ERROR DE LA AFIP==========");
-            Console.WriteLine(response);
-            Console.WriteLine($"❌ Error HTTP {(int)response.StatusCode}: {response.ReasonPhrase}");
-            Console.WriteLine(errorHtml);
-            throw new Exception($"Error HTTP al contactar AFIP: {response.StatusCode}");
-        }
-
-        // Leer respuesta
-        string responseXml = await response.Content.ReadAsStringAsync();
-
-        Console.WriteLine("=== XML RECIBIDO DE AFIP ===");
-        Console.WriteLine(responseXml);
-
-        // Parsear respuesta
-        var feResponse = ParseResponse(responseXml);
-
-        // Verificar resultado del comprobante
-        var det = feResponse.FECAESolicitarResult.FeDetResp.FirstOrDefault();
-        if (det == null)
-            throw new Exception("No se encontró el detalle en la respuesta de AFIP.");
-
-        if (det.Resultado == "A")
-        {
-            factura.CaeNumero = int.Parse(det.CAE);
-            factura.FechaVencimiento = DateTime.ParseExact(det.CAEFchVto, "yyyyMMdd", null);
-            Console.WriteLine($"✅ Factura autorizada. CAE: {det.CAE}");
-        }
-        else
-        {
-            Console.WriteLine("⚠️ Factura rechazada por AFIP.");
-            Console.WriteLine(responseXml);
-        }
-
-        return feResponse;
-    }
-    catch (HttpRequestException ex)
-    {
-        Console.WriteLine("❌ Error de conexión al WS de AFIP: " + ex.Message);
-        throw;
-    }
-    catch (XmlException ex)
-    {
-        Console.WriteLine("❌ Error al parsear XML de respuesta: " + ex.Message);
-        throw;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("❌ Error general en FacturarAsync: " + ex.Message);
-        throw;
-    }*/
-
-    return null!;
-}
+    builder.AgregarSubtotal(subtotalIVA);
 
 
-private string CrearSoapEnvelopeMTXCA(Factura factura, LoginTicketResponseData loginTicket, long cuit,
-    decimal neto, decimal iva, decimal total)
-{
-    var sbItems = new StringBuilder();
-
+    /*/ 2️⃣ Agregar items
     foreach (var art in factura.Articulos)
     {
-        decimal cantidad = art.Cantidad;
-        decimal precioUnitario = art.PrecioUnitario;
-        decimal importeItem = Math.Round(art.PrecioUnitario * art.Cantidad * 1.21m, 2);
-        decimal importeIVA = Math.Round(art.PrecioUnitario * art.Cantidad * 0.21m, 2);
-
-    sbItems.Append($@"
-        <item>
-            <unidadesMtx>{cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</unidadesMtx>
-            <codigoMtx>0000000000000</codigoMtx>
-            <codigo>{art.Codigo}</codigo>
-            <descripcion>{System.Security.SecurityElement.Escape(art.Descripcion)}</descripcion>
-            <cantidad>{cantidad.ToString("0.00", CultureInfo.InvariantCulture)}</cantidad>
-            <codigoUnidadMedida>7</codigoUnidadMedida>
-            <precioUnitario>{precioUnitario.ToString("0.00", CultureInfo.InvariantCulture)}</precioUnitario>
-            <importeBonificacion>0.00</importeBonificacion>
-            <codigoCondicionIVA>5</codigoCondicionIVA>
-            <importeIVA>{importeIVA.ToString("0.00", CultureInfo.InvariantCulture)}</importeIVA>
-            <importeItem>{importeItem.ToString("0.00", CultureInfo.InvariantCulture)}</importeItem>
-        </item>");
+        builder.AgregarItem(new Item
+        {
+            unidadesMtx = art.UnidadesMtx,
+            codigoMtx = art.CodigoMtx,
+            codigo = art.Codigo,
+            descripcion = art.Descripcion,
+            cantidad = art.Cantidad,
+            codigoUnidadMedida = art.CodigoUnidadMedida,
+            precioUnitario = art.PrecioUnitario,
+            importeBonificacion = 0,
+            codigoCondicionIVA = art.CodigoCondicionIVA,
+            importeIVA = art.ImporteIVA,
+            importeItem = art.ImporteItem
+        });
     }
 
-    // SOAP completo
-string soap = $@"<?xml version=""1.0"" encoding=""utf-8""?>
-<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/""
-                  xmlns:ser=""http://service.wsmtxca.afip.gov.ar/"">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:autorizarComprobanteRequest>
-         <authRequest>
-            <token>{loginTicket.Token}</token>
-            <sign>{loginTicket.Sign}</sign>
-            <cuitRepresentada>{cuit}</cuitRepresentada>
-         </authRequest>
-         <comprobanteRequest>
-            <codigoTipoComprobante>1</codigoTipoComprobante>
-            <numeroPuntoVenta>2</numeroPuntoVenta>
-            <numeroComprobante>{factura.NumeroFactura ?? 1}</numeroComprobante>
-            <fechaEmision>{factura.FechaFactura:yyyy-MM-dd}</fechaEmision>
-            <codigoTipoDocumento>80</codigoTipoDocumento>
-            <numeroDocumento>{factura.Cliente.Cuit.Replace("-", "")}</numeroDocumento>
-            <condicionIVAReceptor>1</condicionIVAReceptor>
-            <importeGravado>{neto.ToString("0.00", CultureInfo.InvariantCulture)}</importeGravado>
-            <importeNoGravado>0.00</importeNoGravado>
-            <importeExento>0.00</importeExento>
-            <importeSubtotal>{neto.ToString("0.00", CultureInfo.InvariantCulture)}</importeSubtotal>
-            <importeTotal>{total.ToString("0.00", CultureInfo.InvariantCulture)}</importeTotal>
-            <codigoMoneda>PES</codigoMoneda>
-            <cotizacionMoneda>1</cotizacionMoneda>
-            <cancelaEnMismaMonedaExtranjera>N</cancelaEnMismaMonedaExtranjera>
-            <codigoConcepto>1</codigoConcepto>
-
-            <arrayItems>
-                {sbItems} <!-- Asegurate de que cada item no tenga espacios innecesarios en números -->
-            </arrayItems>
-
-            <arraySubtotalesIVA>
-                <subtotalIVA>
-                    <codigo>5</codigo>
-                    <importe>{iva.ToString("0.00", CultureInfo.InvariantCulture)}</importe>
-                </subtotalIVA>
-            </arraySubtotalesIVA>
-
-            <arrayActividades>
-                <actividad><codigo>120010</codigo></actividad>
-                <actividad><codigo>463300</codigo></actividad>
-            </arrayActividades>
-         </comprobanteRequest>
-      </ser:autorizarComprobanteRequest>
-   </soapenv:Body>
-</soapenv:Envelope>";
-
-
-    return soap;
-}
-
-    private FECAESolicitarResponse ParseResponse(string xml)
-{
-    var doc = new XmlDocument();
-    doc.LoadXml(xml);
-
-    // Namespace principal del servicio MTXCA
-    var ns = new XmlNamespaceManager(doc.NameTable);
-    ns.AddNamespace("ser", "http://impl.service.wsmtxca.afip.gob.ar/service/");
-
-    // Buscar nodos en la respuesta MTXCA
-    var caeNode = doc.SelectSingleNode("//ser:cae", ns);
-    var vtoNode = doc.SelectSingleNode("//ser:fechaVencimientoCAE", ns);
-    var resultNode = doc.SelectSingleNode("//ser:resultado", ns);
-
-    // Armar la estructura similar a FECAESolicitarResponse (por compatibilidad)
-    return new FECAESolicitarResponse
+    /*//* 3️⃣ Agregar subtotales IVA
+    foreach (var sub in factura.SubtotalesIVA)
     {
-        FECAESolicitarResult = new FECAESolicitarResult
+        builder.AgregarSubtotal(new SubtotalIVA
         {
-            FeDetResp = new List<FEDetResponse>
-            {
-                new FEDetResponse
-                {
-                    Resultado = resultNode?.InnerText,
-                    CAE = caeNode?.InnerText,
-                    CAEFchVto = vtoNode?.InnerText
-                }
-            }
-        }
-    };
-}
+            codigo = sub.Codigo,
+            importe = sub.Importe
+        });
+    }
 
+    */// 4️⃣ Generar XML del comprobante
+    string comprobanteXml = builder.Build();
+
+    // 5️⃣ Crear cliente AFIP
+    var afipClient = new AfipWsMtxcaClient("https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService");
+
+    // 6️⃣ Llamar al método AutorizarComprobanteAsync
+    string responseXml = await afipClient.AutorizarComprobanteAsync(
+        loginTicket.Token,
+        loginTicket.Sign,
+        cuitRepresentada,
+        comprobanteXml
+    );
+
+    // 7️⃣ Retornar XML de respuesta (puedes parsearlo a objeto si quieres)
+    return responseXml;
+}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 public  string getTabla()
