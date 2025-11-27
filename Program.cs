@@ -1,3 +1,4 @@
+using System.Globalization;
 using BlumeAPI.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,12 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
+
+CultureInfo custom = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+custom.NumberFormat.NumberDecimalSeparator = ".";
+
+CultureInfo.DefaultThreadCurrentCulture = custom;
+CultureInfo.DefaultThreadCurrentUICulture = custom;
 
 builder.Host.UseSerilog();
 

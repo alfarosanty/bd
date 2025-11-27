@@ -25,12 +25,80 @@ public async Task<string> FacturarAsync(
     LoginTicketResponseData loginTicket,
     long cuitRepresentada)
 {
-    // 1️⃣ Crear el builder del comprobante
-    var builder = new ComprobanteCaeBuilder()
-        .FacturaA(1,3,4,new DateTime(2025, 11, 26)/*factura.PuntoDeVenta, factura.NumeroFactura ?? 1*/)
-        .Receptor(80,33693450239 /*long.Parse(factura.Cliente.Cuit.Replace("-", ""))*/, 1) // Responsable Inscripto
-        .Importes(100, 100, 121/*factura.ImporteNeto, factura.ImporteNeto * 1.21m*/);
+    // 1️⃣ Crear el builder del comprobante y cliente AFIPs
 
+    var datosFacturaAfip = new ComprobanteCaeBuilder();
+    var afipClient = new AfipWsMtxcaClient("https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService");
+
+
+
+    // 2️⃣ Completar datos del comprobante
+
+    int tipoFactura = factura.TipoFactura == "A" ? 1 : 6;
+    var numeroComprobanteResponseXML = await afipClient.ConsultarUltimoAutorizadoAsync(loginTicket.Token, loginTicket.Sign, cuitRepresentada, tipoFactura, factura.PuntoDeVenta);
+    UltimoComprobanteAutorizadoResult numeroComprobanteResponse = afipClient.ParseUltimoComprobanteAutorizadoResponse(numeroComprobanteResponseXML);
+
+var numeroComprobante = numeroComprobanteResponse.Exitoso?(numeroComprobanteResponse.NumeroComprobante + 1 ?? 1) : 1;
+
+    datosFacturaAfip.datosFactura(
+        tipoFactura,
+        factura.PuntoDeVenta,
+        numeroComprobante,
+        factura.FechaFactura
+    );
+    var tipoIVAReceptor = factura.Cliente.CondicionFiscal != null && factura.Cliente.CondicionFiscal.Codigo == "RI" ? 1 : 5;
+    datosFacturaAfip.Receptor(
+        80, // CUIT
+        long.Parse(factura.Cliente.Cuit.Replace("-", "")),
+        tipoIVAReceptor // Responsable Inscripto
+    );
+
+
+    decimal gravado = factura.ImporteNeto ?? 0;
+    decimal subtotal = factura.ImporteNeto ?? 0;
+
+    datosFacturaAfip.Importes(gravado, subtotal, factura.ImporteBruto ?? 0);
+    /*
+    
+
+        .datosFactura(1,3,5,new DateTime(2025, 11, 27)/*factura.PuntoDeVenta, factura.NumeroFactura ?? 1)
+        .Receptor(80,33693450239 /*long.Parse(factura.Cliente.Cuit.Replace("-", "")), 1) // Responsable Inscripto
+        .Importes(100, 100, 121/*factura.ImporteNeto, factura.ImporteNeto * 1.21m);*/
+
+foreach (var articulo in factura.Articulos)
+{
+    decimal precioSinIVA = calcularPrecioUnitario(articulo.PrecioUnitario);
+    decimal importeIVA = articulo.PrecioUnitario - precioSinIVA;
+    var item = new Item
+    {
+        unidadesMtx = 123456,
+        codigoMtx = "0123456789913",
+        codigo = articulo.Codigo,
+        descripcion = articulo.Descripcion,
+        cantidad = articulo.Cantidad,
+        codigoUnidadMedida = 7,
+        //precioUnitario = precioSinIVA,
+        importeBonificacion = 0,
+        codigoCondicionIVA = 5,
+        //importeIVA = importeIVA * articulo.Cantidad,
+        importeItem = articulo.PrecioUnitario * articulo.Cantidad
+    };
+
+    if(tipoFactura == 1) // A
+    {
+        item.precioUnitario = precioSinIVA;
+        item.importeIVA = importeIVA * articulo.Cantidad;
+    }
+    else // B
+    {
+        item.precioUnitario = articulo.PrecioUnitario;
+        item.importeIVA = 0;
+    }
+
+    datosFacturaAfip.AgregarItem(item);
+}
+
+/*
     var item = new Item
     {
         unidadesMtx = 123456,
@@ -45,52 +113,21 @@ public async Task<string> FacturarAsync(
         importeIVA = 21,
         importeItem = 121
     };
-    builder.AgregarItem(item);
+    datosFacturaAfip.AgregarItem(item);
+*/
+var subtotalIVA = new SubtotalIVA
+{
+    codigo = 5, // IVA 21%
+    importe = datosFacturaAfip.GetItems().Sum(i => i.importeIVA)
+};
 
-    var subtotalIVA = new SubtotalIVA
-    {
-        codigo = 5, // IVA 21%
-        importe = 21
-    };
-    builder.AgregarSubtotal(subtotalIVA);
+    datosFacturaAfip.AgregarSubtotal(subtotalIVA);
+
+// 4️⃣ Generar XML del comprobante
+    string comprobanteXml = datosFacturaAfip.Build();
 
 
-    /*/ 2️⃣ Agregar items
-    foreach (var art in factura.Articulos)
-    {
-        builder.AgregarItem(new Item
-        {
-            unidadesMtx = art.UnidadesMtx,
-            codigoMtx = art.CodigoMtx,
-            codigo = art.Codigo,
-            descripcion = art.Descripcion,
-            cantidad = art.Cantidad,
-            codigoUnidadMedida = art.CodigoUnidadMedida,
-            precioUnitario = art.PrecioUnitario,
-            importeBonificacion = 0,
-            codigoCondicionIVA = art.CodigoCondicionIVA,
-            importeIVA = art.ImporteIVA,
-            importeItem = art.ImporteItem
-        });
-    }
-
-    /*//* 3️⃣ Agregar subtotales IVA
-    foreach (var sub in factura.SubtotalesIVA)
-    {
-        builder.AgregarSubtotal(new SubtotalIVA
-        {
-            codigo = sub.Codigo,
-            importe = sub.Importe
-        });
-    }
-
-    */// 4️⃣ Generar XML del comprobante
-    string comprobanteXml = builder.Build();
-
-    // 5️⃣ Crear cliente AFIP
-    var afipClient = new AfipWsMtxcaClient("https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService");
-
-    // 6️⃣ Llamar al método AutorizarComprobanteAsync
+    // 5️⃣ Llamar al método AutorizarComprobanteAsync
     string responseXml = await afipClient.AutorizarComprobanteAsync(
         loginTicket.Token,
         loginTicket.Sign,
@@ -99,7 +136,31 @@ public async Task<string> FacturarAsync(
     );
 
     // 7️⃣ Retornar XML de respuesta (puedes parsearlo a objeto si quieres)
+
+    var afip = afipClient.ParseAfipResponse(responseXml);
+
+    if (!afip.Aprobado)
+    {
+        var errors = string.Join("; ", afip.Errores);
+        throw new Exception($"Factura rechazada: {errors}");
+    }
+
+    if (afip.Observaciones.Any())
+    {
+        Console.WriteLine("Observaciones de AFIP:");
+        foreach (var o in afip.Observaciones)
+            Console.WriteLine(o);
+    }
+
+
+
     return responseXml;
+}
+
+private decimal calcularPrecioUnitario(decimal precioFinal/*, decimal descuentoUnitario, decimal descuentoGeneral*/)
+{
+    return Math.Round(precioFinal / 1.21m, 2);
+;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -140,9 +201,9 @@ public  string getTabla()
     cmd.Parameters.AddWithValue("EXIMIR_IVA", factura.EximirIVA);
     cmd.Parameters.AddWithValue("ID_PRESUPUESTO", factura.Presupuesto?.Id ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", factura.PuntoDeVenta);
-    cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroFactura);
+    cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroComprobante);
     cmd.Parameters.AddWithValue("CAE_NUMERO", (object?)factura.CaeNumero ?? DBNull.Value);
-    cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", (object?)factura.FechaVencimiento ?? DBNull.Value);
+    cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", (object?)factura.FechaVencimientoCae ?? DBNull.Value);
     cmd.Parameters.AddWithValue("IMPORTE_NETO", factura.ImporteNeto);
     cmd.Parameters.AddWithValue("IVA", factura.Iva);
     cmd.Parameters.AddWithValue("TIPO_FACTURA", factura.TipoFactura);
@@ -363,7 +424,7 @@ private static void completarDatosFactura(Factura factura, Npgsql.NpgsqlConnecti
     using (var cmd = new NpgsqlCommand(sqlSeqNumero, npgsqlConnection))
     {
         int numeroFactura = Convert.ToInt32(cmd.ExecuteScalar());
-        factura.NumeroFactura = numeroFactura;
+        factura.NumeroComprobante = numeroFactura;
     }
 }
 
@@ -398,9 +459,9 @@ private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection con
         Cliente = cliente,
         Presupuesto = idPresupuesto.HasValue ? new Presupuesto { Id = idPresupuesto.Value } : null,
         ImporteBruto = importeBruto,
-        NumeroFactura = numeroFactura,
+        NumeroComprobante = numeroFactura,
         CaeNumero = caeNumero,
-        FechaVencimiento = fechaVencimientoCae,
+        FechaVencimientoCae = fechaVencimientoCae,
         ImporteNeto = importeNeto,
         Iva = iva,
         PuntoDeVenta = puntoDeVenta,

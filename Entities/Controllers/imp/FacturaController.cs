@@ -35,7 +35,7 @@ public class FacturaController : ControllerBase
 
 
  [HttpPost("pruebaAFIP")]
-    public async Task<ActionResult<FECAESolicitarResponse>> CrearAFIPAsync([FromBody] Factura factura)
+    public async Task<ActionResult<string?>> CrearAFIPAsync([FromBody] Factura factura)
     {
         try
         {

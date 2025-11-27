@@ -5,23 +5,27 @@ using System.Xml.Serialization;
 
 public class ComprobanteCaeBuilder
 {
-    private int tipoComprobante;
-    private int puntoVenta;
-    private int numeroComprobante;
-    private string fechaEmision;
+    private int tipoComprobante { get; set;}
+    private int puntoVenta { get; set;} 
+    private int numeroComprobante { get; set;} 
+    private string fechaEmision { get; set;} 
 
-    private int tipoDoc;
-    private long nroDoc;
-    private int condicionIVA;
+    private int tipoDoc { get; set;} 
+    private long nroDoc { get; set;} 
+    private int condicionIVA { get; set;} 
 
-    private decimal importeGravado;
-    private decimal importeSubtotal;
-    private decimal importeTotal;
+    private decimal importeGravado { get; set;} 
+    private decimal importeSubtotal { get; set;} 
+    private decimal importeTotal { get; set;} 
 
-    private List<Item> items = new();
-    private List<SubtotalIVA> subtotales = new();
+    private List<Item> items { get; set;} = new List<Item>(); 
+    private List<SubtotalIVA> subtotales { get; set;}  = new List<SubtotalIVA>();
 
-    public ComprobanteCaeBuilder FacturaA(int tipoComprobante, int puntoVenta, int numero, DateTime fechaFactura)
+
+    public List<Item> GetItems(){
+        return items;
+    }
+    public ComprobanteCaeBuilder datosFactura(int tipoComprobante, int puntoVenta, int numero, DateTime fechaFactura)
     {
         this.tipoComprobante = tipoComprobante;
         this.puntoVenta = puntoVenta;

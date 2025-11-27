@@ -24,11 +24,11 @@ using System.Threading.Tasks;
 
     public int PuntoDeVenta { get; set; }
 
-    public int? NumeroFactura { get; set; }
+    public int? NumeroComprobante { get; set; }
 
     public int? CaeNumero { get; set; }
 
-    public DateTime? FechaVencimiento { get; set; }
+    public DateTime? FechaVencimientoCae { get; set; }
 
     public decimal? ImporteNeto  { get; set; }
 
