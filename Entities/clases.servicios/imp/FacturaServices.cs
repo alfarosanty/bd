@@ -20,7 +20,7 @@ private readonly HttpClient _httpClient;
     {
         _httpClient = new HttpClient();
     }
-public async Task<string> FacturarAsync(
+public async Task<AfipResponse> FacturarAsync(
     Factura factura,
     LoginTicketResponseData loginTicket,
     long cuitRepresentada)
@@ -54,67 +54,123 @@ var numeroComprobante = numeroComprobanteResponse.Exitoso?(numeroComprobanteResp
     );
 
 
-    decimal gravado = factura.ImporteNeto ?? 0;
-    decimal subtotal = factura.ImporteNeto ?? 0;
+var articulosAgrupados = AgruparPorCodigo(factura.Articulos!);
 
-    datosFacturaAfip.Importes(gravado, subtotal, factura.ImporteBruto ?? 0);
-    /*
-    
-
-        .datosFactura(1,3,5,new DateTime(2025, 11, 27)/*factura.PuntoDeVenta, factura.NumeroFactura ?? 1)
-        .Receptor(80,33693450239 /*long.Parse(factura.Cliente.Cuit.Replace("-", "")), 1) // Responsable Inscripto
-        .Importes(100, 100, 121/*factura.ImporteNeto, factura.ImporteNeto * 1.21m);*/
-
-foreach (var articulo in factura.Articulos)
+foreach (var articulos in articulosAgrupados.Values)
 {
-    decimal precioSinIVA = calcularPrecioUnitario(articulo.PrecioUnitario);
-    decimal importeIVA = articulo.PrecioUnitario - precioSinIVA;
+    var primero = articulos[0];
+
+    decimal precioConIVA = primero.PrecioUnitario;
+    decimal precioNeto = redondeoDecimales(precioConIVA / 1.21m);
+
+    decimal descItemPct = primero.Descuento / 100m;
+    decimal descGeneralPct = (factura.DescuentoGeneral ?? 0) / 100m;
+
+    int cantidadTotal = articulos.Sum(a => a.Cantidad);
+
+    decimal importeBonificacion;
+    decimal importeIVA;
+    decimal importeItem;
+    decimal precioParaCalcular;
+
+    if (tipoFactura == 1) // FACTURA A (neto + IVA)
+    {
+        decimal bonifItem = redondeoDecimales(precioNeto * descItemPct * cantidadTotal);
+
+        decimal subtotalSinDescuento = precioNeto * cantidadTotal;
+        decimal bonifGeneral = redondeoDecimales(subtotalSinDescuento * descGeneralPct);
+
+        importeBonificacion = redondeoDecimales(bonifItem + bonifGeneral);
+
+        decimal baseNeta = redondeoDecimales(subtotalSinDescuento - importeBonificacion);
+
+        importeIVA = redondeoDecimales(baseNeta * 0.21m);
+        importeItem = redondeoDecimales(baseNeta + importeIVA);
+
+        precioParaCalcular = precioNeto; // neto
+    }
+    else // FACTURA B (precios brutos)
+    {
+        decimal bonifItemBruto = redondeoDecimales(precioConIVA * descItemPct * cantidadTotal);
+
+        decimal subtotalBruto = precioConIVA * cantidadTotal;
+        decimal bonifGeneralBruto = redondeoDecimales(subtotalBruto * descGeneralPct);
+
+        importeBonificacion = redondeoDecimales(bonifItemBruto + bonifGeneralBruto);
+
+        decimal totalConDescuento = redondeoDecimales(subtotalBruto - importeBonificacion);
+
+        importeIVA = 0;
+        importeItem = totalConDescuento;
+
+        precioParaCalcular = precioConIVA;
+    }
+
+
+var cantidadesPorColor = articulos
+    .GroupBy(a => a.Articulo.Color.Codigo)
+    .Select(g => new { Color = g.Key, Cant = g.Sum(a => a.Cantidad) })
+    .OrderBy(x => x.Color) // opcional
+    .ToList();
+
+string detalleColores = string.Join(
+    " ",
+    cantidadesPorColor.Select(x => $"{x.Cant}{x.Color}")
+);
+
+string descripcionFinal = $"{primero.Descripcion} {detalleColores}";
+
     var item = new Item
     {
-        unidadesMtx = 123456,
-        codigoMtx = "0123456789913",
-        codigo = articulo.Codigo,
-        descripcion = articulo.Descripcion,
-        cantidad = articulo.Cantidad,
+        unidadesMtx = 7,
+        codigoMtx = primero.Codigo,
+        codigo = primero.Codigo,
+        descripcion = descripcionFinal,
+        cantidad = cantidadTotal,
         codigoUnidadMedida = 7,
-        //precioUnitario = precioSinIVA,
-        importeBonificacion = 0,
-        codigoCondicionIVA = 5,
-        //importeIVA = importeIVA * articulo.Cantidad,
-        importeItem = articulo.PrecioUnitario * articulo.Cantidad
-    };
 
-    if(tipoFactura == 1) // A
-    {
-        item.precioUnitario = precioSinIVA;
-        item.importeIVA = importeIVA * articulo.Cantidad;
-    }
-    else // B
-    {
-        item.precioUnitario = articulo.PrecioUnitario;
-        item.importeIVA = 0;
-    }
+        precioUnitario = redondeoDecimales(precioParaCalcular),
+        importeBonificacion = importeBonificacion,
+        codigoCondicionIVA = 5,
+        importeIVA = importeIVA,
+        importeItem = importeItem
+    };
 
     datosFacturaAfip.AgregarItem(item);
 }
 
-/*
-    var item = new Item
-    {
-        unidadesMtx = 123456,
-        codigoMtx = "0123456789913",
-        codigo = "P0001",
-        descripcion = "Producto de prueba",
-        cantidad = 1,
-        codigoUnidadMedida = 7, // Unidad
-        precioUnitario = 100,
-        importeBonificacion = 0,
-        codigoCondicionIVA = 5, // IVA 21%
-        importeIVA = 21,
-        importeItem = 121
-    };
-    datosFacturaAfip.AgregarItem(item);
-*/
+
+
+
+var totalItems = datosFacturaAfip.GetItems().Sum(i => i.importeItem);
+var totalIVA   = datosFacturaAfip.GetItems().Sum(i => i.importeIVA);
+
+decimal gravado;
+decimal subtotal;
+decimal total;
+
+if (tipoFactura == 1) // A
+{
+    gravado = totalItems - totalIVA;
+    subtotal = gravado;
+    total = totalItems;
+}
+else // B
+{
+    total = totalItems;
+    gravado = redondeoDecimales(total / 1.21m);
+    subtotal = gravado;
+    totalIVA = total - gravado;
+}
+
+datosFacturaAfip.Importes(
+    redondeoDecimales(gravado),
+    redondeoDecimales(subtotal),
+    redondeoDecimales(total)
+);
+
+
+
 var subtotalIVA = new SubtotalIVA
 {
     codigo = 5, // IVA 21%
@@ -137,7 +193,8 @@ var subtotalIVA = new SubtotalIVA
 
     // 7️⃣ Retornar XML de respuesta (puedes parsearlo a objeto si quieres)
 
-    var afip = afipClient.ParseAfipResponse(responseXml);
+    var afip = afipClient.ParseAfipResponse(responseXml, factura.Id);
+    
 
     if (!afip.Aprobado)
     {
@@ -154,7 +211,7 @@ var subtotalIVA = new SubtotalIVA
 
 
 
-    return responseXml;
+    return afip;
 }
 
 private decimal calcularPrecioUnitario(decimal precioFinal/*, decimal descuentoUnitario, decimal descuentoGeneral*/)
@@ -176,6 +233,28 @@ public  string getTabla()
     {
         throw new NotImplementedException();
     }
+
+    private decimal redondeoDecimales(decimal valor)
+{
+    return Math.Round(valor, 2, MidpointRounding.AwayFromZero);
+}
+
+public Dictionary<string, List<ArticuloFactura>> AgruparPorCodigo(List<ArticuloFactura> articulos)
+{
+    var mapa = new Dictionary<string, List<ArticuloFactura>>();
+
+    foreach (var art in articulos)
+    {
+        if (!mapa.ContainsKey(art.Codigo))
+        {
+            mapa[art.Codigo] = new List<ArticuloFactura>();
+        }
+
+        mapa[art.Codigo].Add(art);
+    }
+
+    return mapa;
+}
 
 
     public int crear(Factura factura, Npgsql.NpgsqlConnection npgsqlConnection)
@@ -201,11 +280,11 @@ public  string getTabla()
     cmd.Parameters.AddWithValue("EXIMIR_IVA", factura.EximirIVA);
     cmd.Parameters.AddWithValue("ID_PRESUPUESTO", factura.Presupuesto?.Id ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", factura.PuntoDeVenta);
-    cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroComprobante);
+    cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroComprobante ?? 0);
     cmd.Parameters.AddWithValue("CAE_NUMERO", (object?)factura.CaeNumero ?? DBNull.Value);
     cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", (object?)factura.FechaVencimientoCae ?? DBNull.Value);
     cmd.Parameters.AddWithValue("IMPORTE_NETO", factura.ImporteNeto);
-    cmd.Parameters.AddWithValue("IVA", factura.Iva);
+    cmd.Parameters.AddWithValue("IVA", factura.Iva ?? 0);
     cmd.Parameters.AddWithValue("TIPO_FACTURA", factura.TipoFactura);
     cmd.Parameters.AddWithValue("DESCUENTO", factura.DescuentoGeneral);
     cmd.ExecuteNonQuery();
@@ -237,6 +316,36 @@ public  string getTabla()
 
     return idFactura;
 }
+
+public void ActualizarDatosAFIP(int facturaId, AfipResponse afip, Npgsql.NpgsqlConnection npgsqlConnection)
+{
+    string sql = @"
+        UPDATE ""FACTURA""
+        SET 
+            ""NUMERO_FACTURA"" = @NUMERO_FACTURA,
+            ""CAE_NUMERO"" = @CAE_NUMERO,
+            ""FECHA_VENCIMIENTO_CAE"" = @FECHA_VENCIMIENTO_CAE
+        WHERE ""ID_FACTURA"" = @ID_FACTURA
+    ";
+
+    using var cmd = new NpgsqlCommand(sql, npgsqlConnection);
+
+    cmd.Parameters.AddWithValue("ID_FACTURA", facturaId);
+    cmd.Parameters.AddWithValue("NUMERO_FACTURA", Convert.ToInt32(afip.numeroComprobante));
+
+    if (!string.IsNullOrEmpty(afip.Cae))
+        cmd.Parameters.AddWithValue("CAE_NUMERO", decimal.Parse(afip.Cae));
+    else
+        cmd.Parameters.AddWithValue("CAE_NUMERO", DBNull.Value);
+
+    if (!string.IsNullOrEmpty(afip.CaeVencimiento))
+        cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", DateTime.Parse(afip.CaeVencimiento));
+    else
+        cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", DBNull.Value);
+
+    cmd.ExecuteNonQuery();
+}
+
 
 public List<RespuestaEstadistica> facturacionXCliente(DateTime? fechaInicio, DateTime? fechaFin, NpgsqlConnection npgsqlConnection)
 {

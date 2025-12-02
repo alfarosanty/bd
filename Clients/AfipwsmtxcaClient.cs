@@ -123,7 +123,7 @@ public class AfipWsMtxcaClient
     // MÉTODO 4: Manejo de response autorizar factura
     // ============================================================
 
-    public AfipResponse ParseAfipResponse(string xml)
+    public AfipResponse ParseAfipResponse(string xml, int idFactura)
 {
     var doc = XDocument.Parse(xml);
     var result = new AfipResponse();
@@ -162,11 +162,16 @@ public class AfipWsMtxcaClient
 
     // CAE
     result.Cae = doc.Descendants()
-        .FirstOrDefault(x => x.Name.LocalName == "cae")?.Value;
+        .FirstOrDefault(x => x.Name.LocalName == "CAE")?.Value;
 
     // vencimiento CAE
     result.CaeVencimiento = doc.Descendants()
-        .FirstOrDefault(x => x.Name.LocalName == "fechaVencimientoCae")?.Value;
+        .FirstOrDefault(x => x.Name.LocalName == "fechaVencimientoCAE")?.Value;
+
+    result.numeroComprobante = doc.Descendants()
+        .FirstOrDefault(x => x.Name.LocalName == "numeroComprobante")?.Value;
+
+    result.idFactura = idFactura;
 
     return result;
 }

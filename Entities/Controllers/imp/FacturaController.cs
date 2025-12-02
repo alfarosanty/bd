@@ -22,15 +22,85 @@ public class FacturaController : ControllerBase
     }
 
     [HttpPost("crear")]
-    public int  Crear(Factura factura){
+    public ActionResult  Crear(Factura factura){
         CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
         FacturaServices  fs = new FacturaServices();
         int id =  fs.crear(factura, npgsqlConnection);
+        factura.Id = id;
          con.cerrarConexion(npgsqlConnection);
-        return id;
+        return Ok(new
+        {
+            id,
+            respuestaCompleta = factura
+        });    }
+
+    [HttpPost("crearConAFIP")]
+public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
+{
+    Npgsql.NpgsqlConnection? npgsqlConnection = null;
+
+    try
+    {
+        // 1) Establecemos conexiones
+
+        CConexion con = new CConexion();
+        npgsqlConnection = con.establecerConexion();
+
+        FacturaServices fs = new FacturaServices();
+
+        // 2) Facturo de manera interna
+
+        int idInterno = fs.crear(factura, npgsqlConnection);
+        
+        // 3) Facturo en AFIP
+
+        AfipServices afipServices = new AfipServices();
+        var loginTicket = await afipServices.AutenticacionAsync(
+            verbose: false,
+            npgsqlConnection
+        );
+
+        factura.Id = idInterno;
+
+        var respuestaAfip = await fs.FacturarAsync(
+            factura,
+            loginTicket,
+            Convert.ToInt64(20302367613)
+        );
+
+        // 4) Guardar datos del CAE en DB
+        fs.ActualizarDatosAFIP(
+            facturaId: idInterno,
+            respuestaAfip,
+            npgsqlConnection
+        );
+
+        con.cerrarConexion(npgsqlConnection);
+
+        return Ok(new
+        {
+            idInterno,
+            respuestaCompleta = respuestaAfip
+        });
     }
+    catch (Exception ex)
+    {
+        if (npgsqlConnection != null)
+        {
+            CConexion con = new CConexion();
+            con.cerrarConexion(npgsqlConnection);
+        }
+
+        return BadRequest(new
+        {
+            error = ex.Message,
+            stack = ex.StackTrace
+        });
+    }
+}
+
 
 
 

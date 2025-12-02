@@ -98,7 +98,7 @@ public class ComprobanteCaeBuilder
             sb.AppendLine($"<cantidad>{i.cantidad}</cantidad>");
             sb.AppendLine($"<codigoUnidadMedida>{i.codigoUnidadMedida}</codigoUnidadMedida>");
             sb.AppendLine($"<precioUnitario>{i.precioUnitario}</precioUnitario>");
-            sb.AppendLine($"<importeBonificacion>0</importeBonificacion>");
+            sb.AppendLine($"<importeBonificacion>{i.importeBonificacion}</importeBonificacion>");
             sb.AppendLine($"<codigoCondicionIVA>{i.codigoCondicionIVA}</codigoCondicionIVA>");
             sb.AppendLine($"<importeIVA>{i.importeIVA}</importeIVA>");
             sb.AppendLine($"<importeItem>{i.importeItem}</importeItem>");
