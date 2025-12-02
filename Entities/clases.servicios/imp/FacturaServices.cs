@@ -46,7 +46,13 @@ var numeroComprobante = numeroComprobanteResponse.Exitoso?(numeroComprobanteResp
         numeroComprobante,
         factura.FechaFactura
     );
-    var tipoIVAReceptor = factura.Cliente.CondicionFiscal != null && factura.Cliente.CondicionFiscal.Codigo == "RI" ? 1 : 5;
+    var tipoIVAReceptor = 0;
+    if (factura.Cliente.CondicionFiscal.Codigo == "RI")
+        tipoIVAReceptor = 1;
+    else if (factura.Cliente.CondicionFiscal.Codigo == "MO")
+        tipoIVAReceptor = 6;
+    else
+        tipoIVAReceptor = 5; // Consumidor Final
     datosFacturaAfip.Receptor(
         80, // CUIT
         long.Parse(factura.Cliente.Cuit.Replace("-", "")),
@@ -72,6 +78,7 @@ foreach (var articulos in articulosAgrupados.Values)
     decimal importeIVA;
     decimal importeItem;
     decimal precioParaCalcular;
+    int codigoCondicionIVA;
 
     if (tipoFactura == 1) // FACTURA A (neto + IVA)
     {
@@ -87,7 +94,9 @@ foreach (var articulos in articulosAgrupados.Values)
         importeIVA = redondeoDecimales(baseNeta * 0.21m);
         importeItem = redondeoDecimales(baseNeta + importeIVA);
 
-        precioParaCalcular = precioNeto; // neto
+        precioParaCalcular = precioNeto;
+
+        codigoCondicionIVA = 5;
     }
     else // FACTURA B (precios brutos)
     {
@@ -100,10 +109,33 @@ foreach (var articulos in articulosAgrupados.Values)
 
         decimal totalConDescuento = redondeoDecimales(subtotalBruto - importeBonificacion);
 
-        importeIVA = 0;
+
+
+
+
+
+        /*PRUEBA IMPORTE IVA*/
+
+        decimal bonifItem = redondeoDecimales(precioNeto * descItemPct * cantidadTotal);
+
+        decimal subtotalSinDescuento = precioNeto * cantidadTotal;
+        decimal bonifGeneral = redondeoDecimales(subtotalSinDescuento * descGeneralPct);
+
+        importeBonificacion = redondeoDecimales(bonifItem + bonifGeneral);
+
+        decimal baseNeta = redondeoDecimales(subtotalSinDescuento - importeBonificacion);
+
+        importeIVA = redondeoDecimales(baseNeta * 0.21m);
+
+        /*==================*/
+
+
+
         importeItem = totalConDescuento;
 
         precioParaCalcular = precioConIVA;
+
+        codigoCondicionIVA = 5;
     }
 
 
@@ -131,7 +163,7 @@ string descripcionFinal = $"{primero.Descripcion} {detalleColores}";
 
         precioUnitario = redondeoDecimales(precioParaCalcular),
         importeBonificacion = importeBonificacion,
-        codigoCondicionIVA = 5,
+        codigoCondicionIVA = codigoCondicionIVA,
         importeIVA = importeIVA,
         importeItem = importeItem
     };

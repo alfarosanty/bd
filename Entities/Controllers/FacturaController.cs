@@ -32,7 +32,7 @@ public class FacturaController : ControllerBase
          con.cerrarConexion(npgsqlConnection);
         return Ok(new
         {
-            id,
+            idInterno = id,
             respuestaCompleta = factura
         });    }
 

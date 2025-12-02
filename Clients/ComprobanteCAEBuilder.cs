@@ -100,7 +100,10 @@ public class ComprobanteCaeBuilder
             sb.AppendLine($"<precioUnitario>{i.precioUnitario}</precioUnitario>");
             sb.AppendLine($"<importeBonificacion>{i.importeBonificacion}</importeBonificacion>");
             sb.AppendLine($"<codigoCondicionIVA>{i.codigoCondicionIVA}</codigoCondicionIVA>");
-            sb.AppendLine($"<importeIVA>{i.importeIVA}</importeIVA>");
+            if (tipoComprobante != 6)
+            {
+                sb.AppendLine($"<importeIVA>{i.importeIVA}</importeIVA>");
+            }
             sb.AppendLine($"<importeItem>{i.importeItem}</importeItem>");
             sb.AppendLine("</item>");
         }
