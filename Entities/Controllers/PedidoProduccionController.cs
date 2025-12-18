@@ -79,7 +79,7 @@ public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> id
 
 
       [HttpGet("GetPedidoProduccionByTaller/{idTaller}")]
-    public List<PedidoProduccion> GetByTaller(int idTaller)
+    public async Task<List<PedidoProduccion>> GetByTaller(int idTaller)
     {
          CConexion con =  new CConexion();
         Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();

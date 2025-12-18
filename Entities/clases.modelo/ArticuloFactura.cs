@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
@@ -10,8 +11,12 @@ using System.Threading.Tasks;
         {
             public static String TABLA="ARTICULO_FACTURA";
 
+            public long idArticuloFactura { get; set; }
+
+
             public Articulo Articulo { get; set; }
 
+            [JsonIgnore]
             public Factura? Factura { get; set; }
 
             public int Cantidad { get; set; }
@@ -25,3 +30,4 @@ using System.Threading.Tasks;
             public string Descripcion { get; set; }
 
     }
+

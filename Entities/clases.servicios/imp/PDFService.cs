@@ -1,15 +1,14 @@
+using BlumeAPI.Services;
 using PuppeteerSharp;
 using PuppeteerSharp.Media;
 
-public class PdfService
+public class PdfService : IPdfService
 {
-    public async Task<byte[]> ConvertHtmlToPdfAsync(string html)
+    public async Task<byte[]> convertHtmlToPdfAsync(string html)
     {
-        // Descarga de Chromium (solo la primera vez lo guarda en caché)
         var fetcher = new BrowserFetcher();
         var revisionInfo = await fetcher.DownloadAsync();
 
-        // Lanzar el navegador usando la ruta descargada
         var browser = await Puppeteer.LaunchAsync(new LaunchOptions
         {
             Headless = true,
@@ -18,26 +17,17 @@ public class PdfService
 
         var page = await browser.NewPageAsync();
 
-        await page.SetContentAsync(html, new NavigationOptions
-        {
-            WaitUntil = new[] { WaitUntilNavigation.Networkidle0 }
-        });
+        await page.SetContentAsync(html);
 
-        // Crear PDF
         var pdfBytes = await page.PdfDataAsync(new PdfOptions
         {
-            Format = PuppeteerSharp.Media.PaperFormat.A4,
-            PrintBackground = true,
-            MarginOptions = new MarginOptions
-            {
-                Top = "10mm",
-                Bottom = "10mm",
-                Left = "10mm",
-                Right = "10mm"
-            }
+            Format = PaperFormat.A4,
+            PrintBackground = true
         });
 
         await browser.CloseAsync();
+
         return pdfBytes;
     }
 }
+

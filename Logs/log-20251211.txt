@@ -1,0 +1,1101 @@
+2025-12-11 08:30:36.622 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 08:30:37.043 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 08:30:37.048 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 08:30:37.048 -03:00 [INF] Hosting environment: Development
+2025-12-11 08:30:37.048 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 08:34:10.345 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-11 08:34:10.712 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 372.7286ms
+2025-12-11 08:34:10.747 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-12-11 08:34:10.750 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-12-11 08:34:10.786 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-11 08:34:10.786 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 35.9227ms
+2025-12-11 08:34:10.786 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-12-11 08:34:10.809 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-11 08:34:10.813 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-11 08:34:10.814 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 67.3266ms
+2025-12-11 08:34:10.814 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 28.1528ms
+2025-12-11 08:34:11.036 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-11 08:34:11.307 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 271.1942ms
+2025-12-11 08:34:21.130 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 08:34:21.147 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 08:34:21.178 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 08:34:21.185 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:34:21.248 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 08:34:23.874 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 08:34:23.902 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 2643.5334ms
+2025-12-11 08:34:23.907 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:34:23.907 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 330402 application/pdf 2777.3564ms
+2025-12-11 08:48:52.620 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 08:48:53.035 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 08:48:53.039 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 08:48:53.040 -03:00 [INF] Hosting environment: Development
+2025-12-11 08:48:53.040 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 08:49:51.631 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-11 08:49:52.013 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 386.6035ms
+2025-12-11 08:49:52.088 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-12-11 08:49:52.088 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-12-11 08:49:52.094 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-12-11 08:49:52.191 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-11 08:49:52.193 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-11 08:49:52.199 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 110.8893ms
+2025-12-11 08:49:52.200 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 104.7520ms
+2025-12-11 08:49:52.230 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-11 08:49:52.231 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 142.2822ms
+2025-12-11 08:49:52.507 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-11 08:49:52.528 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2025-12-11 08:49:52.528 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-11 08:49:52.528 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 0.3558ms
+2025-12-11 08:49:52.746 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 238.5299ms
+2025-12-11 08:49:57.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-11 08:49:57.784 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 0.4143ms
+2025-12-11 08:49:57.872 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-11 08:49:57.896 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 24.1644ms
+2025-12-11 08:50:12.771 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 08:50:12.787 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 08:50:12.825 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 08:50:12.834 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:50:12.897 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 08:50:15.451 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 08:50:15.492 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 2586.733ms
+2025-12-11 08:50:15.497 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:50:15.500 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 364734 application/pdf 2728.8589ms
+2025-12-11 08:55:02.801 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 08:55:03.096 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 08:55:03.101 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 08:55:03.102 -03:00 [INF] Hosting environment: Development
+2025-12-11 08:55:03.102 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 08:55:58.705 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 08:55:58.825 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 08:55:58.860 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 08:55:58.865 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:55:58.906 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 08:56:00.797 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 08:56:00.848 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1933.8695ms
+2025-12-11 08:56:00.854 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:56:00.863 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 386443 application/pdf 2166.1303ms
+2025-12-11 08:57:07.798 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 08:57:07.826 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 08:57:07.826 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:57:07.830 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 08:57:08.323 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 08:57:08.326 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 495.8061ms
+2025-12-11 08:57:08.326 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 08:57:08.326 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 384981 application/pdf 529.2365ms
+2025-12-11 09:00:08.153 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:00:08.165 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:00:08.165 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:00:08.165 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:00:08.643 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:00:08.666 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 500.2199ms
+2025-12-11 09:00:08.666 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:00:08.666 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 385571 application/pdf 512.7028ms
+2025-12-11 09:03:47.813 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:03:47.815 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:03:47.817 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:03:47.817 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:03:48.223 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:03:48.226 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 408.2044ms
+2025-12-11 09:03:48.226 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:03:48.231 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 396908 application/pdf 418.6654ms
+2025-12-11 09:05:06.114 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:05:06.117 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:05:06.117 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:05:06.118 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:05:06.646 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:05:06.659 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 539.9951ms
+2025-12-11 09:05:06.659 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:05:06.659 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 403317 application/pdf 544.6516ms
+2025-12-11 09:07:43.230 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:07:43.230 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:07:43.233 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:07:43.233 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:07:43.580 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:07:43.587 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 354.1887ms
+2025-12-11 09:07:43.587 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:07:43.587 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 418697 application/pdf 358.2376ms
+2025-12-11 09:11:09.438 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:11:09.442 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:11:09.442 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:11:09.445 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:11:09.953 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:11:09.962 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 516.7816ms
+2025-12-11 09:11:09.962 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:11:09.963 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 419966 application/pdf 524.3194ms
+2025-12-11 09:11:41.265 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:11:41.267 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:11:41.268 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:11:41.268 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:11:41.709 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:11:41.719 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 451.0289ms
+2025-12-11 09:11:41.719 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:11:41.719 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 419683 application/pdf 454.8367ms
+2025-12-11 09:12:56.019 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:12:56.021 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:12:56.021 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:12:56.022 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:12:56.443 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:12:56.454 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 431.8953ms
+2025-12-11 09:12:56.454 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:12:56.483 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 422919 application/pdf 435.8709ms
+2025-12-11 09:16:13.261 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:16:13.262 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:16:13.262 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:16:13.262 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:16:13.669 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:16:13.679 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 417.0546ms
+2025-12-11 09:16:13.679 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:16:13.679 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 423360 application/pdf 417.8231ms
+2025-12-11 09:16:51.950 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:16:51.953 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:16:51.954 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:16:51.954 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:16:52.441 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:16:52.457 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 502.2312ms
+2025-12-11 09:16:52.457 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:16:52.461 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 425049 application/pdf 506.9745ms
+2025-12-11 09:33:29.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:33:29.963 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:33:29.963 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:33:29.963 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:33:30.455 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:33:30.466 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 502.7865ms
+2025-12-11 09:33:30.467 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:33:30.468 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 451819 application/pdf 505.0638ms
+2025-12-11 09:34:03.697 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:34:03.698 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:34:03.698 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:34:03.700 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:34:04.053 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:34:04.064 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 363.6976ms
+2025-12-11 09:34:04.064 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:34:04.064 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 455484 application/pdf 367.9376ms
+2025-12-11 09:53:54.719 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 09:53:55.079 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 09:53:55.084 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 09:53:55.084 -03:00 [INF] Hosting environment: Development
+2025-12-11 09:53:55.084 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 09:54:18.121 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:54:18.269 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 09:54:18.310 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:54:18.320 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:54:18.389 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:54:20.608 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:54:20.674 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 2277.2275ms
+2025-12-11 09:54:20.681 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:54:20.690 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 455484 application/pdf 2575.9251ms
+2025-12-11 09:56:21.736 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 09:56:21.795 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 09:56:21.795 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:56:21.795 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 09:57:28.697 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 09:57:28.720 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 66924.1665ms
+2025-12-11 09:57:28.720 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 09:57:28.720 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 455484 application/pdf 66984.3751ms
+2025-12-11 10:04:38.215 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:04:38.437 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:04:38.442 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:04:38.443 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:04:38.443 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:04:43.250 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-11 10:04:43.652 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 412.5197ms
+2025-12-11 10:04:43.917 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-11 10:04:44.258 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 341.2918ms
+2025-12-11 10:04:54.596 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:04:54.609 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:04:54.633 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:04:54.639 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:04:54.684 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:05:13.774 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 19081.5685ms
+2025-12-11 10:05:13.783 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:05:13.785 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Factura' to type 'Microsoft.AspNetCore.Mvc.IActionResult'.
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 180
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:05:13.894 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 19298.1789ms
+2025-12-11 10:06:34.903 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:06:34.916 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:06:34.920 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:06:34.925 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:06:35.154 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 228.4355ms
+2025-12-11 10:06:35.154 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:06:35.155 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Factura' to type 'Microsoft.AspNetCore.Mvc.IActionResult'.
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 180
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:06:35.157 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 253.5571ms
+2025-12-11 10:07:50.327 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:07:50.522 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:07:50.527 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:07:50.527 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:07:50.527 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:12:13.002 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:12:13.211 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:12:13.217 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:12:13.217 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:12:13.217 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:12:16.765 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:12:16.877 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:12:16.909 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:12:16.918 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:12:16.976 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:12:17.755 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:12:18.000 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 1017.6469ms
+2025-12-11 10:12:18.005 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:12:18.007 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Articulo.Color.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:12:18.067 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1308.9554ms
+2025-12-11 10:24:05.745 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:24:05.801 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:24:05.804 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:24:05.805 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:24:06.079 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:24:06.081 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 276.52ms
+2025-12-11 10:24:06.081 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:24:06.082 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Articulo.Color.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:24:06.085 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 339.8712ms
+2025-12-11 10:24:39.284 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:24:39.550 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:24:39.555 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:24:39.556 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:24:39.556 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:24:41.584 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:24:41.685 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:24:41.714 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:24:41.720 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:24:41.773 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:24:42.643 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:24:42.876 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 1097.4265ms
+2025-12-11 10:24:42.881 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:24:42.882 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Articulo.Color.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:24:42.923 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1345.9541ms
+2025-12-11 10:28:42.107 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:28:42.385 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:28:42.394 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:28:42.394 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:28:42.395 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:28:50.071 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:28:50.217 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:28:50.259 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:28:50.267 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:28:50.322 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:28:51.089 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 760.1467ms
+2025-12-11 10:28:51.094 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:28:51.096 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: A command is already in progress: SELECT FA.* FROM "FACTURA" FA WHERE FA."ID_FACTURA" = @id
+ ---> Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT FA.* FROM "FACTURA" FA WHERE FA."ID_FACTURA" = @id
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ClienteServices.GetCliente(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\ClienteServices.cs:line 18
+   at BlumeAPI.Services.FacturaServices.ReadFactura(NpgsqlDataReader reader, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 609
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 35
+   --- End of inner exception stack trace ---
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 49
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:28:51.160 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1096.2782ms
+2025-12-11 10:34:01.357 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:34:01.550 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:34:01.554 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:34:01.555 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:34:01.555 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:34:17.431 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:34:17.556 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:34:17.594 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:34:17.604 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:34:17.656 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:34:18.417 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 754.9844ms
+2025-12-11 10:34:18.422 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:34:18.424 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: A command is already in progress: SELECT FA.* FROM "FACTURA" FA WHERE FA."ID_FACTURA" = @id
+ ---> Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT FA.* FROM "FACTURA" FA WHERE FA."ID_FACTURA" = @id
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ClienteServices.GetCliente(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\ClienteServices.cs:line 18
+   at BlumeAPI.Services.FacturaServices.ReadFactura(NpgsqlDataReader reader, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 609
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 35
+   --- End of inner exception stack trace ---
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 49
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:34:18.479 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1053.5599ms
+2025-12-11 10:37:39.079 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:37:39.267 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:37:39.274 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:37:39.275 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:37:39.275 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:38:09.276 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:38:09.385 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:38:09.417 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:38:09.426 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:38:09.482 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:38:10.297 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 809.6006ms
+2025-12-11 10:38:10.302 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:38:10.304 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: A command is already in progress: SELECT AF.* FROM "ARTICULO_FACTURA" AF WHERE AF."ID_FACTURA" = @IDFACTURA ORDER BY AF."ID_ARTICULO_FACTURA"
+ ---> Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT AF.* FROM "ARTICULO_FACTURA" AF WHERE AF."ID_FACTURA" = @IDFACTURA ORDER BY AF."ID_ARTICULO_FACTURA"
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ArticuloServices.GetArticulo(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\ArticuloServices.cs:line 47
+   at BlumeAPI.Services.FacturaServices.ReadArticuloFactura(NpgsqlDataReader reader, Factura factura, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 661
+   at BlumeAPI.Services.FacturaServices.getArticuloFactura(Factura factura, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 650
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 44
+   --- End of inner exception stack trace ---
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 50
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:38:10.360 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1090.2516ms
+2025-12-11 10:38:17.501 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:38:17.541 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:38:17.544 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:38:17.544 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:38:17.617 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 72.9705ms
+2025-12-11 10:38:17.617 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:38:17.618 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: A command is already in progress: SELECT AF.* FROM "ARTICULO_FACTURA" AF WHERE AF."ID_FACTURA" = @IDFACTURA ORDER BY AF."ID_ARTICULO_FACTURA"
+ ---> Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: SELECT AF.* FROM "ARTICULO_FACTURA" AF WHERE AF."ID_FACTURA" = @IDFACTURA ORDER BY AF."ID_ARTICULO_FACTURA"
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at ArticuloServices.GetArticulo(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\ArticuloServices.cs:line 47
+   at BlumeAPI.Services.FacturaServices.ReadArticuloFactura(NpgsqlDataReader reader, Factura factura, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 661
+   at BlumeAPI.Services.FacturaServices.getArticuloFactura(Factura factura, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 650
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 44
+   --- End of inner exception stack trace ---
+   at BlumeAPI.Services.FacturaServices.GetFactura(Int32 id, NpgsqlConnection conex) in G:\Desa\programa\bd\Entities\clases.servicios\imp\FacturaServices.cs:line 50
+   at BlumeAPI.Controllers.FacturaController.GetFactura(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:38:17.623 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 121.8607ms
+2025-12-11 10:42:24.504 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:42:24.727 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:42:24.732 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:42:24.733 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:42:24.733 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:43:27.548 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:43:27.736 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:43:27.740 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:43:27.741 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:43:27.741 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:43:37.969 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:43:38.079 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:43:38.110 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:43:38.116 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:43:38.187 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:43:39.026 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:43:39.276 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 1082.2211ms
+2025-12-11 10:43:39.281 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:43:39.282 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Factura.Articulos.Articulo.Color.Id.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.ListOfTConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-11 10:43:39.327 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 500 - text/plain;+charset=utf-8 1365.7281ms
+2025-12-11 10:45:15.679 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:45:15.995 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:45:16.000 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:45:16.001 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:45:16.001 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:46:03.168 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186 - -
+2025-12-11 10:46:03.285 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:46:03.324 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:46:03.332 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:46:03.392 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:46:04.270 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:46:04.511 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 1111.1858ms
+2025-12-11 10:46:04.514 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:46:04.518 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186 - - - 200 - application/json;+charset=utf-8 1355.1998ms
+2025-12-11 10:46:19.848 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 10:46:19.886 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:46:19.888 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:46:19.889 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:46:20.924 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 10:46:20.964 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1074.5471ms
+2025-12-11 10:46:20.966 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:46:20.973 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 455484 application/pdf 1125.5248ms
+2025-12-11 10:47:44.203 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:47:44.410 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:47:44.415 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:47:44.416 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:47:44.416 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:48:00.359 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 10:48:00.444 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:48:00.469 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:48:00.475 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:48:00.512 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:48:37.970 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 10:48:38.037 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 37515.0919ms
+2025-12-11 10:48:38.044 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:48:38.056 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 455484 application/pdf 37702.2263ms
+2025-12-11 10:49:16.171 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 10:49:16.185 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:49:16.187 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:49:16.190 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:49:16.578 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 10:49:16.582 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 391.6915ms
+2025-12-11 10:49:16.582 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:49:16.582 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 469030 application/pdf 411.3015ms
+2025-12-11 10:50:57.383 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 10:50:57.613 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 10:50:57.617 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 10:50:57.618 -03:00 [INF] Hosting environment: Development
+2025-12-11 10:50:57.618 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 10:51:26.653 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 10:51:26.761 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 10:51:26.797 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:51:26.803 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:51:26.855 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:51:28.708 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 10:51:28.775 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1910.9614ms
+2025-12-11 10:51:28.781 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:51:28.791 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 467272 application/pdf 2147.0609ms
+2025-12-11 10:57:13.522 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - -
+2025-12-11 10:57:13.528 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:57:13.528 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:57:13.529 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:57:13.964 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 10:57:13.968 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 439.1438ms
+2025-12-11 10:57:13.968 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 10:57:13.968 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - - - 200 456863 application/pdf 446.3043ms
+2025-12-11 10:57:23.364 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100 - -
+2025-12-11 10:57:23.381 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 10:57:23.381 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:57:23.393 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 10:57:23.486 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 10:57:23.725 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 332.6218ms
+2025-12-11 10:57:23.725 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 10:57:23.726 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100 - - - 200 - application/json;+charset=utf-8 361.6443ms
+2025-12-11 11:00:12.215 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 11:00:12.227 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:00:12.227 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:00:12.231 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:00:12.477 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:00:12.481 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 249.2692ms
+2025-12-11 11:00:12.481 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:00:12.481 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 467272 application/pdf 266.1847ms
+2025-12-11 11:00:47.356 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100 - -
+2025-12-11 11:00:48.228 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:00:48.228 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 11:00:48.228 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:00:48.786 -03:00 [INF] Executing OkObjectResult, writing value of type 'Factura'.
+2025-12-11 11:00:48.787 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 558.4082ms
+2025-12-11 11:00:48.787 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2025-12-11 11:00:48.787 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100 - - - 200 - application/json;+charset=utf-8 1431.9838ms
+2025-12-11 11:01:08.537 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - -
+2025-12-11 11:01:08.538 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:01:08.538 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:01:08.538 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:01:08.824 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:01:08.838 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 299.7283ms
+2025-12-11 11:01:08.838 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:01:08.838 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - - - 200 456863 application/pdf 300.4051ms
+2025-12-11 11:03:24.450 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 11:03:24.670 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 11:03:24.675 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 11:03:24.675 -03:00 [INF] Hosting environment: Development
+2025-12-11 11:03:24.675 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 11:03:52.543 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - -
+2025-12-11 11:03:52.653 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 11:03:52.685 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:03:52.692 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:03:52.743 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:03:54.315 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:03:54.373 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1620.6687ms
+2025-12-11 11:03:54.377 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:03:54.386 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - - - 200 457265 application/pdf 1853.0018ms
+2025-12-11 11:05:08.104 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - -
+2025-12-11 11:05:08.145 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:05:08.148 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:05:08.151 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:05:08.545 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:05:08.548 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 395.7184ms
+2025-12-11 11:05:08.548 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:05:08.548 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - - - 200 457825 application/pdf 443.9627ms
+2025-12-11 11:05:33.877 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - -
+2025-12-11 11:05:33.890 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:05:33.890 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:05:33.891 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:05:34.262 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:05:34.279 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 386.917ms
+2025-12-11 11:05:34.280 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:05:34.281 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/100/pdf-test - - - 200 457193 application/pdf 403.4750ms
+2025-12-11 11:10:06.050 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-11 11:10:06.254 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-11 11:10:06.259 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-11 11:10:06.260 -03:00 [INF] Hosting environment: Development
+2025-12-11 11:10:06.260 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-11 11:11:07.212 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - -
+2025-12-11 11:11:07.341 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-11 11:11:07.384 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-11 11:11:07.393 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:11:07.446 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-11 11:11:09.254 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-11 11:11:09.324 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1867.8073ms
+2025-12-11 11:11:09.329 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-11 11:11:09.339 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/186/pdf-test - - - 200 478977 application/pdf 2137.6513ms

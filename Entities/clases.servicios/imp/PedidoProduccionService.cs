@@ -1,5 +1,6 @@
 
 
+using System.Linq;
 using Npgsql;
 
 public class PedidoProduccionService
@@ -60,7 +61,7 @@ public List<PedidoProduccion> GetPedidoProduccionByTaller(int idTaller, NpgsqlCo
         pedido.Articulos = getArticulosPedidoProduccion(pedido, conex);
     }
 
-    return pedidosProduccion;
+    return pedidosProduccion.OrderBy(pp=>pp.Id).ToList();
 }
 
     
@@ -188,7 +189,7 @@ public List<PedidoProduccion> GetPedidosProduccionByIds(List<int> idsPedidosProd
         }
     }
 
-    return pedidosProduccion;
+    return pedidosProduccion.OrderBy(pp => pp.Id).ToList();
 }
 
 

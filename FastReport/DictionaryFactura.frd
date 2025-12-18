@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary>
+  <BusinessObjectDataSource Name="Articulos" DataType="System.Int32" Enabled="true">
+    <Column Name="Codigo" DataType="System.String"/>
+    <Column Name="Descripcion" DataType="System.String"/>
+    <Column Name="Cantidad" DataType="System.Decimal"/>
+    <Column Name="PrecioUnitario" DataType="System.String"/>
+    <Column Name="Descuento" DataType="System.Decimal"/>
+    <Column Name="Subtotal" DataType="System.String"/>
+    <Column Name="Iva" DataType="System.Decimal"/>
+    <Column Name="Total" DataType="System.String"/>
+  </BusinessObjectDataSource>
+</Dictionary>

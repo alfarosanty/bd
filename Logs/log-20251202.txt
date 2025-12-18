@@ -703,3 +703,103 @@ System.InvalidOperationException: Unable to resolve service for type 'PdfService
 2025-12-02 10:21:02.362 -03:00 [INF] Executed action PdfController.TestPdf (BlumeAPI) in 23560.3513ms
 2025-12-02 10:21:02.367 -03:00 [INF] Executed endpoint 'PdfController.TestPdf (BlumeAPI)'
 2025-12-02 10:21:02.373 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/test - 0 - 200 35689 application/pdf 23655.7518ms
+2025-12-02 10:24:00.568 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-02 10:24:00.797 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-02 10:24:00.802 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-02 10:24:00.802 -03:00 [INF] Hosting environment: Development
+2025-12-02 10:24:00.802 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-02 10:24:04.486 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-02 10:24:04.814 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 332.4898ms
+2025-12-02 10:24:04.910 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-02 10:24:05.163 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 252.7308ms
+2025-12-02 10:24:10.761 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/test - 0
+2025-12-02 10:24:10.768 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:24:10.768 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:24:10.773 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-02 10:24:10.801 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:24:10.808 -03:00 [INF] Executing endpoint 'PdfController.TestPdf (BlumeAPI)'
+2025-12-02 10:24:10.847 -03:00 [INF] Route matched with {action = "TestPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] TestPdf() on controller PdfController (BlumeAPI).
+2025-12-02 10:24:14.079 -03:00 [INF] Executing FileContentResult, sending file with download name 'prueba.pdf' ...
+2025-12-02 10:24:14.099 -03:00 [INF] Executed action PdfController.TestPdf (BlumeAPI) in 3245.1145ms
+2025-12-02 10:24:14.105 -03:00 [INF] Executed endpoint 'PdfController.TestPdf (BlumeAPI)'
+2025-12-02 10:24:14.111 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/test - 0 - 200 58080 application/pdf 3349.5033ms
+2025-12-02 10:26:40.858 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 24608
+2025-12-02 10:26:40.861 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:26:40.861 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:26:40.863 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:26:40.863 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:26:40.895 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:26:40.972 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-12-02 10:26:41.000 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 104.2353ms
+2025-12-02 10:26:41.000 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:26:41.000 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 24608 - 400 - application/problem+json;+charset=utf-8 141.7243ms
+2025-12-02 10:28:22.739 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 55
+2025-12-02 10:28:22.746 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:28:22.746 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:28:22.759 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:28:22.760 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:28:22.760 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:28:26.522 -03:00 [INF] Executing FileContentResult, sending file with download name 'factura.pdf' ...
+2025-12-02 10:28:26.523 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 3763.1308ms
+2025-12-02 10:28:26.523 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:28:26.523 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 55 - 200 13048 application/pdf 3784.0311ms
+2025-12-02 10:29:49.580 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6497
+2025-12-02 10:29:49.585 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:29:49.585 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:29:49.585 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:29:49.587 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:29:49.587 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:29:49.589 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-12-02 10:29:49.589 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 1.5364ms
+2025-12-02 10:29:49.589 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:29:49.589 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6497 - 400 - application/problem+json;+charset=utf-8 9.1784ms
+2025-12-02 10:29:54.027 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6497
+2025-12-02 10:29:54.027 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:29:54.027 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:29:54.027 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:29:54.027 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:29:54.028 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:29:54.029 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-12-02 10:29:54.029 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 1.0945ms
+2025-12-02 10:29:54.029 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:29:54.029 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6497 - 400 - application/problem+json;+charset=utf-8 1.6800ms
+2025-12-02 10:31:33.904 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6461
+2025-12-02 10:31:33.905 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:31:33.905 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:31:33.908 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:31:33.908 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:31:33.908 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:31:33.911 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-12-02 10:31:33.911 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 3.1839ms
+2025-12-02 10:31:33.911 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:31:33.911 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 6461 - 400 - application/problem+json;+charset=utf-8 7.6366ms
+2025-12-02 10:33:57.101 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 5037
+2025-12-02 10:33:57.104 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:33:57.104 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:33:57.105 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:33:57.107 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:33:57.107 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:33:57.108 -03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-12-02 10:33:57.108 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 1.0252ms
+2025-12-02 10:33:57.108 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:33:57.108 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 5037 - 400 - application/problem+json;+charset=utf-8 6.7389ms
+2025-12-02 10:36:46.432 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 5053
+2025-12-02 10:36:46.436 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:36:46.436 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:36:46.440 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:36:46.440 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:36:46.442 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:36:49.822 -03:00 [INF] Executing FileContentResult, sending file with download name 'factura.pdf' ...
+2025-12-02 10:36:49.838 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 3395.1925ms
+2025-12-02 10:36:49.838 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:36:49.838 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 5053 - 200 72714 application/pdf 3405.7822ms
+2025-12-02 10:38:12.176 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 4828
+2025-12-02 10:38:12.178 -03:00 [INF] CORS policy execution failed.
+2025-12-02 10:38:12.178 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-02 10:38:12.182 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-02 10:38:12.182 -03:00 [INF] Executing endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:38:12.182 -03:00 [INF] Route matched with {action = "ConvertToPdf", controller = "Pdf"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConvertToPdf(PdfRequest) on controller PdfController (BlumeAPI).
+2025-12-02 10:38:14.525 -03:00 [INF] Executing FileContentResult, sending file with download name 'factura.pdf' ...
+2025-12-02 10:38:14.526 -03:00 [INF] Executed action PdfController.ConvertToPdf (BlumeAPI) in 2344.2482ms
+2025-12-02 10:38:14.526 -03:00 [INF] Executed endpoint 'PdfController.ConvertToPdf (BlumeAPI)'
+2025-12-02 10:38:14.526 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/pdf/convert application/json 4828 - 200 69299 application/pdf 2349.8630ms

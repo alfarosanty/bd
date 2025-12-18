@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 
     public int? NumeroComprobante { get; set; }
 
-    public int? CaeNumero { get; set; }
+    public long? CaeNumero { get; set; }
 
     public DateTime? FechaVencimientoCae { get; set; }
 
@@ -37,6 +37,72 @@ using System.Threading.Tasks;
     public string TipoFactura   { get; set; }
 
     public int? DescuentoGeneral    { get; set; }
+
+
+    public decimal calcularTotal(){
+        decimal total = 0;
+        if(Articulos != null){
+            foreach(var articulo in Articulos){
+                total += articulo.PrecioUnitario * articulo.Cantidad - (articulo.PrecioUnitario * articulo.Cantidad * (articulo.Descuento / 100));
+            }
+        }
+        return total;
+    }
+
+public decimal calcularSubtotal()
+{
+    decimal subtotal = 0;
+
+    if (Articulos != null)
+    {
+        foreach (var articulo in Articulos)
+        {
+            var precioConDesc = articulo.PrecioUnitario * (1 - articulo.Descuento / 100m);
+
+            var precioSinIva = precioConDesc / 1.21m;
+
+            subtotal += precioSinIva * articulo.Cantidad;
+        }
+    }
+
+    return subtotal;
+}
+
+public decimal calcularIva(){
+    return calcularTotal() - calcularSubtotal();
+}
+
+public decimal CalcularDescuento()
+{
+    decimal totalSinDescuentos = 0;
+    decimal totalConDescuentoPorItem = 0;
+    decimal totalFinalConDescuentos = 0;
+
+    if (Articulos != null)
+    {
+        foreach (var articulo in Articulos)
+        {
+            var precioBase = articulo.PrecioUnitario * articulo.Cantidad;
+
+            totalSinDescuentos += precioBase;
+
+            var precioConDescItem = precioBase * (1 - articulo.Descuento / 100m);
+
+            totalConDescuentoPorItem += precioConDescItem;
+        }
+    }
+
+    if (DescuentoGeneral.HasValue && DescuentoGeneral.Value > 0)
+    {
+        totalFinalConDescuentos = totalConDescuentoPorItem * (1 - DescuentoGeneral.Value / 100m);
+    }
+    else
+    {
+        totalFinalConDescuentos = totalConDescuentoPorItem;
+    }
+    return totalSinDescuentos - totalFinalConDescuentos;
+}
+
 
     }
 

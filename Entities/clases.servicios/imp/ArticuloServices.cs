@@ -675,7 +675,10 @@ private List<ConsultaTallerCorte> consultarEnCorte(string? codigo, NpgsqlConnect
         JOIN PUBLIC.""PRODUCCION_ARTICULO"" pa ON pp.""ID_PEDIDO_PRODUCCION"" = pa.""ID_PEDIDO_PRODUCCION""
         JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = pa.""ID_ARTICULO""
         JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        JOIN PUBLIC.""FABRICANTE"" f ON f.""ID_FABRICANTE"" = pp.""ID_FABRICANTE""
         WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 2
+        AND f.""APORTA_STOCK"" = TRUE
+
         /**where**/
         GROUP BY a.""ID_ARTICULO"", pa.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
         ORDER BY a.""ID_ARTICULO"";";
@@ -741,7 +744,10 @@ private List<ConsultaTallerCorte> consultarEnTaller(string? codigo, NpgsqlConnec
         JOIN PUBLIC.""PRODUCCION_ARTICULO"" pa ON pp.""ID_PEDIDO_PRODUCCION"" = pa.""ID_PEDIDO_PRODUCCION""
         JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = pa.""ID_ARTICULO""
         JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
+        JOIN PUBLIC.""FABRICANTE"" f ON f.""ID_FABRICANTE"" = pp.""ID_FABRICANTE""
         WHERE pp.""ID_ESTADO_PEDIDO_PROD"" = 3
+        AND f.""APORTA_STOCK"" = TRUE
+
         /**where**/
         GROUP BY a.""ID_ARTICULO"", pa.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
         ORDER BY a.""ID_ARTICULO"";";
@@ -806,8 +812,8 @@ private List<ConsultaTallerCorte> consultarSeparados(string? codigo, NpgsqlConne
         JOIN PUBLIC.""ARTICULO_PRESUPUESTO"" ap ON p.""ID_PRESUPUESTO"" = ap.""ID_PRESUPUESTO""
         JOIN PUBLIC.""ARTICULO"" a ON a.""ID_ARTICULO"" = ap.""ID_ARTICULO""
         JOIN PUBLIC.""COLOR"" c ON a.""ID_COLOR"" = c.""ID_COLOR""
-        WHERE p.""ID_ESTADO"" = 2 
-          AND ap.""HAY_STOCK"" = TRUE
+        WHERE p.""ID_ESTADO"" IN (2,3,4)
+        AND ap.""HAY_STOCK"" = TRUE
         /**where**/
         GROUP BY a.""ID_ARTICULO"", ap.""CODIGO"", c.""ID_COLOR"", c.""CODIGO"", c.""ID_COLOR""
         ORDER BY a.""ID_ARTICULO"";";

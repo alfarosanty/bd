@@ -20,6 +20,39 @@ private readonly HttpClient _httpClient;
     {
         _httpClient = new HttpClient();
     }
+
+public Factura GetFactura(int id, NpgsqlConnection conex) {
+    try {
+        Factura factura = null;
+        string commandText = getSelect() + GetFromText() + " WHERE FA.\"ID_FACTURA\" = @id";
+
+        using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex)) {
+            Console.WriteLine("Consulta: " + commandText);
+            cmd.Parameters.AddWithValue("id", id);
+
+            using (NpgsqlDataReader reader = cmd.ExecuteReader()) {
+                if (reader.Read()) {
+                    factura = ReadFactura(reader, conex);
+                }
+            }
+        }
+
+        if (factura == null) {
+            throw new Exception($"No se encontró factura con id {id}");
+        }
+
+        factura.Articulos = getArticuloFactura(factura, conex);
+        factura.Cliente = new ClienteServices().GetCliente(factura.Cliente.Id, conex);
+        return factura;
+    }
+    catch (Exception ex) {
+        // Aquí podés lanzar una excepción más específica o simplemente relanzar la actual
+        throw new Exception($"{ex.Message}", ex);
+    }
+}
+
+
+
 public async Task<AfipResponse> FacturarAsync(
     Factura factura,
     LoginTicketResponseData loginTicket,
@@ -271,6 +304,11 @@ public  string getTabla()
     return Math.Round(valor, 2, MidpointRounding.AwayFromZero);
 }
 
+private string normalizacionPrecio(decimal valor)
+{
+    return valor.ToString("#,##0.00", new CultureInfo("es-AR"));
+}
+
 public Dictionary<string, List<ArticuloFactura>> AgruparPorCodigo(List<ArticuloFactura> articulos)
 {
     var mapa = new Dictionary<string, List<ArticuloFactura>>();
@@ -287,6 +325,44 @@ public Dictionary<string, List<ArticuloFactura>> AgruparPorCodigo(List<ArticuloF
 
     return mapa;
 }
+
+public List<ArticuloResumen> ConstruirResumen(Dictionary<string, List<ArticuloFactura>> mapa)
+{
+    var lista = new List<ArticuloResumen>();
+
+    foreach (var kvp in mapa)
+    {
+        var codigo = kvp.Key;
+        var articulos = kvp.Value;
+
+        // descripción base (la del primer artículo)
+        var descripcionBase = articulos.First().Descripcion;
+
+        // ejemplo: "3 ROJO, 2 AZUL, 5 NEGRO"
+        var detalles = articulos
+            .GroupBy(a => a.Articulo.Color.Codigo)
+            .Select(g => $"{g.Sum(x => x.Cantidad)} {g.Key}")
+            .ToList();
+
+        string descripcionFinal = descripcionBase + " - " + string.Join(", ", detalles);
+
+        lista.Add(new ArticuloResumen
+        {
+            Codigo = codigo,
+            Descripcion = descripcionFinal,
+            Cantidad = articulos.Sum(a => a.Cantidad),
+            PrecioUnitario = redondeoDecimales(articulos.First().PrecioUnitario),
+            Descuento = (int)articulos.First().Descuento,
+            Subtotal = redondeoDecimales(articulos.Sum(a => redondeoDecimales(a.PrecioUnitario * a.Cantidad) - redondeoDecimales(a.PrecioUnitario * a.Cantidad * (a.Descuento / 100m))) /1.21m),
+            TotalDecimal = redondeoDecimales(articulos.Sum(a => redondeoDecimales(a.PrecioUnitario * a.Cantidad) - redondeoDecimales(a.PrecioUnitario * a.Cantidad * (a.Descuento / 100m)))),
+            Iva = 21,
+            Total = redondeoDecimales(articulos.Sum(a => redondeoDecimales(a.PrecioUnitario * a.Cantidad) - redondeoDecimales(a.PrecioUnitario * a.Cantidad * (a.Descuento / 100m))))
+        });
+    }
+
+    return lista;
+}
+
 
 
     public int crear(Factura factura, Npgsql.NpgsqlConnection npgsqlConnection)
@@ -573,43 +649,85 @@ private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection con
 {
     int id = (int)reader["ID_FACTURA"];
     int idCliente = (int)reader["ID_CLIENTE"];
-    DateTime fecha = (DateTime)reader["FECHA_FACTURA"];
-    bool eximirIVA = (bool)reader["EXIMIR_IVA"];
+    
+    Cliente cliente = new Cliente(){
+        Id = idCliente
+    };
 
-    int? idPresupuesto = reader["ID_PRESUPUESTO"] != DBNull.Value ? Convert.ToInt32(reader["ID_PRESUPUESTO"]) : (int?)null;
-    int? importeBruto = reader["IMPORTE_BRUTO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_BRUTO"]) : (int?)null;
-    int? numeroFactura = reader["NUMERO_FACTURA"] != DBNull.Value ? Convert.ToInt32(reader["NUMERO_FACTURA"]) : (int?)null;
-    int? caeNumero = reader["CAE_NUMERO"] != DBNull.Value ? Convert.ToInt32(reader["CAE_NUMERO"]) : (int?)null;
-    DateTime? fechaVencimientoCae = reader["FECHA_VENCIMIENTO_CAE"] != DBNull.Value ? Convert.ToDateTime(reader["FECHA_VENCIMIENTO_CAE"]) : (DateTime?)null;
-    int? importeNeto = reader["IMPORTE_NETO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_NETO"]) : (int?)null;
-    int? iva = reader["IVA"] != DBNull.Value ? Convert.ToInt32(reader["IVA"]) : (int?)null;
-    int puntoDeVenta = Convert.ToInt32(reader["PUNTO_DE_VENTA"]);
-    string tipoFactura = reader["TIPO_FACTURA"].ToString();
-    int? descuentoGeneral = reader["DESCUENTO"] != DBNull.Value ? Convert.ToInt32(reader["DESCUENTO"]) : (int?)null;
-
-    // Usar la misma conexión para obtener Cliente y Presupuesto
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection2 = con.establecerConexion();
-    Cliente cliente = new ClienteServices().GetCliente(idCliente, npgsqlConnection2);
 
     return new Factura
     {
         Id = id,
-        FechaFactura = fecha,
-        EximirIVA = eximirIVA,
+        FechaFactura = (DateTime)reader["FECHA_FACTURA"],
+        EximirIVA = (bool)reader["EXIMIR_IVA"],
         Cliente = cliente,
-        Presupuesto = idPresupuesto.HasValue ? new Presupuesto { Id = idPresupuesto.Value } : null,
-        ImporteBruto = importeBruto,
-        NumeroComprobante = numeroFactura,
-        CaeNumero = caeNumero,
-        FechaVencimientoCae = fechaVencimientoCae,
-        ImporteNeto = importeNeto,
-        Iva = iva,
-        PuntoDeVenta = puntoDeVenta,
-        TipoFactura = tipoFactura,
-        DescuentoGeneral = descuentoGeneral
+        Presupuesto = reader["ID_PRESUPUESTO"] != DBNull.Value 
+            ? new Presupuesto { Id = Convert.ToInt32(reader["ID_PRESUPUESTO"]) }
+            : null,
+        ImporteBruto = reader["IMPORTE_BRUTO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_BRUTO"]) : null,
+        NumeroComprobante = reader["NUMERO_FACTURA"] != DBNull.Value ? Convert.ToInt32(reader["NUMERO_FACTURA"]) : null,
+        CaeNumero = reader["CAE_NUMERO"] != DBNull.Value ? Convert.ToInt64(reader["CAE_NUMERO"]) : null,
+        FechaVencimientoCae = reader["FECHA_VENCIMIENTO_CAE"] != DBNull.Value ? Convert.ToDateTime(reader["FECHA_VENCIMIENTO_CAE"]) : null,
+        ImporteNeto = reader["IMPORTE_NETO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_NETO"]) : null,
+        Iva = reader["IVA"] != DBNull.Value ? Convert.ToInt32(reader["IVA"]) : null,
+        PuntoDeVenta = Convert.ToInt32(reader["PUNTO_DE_VENTA"]),
+        TipoFactura = reader["TIPO_FACTURA"].ToString(),
+        DescuentoGeneral = reader["DESCUENTO"] != DBNull.Value ? Convert.ToInt32(reader["DESCUENTO"]) : null
     };
 }
+
+
+private static List<ArticuloFactura> getArticuloFactura(Factura factura, NpgsqlConnection conex)
+{
+    List<ArticuloFactura> articulosFactura = new List<ArticuloFactura>();
+    List<int> idsArticulos = new List<int>(); // guardamos los IDs para después
+
+    string commandText = 
+        "SELECT AF.* FROM \"ARTICULO_FACTURA\" AF " +
+        "WHERE AF.\"ID_FACTURA\" = @IDFACTURA " +
+        "ORDER BY AF.\"ID_ARTICULO_FACTURA\"";
+
+    using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
+    {
+        Console.WriteLine("Consulta: " + commandText);
+        cmd.Parameters.AddWithValue("IDFACTURA", factura.Id);
+
+        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                var af = new ArticuloFactura
+                {
+                    idArticuloFactura = Convert.ToInt64(reader["ID_ARTICULO_FACTURA"]),
+                    PrecioUnitario = (decimal)reader["PRECIO_UNITARIO"],
+                    Cantidad = (int)reader["CANTIDAD"],
+                    Descuento = (decimal)reader["DESCUENTO"],
+                    Descripcion = reader["DESCRIPCION"] == DBNull.Value ? "" : (string)reader["DESCRIPCION"],
+                    Codigo = reader["CODIGO"] == DBNull.Value ? "" : (string)reader["CODIGO"],
+                    // guardamos el ID para cargarlo después
+                    Articulo = null,
+                };
+
+                idsArticulos.Add((int)reader["ID_ARTICULO"]);
+                articulosFactura.Add(af);
+            }
+        } // 🔥 acá se cierra el reader y ya podés ejecutar otras consultas
+    }
+
+    // ahora sí, después de cerrar el reader, podés buscar cada Articulo
+    var articuloService = new ArticuloServices();
+
+    for (int i = 0; i < articulosFactura.Count; i++)
+    {
+        int idArticulo = idsArticulos[i];
+        articulosFactura[i].Articulo = articuloService.GetArticulo(idArticulo, conex);
+        articulosFactura[i].Factura = factura;
+    }
+
+    return articulosFactura;
+}
+
+
 /*
 private static ArticuloFactura ReadArticuloFactura(NpgsqlDataReader reader, NpgsqlConnection conex)
 {
@@ -639,8 +757,17 @@ private static ArticuloFactura ReadArticuloFactura(NpgsqlDataReader reader, Npgs
     
 }
 
-
-
 */
+    private static string getSelect()
+        {
+            return  $"SELECT FA.* ";
+            
+        }
+    private static string GetFromText()
+    {
+        
+        return "FROM \"FACTURA\" FA";
+    }
+
 
 }

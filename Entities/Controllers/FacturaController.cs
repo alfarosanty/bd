@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Xml;
 using Microsoft.OpenApi.Any;
+using BlumeAPI.servicios;
 
 namespace BlumeAPI.Controllers;
 
@@ -130,6 +131,66 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
             return BadRequest(new { error = ex.Message });
         }
     }
+/*
+    [HttpGet("{id}/pdf")]
+    public async Task<IActionResult> GenerarPdf(int id)
+    {
+            // Conexión a BD
+            CConexion con = new CConexion();
+            using var npgsqlConnection = con.establecerConexion();
+
+            // Autenticación AFIP
+            AfipServices afipServices = new AfipServices();
+            FacturaServices facturaServices = new FacturaServices();
+            PdfService pdfService = new PdfService();
+            TemplateService templateService = new TemplateService();
+            FacturaBuilder _facturaBuilder = new FacturaBuilder(templateService, pdfService);
+
+            var factura = facturaServices.GetFactura(id, npgsqlConnection);
+        if (factura == null)
+            return NotFound("Factura no encontrada.");
+
+        var pdfDocument = _facturaBuilder.Build(factura);
+
+        var pdfBytes = await _facturaBuilder.Build(factura);
+
+        return File(pdfBytes, "application/pdf", $"Factura_{id}.pdf");
+    }
+*/
+
+[HttpGet("{id}")]
+public async Task<IActionResult> GetFactura(int id)
+{
+    CConexion con = new CConexion();
+
+    using var npgsqlConnection = con.establecerConexion();
+
+    FacturaServices facturaServices = new FacturaServices();
+
+    var factura = facturaServices.GetFactura(id, npgsqlConnection);
+
+    if (factura == null)
+        return NotFound("Factura no encontrada.");
+
+    return Ok(factura);
+}
+
+
+[HttpGet("{id}/pdf-test")]
+public IActionResult PdfTest(int id)
+{
+    CConexion con = new CConexion();
+    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    var srv = new FastReportService();
+    FacturaServices facturaServices = new FacturaServices();
+    Factura factura = facturaServices.GetFactura(id, npgsqlConnection);
+    var pdfBytes = srv.CrearPdf(factura);
+
+    return File(pdfBytes, "application/pdf", "Factura_Test.pdf");
+}
+
+
 
 [HttpGet("FacturacionXCliente")]
 public ActionResult<List<RespuestaEstadistica>> facturacionXCliente([FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)

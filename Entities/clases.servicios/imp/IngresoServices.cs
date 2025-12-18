@@ -60,7 +60,7 @@ public List<Ingreso> GetIngresoByTaller(int idTaller, NpgsqlConnection conex)
         ingreso.Articulos = getArticulosIngreso(ingreso, conex);
     }
 
-    return ingresos;
+    return ingresos.OrderBy(i=>i.Id).ToList();
 }
 
 
@@ -77,7 +77,7 @@ public List<Ingreso> GetIngresosByIds(List<int> idsIngresos, NpgsqlConnection co
         }
     }
 
-    return ingresos;
+    return ingresos.OrderBy(i=>i.Id).ToList();
 }
 
 
@@ -160,48 +160,85 @@ public List<Ingreso> GetIngresosByIds(List<int> idsIngresos, NpgsqlConnection co
 
 public int BorrarIngreso(Ingreso ingreso, NpgsqlConnection npgsqlConnection)
 {
-    if (ingreso == null) throw new ArgumentNullException(nameof(ingreso));
+    if (ingreso == null)
+        throw new ArgumentNullException(nameof(ingreso));
 
     using var transaction = npgsqlConnection.BeginTransaction();
+
     try
     {
         int idIngreso = ingreso.Id;
 
-        // 1️⃣ Disminuir stock antes de eliminar (según tu lógica)
+        // 1️⃣ Obtener IDs de Pedido Producción asociados (ANTES de borrar)
+        List<int> pedidosProduccion = new();
+
+        string sqlGetPP = @"
+            SELECT DISTINCT ""ID_PEDIDO_PRODUCCION""
+            FROM ""PEDIDO_PRODUCCION_INGRESO_DETALLE""
+            WHERE ""ID_INGRESO"" = @ID_INGRESO;";
+
+        using (var cmd = new NpgsqlCommand(sqlGetPP, npgsqlConnection, transaction))
+        {
+            cmd.Parameters.AddWithValue("ID_INGRESO", idIngreso);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+                pedidosProduccion.Add(reader.GetInt32(0));
+        }
+
+        // 2️⃣ Disminuir stock
         if (ingreso.Articulos != null && ingreso.Articulos.Count > 0)
         {
             disminuirStock(ingreso.Articulos, npgsqlConnection);
         }
 
-        // 2️⃣ Borrar ARTICULO_INGRESO
+        // 3️⃣ Borrar ARTICULO_INGRESO
         string sqlDeleteArticulos = @"
             DELETE FROM ""ARTICULO_INGRESO""
             WHERE ""ID_INGRESO"" = @ID_INGRESO;";
-        using (var cmd = new NpgsqlCommand(sqlDeleteArticulos, npgsqlConnection))
+
+        using (var cmd = new NpgsqlCommand(sqlDeleteArticulos, npgsqlConnection, transaction))
         {
             cmd.Parameters.AddWithValue("ID_INGRESO", idIngreso);
             cmd.ExecuteNonQuery();
         }
 
-        // 3️⃣ Borrar PEDIDO_PRODUCCION_INGRESO_DETALLE
+        // 4️⃣ Borrar PEDIDO_PRODUCCION_INGRESO_DETALLE
         string sqlDeleteDetalles = @"
             DELETE FROM ""PEDIDO_PRODUCCION_INGRESO_DETALLE""
             WHERE ""ID_INGRESO"" = @ID_INGRESO;";
-        using (var cmd = new NpgsqlCommand(sqlDeleteDetalles, npgsqlConnection))
+
+        using (var cmd = new NpgsqlCommand(sqlDeleteDetalles, npgsqlConnection, transaction))
         {
             cmd.Parameters.AddWithValue("ID_INGRESO", idIngreso);
             cmd.ExecuteNonQuery();
         }
 
-        // 4️⃣ Borrar INGRESO
+        // 5️⃣ Borrar INGRESO
         string sqlDeleteIngreso = @"
             DELETE FROM ""INGRESO""
             WHERE ""ID_INGRESO"" = @ID_INGRESO
             RETURNING ""ID_INGRESO"";";
-        using (var cmd = new NpgsqlCommand(sqlDeleteIngreso, npgsqlConnection))
+
+        using (var cmd = new NpgsqlCommand(sqlDeleteIngreso, npgsqlConnection, transaction))
         {
-            cmd.Parameters.AddWithValue("ID_INGRESO", idIngreso);
             idIngreso = Convert.ToInt32(cmd.ExecuteScalar());
+        }
+
+        // 6️⃣ Actualizar estado de los Pedidos Producción
+        if (pedidosProduccion.Count > 0)
+        {
+            string sqlUpdatePP = @"
+                UPDATE ""PEDIDO_PRODUCCION""
+                SET ""ESTADO"" = (
+                    SELECT ""ID_ESTADO_PRODUCCION""
+                    FROM ""ESTADO_PEDIDO_PRODUCCION""
+                    WHERE ""DESCRIPCION"" = 'TALLER'
+                )
+                WHERE ""ID_PEDIDO_PRODUCCION"" = ANY(@ids);";
+
+            using var cmd = new NpgsqlCommand(sqlUpdatePP, npgsqlConnection, transaction);
+            cmd.Parameters.AddWithValue("ids", pedidosProduccion);
+            cmd.ExecuteNonQuery();
         }
 
         transaction.Commit();
@@ -213,6 +250,7 @@ public int BorrarIngreso(Ingreso ingreso, NpgsqlConnection npgsqlConnection)
         throw;
     }
 }
+
 
 
 public List<PedidoProduccionIngresoDetalle> GetDetallesPPI(int idIngreso, NpgsqlConnection conex)
