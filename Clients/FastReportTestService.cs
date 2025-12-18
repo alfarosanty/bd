@@ -13,8 +13,10 @@ public byte[] CrearPdf(Factura factura)
 {
     using var report = new Report();
 
+    if (factura.TipoFactura == "A"){
+
     report.Dictionary.Clear();
-    report.Load("FastReport/Factura.frx");
+    report.Load("FastReport/Factura_A.frx");
 
     // parámetros → OK
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
@@ -25,7 +27,7 @@ public byte[] CrearPdf(Factura factura)
         report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
         report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
         report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
-        //report.SetParameterValue("CondVentaCliente", "Transferencia");//factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("CondVentaCliente", "Transferencia");//factura.Cliente.CondicionFiscal.Descripcion);
         report.SetParameterValue("DomicilioCliente", factura.Cliente.Domicilio);
 
         report.SetParameterValue("NroCAE", factura.CaeNumero);
@@ -61,6 +63,52 @@ using var ms = new MemoryStream();
 report.Export(export, ms);
 
 return ms.ToArray();
+}   else
+if(factura.TipoFactura == "B"){
 
+    report.Dictionary.Clear();
+    report.Load("FastReport/Factura_B.frx");
+
+    // parámetros → OK
+        report.SetParameterValue("TipoFactura", factura.TipoFactura);
+        report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
+        report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
+        report.SetParameterValue("FechaFactura", factura.FechaFactura.ToString("dd/MM/yyyy"));
+
+        report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
+        report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
+        report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("CondVentaCliente", "Transferencia");//factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("DomicilioCliente", factura.Cliente.Domicilio);
+
+        report.SetParameterValue("NroCAE", factura.CaeNumero);
+        report.SetParameterValue("FechaVtoCAE", factura.FechaVencimientoCae?.ToString("dd/MM/yyyy"));
+
+        //TOTALES
+        var total = factura.calcularTotal();
+        var subtotal = factura.calcularTotal();
+        var descuento = factura.CalcularDescuento();
+        report.SetParameterValue("Subtotal", subtotal.ToString("N2", new CultureInfo("es-AR")));
+        report.SetParameterValue("Descuento", descuento.ToString("N2", new CultureInfo("es-AR")));
+        report.SetParameterValue("Total", total.ToString("N2", new CultureInfo("es-AR")));
+
+// registrar datos
+// registrar datos
+FacturaServices facturaServices = new FacturaServices();
+
+var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
+var articulos = facturaServices.ConstruirResumen(mapar);
+
+report.RegisterData(articulos, "Articulos");
+
+report.Prepare();
+using var export = new PDFSimpleExport();
+using var ms = new MemoryStream();
+report.Export(export, ms);
+
+return ms.ToArray();
 }
+    throw new System.Exception("Tipo de factura no soportado (no es A ni B)");
+}
+
 }

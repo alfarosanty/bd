@@ -176,7 +176,7 @@ public async Task<IActionResult> GetFactura(int id)
 }
 
 
-[HttpGet("{id}/pdf-test")]
+[HttpGet("{id}/pdf")]
 public IActionResult PdfTest(int id)
 {
     CConexion con = new CConexion();
@@ -187,7 +187,9 @@ public IActionResult PdfTest(int id)
     Factura factura = facturaServices.GetFactura(id, npgsqlConnection);
     var pdfBytes = srv.CrearPdf(factura);
 
-    return File(pdfBytes, "application/pdf", "Factura_Test.pdf");
+    var fileName = $"Factura_{factura.TipoFactura}-{factura.Cliente.RazonSocial}.pdf";
+
+    return File(pdfBytes, "application/pdf", fileName);
 }
 
 

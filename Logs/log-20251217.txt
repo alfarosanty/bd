@@ -105,3 +105,531 @@ FastReport.Utils.CompilerException: (SubtotalXPagina): Error CS1525: Invalid exp
 2025-12-17 09:13:37.771 -03:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-12-17 09:13:37.772 -03:00 [INF] Hosting environment: Development
 2025-12-17 09:13:37.772 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-17 09:14:29.225 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-17 09:14:29.443 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-17 09:14:29.449 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-17 09:14:29.449 -03:00 [INF] Hosting environment: Development
+2025-12-17 09:14:29.449 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-17 09:15:25.721 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:15:25.839 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-17 09:15:25.880 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:15:25.888 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:15:25.942 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:15:29.747 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:15:29.880 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 3929.7602ms
+2025-12-17 09:15:29.887 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:15:29.897 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2122028 application/pdf 4181.4069ms
+2025-12-17 09:21:53.249 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:21:53.301 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:21:53.301 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:21:53.301 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:21:58.066 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:21:58.076 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 4775.1303ms
+2025-12-17 09:21:58.077 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:21:58.077 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2071226 application/pdf 4828.1892ms
+2025-12-17 09:23:20.340 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:23:20.351 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:23:20.351 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:23:20.351 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:23:21.391 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:23:21.401 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1049.975ms
+2025-12-17 09:23:21.401 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:23:21.401 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2122050 application/pdf 1061.0788ms
+2025-12-17 09:24:40.963 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:24:40.969 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:24:40.970 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:24:40.970 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:24:41.981 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:24:42.020 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1050.3063ms
+2025-12-17 09:24:42.020 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:24:42.020 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2124305 application/pdf 1057.9051ms
+2025-12-17 09:27:49.461 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:27:49.467 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:27:49.468 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:27:49.468 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:27:50.772 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:27:50.783 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1314.8604ms
+2025-12-17 09:27:50.783 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:27:50.783 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2158249 application/pdf 1322.2234ms
+2025-12-17 09:29:31.731 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:29:31.734 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:29:31.734 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:29:31.734 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:29:33.020 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:29:33.072 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1338.0034ms
+2025-12-17 09:29:33.072 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:29:33.072 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2158249 application/pdf 1341.2216ms
+2025-12-17 09:30:21.520 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:30:21.521 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:30:21.522 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:30:21.524 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:30:22.769 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:30:22.779 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1253.971ms
+2025-12-17 09:30:22.779 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:30:22.779 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2179308 application/pdf 1258.7341ms
+2025-12-17 09:32:04.167 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:32:04.171 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:32:04.171 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:32:04.175 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:32:05.154 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:32:05.163 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 987.8793ms
+2025-12-17 09:32:05.163 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:32:05.163 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2181771 application/pdf 996.0878ms
+2025-12-17 09:33:41.315 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:33:41.315 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:33:41.315 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:33:41.315 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:33:42.271 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:33:42.294 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 978.2104ms
+2025-12-17 09:33:42.294 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:33:42.294 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2181771 application/pdf 978.9256ms
+2025-12-17 09:35:25.680 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:35:25.681 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:35:25.681 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:35:25.681 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:35:26.796 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:35:26.819 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1137.841ms
+2025-12-17 09:35:26.819 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:35:26.819 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2205213 application/pdf 1139.2915ms
+2025-12-17 09:47:01.786 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:47:01.789 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:47:01.792 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:47:01.792 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:47:12.809 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 11016.9651ms
+2025-12-17 09:47:12.812 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:47:12.815 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalXPag): Error CS1525: Invalid expression term '['
+(TotalXPag): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 09:47:12.913 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 11127.0181ms
+2025-12-17 09:48:14.990 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:48:14.991 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:48:14.991 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:48:14.991 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:48:29.318 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 14327.2572ms
+2025-12-17 09:48:29.319 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:48:29.320 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalXPag): Error CS1525: Invalid expression term '['
+(TotalXPag): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 09:48:29.322 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 14331.6880ms
+2025-12-17 09:48:48.055 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:48:48.055 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:48:48.055 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:48:48.056 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:49:14.784 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 26728.773ms
+2025-12-17 09:49:14.785 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:49:14.786 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalXPag): Error CS1525: Invalid expression term '['
+(TotalXPag): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 09:49:14.788 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 26733.1621ms
+2025-12-17 09:49:27.151 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:49:27.155 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:49:27.159 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:49:27.160 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:49:28.221 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 09:49:28.231 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1071.4808ms
+2025-12-17 09:49:28.231 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:49:28.231 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2107348 application/pdf 1080.9095ms
+2025-12-17 09:51:30.964 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:51:30.965 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:51:30.965 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:51:30.965 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:55:11.712 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 220741.3399ms
+2025-12-17 09:55:11.723 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:55:11.724 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (Total): Error CS1525: Invalid expression term '['
+(Total): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 09:55:11.725 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 220761.3909ms
+2025-12-17 09:57:36.213 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:57:36.213 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:57:36.215 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:57:36.216 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 09:58:38.610 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 62387.4728ms
+2025-12-17 09:58:38.634 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:58:38.650 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS1525: Invalid expression term '['
+(TotalPorPagina): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 09:58:38.652 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 62440.1416ms
+2025-12-17 09:59:10.973 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 09:59:10.973 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 09:59:10.973 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 09:59:10.973 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:01:28.925 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 137951.0844ms
+2025-12-17 10:01:28.932 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:01:28.932 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:01:28.934 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 137961.2316ms
+2025-12-17 10:01:52.829 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:01:52.830 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:01:52.830 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:01:52.830 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:04:02.873 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 130043.3777ms
+2025-12-17 10:04:02.874 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:04:02.875 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS1525: Invalid expression term '['
+(TotalPorPagina): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:04:02.876 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 130047.0181ms
+2025-12-17 10:04:04.484 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:04:04.484 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:04:04.485 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:04:04.485 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:04:50.967 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 46481.8468ms
+2025-12-17 10:04:50.967 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:04:50.968 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS1525: Invalid expression term '['
+(TotalPorPagina): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:04:50.970 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 46485.6447ms
+2025-12-17 10:05:10.189 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:05:10.190 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:05:10.190 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:05:10.190 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:05:16.185 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 5994.5867ms
+2025-12-17 10:05:16.185 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:05:16.187 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS1525: Invalid expression term '['
+(TotalPorPagina): Error CS0103: The name 'Articulos' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:05:16.190 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 6000.4978ms
+2025-12-17 10:07:50.594 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:07:50.597 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:07:50.597 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:07:50.599 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:08:45.928 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 55328.7235ms
+2025-12-17 10:08:45.949 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:08:45.985 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS0103: The name 'Sum' does not exist in the current context
+(TotalPorPagina): Error CS0103: The name 'TotalDecimal' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:08:45.987 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 55394.5353ms
+2025-12-17 10:08:55.557 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:08:55.557 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:08:55.557 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:08:55.558 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:10:32.451 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 96893.0863ms
+2025-12-17 10:10:32.454 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:10:32.455 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (TotalPorPagina): Error CS0103: The name 'TotalDecimal' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-17 10:10:32.457 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 500 - text/plain;+charset=utf-8 96900.0533ms
+2025-12-17 10:10:34.841 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 10:10:34.841 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 10:10:34.841 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:10:34.841 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 10:10:36.287 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 10:10:36.296 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1454.9199ms
+2025-12-17 10:10:36.296 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 10:10:36.296 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2106818 application/pdf 1455.5886ms
+2025-12-17 11:33:04.283 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 11:33:04.308 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 11:33:04.311 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:33:04.316 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 11:33:05.885 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 11:33:05.911 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1594.6537ms
+2025-12-17 11:33:05.911 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:33:05.911 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2213050 application/pdf 1633.3487ms
+2025-12-17 11:52:34.136 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 11:52:34.137 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 11:52:34.137 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:52:34.137 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 11:52:35.199 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 11:52:35.223 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1085.8843ms
+2025-12-17 11:52:35.224 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:52:35.224 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2126837 application/pdf 1087.5216ms
+2025-12-17 11:52:55.567 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 11:52:55.567 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 11:52:55.567 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:52:55.568 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 11:52:56.797 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 11:52:56.807 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1239.9211ms
+2025-12-17 11:52:56.808 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:52:56.808 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2126866 application/pdf 1244.2197ms
+2025-12-17 11:54:07.225 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - -
+2025-12-17 11:54:07.226 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-17 11:54:07.226 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:54:07.226 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-17 11:54:08.553 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_Test.pdf' ...
+2025-12-17 11:54:08.575 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1349.0599ms
+2025-12-17 11:54:08.576 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-17 11:54:08.577 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/101/pdf-test - - - 200 2184672 application/pdf 1351.7755ms
