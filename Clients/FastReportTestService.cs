@@ -18,7 +18,8 @@ public byte[] CrearPdf(Factura factura)
     report.Dictionary.Clear();
     report.Load("FastReport/Factura_A.frx");
 
-    // parámetros → OK
+    var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
+
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
         report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
         report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
@@ -27,8 +28,8 @@ public byte[] CrearPdf(Factura factura)
         report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
         report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
         report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("CondVentaCliente", "Transferencia");//factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("DomicilioCliente", factura.Cliente.Domicilio);
+        report.SetParameterValue("CondVentaCliente", "Otra");//factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("DomicilioCliente", ubicacion);
 
         report.SetParameterValue("NroCAE", factura.CaeNumero);
         report.SetParameterValue("FechaVtoCAE", factura.FechaVencimientoCae?.ToString("dd/MM/yyyy"));
@@ -54,6 +55,16 @@ report.RegisterData(articulos, "Articulos");
 //var ds = report.GetDataSource("Articulos");
 //ds.Enabled = true;
 
+if (factura.CaeNumero.HasValue)
+{
+    var qrUrl = AfipQrHelper.GenerarQrUrl(factura, 20302367613);
+    report.SetParameterValue("QrText", qrUrl);
+}
+else
+{
+    report.SetParameterValue("QrText", "");
+}
+
 
 
 
@@ -70,6 +81,8 @@ if(factura.TipoFactura == "B"){
     report.Load("FastReport/Factura_B.frx");
 
     // parámetros → OK
+
+var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
         report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
         report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
@@ -78,8 +91,8 @@ if(factura.TipoFactura == "B"){
         report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
         report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
         report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("CondVentaCliente", "Transferencia");//factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("DomicilioCliente", factura.Cliente.Domicilio);
+        report.SetParameterValue("CondVentaCliente", "Otra");//factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("DomicilioCliente", ubicacion);
 
         report.SetParameterValue("NroCAE", factura.CaeNumero);
         report.SetParameterValue("FechaVtoCAE", factura.FechaVencimientoCae?.ToString("dd/MM/yyyy"));
@@ -101,6 +114,17 @@ var articulos = facturaServices.ConstruirResumen(mapar);
 
 report.RegisterData(articulos, "Articulos");
 
+if (factura.CaeNumero.HasValue)
+{
+    var qrUrl = AfipQrHelper.GenerarQrUrl(factura, 20302367613);
+    report.SetParameterValue("QrText", qrUrl);
+}
+else
+{
+    report.SetParameterValue("QrText", "");
+}
+
+
 report.Prepare();
 using var export = new PDFSimpleExport();
 using var ms = new MemoryStream();
@@ -111,4 +135,13 @@ return ms.ToArray();
     throw new System.Exception("Tipo de factura no soportado (no es A ni B)");
 }
 
+
+string CapitalizarPalabras(string texto)
+{
+    if (string.IsNullOrWhiteSpace(texto))
+        return texto;
+
+    texto = texto.ToLower();
+    return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(texto);
+}
 }

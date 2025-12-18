@@ -137,3 +137,1042 @@ File name: 'G:\Desa\programa\bd\FastReport\Factura.frx'
 2025-12-18 09:25:05.216 -03:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-12-18 09:25:05.219 -03:00 [INF] Hosting environment: Development
 2025-12-18 09:25:05.219 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-18 09:50:46.554 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-18 09:50:47.289 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-18 09:50:47.419 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-18 09:50:47.421 -03:00 [INF] Hosting environment: Development
+2025-12-18 09:50:47.422 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-18 09:52:58.013 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 09:52:58.013 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 09:52:58.013 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 09:52:58.290 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:52:58.293 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:52:58.293 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:52:58.559 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-18 09:52:58.727 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:52:58.727 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:52:58.727 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:52:58.761 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:52:58.762 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:52:58.762 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:52:58.949 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:52:58.949 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:52:58.949 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:53:02.633 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:53:02.633 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:53:02.633 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:53:03.707 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 4719.2077ms
+2025-12-18 09:53:03.707 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 4746.5688ms
+2025-12-18 09:53:03.732 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:53:03.724 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 4772.888ms
+2025-12-18 09:53:03.732 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:53:03.733 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:53:03.747 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 5757.3797ms
+2025-12-18 09:53:03.747 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 5757.4962ms
+2025-12-18 09:53:03.747 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 5757.4898ms
+2025-12-18 09:54:21.352 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - -
+2025-12-18 09:54:21.382 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:21.389 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:21.390 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:54:21.413 -03:00 [INF] Route matched with {action = "GetById", controller = "Cliente"}. Executing controller action with signature Cliente GetById(Int32) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:54:21.457 -03:00 [INF] Executing ObjectResult, writing value of type 'Cliente'.
+2025-12-18 09:54:21.457 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI) in 43.6976ms
+2025-12-18 09:54:21.457 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:54:21.457 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - - - 200 - application/json;+charset=utf-8 105.9016ms
+2025-12-18 09:54:21.470 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 09:54:21.473 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:21.473 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:21.473 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:54:21.475 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:54:21.524 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:21.614 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 138.8447ms
+2025-12-18 09:54:21.614 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:54:21.614 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 144.0791ms
+2025-12-18 09:54:37.164 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:37.167 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:37.167 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:37.167 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:37.168 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:37.205 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:37.208 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 39.4802ms
+2025-12-18 09:54:37.208 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:37.208 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 44.5013ms
+2025-12-18 09:54:40.386 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:40.386 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:40.386 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:40.386 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:40.386 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:40.394 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:40.394 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 7.9298ms
+2025-12-18 09:54:40.394 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:40.394 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 8.5566ms
+2025-12-18 09:54:41.762 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:41.762 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:41.762 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:41.762 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:41.762 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:41.772 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:41.772 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 9.8995ms
+2025-12-18 09:54:41.772 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:41.772 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 10.6604ms
+2025-12-18 09:54:42.540 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:42.540 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:42.541 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:42.541 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:42.541 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:42.543 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:42.544 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.0017ms
+2025-12-18 09:54:42.544 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:42.544 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.5344ms
+2025-12-18 09:54:43.293 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:43.293 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:43.293 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:43.293 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:43.293 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:43.296 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:43.296 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.0887ms
+2025-12-18 09:54:43.296 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:43.296 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.6837ms
+2025-12-18 09:54:44.030 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:44.030 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:44.030 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:44.030 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:44.030 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:44.033 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:44.034 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.5105ms
+2025-12-18 09:54:44.034 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:44.034 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 4.2284ms
+2025-12-18 09:54:47.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:47.819 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:47.819 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:47.819 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:47.819 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:47.822 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:47.822 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.2377ms
+2025-12-18 09:54:47.822 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:47.823 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.8304ms
+2025-12-18 09:54:49.694 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:49.694 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:49.694 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:49.694 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:49.695 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:49.697 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:49.697 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.6281ms
+2025-12-18 09:54:49.697 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:49.697 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.1464ms
+2025-12-18 09:54:57.620 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:57.620 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:57.620 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:57.620 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:57.620 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:57.623 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:57.624 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.4485ms
+2025-12-18 09:54:57.624 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:57.624 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 4.0573ms
+2025-12-18 09:54:59.273 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:54:59.273 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:54:59.273 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:54:59.273 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:59.273 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:54:59.276 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:54:59.276 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.7852ms
+2025-12-18 09:54:59.276 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:54:59.276 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.3208ms
+2025-12-18 09:55:00.440 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:55:00.440 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:00.440 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:00.440 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:00.440 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:00.443 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:00.444 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.3625ms
+2025-12-18 09:55:00.444 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:00.444 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.9839ms
+2025-12-18 09:55:01.700 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:55:01.700 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:01.700 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:01.700 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:01.700 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:01.703 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:01.703 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.2761ms
+2025-12-18 09:55:01.704 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:01.704 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 3.9616ms
+2025-12-18 09:55:02.714 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:55:02.714 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:02.714 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:02.714 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:02.714 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:02.717 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:02.718 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.6245ms
+2025-12-18 09:55:02.718 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:02.718 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 4.1712ms
+2025-12-18 09:55:06.478 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/2?habilitados=true - -
+2025-12-18 09:55:06.479 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:06.479 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:06.479 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:06.479 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:06.482 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:06.483 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.5196ms
+2025-12-18 09:55:06.483 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:06.483 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/2?habilitados=true - - - 200 - application/json;+charset=utf-8 4.3267ms
+2025-12-18 09:55:07.844 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/2?habilitados=true - -
+2025-12-18 09:55:07.844 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:07.844 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:07.844 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:07.844 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:07.847 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:07.848 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.6414ms
+2025-12-18 09:55:07.848 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:07.848 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/2?habilitados=true - - - 200 - application/json;+charset=utf-8 4.3619ms
+2025-12-18 09:55:10.710 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/3?habilitados=true - -
+2025-12-18 09:55:10.710 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:10.711 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:10.711 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:10.711 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:10.713 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:10.714 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.0105ms
+2025-12-18 09:55:10.714 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:10.714 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/3?habilitados=true - - - 200 - application/json;+charset=utf-8 3.5711ms
+2025-12-18 09:55:12.098 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/3?habilitados=true - -
+2025-12-18 09:55:12.098 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:12.098 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:12.098 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:12.098 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:12.102 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:12.103 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 4.3243ms
+2025-12-18 09:55:12.103 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:12.103 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/3?habilitados=true - - - 200 - application/json;+charset=utf-8 5.1166ms
+2025-12-18 09:55:19.939 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/4?habilitados=true - -
+2025-12-18 09:55:19.939 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:19.939 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:19.939 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:19.939 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:19.941 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:19.942 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.5159ms
+2025-12-18 09:55:19.942 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:19.942 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/4?habilitados=true - - - 200 - application/json;+charset=utf-8 3.0537ms
+2025-12-18 09:55:21.127 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/4?habilitados=true - -
+2025-12-18 09:55:21.127 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:21.127 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:21.127 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:21.127 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:21.131 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:21.132 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 4.6153ms
+2025-12-18 09:55:21.132 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:21.132 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/4?habilitados=true - - - 200 - application/json;+charset=utf-8 5.1651ms
+2025-12-18 09:55:24.270 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/5?habilitados=true - -
+2025-12-18 09:55:24.270 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:24.270 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:24.270 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:24.270 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:24.273 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:24.274 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.2342ms
+2025-12-18 09:55:24.274 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:24.274 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/5?habilitados=true - - - 200 - application/json;+charset=utf-8 3.9873ms
+2025-12-18 09:55:25.504 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/5?habilitados=true - -
+2025-12-18 09:55:25.504 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:25.504 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:25.504 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:25.504 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:25.507 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:25.507 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.1813ms
+2025-12-18 09:55:25.507 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:25.507 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/5?habilitados=true - - - 200 - application/json;+charset=utf-8 3.8498ms
+2025-12-18 09:55:40.361 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - -
+2025-12-18 09:55:40.361 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:40.361 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:40.361 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:40.361 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:40.364 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:40.365 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.043ms
+2025-12-18 09:55:40.365 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:40.365 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - - - 200 - application/json;+charset=utf-8 3.6572ms
+2025-12-18 09:55:41.565 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - -
+2025-12-18 09:55:41.565 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:41.566 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:41.566 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:41.566 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:41.569 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:41.569 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.5589ms
+2025-12-18 09:55:41.569 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:41.570 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - - - 200 - application/json;+charset=utf-8 4.2322ms
+2025-12-18 09:55:42.345 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - -
+2025-12-18 09:55:42.345 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:42.345 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:42.346 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:42.346 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:42.349 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:42.349 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.3214ms
+2025-12-18 09:55:42.349 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:42.349 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/13?habilitados=true - - - 200 - application/json;+charset=utf-8 3.8705ms
+2025-12-18 09:55:46.973 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - -
+2025-12-18 09:55:46.974 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:46.974 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:46.974 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:46.974 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:46.977 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:46.977 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.361ms
+2025-12-18 09:55:46.977 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:46.977 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - - - 200 - application/json;+charset=utf-8 3.9882ms
+2025-12-18 09:55:48.498 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - -
+2025-12-18 09:55:48.498 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:48.499 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:48.499 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:48.499 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:48.502 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:48.502 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.4824ms
+2025-12-18 09:55:48.502 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:48.502 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - - - 200 - application/json;+charset=utf-8 4.0541ms
+2025-12-18 09:55:49.553 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - -
+2025-12-18 09:55:49.554 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:49.554 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:49.554 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:49.554 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:49.556 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:49.557 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.6633ms
+2025-12-18 09:55:49.557 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:49.557 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/14?habilitados=true - - - 200 - application/json;+charset=utf-8 3.2106ms
+2025-12-18 09:55:55.565 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/91?habilitados=true - -
+2025-12-18 09:55:55.565 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:55:55.566 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:55:55.566 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:55.566 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:55:55.568 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:55:55.568 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.6243ms
+2025-12-18 09:55:55.568 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:55:55.569 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/91?habilitados=true - - - 200 - application/json;+charset=utf-8 3.3351ms
+2025-12-18 09:56:01.461 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/238?habilitados=true - -
+2025-12-18 09:56:01.462 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:56:01.462 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:56:01.462 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:01.462 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:56:01.464 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:56:01.465 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.8068ms
+2025-12-18 09:56:01.465 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:01.465 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/238?habilitados=true - - - 200 - application/json;+charset=utf-8 3.4531ms
+2025-12-18 09:56:07.073 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/239?habilitados=true - -
+2025-12-18 09:56:07.073 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:56:07.074 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:56:07.074 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:07.074 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:56:07.077 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:56:07.077 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 3.5325ms
+2025-12-18 09:56:07.078 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:07.078 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/239?habilitados=true - - - 200 - application/json;+charset=utf-8 4.2509ms
+2025-12-18 09:56:11.679 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/241?habilitados=true - -
+2025-12-18 09:56:11.680 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:56:11.680 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:56:11.680 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:11.680 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:56:11.682 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:56:11.682 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 2.5254ms
+2025-12-18 09:56:11.682 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:56:11.682 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/241?habilitados=true - - - 200 - application/json;+charset=utf-8 3.0526ms
+2025-12-18 09:57:57.550 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 09:57:57.553 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:57:57.557 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:57:57.557 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 09:57:57.557 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:57:57.559 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:57:57.562 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:57:57.562 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:57:57.563 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:57:57.563 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:57:57.563 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 09:57:57.597 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:57:57.600 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:57:57.602 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:57:57.602 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:57:57.603 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:57:57.605 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:57:57.608 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 5.6335ms
+2025-12-18 09:57:57.611 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:57:57.611 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 48.3028ms
+2025-12-18 09:57:57.611 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 48.571ms
+2025-12-18 09:57:57.612 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:57:57.612 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 54.6906ms
+2025-12-18 09:57:57.626 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:57:57.630 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 68.0626ms
+2025-12-18 09:57:57.630 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:57:57.630 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 80.9118ms
+2025-12-18 09:58:04.726 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - -
+2025-12-18 09:58:04.726 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:04.726 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:04.726 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:58:04.726 -03:00 [INF] Route matched with {action = "GetById", controller = "Cliente"}. Executing controller action with signature Cliente GetById(Int32) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:58:05.215 -03:00 [INF] Executing ObjectResult, writing value of type 'Cliente'.
+2025-12-18 09:58:05.216 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI) in 489.1349ms
+2025-12-18 09:58:05.216 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:58:05.216 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - - - 200 - application/json;+charset=utf-8 489.6839ms
+2025-12-18 09:58:05.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 09:58:05.220 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:05.220 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:05.220 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:58:05.220 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:58:05.289 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:58:05.289 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 69.3656ms
+2025-12-18 09:58:05.289 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:58:05.290 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 69.9490ms
+2025-12-18 09:58:09.665 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:58:09.666 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:09.666 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:09.666 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:58:09.666 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:58:09.676 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:58:09.677 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 10.5519ms
+2025-12-18 09:58:09.677 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:58:09.677 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 11.1914ms
+2025-12-18 09:58:53.504 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 09:58:53.507 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:53.511 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:53.512 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:58:53.517 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 09:58:53.517 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:53.520 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:58:53.523 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:53.524 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:58:53.528 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:58:53.530 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:58:53.532 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 4.5211ms
+2025-12-18 09:58:53.532 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:58:53.533 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 15.8223ms
+2025-12-18 09:58:53.541 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 09:58:53.541 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:58:53.541 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:58:53.542 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:58:53.542 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:58:53.545 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:58:53.545 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 3.472ms
+2025-12-18 09:58:53.545 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:58:53.545 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 4.4419ms
+2025-12-18 09:58:53.553 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:58:53.645 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 122.5503ms
+2025-12-18 09:58:53.650 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:58:53.659 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 154.5165ms
+2025-12-18 09:59:28.726 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 09:59:28.726 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 09:59:28.728 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:28.728 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:28.731 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:28.732 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:59:28.732 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:59:28.731 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:28.737 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:59:28.737 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:59:28.740 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 09:59:28.742 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:28.744 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:28.744 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:59:28.745 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:59:28.748 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:59:28.773 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 35.4133ms
+2025-12-18 09:59:28.773 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 09:59:28.773 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 47.2670ms
+2025-12-18 09:59:28.780 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:59:28.786 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 54.3428ms
+2025-12-18 09:59:28.786 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 09:59:28.786 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 60.4758ms
+2025-12-18 09:59:28.812 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:59:28.813 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 68.0492ms
+2025-12-18 09:59:28.813 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 09:59:28.813 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 74.7661ms
+2025-12-18 09:59:31.310 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - -
+2025-12-18 09:59:31.310 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:31.310 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:31.310 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:59:31.310 -03:00 [INF] Route matched with {action = "GetById", controller = "Cliente"}. Executing controller action with signature Cliente GetById(Int32) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 09:59:31.312 -03:00 [INF] Executing ObjectResult, writing value of type 'Cliente'.
+2025-12-18 09:59:31.312 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI) in 1.428ms
+2025-12-18 09:59:31.312 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 09:59:31.312 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - - - 200 - application/json;+charset=utf-8 2.0631ms
+2025-12-18 09:59:31.316 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 09:59:31.316 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:31.316 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:31.316 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:59:31.316 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 09:59:31.338 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:59:31.338 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 22.0309ms
+2025-12-18 09:59:31.338 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 09:59:31.339 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 22.7344ms
+2025-12-18 09:59:37.820 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 09:59:37.820 -03:00 [INF] CORS policy execution successful.
+2025-12-18 09:59:37.820 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 09:59:37.820 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:59:37.820 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 09:59:37.827 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 09:59:37.827 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 7.4968ms
+2025-12-18 09:59:37.828 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 09:59:37.828 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 8.0472ms
+2025-12-18 10:02:08.342 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:02:08.342 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:02:08.353 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:08.353 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:08.354 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:08.354 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:08.354 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:02:08.354 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:02:08.355 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:02:08.355 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:02:08.356 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:02:08.364 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:08.364 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:08.366 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:02:08.366 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:02:08.376 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:08.378 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 18.0783ms
+2025-12-18 10:02:08.378 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:08.378 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:02:08.378 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 38.2695ms
+2025-12-18 10:02:08.378 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 11.7335ms
+2025-12-18 10:02:08.378 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:02:08.379 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 22.5569ms
+2025-12-18 10:02:08.399 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:08.406 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 45.7333ms
+2025-12-18 10:02:08.406 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:02:08.406 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 66.2002ms
+2025-12-18 10:02:30.870 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:02:30.870 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:02:30.870 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:30.871 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:30.871 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:30.874 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:02:30.874 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:30.874 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:02:30.874 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:02:30.874 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:02:30.874 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:02:30.874 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:02:30.875 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:02:30.875 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:02:30.875 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:02:30.875 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:30.875 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 0.6875ms
+2025-12-18 10:02:30.876 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:02:30.876 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 1.2826ms
+2025-12-18 10:02:30.876 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:30.878 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 4.0681ms
+2025-12-18 10:02:30.878 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:02:30.878 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 8.2598ms
+2025-12-18 10:02:30.885 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:02:30.890 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 16.1188ms
+2025-12-18 10:02:30.890 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:02:30.890 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 20.3642ms
+2025-12-18 10:03:33.832 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:03:33.838 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:03:33.844 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:03:33.850 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:03:33.850 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:03:33.853 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:03:33.854 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:03:33.856 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:03:33.857 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:03:33.860 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:03:33.861 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:03:33.861 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:03:33.861 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:03:33.861 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:03:33.861 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:03:33.957 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:03:33.963 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:03:33.963 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 101.9453ms
+2025-12-18 10:03:33.963 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:03:33.964 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 103.0466ms
+2025-12-18 10:03:33.966 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:03:33.967 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 110.5969ms
+2025-12-18 10:03:33.971 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:03:33.974 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 139.7236ms
+2025-12-18 10:03:33.982 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 121.5001ms
+2025-12-18 10:03:33.982 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:03:33.982 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 139.7970ms
+2025-12-18 10:04:07.675 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:04:07.679 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:07.687 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:07.687 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:07.688 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:04:07.688 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:04:07.690 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:07.700 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:07.703 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:07.703 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:04:07.703 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:04:07.703 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:07.715 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:07.718 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:07.718 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:04:07.721 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:07.726 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 7.3522ms
+2025-12-18 10:04:07.726 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:07.727 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 23.6669ms
+2025-12-18 10:04:07.734 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:07.737 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 27.5686ms
+2025-12-18 10:04:07.737 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:07.737 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 49.4197ms
+2025-12-18 10:04:07.744 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:07.748 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 60.0753ms
+2025-12-18 10:04:07.748 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:07.748 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 72.5506ms
+2025-12-18 10:04:22.815 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:04:22.823 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:22.824 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:04:22.825 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:22.825 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:22.831 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:22.831 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:04:22.831 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:22.832 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:22.832 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:04:22.842 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:22.842 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 10.8475ms
+2025-12-18 10:04:22.843 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:22.843 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 18.2723ms
+2025-12-18 10:04:22.871 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:04:22.871 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:22.876 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:22.876 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:22.876 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:04:22.880 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:22.882 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 6.0522ms
+2025-12-18 10:04:22.882 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:22.882 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 14.1383ms
+2025-12-18 10:04:22.890 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:22.897 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 65.5367ms
+2025-12-18 10:04:22.897 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:22.897 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 84.4683ms
+2025-12-18 10:04:45.729 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:04:45.729 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:04:45.730 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:45.730 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:04:45.730 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:45.730 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:45.730 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:45.730 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:45.730 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:45.730 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:45.730 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:45.730 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:45.730 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:04:45.730 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:04:45.730 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:04:45.732 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:45.733 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:45.733 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 3.0062ms
+2025-12-18 10:04:45.733 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:04:45.733 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 3.8544ms
+2025-12-18 10:04:45.734 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 4.0008ms
+2025-12-18 10:04:45.734 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:04:45.734 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 4.8824ms
+2025-12-18 10:04:45.746 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:45.753 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 22.4943ms
+2025-12-18 10:04:45.753 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:04:45.753 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 23.4072ms
+2025-12-18 10:04:51.070 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - -
+2025-12-18 10:04:51.071 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:51.071 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:51.071 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 10:04:51.071 -03:00 [INF] Route matched with {action = "GetById", controller = "Cliente"}. Executing controller action with signature Cliente GetById(Int32) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:04:51.072 -03:00 [INF] Executing ObjectResult, writing value of type 'Cliente'.
+2025-12-18 10:04:51.073 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI) in 1.4916ms
+2025-12-18 10:04:51.073 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 10:04:51.073 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - - - 200 - application/json;+charset=utf-8 2.2986ms
+2025-12-18 10:04:51.076 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 10:04:51.076 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:51.077 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:51.077 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 10:04:51.077 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:04:51.095 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:51.095 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 18.2284ms
+2025-12-18 10:04:51.095 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 10:04:51.096 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 19.2319ms
+2025-12-18 10:04:55.527 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 10:04:55.527 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:55.528 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:55.528 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 10:04:55.528 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:04:55.537 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:04:55.537 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 9.7266ms
+2025-12-18 10:04:55.538 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 10:04:55.538 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 10.2798ms
+2025-12-18 10:04:58.451 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Factura/crearConAFIP - -
+2025-12-18 10:04:58.451 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:58.457 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Factura/crearConAFIP - - - 204 - - 5.7293ms
+2025-12-18 10:04:58.461 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/crearConAFIP application/json 1142
+2025-12-18 10:04:58.463 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:04:58.463 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:04:58.463 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.CrearConAFIPAsync (BlumeAPI)'
+2025-12-18 10:04:58.480 -03:00 [INF] Route matched with {action = "CrearConAFIP", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] CrearConAFIPAsync(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 10:05:25.605 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[AfipResponse, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:05:25.624 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.CrearConAFIPAsync (BlumeAPI) in 27144.0149ms
+2025-12-18 10:05:25.624 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.CrearConAFIPAsync (BlumeAPI)'
+2025-12-18 10:05:25.624 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/crearConAFIP application/json 1142 - 200 - application/json;+charset=utf-8 27163.6084ms
+2025-12-18 10:05:55.340 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/193/pdf - -
+2025-12-18 10:05:55.341 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:05:55.344 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:05:55.345 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:05:55.348 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 10:06:00.154 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_A-AGOLTI ANIBAL RUBEN.pdf' ...
+2025-12-18 10:06:00.181 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 4832.6946ms
+2025-12-18 10:06:00.181 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:06:00.181 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/193/pdf - - - 200 559707 application/pdf 4841.7640ms
+2025-12-18 10:09:18.249 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:09:18.259 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:18.268 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:09:18.268 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:09:18.268 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:18.268 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:18.273 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:18.273 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:18.273 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:09:18.274 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:09:18.274 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:09:18.274 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:09:18.273 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:18.280 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:09:18.286 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:09:18.392 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:18.392 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 118.5699ms
+2025-12-18 10:09:18.392 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:09:18.393 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 124.7914ms
+2025-12-18 10:09:18.404 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:18.406 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 120.6926ms
+2025-12-18 10:09:18.406 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:09:18.407 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 157.8356ms
+2025-12-18 10:09:18.427 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:18.433 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 159.2471ms
+2025-12-18 10:09:18.433 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:09:18.434 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 165.7161ms
+2025-12-18 10:09:27.027 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - -
+2025-12-18 10:09:27.027 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:27.028 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:27.028 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 10:09:27.028 -03:00 [INF] Route matched with {action = "GetById", controller = "Cliente"}. Executing controller action with signature Cliente GetById(Int32) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:09:27.032 -03:00 [INF] Executing ObjectResult, writing value of type 'Cliente'.
+2025-12-18 10:09:27.032 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI) in 4.3102ms
+2025-12-18 10:09:27.032 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetById (BlumeAPI)'
+2025-12-18 10:09:27.032 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClienteById/257 - - - 200 - application/json;+charset=utf-8 4.9134ms
+2025-12-18 10:09:27.036 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 10:09:27.037 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:27.037 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:27.037 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 10:09:27.037 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:09:27.054 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:27.055 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 17.9445ms
+2025-12-18 10:09:27.055 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 10:09:27.055 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 18.5051ms
+2025-12-18 10:09:51.111 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 10:09:51.111 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:51.111 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:51.111 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 10:09:51.111 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:09:51.122 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:51.123 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 11.8421ms
+2025-12-18 10:09:51.123 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 10:09:51.123 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 12.4700ms
+2025-12-18 10:09:54.477 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - -
+2025-12-18 10:09:54.477 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:54.477 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - - - 204 - - 0.3022ms
+2025-12-18 10:09:54.479 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1145
+2025-12-18 10:09:54.479 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:54.479 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:54.480 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-12-18 10:09:54.481 -03:00 [INF] Route matched with {action = "Crear", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Crear(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 10:09:54.500 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Factura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:09:54.512 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI) in 30.7167ms
+2025-12-18 10:09:54.512 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-12-18 10:09:54.512 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1145 - 200 - application/json;+charset=utf-8 33.0873ms
+2025-12-18 10:09:56.402 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/194/pdf - -
+2025-12-18 10:09:56.402 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:09:56.403 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:09:56.403 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:09:56.403 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 10:09:56.709 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_A-AGOLTI ANIBAL RUBEN.pdf' ...
+2025-12-18 10:09:56.724 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 320.7757ms
+2025-12-18 10:09:56.724 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:09:56.724 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/194/pdf - - - 200 550424 application/pdf 322.0384ms
+2025-12-18 10:11:54.395 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:11:54.395 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:11:54.396 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:11:54.396 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:11:54.400 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:11:54.400 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:11:54.400 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:11:54.400 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:11:54.400 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:11:54.400 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:11:54.425 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:11:54.447 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 46.5723ms
+2025-12-18 10:11:54.447 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:11:54.447 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:11:54.447 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:11:54.447 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 52.7577ms
+2025-12-18 10:11:54.452 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:11:54.452 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:11:54.452 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:11:54.458 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:11:54.458 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 6.0341ms
+2025-12-18 10:11:54.461 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:11:54.463 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 15.6576ms
+2025-12-18 10:11:54.483 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:11:54.488 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 84.8086ms
+2025-12-18 10:11:54.488 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:11:54.488 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 93.0704ms
+2025-12-18 10:12:08.095 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - -
+2025-12-18 10:12:08.095 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - -
+2025-12-18 10:12:08.096 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:12:08.096 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:12:08.096 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:12:08.096 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:12:08.096 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:12:08.096 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:12:08.096 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 10:12:08.096 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-18 10:12:08.096 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2025-12-18 10:12:08.096 -03:00 [INF] CORS policy execution successful.
+2025-12-18 10:12:08.099 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:12:08.099 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:12:08.099 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:12:08.099 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 2.7453ms
+2025-12-18 10:12:08.099 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2025-12-18 10:12:08.099 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - - - 200 - application/json;+charset=utf-8 3.7310ms
+2025-12-18 10:12:08.099 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 10:12:08.117 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:12:08.118 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 10:12:08.119 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 6.0586ms
+2025-12-18 10:12:08.120 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-18 10:12:08.120 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 23.6522ms
+2025-12-18 10:12:08.141 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 44.4408ms
+2025-12-18 10:12:08.141 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2025-12-18 10:12:08.141 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - - - 200 - application/json;+charset=utf-8 46.1728ms
+2025-12-18 10:50:39.215 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-18 10:50:39.689 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-18 10:50:39.701 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-18 10:50:39.703 -03:00 [INF] Hosting environment: Development
+2025-12-18 10:50:39.704 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-18 10:53:43.687 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - -
+2025-12-18 10:53:43.842 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-18 10:53:43.891 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:53:43.909 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - - - 404 0 - 226.0939ms
+2025-12-18 10:53:51.526 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - -
+2025-12-18 10:53:51.531 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:53:51.531 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - - - 404 0 - 5.8649ms
+2025-12-18 10:53:52.122 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - -
+2025-12-18 10:53:52.127 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:53:52.128 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - - - 404 0 - 5.2504ms
+2025-12-18 10:53:52.785 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - -
+2025-12-18 10:53:52.785 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:53:52.785 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf-test - - - 404 0 - 0.3181ms
+2025-12-18 10:54:04.580 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-18 10:54:04.812 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 231.9268ms
+2025-12-18 10:54:04.847 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-12-18 10:54:04.871 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-18 10:54:04.871 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 23.9732ms
+2025-12-18 10:54:05.052 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-18 10:54:05.096 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2025-12-18 10:54:05.097 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-18 10:54:05.097 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 0.9928ms
+2025-12-18 10:54:05.307 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 254.8610ms
+2025-12-18 10:54:13.952 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 10:54:13.953 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 10:54:13.960 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:54:14.019 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 10:54:19.937 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 10:54:19.963 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 5938.3034ms
+2025-12-18 10:54:19.968 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 10:54:19.968 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 680294 application/pdf 6015.8070ms
+2025-12-18 11:12:04.997 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:12:05.001 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:12:05.001 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:12:05.002 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:12:05.460 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 11:12:05.491 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 489.7766ms
+2025-12-18 11:12:05.494 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:12:05.499 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 606399 application/pdf 502.8483ms
+2025-12-18 11:16:57.622 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:16:57.625 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:16:57.625 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:16:57.627 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:16:58.326 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 11:16:58.330 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 703.6285ms
+2025-12-18 11:16:58.331 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:16:58.331 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 623361 application/pdf 709.2481ms
+2025-12-18 11:21:42.816 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:21:42.816 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:21:42.817 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:21:42.817 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:21:43.123 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 11:21:43.133 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 316.4396ms
+2025-12-18 11:21:43.133 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:21:43.133 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 622862 application/pdf 317.1479ms
+2025-12-18 11:43:19.775 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-18 11:43:20.164 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-18 11:43:20.168 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-18 11:43:20.169 -03:00 [INF] Hosting environment: Development
+2025-12-18 11:43:20.169 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-18 11:44:02.321 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:44:02.453 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-18 11:44:02.497 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:44:02.505 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:44:02.563 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:44:59.842 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 57270.0057ms
+2025-12-18 11:44:59.851 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:44:59.854 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (Text46): Error CS1026: ) expected
+(Text46): Error CS1002: ; expected
+(Text46): Error CS1513: } expected
+(Text46): Error CS1002: ; expected
+(Text46): Error CS1513: } expected
+(Text46): Error CS1501: No overload for method 'FormatNumber' takes 0 arguments
+(Text46): Error CS0103: The name 'MontoIVA' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 117
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-18 11:44:59.957 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 500 - text/plain;+charset=utf-8 57643.1608ms
+2025-12-18 11:45:04.980 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:45:05.025 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:45:05.025 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:45:05.026 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:45:06.554 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 11:45:06.596 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 1566.4004ms
+2025-12-18 11:45:06.596 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:45:06.596 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 614222 application/pdf 1615.6130ms
+2025-12-18 11:46:32.454 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - -
+2025-12-18 11:46:32.461 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:46:32.461 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:46:32.461 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:46:32.858 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_B-ALDEA DE SUEÑOS S.R.L..pdf' ...
+2025-12-18 11:46:32.887 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 425.87ms
+2025-12-18 11:46:32.887 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:46:32.887 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/192/pdf - - - 200 615555 application/pdf 433.5095ms
+2025-12-18 11:46:41.140 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/182/pdf - -
+2025-12-18 11:46:41.141 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:46:41.141 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:46:41.141 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:46:51.592 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 10451.2279ms
+2025-12-18 11:46:51.592 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:46:51.593 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: La factura no posee CAE
+   at AfipQrHelper.GenerarQrUrl(Factura factura, Int64 cuitEmisor) in G:\Desa\programa\bd\Clients\QR\AfipQrHelper.cs:line 12
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 58
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-18 11:46:51.595 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/182/pdf - - - 500 - text/plain;+charset=utf-8 10454.9268ms
+2025-12-18 11:47:21.482 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/185/pdf - -
+2025-12-18 11:47:21.482 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 11:47:21.482 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:47:21.482 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 11:47:22.147 -03:00 [INF] Executing FileContentResult, sending file with download name 'Factura_A-AGOLTI ANIBAL RUBEN.pdf' ...
+2025-12-18 11:47:22.156 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 673.5418ms
+2025-12-18 11:47:22.157 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 11:47:22.165 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/185/pdf - - - 200 628290 application/pdf 683.1645ms
+2025-12-18 11:53:08.842 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-18 11:53:09.081 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-18 11:53:09.087 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-18 11:53:09.087 -03:00 [INF] Hosting environment: Development
+2025-12-18 11:53:09.088 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-18 12:02:42.839 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - -
+2025-12-18 12:02:42.929 -03:00 [INF] CORS policy execution successful.
+2025-12-18 12:02:43.232 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-18 12:02:43.273 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 12:02:43.279 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 12:02:43.340 -03:00 [INF] Route matched with {action = "GetByCliente", controller = "Presupuesto"}. Executing controller action with signature System.Collections.Generic.List`1[Presupuesto] GetByCliente(Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2025-12-18 12:02:44.795 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 12:02:45.052 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI) in 1705.8417ms
+2025-12-18 12:02:45.055 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetByCliente (BlumeAPI)'
+2025-12-18 12:02:45.058 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetPresupuestoByCliente/257 - - - 200 - application/json;+charset=utf-8 2239.0489ms
+2025-12-18 12:02:47.928 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - -
+2025-12-18 12:02:47.931 -03:00 [INF] CORS policy execution successful.
+2025-12-18 12:02:47.951 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 12:02:47.953 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 12:02:47.957 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-18 12:02:47.997 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 12:02:48.012 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 54.9027ms
+2025-12-18 12:02:48.012 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2025-12-18 12:02:48.012 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/1?habilitados=true - - - 200 - application/json;+charset=utf-8 83.7237ms
+2025-12-18 12:02:51.929 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - -
+2025-12-18 12:02:51.932 -03:00 [INF] CORS policy execution successful.
+2025-12-18 12:02:51.934 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/Factura/crear - - - 204 - - 5.1474ms
+2025-12-18 12:02:51.937 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1145
+2025-12-18 12:02:51.941 -03:00 [INF] CORS policy execution successful.
+2025-12-18 12:02:51.945 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 12:02:51.945 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-12-18 12:02:51.948 -03:00 [INF] Route matched with {action = "Crear", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Crear(Factura) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 12:02:52.187 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType5`2[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Factura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-18 12:02:52.215 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI) in 267.4072ms
+2025-12-18 12:02:52.215 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.Crear (BlumeAPI)'
+2025-12-18 12:02:52.215 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/Factura/crear application/json 1145 - 200 - application/json;+charset=utf-8 278.7423ms
+2025-12-18 12:02:53.281 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/195/pdf - -
+2025-12-18 12:02:53.282 -03:00 [INF] CORS policy execution successful.
+2025-12-18 12:02:53.283 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-18 12:02:53.283 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 12:02:53.284 -03:00 [INF] Route matched with {action = "PdfTest", controller = "Factura"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PdfTest(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2025-12-18 12:03:06.344 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI) in 13059.7128ms
+2025-12-18 12:03:06.347 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.PdfTest (BlumeAPI)'
+2025-12-18 12:03:06.349 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+FastReport.Utils.CompilerException: (Picture2): Error CS1525: Invalid expression term '['
+(Picture2): Error CS0103: The name 'CaeNumero' does not exist in the current context
+
+   at FastReport.Code.Ms.MsAssemblyDescriptor.InternalCompile()
+   at FastReport.Code.Ms.MsAssemblyDescriptor.Compile()
+   at FastReport.Code.CodeProvider.Compile()
+   at FastReport.Report.Prepare(Boolean append, Boolean resetDataState)
+   at FastReportService.CrearPdf(Factura factura) in G:\Desa\programa\bd\Clients\FastReportTestService.cs:line 71
+   at BlumeAPI.Controllers.FacturaController.PdfTest(Int32 id) in G:\Desa\programa\bd\Entities\Controllers\FacturaController.cs:line 188
+   at lambda_method10(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-18 12:03:06.431 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/195/pdf - - - 500 - text/plain;+charset=utf-8 13149.9581ms
