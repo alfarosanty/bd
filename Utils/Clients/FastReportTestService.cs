@@ -9,7 +9,7 @@ using System.IO;
 public class FastReportService
 {
 
-public byte[] CrearPdf(Factura factura)
+public byte[] CrearPdf(Factura factura, string version)
 {
     using var report = new Report();
 
@@ -20,6 +20,7 @@ public byte[] CrearPdf(Factura factura)
 
     var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
 
+        report.SetParameterValue("Version", version);
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
         report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
         report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
@@ -52,8 +53,30 @@ var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
 var articulos = facturaServices.ConstruirResumen(mapar);
 
 report.RegisterData(articulos, "Articulos");
-//var ds = report.GetDataSource("Articulos");
-//ds.Enabled = true;
+
+var footer = report.FindObject("PageFooter1") as FastReport.PageFooterBand;
+             Console.WriteLine(footer);
+            if (footer != null)
+                {
+                   footer.AfterLayout += (sender, e) =>
+                        {
+                            Console.WriteLine(e);
+                           var text = report.FindObject("Text66") as FastReport.TextObject;
+                           var linea1 = report.FindObject("Line19") as FastReport.LineObject;
+                           var linea2 = report.FindObject("Line20") as FastReport.LineObject;
+                            Console.WriteLine(text.Text);
+                            Console.WriteLine("Subtotal: $" + total.ToString("N2"));
+                            if(text.Text == "Subtotal: $" + total.ToString("N2")){
+                                text.Visible = false;
+                                linea1.Visible = false;
+                                linea2.Visible = false;
+
+                            }
+                            // Ocultar el pie en la última página
+                            //if (report.Engine.Page == report.Engine.TotalPages)
+                                //footer.
+                        };
+                        }
 
 if (factura.CaeNumero.HasValue)
 {
@@ -83,6 +106,7 @@ if(factura.TipoFactura == "B"){
     // parámetros → OK
 
 var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
+        report.SetParameterValue("Version", version);
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
         report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
         report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
@@ -113,6 +137,30 @@ var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
 var articulos = facturaServices.ConstruirResumen(mapar);
 
 report.RegisterData(articulos, "Articulos");
+
+var footer = report.FindObject("PageFooter1") as FastReport.PageFooterBand;
+             Console.WriteLine(footer);
+            if (footer != null)
+                {
+                   footer.AfterLayout += (sender, e) =>
+                        {
+                            Console.WriteLine(e);
+                           var text = report.FindObject("Text66") as FastReport.TextObject;
+                           var linea1 = report.FindObject("Line19") as FastReport.LineObject;
+                           var linea2 = report.FindObject("Line20") as FastReport.LineObject;
+                            Console.WriteLine(text.Text);
+                            Console.WriteLine("Subtotal: $" + total.ToString("N2"));
+                            if(text.Text == "Subtotal: $" + total.ToString("N2")){
+                                text.Visible = false;
+                                linea1.Visible = false;
+                                linea2.Visible = false;
+
+                            }
+                            // Ocultar el pie en la última página
+                            //if (report.Engine.Page == report.Engine.TotalPages)
+                                //footer.
+                        };
+                        }
 
 if (factura.CaeNumero.HasValue)
 {

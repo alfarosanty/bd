@@ -180,16 +180,26 @@ public async Task<IActionResult> GetFactura(int id)
 public IActionResult PdfTest(int id)
 {
     CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    using var npgsqlConnection = con.establecerConexion();
 
     var srv = new FastReportService();
-    FacturaServices facturaServices = new FacturaServices();
+    var facturaServices = new FacturaServices();
+
     Factura factura = facturaServices.GetFactura(id, npgsqlConnection);
-    var pdfBytes = srv.CrearPdf(factura);
+
+    var pdfOriginal = srv.CrearPdf(factura, "ORIGINAL");
+    var pdfDuplicado = srv.CrearPdf(factura, "DUPLICADO");
+    var pdfTriplicado = srv.CrearPdf(factura, "TRIPLICADO");
+
+    var pdfFinal = PdfUtils.UnirPdfs(
+        pdfOriginal,
+        pdfDuplicado,
+        pdfTriplicado
+    );
 
     var fileName = $"Factura_{factura.TipoFactura}-{factura.Cliente.RazonSocial}.pdf";
 
-    return File(pdfBytes, "application/pdf", fileName);
+    return File(pdfFinal, "application/pdf", fileName);
 }
 
 
