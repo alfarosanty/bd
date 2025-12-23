@@ -1,0 +1,710 @@
+2025-12-22 12:18:43.954 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:18:44.432 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:18:44.440 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:18:44.441 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:18:44.441 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:19:44.844 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:19:45.197 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:19:45.212 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:19:45.213 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:19:45.213 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:20:55.372 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:20:55.955 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:20:55.963 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:20:55.963 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:20:55.964 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:21:21.415 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-22 12:21:22.042 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 636.8678ms
+2025-12-22 12:21:22.115 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-12-22 12:21:22.207 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-12-22 12:21:22.207 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-12-22 12:21:22.269 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-22 12:21:22.269 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 153.6459ms
+2025-12-22 12:21:22.290 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-22 12:21:22.300 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 92.2538ms
+2025-12-22 12:21:22.313 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-22 12:21:22.313 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 107.7966ms
+2025-12-22 12:21:22.728 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-22 12:21:23.222 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 494.0403ms
+2025-12-22 12:22:04.676 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/logout - 0
+2025-12-22 12:22:04.687 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:22:04.687 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:22:04.695 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 12:22:04.734 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-22 12:22:04.749 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-22 12:22:04.764 -03:00 [INF] AuthenticationScheme: MiCookieAuth was challenged.
+2025-12-22 12:22:04.767 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/logout - 0 - 401 0 - 91.8944ms
+2025-12-22 12:23:55.650 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:23:56.220 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:23:56.228 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:23:56.229 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:23:56.229 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:23:58.189 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/logout - 0
+2025-12-22 12:23:58.314 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:23:58.315 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:23:58.359 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 12:23:58.417 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2025-12-22 12:23:58.429 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:23:58.499 -03:00 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:24:00.311 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed out.
+2025-12-22 12:24:00.325 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:24:00.640 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Logout (BlumeAPI) in 2127.6166ms
+2025-12-22 12:24:00.651 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:24:00.664 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/logout - 0 - 200 - application/json;+charset=utf-8 2487.9896ms
+2025-12-22 12:24:51.037 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Usuario application/json 141
+2025-12-22 12:24:51.044 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:24:51.044 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:24:51.094 -03:00 [INF] Executing endpoint 'UsuarioController.CrearUsuario (BlumeAPI)'
+2025-12-22 12:24:51.129 -03:00 [INF] Route matched with {action = "CrearUsuario", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CrearUsuario(BlumeAPI.Usuario) on controller UsuarioController (BlumeAPI).
+2025-12-22 12:24:54.038 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:24:55.584 -03:00 [ERR] Failed executing DbCommand (264ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "USUARIO" ("ID_USUARIO", "APELLIDO", "CONTRASENIA", "NOMBRE", "ROL", "USERNAME")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-12-22 12:24:55.773 -03:00 [ERR] An exception occurred in the database while saving changes for context type 'AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 428C9: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 428C9
+    MessageText: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Hint: Use OVERRIDING SYSTEM VALUE para controlar manualmente.
+    File: rewriteHandler.c
+    Line: 904
+    Routine: rewriteTargetListIU
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 428C9: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 428C9
+    MessageText: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Hint: Use OVERRIDING SYSTEM VALUE para controlar manualmente.
+    File: rewriteHandler.c
+    Line: 904
+    Routine: rewriteTargetListIU
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-12-22 12:25:11.464 -03:00 [INF] Executed action UsuarioController.CrearUsuario (BlumeAPI) in 20334.7823ms
+2025-12-22 12:25:11.468 -03:00 [INF] Executed endpoint 'UsuarioController.CrearUsuario (BlumeAPI)'
+2025-12-22 12:25:11.471 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 428C9: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 428C9
+    MessageText: no se puede insertar un valor no-predeterminado en la columna «ID_USUARIO»
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Hint: Use OVERRIDING SYSTEM VALUE para controlar manualmente.
+    File: rewriteHandler.c
+    Line: 904
+    Routine: rewriteTargetListIU
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at UsuarioRepository.Crear(Usuario usuario) in G:\Desa\programa\bd\Entities\Repository\imp\UsuarioRepository.cs:line 21
+   at UsuarioService.CrearUsuario(Usuario usuario) in G:\Desa\programa\bd\Entities\clases.servicios\imp\UsuarioService.cs:line 26
+   at UsuarioController.CrearUsuario(Usuario usuario) in G:\Desa\programa\bd\Entities\Controllers\UsuarioController.cs:line 41
+   at lambda_method12(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-12-22 12:25:11.558 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Usuario application/json 141 - 500 - text/plain;+charset=utf-8 20520.7731ms
+2025-12-22 12:25:17.049 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Usuario application/json 130
+2025-12-22 12:25:17.054 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:25:17.054 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:25:17.056 -03:00 [INF] Executing endpoint 'UsuarioController.CrearUsuario (BlumeAPI)'
+2025-12-22 12:25:17.057 -03:00 [INF] Route matched with {action = "CrearUsuario", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CrearUsuario(BlumeAPI.Usuario) on controller UsuarioController (BlumeAPI).
+2025-12-22 12:25:17.609 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:25:17.684 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "USUARIO" ("APELLIDO", "CONTRASENIA", "NOMBRE", "ROL", "USERNAME")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "ID_USUARIO";
+2025-12-22 12:25:17.820 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:25:17.916 -03:00 [INF] Executed action UsuarioController.CrearUsuario (BlumeAPI) in 859.0097ms
+2025-12-22 12:25:17.916 -03:00 [INF] Executed endpoint 'UsuarioController.CrearUsuario (BlumeAPI)'
+2025-12-22 12:25:17.917 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Usuario application/json 130 - 201 - application/json;+charset=utf-8 867.5735ms
+2025-12-22 12:25:42.444 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 54
+2025-12-22 12:25:42.446 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:25:42.446 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:25:42.446 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:25:42.453 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:25:42.501 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:25:43.589 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:25:44.074 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:25:44.075 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:25:44.075 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 1621.9886ms
+2025-12-22 12:25:44.075 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:25:44.075 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 54 - 200 - application/json;+charset=utf-8 1631.1668ms
+2025-12-22 12:25:50.905 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:25:50.943 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:25:50.945 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:25:50.970 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:25:50.998 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 52.3634ms
+2025-12-22 12:25:50.998 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:25:50.998 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 92.5837ms
+2025-12-22 12:26:53.230 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:26:53.639 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:26:53.646 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:26:53.647 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:26:53.647 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:29:22.317 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:29:22.629 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 12:29:22.742 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:29:22.845 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:29:23.651 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:29:24.261 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 1391.32ms
+2025-12-22 12:29:24.315 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:29:24.343 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 2044.8648ms
+2025-12-22 12:29:37.993 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:29:38.004 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:29:38.005 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:29:38.028 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:29:38.029 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 23.8726ms
+2025-12-22 12:29:38.029 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:29:38.030 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 36.4545ms
+2025-12-22 12:31:21.850 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - -
+2025-12-22 12:31:21.856 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:21.861 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - - - 204 - - 11.0990ms
+2025-12-22 12:31:22.183 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/logout application/json 2
+2025-12-22 12:31:22.183 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:22.192 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:31:22.205 -03:00 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:31:22.229 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed out.
+2025-12-22 12:31:22.230 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:31:22.232 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Logout (BlumeAPI) in 27.508ms
+2025-12-22 12:31:22.232 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:31:22.232 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/logout application/json 2 - 200 - application/json;+charset=utf-8 49.5241ms
+2025-12-22 12:31:30.468 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - -
+2025-12-22 12:31:30.468 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:30.469 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - - - 204 - - 0.3627ms
+2025-12-22 12:31:30.784 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45
+2025-12-22 12:31:30.784 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:30.785 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:30.822 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:31:31.658 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45
+2025-12-22 12:31:31.658 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:31.659 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:31.659 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:31:32.763 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:31:32.763 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:31:34.052 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45
+2025-12-22 12:31:34.052 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:34.053 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:34.053 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:31:34.191 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:31:34.699 -03:00 [INF] Executed DbCommand (205ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:31:34.699 -03:00 [INF] Executed DbCommand (205ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:31:34.699 -03:00 [INF] Executed DbCommand (205ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:31:35.392 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:31:35.392 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:31:35.392 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:31:35.392 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:31:35.392 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:31:35.392 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:31:35.455 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 4633.2163ms
+2025-12-22 12:31:35.455 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 3796.3384ms
+2025-12-22 12:31:35.455 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 1402.2565ms
+2025-12-22 12:31:35.455 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:35.455 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:35.455 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:31:35.471 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45 - 200 - application/json;+charset=utf-8 3813.0334ms
+2025-12-22 12:31:35.471 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45 - 200 - application/json;+charset=utf-8 4687.2482ms
+2025-12-22 12:31:35.471 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45 - 200 - application/json;+charset=utf-8 1419.4307ms
+2025-12-22 12:31:46.456 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-12-22 12:31:46.457 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-12-22 12:31:46.457 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:46.457 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-12-22 12:31:46.459 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-12-22 12:31:46.461 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:46.461 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:31:46.462 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-12-22 12:31:46.564 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:31:46.569 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 109.5283ms
+2025-12-22 12:31:46.569 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-12-22 12:31:46.569 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 112.3803ms
+2025-12-22 12:31:46.591 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:31:46.592 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 129.8886ms
+2025-12-22 12:31:46.593 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:31:46.593 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 136.3159ms
+2025-12-22 12:31:46.914 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Usuario - -
+2025-12-22 12:31:46.914 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:46.915 -03:00 [INF] Executing endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:31:46.916 -03:00 [INF] Route matched with {action = "GetUsuarios", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsuarios() on controller UsuarioController (BlumeAPI).
+2025-12-22 12:31:46.918 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:31:46.925 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+2025-12-22 12:31:46.926 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlumeAPI.Usuario, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:31:46.926 -03:00 [INF] Executed action UsuarioController.GetUsuarios (BlumeAPI) in 9.9932ms
+2025-12-22 12:31:46.926 -03:00 [INF] Executed endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:31:46.926 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Usuario - - - 200 - application/json;+charset=utf-8 12.4008ms
+2025-12-22 12:31:47.849 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-22 12:31:47.849 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:31:47.850 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:31:47.852 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-22 12:31:47.870 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:31:47.927 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 74.6324ms
+2025-12-22 12:31:47.927 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:31:47.927 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 78.0944ms
+2025-12-22 12:32:12.512 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:32:12.836 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:32:12.844 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:32:12.845 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:32:12.845 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:32:37.626 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-22 12:32:37.743 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:32:37.851 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 12:32:37.913 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:32:37.970 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-22 12:32:39.026 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:32:39.389 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 1408.0605ms
+2025-12-22 12:32:39.396 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:32:39.401 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 1786.4552ms
+2025-12-22 12:33:00.039 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-22 12:33:00.255 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 216.4816ms
+2025-12-22 12:33:00.835 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-22 12:33:00.888 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2025-12-22 12:33:00.922 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-12-22 12:33:00.922 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 34.1474ms
+2025-12-22 12:33:01.374 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 538.8137ms
+2025-12-22 12:33:06.619 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:33:06.635 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:33:06.638 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:33:07.101 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`4[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:33:07.120 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 481.846ms
+2025-12-22 12:33:07.121 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:33:07.128 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 508.5835ms
+2025-12-22 12:34:58.713 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 12:34:59.043 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 12:34:59.051 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 12:34:59.052 -03:00 [INF] Hosting environment: Development
+2025-12-22 12:34:59.052 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 12:35:30.778 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:35:31.138 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 12:35:31.206 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:35:31.265 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:35:31.786 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`5[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:35:32.100 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 823.9751ms
+2025-12-22 12:35:32.108 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:35:32.125 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 1358.9923ms
+2025-12-22 12:35:42.625 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-22 12:35:42.631 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:42.634 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:42.639 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-22 12:35:43.679 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:35:43.763 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 1123.8292ms
+2025-12-22 12:35:43.763 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:43.764 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 1139.1413ms
+2025-12-22 12:35:45.018 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-12-22 12:35:45.019 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:45.025 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:35:45.028 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-12-22 12:35:45.066 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:35:45.068 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 40.0049ms
+2025-12-22 12:35:45.068 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:35:45.068 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 50.4524ms
+2025-12-22 12:35:45.939 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-22 12:35:45.948 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:45.948 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:45.948 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-22 12:35:45.951 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:35:45.953 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 4.8717ms
+2025-12-22 12:35:45.953 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:45.954 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 14.8219ms
+2025-12-22 12:35:47.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Usuario - -
+2025-12-22 12:35:47.223 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:47.224 -03:00 [INF] Executing endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:35:47.226 -03:00 [INF] Route matched with {action = "GetUsuarios", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsuarios() on controller UsuarioController (BlumeAPI).
+2025-12-22 12:35:48.181 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - -
+2025-12-22 12:35:48.181 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:48.181 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:48.181 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[ArticuloPrecio] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2025-12-22 12:35:48.184 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:35:48.188 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 6.6517ms
+2025-12-22 12:35:48.188 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2025-12-22 12:35:48.188 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulosPrecio - - - 200 - application/json;+charset=utf-8 7.6935ms
+2025-12-22 12:35:48.936 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:35:49.789 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+2025-12-22 12:35:49.952 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlumeAPI.Usuario, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:35:49.996 -03:00 [INF] Executed action UsuarioController.GetUsuarios (BlumeAPI) in 2769.4034ms
+2025-12-22 12:35:49.996 -03:00 [INF] Executed endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:35:50.016 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Usuario - - - 200 - application/json;+charset=utf-8 2795.2099ms
+2025-12-22 12:35:51.700 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - -
+2025-12-22 12:35:51.701 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:51.704 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - - - 204 - - 3.9215ms
+2025-12-22 12:35:51.709 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/logout application/json 2
+2025-12-22 12:35:51.709 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:35:51.709 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:35:51.717 -03:00 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:35:51.742 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed out.
+2025-12-22 12:35:51.742 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:35:51.745 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Logout (BlumeAPI) in 27.3817ms
+2025-12-22 12:35:51.745 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2025-12-22 12:35:51.745 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/logout application/json 2 - 200 - application/json;+charset=utf-8 36.4362ms
+2025-12-22 12:35:56.425 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:35:56.428 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-22 12:35:56.438 -03:00 [INF] AuthenticationScheme: MiCookieAuth was challenged.
+2025-12-22 12:35:56.438 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 401 0 - 13.6064ms
+2025-12-22 12:36:12.584 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 54
+2025-12-22 12:36:12.584 -03:00 [INF] CORS policy execution failed.
+2025-12-22 12:36:12.585 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 12:36:12.585 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:36:12.620 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:36:13.584 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:36:14.202 -03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:36:14.725 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:36:14.725 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:36:14.725 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 2105.3004ms
+2025-12-22 12:36:14.725 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:36:14.726 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 54 - 200 - application/json;+charset=utf-8 2141.6862ms
+2025-12-22 12:36:37.136 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - -
+2025-12-22 12:36:37.136 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:36:37.137 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - - - 204 - - 0.5117ms
+2025-12-22 12:36:37.452 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45
+2025-12-22 12:36:37.452 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:36:37.453 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:36:37.453 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:36:37.564 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:36:37.573 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__nombreUsuario_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2025-12-22 12:36:38.102 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2025-12-22 12:36:38.102 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2025-12-22 12:36:38.103 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 649.7164ms
+2025-12-22 12:36:38.103 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2025-12-22 12:36:38.103 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login application/json 45 - 200 - application/json;+charset=utf-8 650.6529ms
+2025-12-22 12:36:46.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Auth/me - -
+2025-12-22 12:36:46.829 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:36:46.829 -03:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2025-12-22 12:36:46.830 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`5[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 12:36:46.830 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Me (BlumeAPI) in 0.6874ms
+2025-12-22 12:36:46.830 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Me (BlumeAPI)'
+2025-12-22 12:36:46.830 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Auth/me - - - 200 - application/json;+charset=utf-8 3.3653ms
+2025-12-22 12:36:51.255 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - -
+2025-12-22 12:36:51.255 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:36:51.280 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:36:51.280 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - -
+2025-12-22 12:36:51.281 -03:00 [INF] Route matched with {action = "Get", controller = "Taller"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Taller] Get() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2025-12-22 12:36:51.281 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:36:51.282 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-12-22 12:36:51.282 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:36:51.283 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.Get (BlumeAPI) in 2.1185ms
+2025-12-22 12:36:51.283 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.Get (BlumeAPI)'
+2025-12-22 12:36:51.283 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller/GetTalleres - - - 200 - application/json;+charset=utf-8 28.4173ms
+2025-12-22 12:36:51.284 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Collections.Generic.List`1[EstadoPedidoProduccion] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2025-12-22 12:36:51.291 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:36:51.293 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 8.8148ms
+2025-12-22 12:36:51.294 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2025-12-22 12:36:51.294 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/GetEstadosPedidoProduccion - - - 200 - application/json;+charset=utf-8 13.2425ms
+2025-12-22 12:36:51.537 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Usuario - -
+2025-12-22 12:36:51.538 -03:00 [INF] CORS policy execution successful.
+2025-12-22 12:36:51.538 -03:00 [INF] Executing endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:36:51.538 -03:00 [INF] Route matched with {action = "GetUsuarios", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsuarios() on controller UsuarioController (BlumeAPI).
+2025-12-22 12:36:51.543 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2025-12-22 12:36:51.544 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+2025-12-22 12:36:51.545 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlumeAPI.Usuario, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-22 12:36:51.545 -03:00 [INF] Executed action UsuarioController.GetUsuarios (BlumeAPI) in 6.4664ms
+2025-12-22 12:36:51.545 -03:00 [INF] Executed endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2025-12-22 12:36:51.545 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Usuario - - - 200 - application/json;+charset=utf-8 7.5900ms
+2025-12-22 15:01:35.170 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 15:01:35.546 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 15:01:35.552 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 15:01:35.553 -03:00 [INF] Hosting environment: Development
+2025-12-22 15:01:35.553 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 15:02:01.319 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-22 15:02:01.681 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 366.4917ms
+2025-12-22 15:02:01.787 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-22 15:02:01.981 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.0736ms
+2025-12-22 15:02:07.551 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 15:02:07.558 -03:00 [INF] CORS policy execution failed.
+2025-12-22 15:02:07.558 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 15:02:07.567 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 15:02:07.588 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:02:07.618 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:02:08.393 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:02:08.434 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 808.2321ms
+2025-12-22 15:02:08.439 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:02:08.439 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 887.4311ms
+2025-12-22 15:04:28.975 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 15:04:29.004 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:04:29.019 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:04:29.778 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:04:29.780 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 760.471ms
+2025-12-22 15:04:29.780 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:04:29.784 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 809.6207ms
+2025-12-22 15:11:52.869 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 15:11:53.061 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 15:11:53.065 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 15:11:53.065 -03:00 [INF] Hosting environment: Development
+2025-12-22 15:11:53.066 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 15:13:31.265 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 15:13:31.332 -03:00 [INF] CORS policy execution failed.
+2025-12-22 15:13:31.333 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 15:13:31.356 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 15:13:31.390 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:13:31.430 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:13:32.135 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:13:32.267 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 830.4933ms
+2025-12-22 15:13:32.270 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:13:32.273 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 1013.9928ms
+2025-12-22 15:13:37.039 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 15:13:37.078 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:13:37.086 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:13:48.693 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:13:48.695 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 11609.6532ms
+2025-12-22 15:13:48.696 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:13:48.700 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 11661.3418ms
+2025-12-22 15:27:16.365 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 15:27:16.372 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:27:16.372 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:28:26.670 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:28:26.670 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 70298.4853ms
+2025-12-22 15:28:26.671 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:28:26.671 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 70305.8033ms
+2025-12-22 15:31:50.993 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 15:31:50.997 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:31:50.997 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:32:37.718 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:32:37.718 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 46721.1337ms
+2025-12-22 15:32:37.718 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:32:37.718 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 46725.1311ms
+2025-12-22 15:34:09.145 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 15:34:09.329 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 15:34:09.333 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 15:34:09.334 -03:00 [INF] Hosting environment: Development
+2025-12-22 15:34:09.334 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 15:34:26.675 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 15:34:26.741 -03:00 [INF] CORS policy execution failed.
+2025-12-22 15:34:26.741 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 15:34:26.762 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 15:34:26.794 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:34:26.826 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:34:27.499 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:34:27.654 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 821.1937ms
+2025-12-22 15:34:27.657 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 15:34:27.660 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 992.9538ms
+2025-12-22 15:34:37.056 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 15:34:37.083 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:34:37.089 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 15:34:58.282 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 15:34:58.284 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 21195.2561ms
+2025-12-22 15:34:58.285 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 15:34:58.290 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 21234.4931ms
+2025-12-22 15:43:05.210 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2025-12-22 15:43:05.317 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 107.4808ms
+2025-12-22 15:43:05.346 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2025-12-22 15:43:05.369 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-12-22 15:43:05.369 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 23.5755ms
+2025-12-22 15:43:05.369 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2025-12-22 15:43:05.407 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-12-22 15:43:05.407 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 37.7972ms
+2025-12-22 15:43:05.407 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2025-12-22 15:43:05.420 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-12-22 15:43:05.420 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 13.0964ms
+2025-12-22 15:43:05.583 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2025-12-22 15:43:05.814 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 231.4386ms
+2025-12-22 16:01:45.921 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:01:45.922 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:01:45.922 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:01:45.930 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:01:45.931 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:01:46.108 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:01:46.109 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 177.7979ms
+2025-12-22 16:01:46.109 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:01:46.109 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 187.2877ms
+2025-12-22 16:02:18.372 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 16:02:18.373 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:02:18.373 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:02:18.623 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:02:18.623 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 250.6337ms
+2025-12-22 16:02:18.623 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:02:18.624 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 251.3042ms
+2025-12-22 16:21:28.327 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 16:21:28.327 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:21:28.328 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:21:35.781 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:21:35.782 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 7453.7543ms
+2025-12-22 16:21:35.782 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:21:35.782 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 7455.2250ms
+2025-12-22 16:22:47.280 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:22:47.281 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:22:47.281 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:22:47.281 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:22:47.281 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:22:47.454 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:22:47.454 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 172.8514ms
+2025-12-22 16:22:47.454 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:22:47.454 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 173.4287ms
+2025-12-22 16:22:53.141 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 16:22:53.141 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:22:53.141 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:22:59.217 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:22:59.218 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 6076.5364ms
+2025-12-22 16:22:59.218 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:22:59.218 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 6077.1161ms
+2025-12-22 16:23:32.785 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 16:23:33.095 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 16:23:33.100 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 16:23:33.101 -03:00 [INF] Hosting environment: Development
+2025-12-22 16:23:33.101 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 16:27:36.323 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:27:36.425 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:27:36.425 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:27:36.470 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 16:27:36.534 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:27:36.590 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:27:37.834 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:27:38.018 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 1421.4394ms
+2025-12-22 16:27:38.023 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:27:38.027 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 1712.9745ms
+2025-12-22 16:28:05.190 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:28:05.208 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:28:05.208 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:28:05.239 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:28:05.245 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:28:21.161 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:28:21.161 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 15915.7913ms
+2025-12-22 16:28:21.161 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:28:21.161 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 15970.8819ms
+2025-12-22 16:28:54.654 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:28:54.661 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:28:54.661 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:28:54.664 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:28:54.664 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:29:11.882 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:29:11.884 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 17219.2231ms
+2025-12-22 16:29:11.884 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:29:11.885 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 17231.8418ms
+2025-12-22 16:30:52.190 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:30:52.190 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:30:52.191 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:30:52.191 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:30:52.191 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:31:09.289 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:31:09.323 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 17132.5089ms
+2025-12-22 16:31:09.323 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:31:09.324 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 17133.1778ms
+2025-12-22 16:32:01.207 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:32:01.207 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:32:01.207 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:32:01.207 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:32:01.208 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:32:05.574 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:32:05.574 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 4366.341ms
+2025-12-22 16:32:05.574 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:32:05.574 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 4367.2704ms
+2025-12-22 16:34:26.254 -03:00 [INF] User profile is available. Using 'C:\Users\Usuario\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-22 16:34:26.433 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2025-12-22 16:34:26.437 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-22 16:34:26.438 -03:00 [INF] Hosting environment: Development
+2025-12-22 16:34:26.438 -03:00 [INF] Content root path: G:\Desa\programa\bd\
+2025-12-22 16:34:57.338 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0
+2025-12-22 16:34:57.418 -03:00 [INF] CORS policy execution failed.
+2025-12-22 16:34:57.418 -03:00 [INF] Request origin http://localhost:7166 does not have permission to access the resource.
+2025-12-22 16:34:57.444 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-12-22 16:34:57.479 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:34:57.519 -03:00 [INF] Route matched with {action = "InsertarCertificado", controller = "Afip"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InsertarCertificado() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:35:08.090 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-22 16:35:08.248 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI) in 10722.7296ms
+2025-12-22 16:35:08.253 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.InsertarCertificado (BlumeAPI)'
+2025-12-22 16:35:08.256 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Afip/insertarCertificado - 0 - 200 - application/json;+charset=utf-8 10927.6950ms
+2025-12-22 16:35:19.979 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2025-12-22 16:35:20.013 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:35:20.021 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2025-12-22 16:35:25.706 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2025-12-22 16:35:25.735 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 5714.627ms
+2025-12-22 16:35:25.736 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2025-12-22 16:35:25.741 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 5761.4920ms

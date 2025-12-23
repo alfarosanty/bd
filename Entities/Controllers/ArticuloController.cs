@@ -1,4 +1,7 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 namespace BlumeAPI.Controllers;
 
@@ -139,15 +142,28 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, 
         return articulosPrecioId;
     }
 
-    [HttpPost("ActualizarArticulosPrecios")]
-    public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<int> articulosPrecioId = new ArticuloServices().ActualizarArticulosPrecios(articuloPrecios, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecioId;
-    }
+[Authorize]
+[HttpPost("ActualizarArticulosPrecios")]
+public IActionResult ActualizarArticulosPrecios([FromBody] ArticuloPrecio[] articuloPrecios)
+{
+    var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+    if (claim == null)
+        return Unauthorized("Usuario no autenticado");
+
+    int usuarioId = int.Parse(claim.Value);
+
+    CConexion con = new CConexion();
+    NpgsqlConnection npgsqlConnection = con.establecerConexion();
+
+    var resultado = new ArticuloServices()
+        .ActualizarArticulosPrecios(articuloPrecios, usuarioId, npgsqlConnection);
+
+    con.cerrarConexion(npgsqlConnection);
+
+    return Ok(resultado);
+}
+
 
 [HttpPost("ActualizarStock")]
 public IActionResult ActualizarStock([FromBody] ActualizacionStockInutDTO[] articulos)

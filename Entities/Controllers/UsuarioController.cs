@@ -32,6 +32,7 @@ public class UsuarioController : ControllerBase // puede implementar IUsuarioCon
         if (usuario == null) return NotFound();
         return Ok(usuario);
     }
+   
 
     [HttpPost]
     //[Authorize(Roles = "ADMIN")]
@@ -48,4 +49,5 @@ public class UsuarioController : ControllerBase // puede implementar IUsuarioCon
         usuarioService.EliminarUsuario(id); // void
         return NoContent();
     }
+
 }

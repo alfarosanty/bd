@@ -45,5 +45,43 @@ namespace BlumeAPI.Controllers
                 });
             }
         }
+    
+
+[HttpPost("insertarCertificado")]
+public IActionResult InsertarCertificado()
+{
+    try
+    {
+        // 1️⃣ Ruta del archivo
+        string ruta = "C:\\Users\\Usuario\\Desktop\\Pruebas programa\\API_AFIP\\Documentos_AFIP_Autenticacion\\Produccion1\\BlumeProduccion1_687ab37dac3ccabb.pfx";
+
+        // 2️⃣ Leer archivo como bytes
+        byte[] certificadoBytes = System.IO.File.ReadAllBytes(ruta);
+
+        // 3️⃣ Abrir conexión
+        CConexion con = new CConexion();
+        using var connection = con.establecerConexion();
+
+        // 4️⃣ Update en PostgreSQL
+        using var cmd = new Npgsql.NpgsqlCommand(
+            "UPDATE \"DATOS_AFIP\" SET \"CERTIFICADO\" = @certificado",
+            connection);
+
+        cmd.Parameters.AddWithValue("@certificado", certificadoBytes);
+        cmd.ExecuteNonQuery();
+
+        con.cerrarConexion(connection);
+
+        return Ok(new { mensaje = "Certificado insertado correctamente" });
+    }
+    catch (Exception ex)
+    {
+        return BadRequest(new
+        {
+            error = "Error al insertar certificado",
+            detalle = ex.Message
+        });
+    }
+}
     }
 }

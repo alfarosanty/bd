@@ -17,6 +17,7 @@ using System.Threading.Tasks;
     public string? Provincia { get; set; }
     public string? Cuit{ get; set; }
     public string? Transporte{ get; set; }
+    public bool? valido { get; set; }
 
 
     public CondicionFiscal? CondicionFiscal{ get; set; }

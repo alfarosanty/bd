@@ -61,7 +61,7 @@ public async Task<AfipResponse> FacturarAsync(
     // 1️⃣ Crear el builder del comprobante y cliente AFIPs
 
     var datosFacturaAfip = new ComprobanteCaeBuilder();
-    var afipClient = new AfipWsMtxcaClient("https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService");
+    var afipClient = new AfipWsMtxcaClient("https://serviciosjava.afip.gob.ar/wsmtxca/services/MTXCAService");
 
 
 

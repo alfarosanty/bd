@@ -115,7 +115,7 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
         }
 
         // 4️⃣ Construimos SecureString a partir de la contraseña
-        SecureString passwordSecure = new SecureString();
+            SecureString passwordSecure = new SecureString();
         foreach (char c in contrasena) passwordSecure.AppendChar(c);
         passwordSecure.MakeReadOnly();
 

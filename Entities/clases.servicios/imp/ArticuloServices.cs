@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -359,13 +360,25 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
     return dto;
 }
 
-
-public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.NpgsqlConnection connection)
+public List<int> ActualizarArticulosPrecios(
+    ArticuloPrecio[] articuloPrecios,
+    int usuarioId,
+    NpgsqlConnection connection)
 {
     var filasAfectadas = new List<int>();
 
-    if (connection.State != System.Data.ConnectionState.Open)
+    if (connection.State != ConnectionState.Open)
         connection.Open();
+
+    using var tx = connection.BeginTransaction();
+
+    // 🔑 Pasamos el usuario a PostgreSQL (lo usa el trigger)
+    using (var cmdUser = new NpgsqlCommand(
+        "SET LOCAL app.usuario_id = @usuarioId", connection, tx))
+    {
+        cmdUser.Parameters.AddWithValue("@usuarioId", usuarioId);
+        cmdUser.ExecuteNonQuery();
+    }
 
     foreach (var articulo in articuloPrecios)
     {
@@ -377,7 +390,7 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
             "\"PRECIO1\" = @PRECIO1, " +
             "\"PRECIO2\" = @PRECIO2, " +
             "\"PRECIO3\" = @PRECIO3 " +
-            "WHERE \"CODIGO\" = @CODIGO", connection))
+            "WHERE \"CODIGO\" = @CODIGO", connection, tx))
         {
             cmdPrecio.Parameters.AddWithValue("@PRECIO1", articulo.Precio1 ?? 0);
             cmdPrecio.Parameters.AddWithValue("@PRECIO2", articulo.Precio2 ?? 0);
@@ -387,36 +400,34 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
             afectadas += cmdPrecio.ExecuteNonQuery();
         }
 
-        // 2️⃣ Verificar si la descripción cambió
-        string descripcionActual = null;
+        // 2️⃣ Verificar descripción
+        string descripcionActual;
 
         using (var cmdSelect = new NpgsqlCommand(
-            $"SELECT \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = @CODIGO", connection))
+            $"SELECT \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = @CODIGO",
+            connection, tx))
         {
             cmdSelect.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
             descripcionActual = cmdSelect.ExecuteScalar() as string;
         }
 
-        bool descripcionDiferente = !string.Equals(
+        if (!string.Equals(
             articulo.Descripcion ?? "",
             descripcionActual ?? "",
-            StringComparison.OrdinalIgnoreCase
-        );
-
-        if (descripcionDiferente)
+            StringComparison.OrdinalIgnoreCase))
         {
-            // Actualizar en ARTICULO_PRECIO
             using (var cmdDescPrecio = new NpgsqlCommand(
-                $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO", connection))
+                $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO",
+                connection, tx))
             {
                 cmdDescPrecio.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
                 cmdDescPrecio.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
                 afectadas += cmdDescPrecio.ExecuteNonQuery();
             }
 
-            // Actualizar en ARTICULO
             using (var cmdDescArticulo = new NpgsqlCommand(
-                $"UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO", connection))
+                $"UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO",
+                connection, tx))
             {
                 cmdDescArticulo.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
                 cmdDescArticulo.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
@@ -427,8 +438,10 @@ public List<int> ActualizarArticulosPrecios(ArticuloPrecio[] articuloPrecios, Np
         filasAfectadas.Add(afectadas);
     }
 
+    tx.Commit();
     return filasAfectadas;
 }
+
 
 
 

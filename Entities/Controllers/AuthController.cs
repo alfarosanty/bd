@@ -33,7 +33,8 @@ public async Task<IActionResult> Login([FromBody] UsuarioLoginRequest userReques
 
 var claims = new List<Claim>
 {
-    new Claim(ClaimTypes.Name, usuario.UserName), // este debería ser el "identificador"
+    new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+    new Claim(ClaimTypes.Name, usuario.UserName),
     new Claim(ClaimTypes.Role, usuario.Rol.ToString()),
     new Claim("Nombre", usuario.Nombre),
     new Claim("Apellido", usuario.Apellido),
@@ -49,7 +50,7 @@ var claims = new List<Claim>
 }
 
 
-    [Authorize]
+    //[Authorize]
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {
@@ -64,6 +65,7 @@ public IActionResult Me()
     Console.WriteLine("🔍 /me fue llamado. Usuario autenticado: " + User.Identity?.Name);
     return Ok(new
     {
+        id = User.FindFirstValue(ClaimTypes.NameIdentifier),
         userName = User.Identity?.Name,
         roles = User.Claims
                     .Where(c => c.Type == ClaimTypes.Role)

@@ -168,6 +168,8 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
             string telefono = reader["CUIT"] as string;
             string provincia = reader["PROVINCIA"] as string;
             string transporte = reader["TRANSPORTE"] as string;
+            bool valido = (bool)reader["VALIDO"];
+
 
 
 
@@ -192,7 +194,8 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
                 Cuit = telefono,
                 CondicionFiscal = cf,
                 Provincia = provincia,
-                Transporte = transporte
+                Transporte = transporte,
+                valido = valido
 
             };
 
