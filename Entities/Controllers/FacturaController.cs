@@ -68,7 +68,7 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
         var respuestaAfip = await fs.FacturarAsync(
             factura,
             loginTicket,
-            Convert.ToInt64(20302367613)
+            Convert.ToInt64(30716479966)
         );
 
         // 4) Guardar datos del CAE en DB

@@ -86,10 +86,13 @@ public class AfipWsMtxcaClient
 
 </ser:autorizarComprobanteRequest>";
 
-        return await SendSoapRequest(
+        var respuesta = await SendSoapRequest(
             "http://impl.service.wsmtxca.afip.gov.ar/service/autorizarComprobante",
             body
         );
+
+        Console.WriteLine(respuesta);
+        return respuesta;
     }
 
 
@@ -113,10 +116,12 @@ public class AfipWsMtxcaClient
  </consultaUltimoComprobanteAutorizadoRequest>
 </ser:consultarUltimoComprobanteAutorizadoRequest>";
 
-        return await SendSoapRequest(
+        var response = await SendSoapRequest(
             "http://impl.service.wsmtxca.afip.gov.ar/service/consultarUltimoComprobanteAutorizado",
             body
         );
+        Console.WriteLine(response);
+        return response;
     }
 
     // ============================================================
