@@ -21,33 +21,99 @@ private readonly HttpClient _httpClient;
         _httpClient = new HttpClient();
     }
 
-public Factura GetFactura(int id, NpgsqlConnection conex) {
-    try {
+public Factura GetFactura(int id, NpgsqlConnection conex)
+{
+    try
+    {
         Factura factura = null;
-        string commandText = getSelect() + GetFromText() + " WHERE FA.\"ID_FACTURA\" = @id";
 
-        using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex)) {
-            Console.WriteLine("Consulta: " + commandText);
+        string commandText =
+            getSelect() +
+            GetFromText() +
+            " WHERE FA.\"ID_FACTURA\" = @id";
+
+        using (var cmd = new NpgsqlCommand(commandText, conex))
+        {
             cmd.Parameters.AddWithValue("id", id);
 
-            using (NpgsqlDataReader reader = cmd.ExecuteReader()) {
-                if (reader.Read()) {
-                    factura = ReadFactura(reader, conex);
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    // ⚠️ SOLO MAPEO, NADA DE DB ACÁ
+                    factura = ReadFactura(reader);
                 }
             }
         }
 
-        if (factura == null) {
-            throw new Exception($"No se encontró factura con id {id}");
-        }
+        if (factura == null)
+            return null; // 👈 NUNCA tirar excepción acá
 
+        // 🔥 Ahora sí, DB libre
         factura.Articulos = getArticuloFactura(factura, conex);
-        factura.Cliente = new ClienteServices().GetCliente(factura.Cliente.Id, conex);
+        factura.Cliente = new ClienteServices()
+            .GetCliente(factura.Cliente.Id, conex);
+
         return factura;
     }
-    catch (Exception ex) {
-        // Aquí podés lanzar una excepción más específica o simplemente relanzar la actual
-        throw new Exception($"{ex.Message}", ex);
+    catch (Exception ex)
+    {
+        throw new Exception("Error al obtener factura", ex);
+    }
+}
+
+
+public List<Factura> GetFacturasByCliente(
+    int idCliente,
+    DateTime? desde,
+    DateTime? hasta,
+    NpgsqlConnection conex)
+{
+    try
+    {
+        List<Factura> facturas = new List<Factura>();
+
+        string commandText =
+            getSelect() +
+            GetFromText() +
+            " WHERE FA.\"ID_CLIENTE\" = @idCliente";
+
+        if (desde.HasValue)
+            commandText += " AND FA.\"FECHA_FACTURA\" >= @desde";
+
+        if (hasta.HasValue)
+            commandText += " AND FA.\"FECHA_FACTURA\" <= @hasta";
+
+        using (var cmd = new NpgsqlCommand(commandText, conex))
+        {
+            cmd.Parameters.AddWithValue("idCliente", idCliente);
+
+            if (desde.HasValue)
+                cmd.Parameters.AddWithValue("desde", desde.Value);
+
+            if (hasta.HasValue)
+                cmd.Parameters.AddWithValue("hasta", hasta.Value);
+
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Factura factura = ReadFactura(reader);
+                    facturas.Add(factura);
+                }
+            }
+        }
+
+        facturas.ForEach(f =>
+        {
+            f.Articulos = getArticuloFactura(f, conex);
+        });
+
+        return facturas.OrderByDescending(f => f.Id).ToList();
+    }
+    catch (Exception ex)
+    {
+        throw new Exception("Error al obtener facturas por cliente", ex);
     }
 }
 
@@ -344,7 +410,14 @@ public List<ArticuloResumen> ConstruirResumen(Dictionary<string, List<ArticuloFa
             .Select(g => $"{g.Sum(x => x.Cantidad)} {g.Key}")
             .ToList();
 
-        string descripcionFinal = descripcionBase + " - " + string.Join(", ", detalles);
+        string descripcionFinal;
+
+        if(articulos.First().Articulo.Codigo == "GEN")
+            {
+                 descripcionFinal = descripcionBase;
+            }
+        else
+            descripcionFinal = descripcionBase + " - " + string.Join(", ", detalles);
 
         lista.Add(new ArticuloResumen
         {
@@ -550,7 +623,7 @@ public List<Factura> getFacturaPorFiltro(int? idCliente, string? tipoFactura, in
     using var reader = cmd.ExecuteReader();
     while (reader.Read())
     {
-        facturas.Add(ReadFactura(reader, con));
+        facturas.Add(ReadFactura(reader));
     }
 
     return facturas;
@@ -645,22 +718,17 @@ private static void completarDatosFactura(Factura factura, Npgsql.NpgsqlConnecti
     }
 }
 
-private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection conex)
+private static Factura ReadFactura(NpgsqlDataReader reader)
 {
     int id = (int)reader["ID_FACTURA"];
     int idCliente = (int)reader["ID_CLIENTE"];
     
-    Cliente cliente = new Cliente(){
-        Id = idCliente
-    };
 
-
-    return new Factura
+    Factura factura = new Factura
     {
         Id = id,
         FechaFactura = (DateTime)reader["FECHA_FACTURA"],
         EximirIVA = (bool)reader["EXIMIR_IVA"],
-        Cliente = cliente,
         Presupuesto = reader["ID_PRESUPUESTO"] != DBNull.Value 
             ? new Presupuesto { Id = Convert.ToInt32(reader["ID_PRESUPUESTO"]) }
             : null,
@@ -674,6 +742,15 @@ private static Factura ReadFactura(NpgsqlDataReader reader, NpgsqlConnection con
         TipoFactura = reader["TIPO_FACTURA"].ToString(),
         DescuentoGeneral = reader["DESCUENTO"] != DBNull.Value ? Convert.ToInt32(reader["DESCUENTO"]) : null
     };
+
+    CConexion cconexio =  new CConexion();
+          NpgsqlConnection conex2= cconexio.establecerConexion();
+
+           factura.Cliente = new ClienteServices().GetCliente(idCliente, conex2);
+          
+           cconexio.cerrarConexion(conex2);
+
+    return factura;
 }
 
 

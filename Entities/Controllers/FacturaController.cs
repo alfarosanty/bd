@@ -175,6 +175,49 @@ public async Task<IActionResult> GetFactura(int id)
     return Ok(factura);
 }
 
+[HttpGet("GetByCliente/{idCliente}")]
+public IActionResult GetFacturasPorCliente(
+    int idCliente,
+    [FromQuery] DateTime? desde,
+    [FromQuery] DateTime? hasta)
+{
+    if (idCliente <= 0)
+        return BadRequest("Id de cliente inválido");
+
+    var con = new CConexion();
+    NpgsqlConnection npgsqlConnection = null;
+
+    try
+    {
+        npgsqlConnection = con.establecerConexion();
+
+        var fs = new FacturaServices();
+        var facturas = fs.GetFacturasByCliente(
+            idCliente,
+            desde,
+            hasta,
+            npgsqlConnection
+        );
+
+        if (facturas == null || facturas.Count == 0)
+            return NoContent();
+
+        return Ok(facturas);
+    }
+    catch (PostgresException ex)
+    {
+        return StatusCode(500, "Error de la Base de datos: " + ex.Message);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, "Error interno del servidor" + ex.Message);
+    }
+    finally
+    {
+        if (npgsqlConnection != null)
+            con.cerrarConexion(npgsqlConnection);
+    }
+}
 
 [HttpGet("{id}/pdf")]
 public IActionResult PdfTest(int id)

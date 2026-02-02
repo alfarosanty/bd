@@ -82,8 +82,8 @@ public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
     {
         string query = @"
             INSERT INTO ""CLIENTE"" 
-            (""RAZON_SOCIAL"", ""TELEFONO"", ""CONTACTO"", ""DOMICILIO"", ""LOCALIDAD"", ""CUIT"", ""ID_CONDICION_AFIP"", ""PROVINCIA"", ""TRANSPORTE"")
-            VALUES (@razonSocial, @telefono, @contacto, @domicilio, @localidad, @cuit, @idCondicionAfip, @provincia, @transporte)
+            (""RAZON_SOCIAL"", ""TELEFONO"", ""CONTACTO"", ""DOMICILIO"", ""LOCALIDAD"", ""CUIT"", ""ID_CONDICION_AFIP"", ""PROVINCIA"", ""TRANSPORTE"", ""VALIDO"")
+            VALUES (@razonSocial, @telefono, @contacto, @domicilio, @localidad, @cuit, @idCondicionAfip, @provincia, @transporte, @valido)
             RETURNING ""ID_CLIENTE"";
         ";
 
@@ -99,6 +99,7 @@ public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
         cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
         cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@valido", cliente.valido ?? (object)DBNull.Value);
 
         cliente.Id = (int)cmd.ExecuteScalar();
         return cliente;
@@ -116,7 +117,8 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
             ""CUIT"" = @cuit,
             ""ID_CONDICION_AFIP"" = @idCondicionAfip,
             ""PROVINCIA"" = @provincia,
-            ""TRANSPORTE"" = @transporte
+            ""TRANSPORTE"" = @transporte,
+            ""VALIDO"" = @valido
         WHERE ""ID_CLIENTE"" = @idCliente;
     ";
 
@@ -131,6 +133,7 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
     cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
     cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@valido", cliente.valido ?? (object)DBNull.Value);
 
     int filasAfectadas = cmd.ExecuteNonQuery();
     return filasAfectadas;

@@ -1,0 +1,233 @@
+2026-01-30 11:04:04.532 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:04:04.806 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:04:04.811 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:04:04.811 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:04:04.811 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:04:51.177 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:04:51.377 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:04:51.381 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:04:51.381 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:04:51.381 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:05:25.345 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-01-30 11:05:25.720 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 380.2755ms
+2026-01-30 11:05:25.988 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-01-30 11:05:26.292 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 303.9233ms
+2026-01-30 11:05:40.112 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:05:40.133 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:05:40.164 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:05:40.219 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:05:40.946 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:05:40.997 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 767.8677ms
+2026-01-30 11:05:41.000 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:05:41.000 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 887.6256ms
+2026-01-30 11:06:52.952 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:06:53.225 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:06:53.229 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:06:53.229 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:06:53.229 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:07:06.854 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:07:06.950 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:07:06.971 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:07:07.018 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:07:07.700 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:07:07.881 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 855.6037ms
+2026-01-30 11:07:07.884 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:07:07.887 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 1038.7821ms
+2026-01-30 11:07:21.754 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:07:21.762 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:07:21.763 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:08:29.689 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:08:29.690 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 67927.0012ms
+2026-01-30 11:08:29.690 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:08:29.690 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 67936.2646ms
+2026-01-30 11:08:51.066 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:08:51.257 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:08:51.262 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:08:51.262 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:08:51.263 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:09:19.591 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:09:19.784 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:09:19.788 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:09:19.789 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:09:19.789 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:09:51.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:09:51.898 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:09:51.922 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:09:51.982 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:09:52.785 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:09:52.987 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 997.1156ms
+2026-01-30 11:09:52.990 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:09:52.993 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 1216.0124ms
+2026-01-30 11:10:20.911 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:10:21.127 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:10:21.131 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:10:21.131 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:10:21.131 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:10:29.456 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:10:29.569 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:10:29.595 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:10:29.642 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:10:30.303 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:10:30.494 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 843.7522ms
+2026-01-30 11:10:30.497 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:10:30.500 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 1049.7462ms
+2026-01-30 11:10:46.265 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:10:46.488 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:10:46.492 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:10:46.493 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:10:46.493 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:10:47.819 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-01-30 11:10:48.351 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 542.5549ms
+2026-01-30 11:10:48.502 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-01-30 11:10:48.754 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 252.0369ms
+2026-01-30 11:11:26.168 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:11:26.375 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:11:26.379 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:11:26.380 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:11:26.380 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:12:18.202 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:12:18.409 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:12:18.415 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:12:18.416 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:12:18.416 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:12:35.133 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:12:35.311 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:12:35.315 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:12:35.316 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:12:35.316 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:14:41.971 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:14:42.170 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:14:42.174 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:14:42.175 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:14:42.175 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:14:58.360 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:14:58.458 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:14:58.480 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:14:58.535 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:15:29.230 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:15:29.531 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 30989.0802ms
+2026-01-30 11:15:29.534 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:15:29.537 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 31182.8094ms
+2026-01-30 11:15:57.440 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:15:57.453 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:15:57.458 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:17:34.501 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:17:34.687 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:17:34.691 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:17:34.692 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:17:34.692 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:17:45.416 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:17:45.512 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:17:45.533 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:17:45.581 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:17:49.604 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:17:49.943 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 4353.2568ms
+2026-01-30 11:17:49.947 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:17:49.950 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 4539.2067ms
+2026-01-30 11:21:11.174 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:21:11.353 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:21:11.357 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:21:11.358 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:21:11.358 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:21:14.628 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - -
+2026-01-30 11:21:14.727 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:21:14.748 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:21:14.794 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:21:19.008 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:21:19.208 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 4406.5245ms
+2026-01-30 11:21:19.211 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:21:19.214 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala%2Fs - - - 200 - application/json;+charset=utf-8 4590.2974ms
+2026-01-30 11:24:33.471 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala - -
+2026-01-30 11:24:33.496 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:24:33.496 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:24:35.895 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:24:35.962 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 2465.6872ms
+2026-01-30 11:24:35.962 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:24:35.962 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala - - - 200 - application/json;+charset=utf-8 2491.3056ms
+2026-01-30 11:25:35.562 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:25:35.753 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:25:35.758 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:25:35.759 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:25:35.759 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:52:55.049 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:52:55.251 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:52:55.255 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:52:55.256 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:52:55.256 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:53:02.224 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala fu - -
+2026-01-30 11:53:02.336 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:53:02.358 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:53:02.412 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:53:03.109 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:53:03.294 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 874.4335ms
+2026-01-30 11:53:03.297 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:53:03.300 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala fu - - - 200 - application/json;+charset=utf-8 1081.3315ms
+2026-01-30 11:54:27.470 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:54:27.707 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:54:27.712 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:54:27.712 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:54:27.712 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:54:28.547 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala fu - -
+2026-01-30 11:54:28.645 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:54:28.666 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:54:28.714 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:55:18.503 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:55:18.709 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:55:18.713 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:55:18.714 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:55:18.714 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:55:21.876 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala fu - -
+2026-01-30 11:55:21.975 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:55:21.996 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:55:22.042 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:55:26.218 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:55:26.483 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 4433.4975ms
+2026-01-30 11:55:26.486 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:55:26.489 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/cala fu - - - 200 - application/json;+charset=utf-8 4617.4058ms
+2026-01-30 11:55:50.033 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:55:50.260 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:55:50.265 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:55:50.265 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:55:50.265 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:55:51.989 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - -
+2026-01-30 11:55:52.086 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:55:52.109 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:55:52.155 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:55:56.769 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:55:56.967 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 4804.8493ms
+2026-01-30 11:55:56.971 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:55:56.974 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - - - 200 - application/json;+charset=utf-8 4989.8293ms
+2026-01-30 11:56:01.826 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - -
+2026-01-30 11:56:01.835 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:01.836 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:56:01.841 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:56:01.841 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 5.0344ms
+2026-01-30 11:56:01.841 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:01.841 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - - - 200 - application/json;+charset=utf-8 14.8990ms
+2026-01-30 11:56:04.154 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - -
+2026-01-30 11:56:04.159 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:04.159 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:56:04.163 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:56:04.163 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 3.9154ms
+2026-01-30 11:56:04.163 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:04.163 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - - - 200 - application/json;+charset=utf-8 9.0003ms
+2026-01-30 11:56:31.251 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - -
+2026-01-30 11:56:31.251 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:31.252 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:56:31.255 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:56:31.255 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 3.6393ms
+2026-01-30 11:56:31.255 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:56:31.255 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - - - 200 - application/json;+charset=utf-8 4.1339ms
+2026-01-30 11:58:38.951 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-30 11:58:39.144 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-01-30 11:58:39.149 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-30 11:58:39.149 -03:00 [INF] Hosting environment: Development
+2026-01-30 11:58:39.149 -03:00 [INF] Content root path: C:\Fran\Backend\bd\
+2026-01-30 11:58:39.326 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - -
+2026-01-30 11:58:39.425 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-30 11:58:39.448 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:58:39.498 -03:00 [INF] Route matched with {action = "GetArticulosBySubfamilia", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosBySubfamilia(System.String) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-01-30 11:58:40.209 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-30 11:58:40.427 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI) in 921.6606ms
+2026-01-30 11:58:40.430 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosBySubfamilia (BlumeAPI)'
+2026-01-30 11:58:40.434 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/BySubfamilia/CALA FU - - - 200 - application/json;+charset=utf-8 1113.0323ms

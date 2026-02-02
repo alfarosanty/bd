@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 namespace BlumeAPI.Controllers;
 
@@ -86,16 +87,51 @@ public IActionResult Actualizar([FromBody] Presupuesto presupuesto)
 
 
 
-      [HttpGet("GetPresupuestoByCliente/{idCliente}")]
-    public List<Presupuesto> GetByCliente(int idCliente)
+[HttpGet("GetPresupuestoByCliente/{idCliente}")]
+public IActionResult GetByCliente(
+    int idCliente,
+    [FromQuery] DateTime? desde,
+    [FromQuery] DateTime? hasta)
+{
+    if (idCliente <= 0)
+        return BadRequest("Id de cliente inválido");
+
+    var con = new CConexion();
+    NpgsqlConnection npgsqlConnection = null;
+
+    try
     {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-       PresupuestoServices  ps = new PresupuestoServices();
-        List<Presupuesto> presu = ps.GetPresupuestoByCliente(idCliente,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-         return presu;
+        npgsqlConnection = con.establecerConexion();
+
+        var ps = new PresupuestoServices();
+        var presu = ps.GetPresupuestoByCliente(
+            idCliente,
+            desde,
+            hasta,
+            npgsqlConnection
+        );
+
+        if (presu == null || presu.Count == 0)
+            return NoContent(); // 204
+
+        return Ok(presu); // 200
     }
+    catch (PostgresException ex)
+    {
+        return StatusCode(500, "Error de la Base de datos: " + ex.Message);
+    }
+
+    catch (Exception ex)
+    {
+        // error inesperado
+        return StatusCode(500, "Error interno del servidor");
+    }
+    finally
+    {
+        if (npgsqlConnection != null)
+            con.cerrarConexion(npgsqlConnection);
+    }
+}
 
 [HttpGet("GetEstadosPresupuesto")]
 public IActionResult GetEstadosPresupuesto()

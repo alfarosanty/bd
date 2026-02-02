@@ -45,56 +45,5 @@ using System.Threading.Tasks;
             
             }
         }
-/*
-        public Color GetColor(int id, NpgsqlConnection conex ){
-            string commandText = $"SELECT * FROM \"COLOR\"WHERE \"ID_COLOR\" = @id";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-                {
-                    Console.WriteLine("Consulta: "+ commandText);
-                    cmd.Parameters.AddWithValue("id", id);
-                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                        while (reader.Read())
-                        {
-                            Color game = ReadColor(reader);
-                            return game;
-                        }
-                }
-                return null;
-                }
-
-                 public List<Color> listarColores(NpgsqlConnection conex ){
-                string commandText = $"SELECT * FROM \"COLOR\"";
-                List<Color> colores = new List<Color>();
-                using (NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-                    {
-                
-                        Console.WriteLine("Consulta: "+ commandText);
-                        using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                            while (reader.Read())
-                            {
-                                colores.Add( ReadColor(reader));
-                                
-                            }
-                    
-                    }
-                        return colores;
-                }
-
-        private static Color ReadColor(NpgsqlDataReader reader)
-        {
-            int? id = reader["ID_COLOR"] as int?;
-            string name = reader["CODIGO"] as string;
-            string minPlayers = reader["DESCRIPCION"] as string;
-            
-
-            Color color = new Color
-            {
-                Id = id.Value,
-                Codigo = name,
-                Descripcion = minPlayers
-            };
-            return color;
-        }
-*/
 
     }

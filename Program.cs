@@ -27,12 +27,15 @@ builder.Services.AddCors(options =>
         {
             policy
                 .WithOrigins(
-                    "http://localhost:8082",    // desarrollo
+                    "http://localhost:8080", // desarrollo Compu Agos
+                    "http://localhost:8082",    // desarrollo notebook Santi
                     "http://192.168.1.104:8081" // producción / otra PC
                 )
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .AllowCredentials();
+                .AllowCredentials()
+                .WithExposedHeaders("Content-Disposition");
+
         });
 });
 
@@ -61,8 +64,9 @@ builder.Services.AddAuthentication("MiCookieAuth")
         options.Cookie.SameSite = SameSiteMode.Lax;
         options.Cookie.SecurePolicy = CookieSecurePolicy.None;
 
-        options.ExpireTimeSpan = TimeSpan.FromHours(10);
-        options.SlidingExpiration = true;
+        options.ExpireTimeSpan = TimeSpan.FromHours(9);
+        options.SlidingExpiration = false;
+
 
         options.Events = new CookieAuthenticationEvents
         {
@@ -88,8 +92,8 @@ builder.Services.AddScoped<PdfService>();
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 // Para producción:
 var connectionString = builder.Configuration.GetConnectionString(
-   //"BDPruebas"
-   "BDProduccion"
+   "BDPruebas"
+   //"BDProduccion"
     );
 // Para pruebas/desarrollo:
 // var connectionString = builder.Configuration.GetConnectionString("BDPruebas");

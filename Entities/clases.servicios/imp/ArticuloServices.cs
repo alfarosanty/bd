@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -137,8 +138,42 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
 }
 
 
+public List<Articulo> GetArticulosBySubfamilia(string subfamilia, NpgsqlConnection conex)
+{
+    string selectText = NewMethod();
+    subfamilia = WebUtility.UrlDecode(subfamilia).Trim();
 
+    string fromAndWhere = @"
+        FROM 
+            ""ARTICULO"" AR
+            JOIN ""MEDIDA"" MD ON AR.""ID_MEDIDA"" = MD.""ID_MEDIDA""
+            JOIN ""SUBFAMILIA"" SFM ON AR.""ID_SUBFAMILIA"" = SFM.""ID_SUBFAMILIA""
+            JOIN ""COLOR"" CL ON AR.""ID_COLOR"" = CL.""ID_COLOR""
+            JOIN ""ARTICULO_PRECIO"" AP ON AR.""ID_ARTICULO_PRECIO"" = AP.""ID_ARTICULO_PRECIO""
+        WHERE 
+            SFM.""CODIGO"" = @subfamilia 
+        ORDER BY
+            AR.""ID_ARTICULO""";
 
+    string query = selectText + fromAndWhere;
+
+    var articulos = new List<Articulo>();
+
+    using (var cmd = new NpgsqlCommand(query, conex))
+    {
+        cmd.Parameters.AddWithValue("subfamilia", subfamilia);
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                articulos.Add(ReadArticulo(reader));
+            }
+        }
+    }
+
+    return articulos;
+}
 
 
             public List<Articulo> GetArticuloByFamiliaMedida(string subfamilia, string medida, NpgsqlConnection conex)
@@ -362,7 +397,6 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
 
 public List<int> ActualizarArticulosPrecios(
     ArticuloPrecio[] articuloPrecios,
-    int usuarioId,
     NpgsqlConnection connection)
 {
     var filasAfectadas = new List<int>();
@@ -371,14 +405,6 @@ public List<int> ActualizarArticulosPrecios(
         connection.Open();
 
     using var tx = connection.BeginTransaction();
-
-    // 🔑 Pasamos el usuario a PostgreSQL (lo usa el trigger)
-    using (var cmdUser = new NpgsqlCommand(
-        "SET LOCAL app.usuario_id = @usuarioId", connection, tx))
-    {
-        cmdUser.Parameters.AddWithValue("@usuarioId", usuarioId);
-        cmdUser.ExecuteNonQuery();
-    }
 
     foreach (var articulo in articuloPrecios)
     {
@@ -400,38 +426,16 @@ public List<int> ActualizarArticulosPrecios(
             afectadas += cmdPrecio.ExecuteNonQuery();
         }
 
-        // 2️⃣ Verificar descripción
-        string descripcionActual;
-
-        using (var cmdSelect = new NpgsqlCommand(
-            $"SELECT \"DESCRIPCION\" FROM \"{ArticuloPrecio.TABLA}\" WHERE \"CODIGO\" = @CODIGO",
-            connection, tx))
+        // 2️⃣ Actualizar descripción si cambió
+        if (!string.IsNullOrWhiteSpace(articulo.Descripcion))
         {
-            cmdSelect.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
-            descripcionActual = cmdSelect.ExecuteScalar() as string;
-        }
-
-        if (!string.Equals(
-            articulo.Descripcion ?? "",
-            descripcionActual ?? "",
-            StringComparison.OrdinalIgnoreCase))
-        {
-            using (var cmdDescPrecio = new NpgsqlCommand(
-                $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO",
-                connection, tx))
+            using (var cmdDesc = new NpgsqlCommand(
+                $"UPDATE \"{ArticuloPrecio.TABLA}\" SET \"DESCRIPCION\" = @DESCRIPCION " +
+                "WHERE \"CODIGO\" = @CODIGO", connection, tx))
             {
-                cmdDescPrecio.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
-                cmdDescPrecio.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
-                afectadas += cmdDescPrecio.ExecuteNonQuery();
-            }
-
-            using (var cmdDescArticulo = new NpgsqlCommand(
-                $"UPDATE \"ARTICULO\" SET \"DESCRIPCION\" = @DESCRIPCION WHERE \"CODIGO\" = @CODIGO",
-                connection, tx))
-            {
-                cmdDescArticulo.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
-                cmdDescArticulo.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
-                afectadas += cmdDescArticulo.ExecuteNonQuery();
+                cmdDesc.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion);
+                cmdDesc.Parameters.AddWithValue("@CODIGO", articulo.Codigo ?? (object)DBNull.Value);
+                afectadas += cmdDesc.ExecuteNonQuery();
             }
         }
 
@@ -441,9 +445,6 @@ public List<int> ActualizarArticulosPrecios(
     tx.Commit();
     return filasAfectadas;
 }
-
-
-
 
 public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] presupuestosArticulos,NpgsqlConnection connection)
 {

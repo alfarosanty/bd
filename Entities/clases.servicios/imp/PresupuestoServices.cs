@@ -1,3 +1,4 @@
+using System.Text;
 using Npgsql;
 
 public class PresupuestoServices
@@ -28,7 +29,7 @@ public Presupuesto GetPresupuesto(int id, NpgsqlConnection conex) {
 
             using (NpgsqlDataReader reader = cmd.ExecuteReader()) {
                 if (reader.Read()) {
-                    presupuesto = ReadPresupeusto(reader, conex);
+                    presupuesto = ReadPresupeusto(reader);
                 }
             }
         }
@@ -46,30 +47,51 @@ public Presupuesto GetPresupuesto(int id, NpgsqlConnection conex) {
     }
 }
 
+public List<Presupuesto> GetPresupuestoByCliente(
+    int idCliente,
+    DateTime? desde,
+    DateTime? hasta,
+    NpgsqlConnection conex)
+{
+    var presupuestos = new List<Presupuesto>();
 
+    var sql = new StringBuilder();
+    sql.Append(getSelect());
+    sql.Append(GetFromText());
+    sql.Append(" WHERE PR.\"ID_CLIENTE\" = @id ");
 
+    if (desde.HasValue)
+        sql.Append(" AND PR.\"FECHA_PRESUPUESTO\" >= @desde ");
 
+    if (hasta.HasValue)
+        sql.Append(" AND PR.\"FECHA_PRESUPUESTO\" < @hasta ");
 
+    sql.Append(" ORDER BY PR.\"ID_PRESUPUESTO\" ");
 
+    using (var cmd = new NpgsqlCommand(sql.ToString(), conex))
+    {
+        cmd.Parameters.AddWithValue("id", idCliente);
 
-     public List<Presupuesto> GetPresupuestoByCliente(int idCliente, NpgsqlConnection conex ){
-            List<Presupuesto> presupuestos = new List<Presupuesto>();
-            string commandText =  getSelect() + GetFromText()+ " WHERE PR.\"ID_CLIENTE\" = @id";
-            using(NpgsqlCommand cmd = new NpgsqlCommand(commandText, conex))
-               {
-                 Console.WriteLine("Consulta: "+ commandText);
-                    cmd.Parameters.AddWithValue("id", idCliente);
-                     
-                     using (NpgsqlDataReader reader =  cmd.ExecuteReader())
-                        while (reader.Read())
-                        {
-                            presupuestos.Add(ReadPresupeusto(reader, conex));
-                            
-                            
-                        }
-                }
-                return presupuestos;
+        if (desde.HasValue)
+            cmd.Parameters.AddWithValue("desde", desde.Value);
+
+        if (hasta.HasValue)
+            cmd.Parameters.AddWithValue("hasta", hasta.Value.AddDays(1));
+
+        using (var reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+                presupuestos.Add(ReadPresupeusto(reader));
         }
+    }
+
+    foreach (var presupuesto in presupuestos)
+        presupuesto.Articulos = getArticuloPresupuesto(presupuesto, conex);
+
+    return presupuestos.OrderByDescending(p => p.Id).ToList();
+}
+
+
     
 public List<EstadoPresupuesto> getEstadosPresupuesto(NpgsqlConnection conex)
 {
@@ -252,13 +274,14 @@ public List<Presupuesto> GetPresupuestosByIds(List<int> idsPresupuestos, NpgsqlC
 
 
 
-private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnection conex){
+private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader){
        int id =(int) reader["ID_PRESUPUESTO"];
        DateTime fecha = (DateTime) reader["FECHA_PRESUPUESTO"];
        bool eximirIVA = (bool)reader["EXMIR_IVA"];
        int idCliente =(int) reader["ID_CLIENTE"];
        int? descGeneral = reader["DESCUENTO"] != DBNull.Value ? (int?)reader["DESCUENTO"] : null;
        int? idEstadoPresupuesto = reader["ID_ESTADO"] != DBNull.Value ? (int?)reader["ID_ESTADO"] : null;
+       float? total = reader["TOTAL_PRESUPUESTO"] != DBNull.Value ? (float?)Convert.ToSingle(reader["TOTAL_PRESUPUESTO"]) : null;
 
         EstadoPresupuesto estadoPresupuesto = null;
 
@@ -276,6 +299,7 @@ private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader,NpgsqlConnect
              EximirIVA = eximirIVA,
              descuentoGeneral = descGeneral,
              EstadoPresupuesto = estadoPresupuesto,
+             total = total,
              };
 
            CConexion cconexio =  new CConexion();

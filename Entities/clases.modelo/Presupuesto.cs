@@ -24,6 +24,8 @@ using System.Threading.Tasks;
     public List<ArticuloPresupuesto>? Articulos  { get; set; }
 
     public float? descuentoGeneral {get; set; }
+
+    public float? total {get; set; }
  
     }
 

@@ -34,7 +34,15 @@ public class ArticuloController : ControllerBase
     }
 
 
-
+ [HttpGet("BySubfamilia/{subfamilia}")]
+    public IEnumerable<Articulo> GetArticulosBySubfamilia(string subfamilia)
+    {
+        CConexion con =  new CConexion();
+        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        List<Articulo> articulos = new ArticuloServices().GetArticulosBySubfamilia(subfamilia, npgsqlConnection);
+        con.cerrarConexion(npgsqlConnection);
+        return articulos;
+    }
 
 
  [HttpGet("ByFamilias/{familia}")]
@@ -142,22 +150,22 @@ public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, 
         return articulosPrecioId;
     }
 
-[Authorize]
+//[Authorize]
 [HttpPost("ActualizarArticulosPrecios")]
 public IActionResult ActualizarArticulosPrecios([FromBody] ArticuloPrecio[] articuloPrecios)
 {
-    var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+    /*var claim = User.FindFirst(ClaimTypes.NameIdentifier);
 
     if (claim == null)
         return Unauthorized("Usuario no autenticado");
 
     int usuarioId = int.Parse(claim.Value);
-
+*/
     CConexion con = new CConexion();
     NpgsqlConnection npgsqlConnection = con.establecerConexion();
 
     var resultado = new ArticuloServices()
-        .ActualizarArticulosPrecios(articuloPrecios, usuarioId, npgsqlConnection);
+        .ActualizarArticulosPrecios(articuloPrecios, npgsqlConnection);
 
     con.cerrarConexion(npgsqlConnection);
 
