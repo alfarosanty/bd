@@ -1,4 +1,5 @@
 using BlumeAPI;
+using BlumeAPI.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext : DbContext
@@ -8,6 +9,8 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<ArticuloEntity> Articulos { get; set; }
+    public DbSet<ArticuloPrecioEntity> ArticuloPrecios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -15,5 +18,10 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Usuario>()
             .Property(u => u.Rol)
             .HasConversion<string>();
+
+        modelBuilder.ApplyConfiguration(new ArticuloConfiguration());
+        modelBuilder.ApplyConfiguration(new ArticuloPrecioConfiguration());
+
     }
+
 }

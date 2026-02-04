@@ -1,4 +1,6 @@
 using System.Security.Claims;
+using BlumeAPI.Services;
+using BlumeAPI.Services.Imp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
@@ -15,10 +17,12 @@ public class ArticuloController : ControllerBase
     };
 
     private readonly ILogger<ArticuloController> _logger;
+    private readonly IArticuloService _articuloService;
 
-    public ArticuloController(ILogger<ArticuloController> logger)
+    public ArticuloController(ILogger<ArticuloController> logger, IArticuloService articuloService)
     {
         _logger = logger;
+        _articuloService = articuloService;
     }
 
 // ARTICULO
@@ -206,5 +210,24 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     }
 }
 
+    [HttpGet("{id}/facturados")]
+    public async Task<IActionResult> GetFacturados(int id)
+    {
+        var result = await _articuloService.GetFacturadosByArticulo(id);
+        return Ok(result);
+    }
+
+    [HttpGet("{id}/ingresados")]
+    public async Task<IActionResult> GetIngresados(int id)
+    {
+        var result = await _articuloService.GetIngresadosByArticulo(id);
+        return Ok(result);
+    }
+     [HttpGet("GetArticulo")]
+    public async Task<IActionResult> GetArticulo(int id)
+    {
+        var result = await _articuloService.GetArticulo(id);
+        return Ok(result);
+    }
 
 }

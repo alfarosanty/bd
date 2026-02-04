@@ -1,0 +1,12 @@
+using BlumeAPI.Data.Entities;
+
+public interface IArticuloRepository
+{
+    // ORM
+    Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticuloPrecio);
+    Task<ArticuloEntity?> GetByIdAsync(int idArticulo);
+    // DAPPER
+    Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(int idArticulo);
+    Task<List<ArticuloIngresoEntity>> GetIngresadosByArticulo(int idArticulo);
+}
+

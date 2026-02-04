@@ -11,10 +11,12 @@ using System.Threading.Tasks;
         {
             public static String TABLA="ARTICULO_FACTURA";
 
-            public long idArticuloFactura { get; set; }
+            public int IdFactura { get; set; }
 
 
             public Articulo Articulo { get; set; }
+
+            public int IdArticuloFactura { get; set; }
 
             [JsonIgnore]
             public Factura? Factura { get; set; }

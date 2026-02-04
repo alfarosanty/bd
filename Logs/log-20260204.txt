@@ -1,0 +1,1235 @@
+2026-02-04 08:50:55.946 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 08:50:56.223 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 08:50:56.228 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 08:50:56.228 -03:00 [INF] Hosting environment: Development
+2026-02-04 08:50:56.229 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 08:51:56.750 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger - -
+2026-02-04 08:51:56.924 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger - - - 301 0 - 178.3946ms
+2026-02-04 08:51:56.936 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-02-04 08:51:57.199 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 262.1095ms
+2026-02-04 08:51:57.218 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - -
+2026-02-04 08:51:57.220 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - -
+2026-02-04 08:51:57.221 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - -
+2026-02-04 08:51:57.281 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-02-04 08:51:57.281 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-02-04 08:51:57.284 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui.css - - - 200 143632 text/css 63.5783ms
+2026-02-04 08:51:57.284 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 64.6794ms
+2026-02-04 08:51:57.293 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-02-04 08:51:57.293 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 74.7245ms
+2026-02-04 08:51:57.480 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-02-04 08:51:57.525 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - -
+2026-02-04 08:51:57.525 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-02-04 08:51:57.526 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/favicon-32x32.png - - - 200 628 image/png 0.7848ms
+2026-02-04 08:51:57.824 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 343.1817ms
+2026-02-04 08:52:09.223 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 08:52:09.231 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 08:52:09.267 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 08:52:09.326 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 08:52:34.752 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 25417.1056ms
+2026-02-04 08:52:34.760 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 08:52:34.764 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Host can't be null
+   at Npgsql.NpgsqlConnectionStringBuilder.Validate()
+   at Npgsql.NpgsqlConnection.GetPoolAndSettings()
+   at Program.<>c.<<Main>$>b__0_4(IServiceProvider sp) in C:\Fran\BlumeAPI\Backend\bd\Program.cs:line 115
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method10(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-02-04 08:52:34.791 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 25567.7693ms
+2026-02-04 08:55:12.348 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 08:55:12.376 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 08:55:12.376 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 08:55:16.523 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 4146.6971ms
+2026-02-04 08:55:16.524 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 08:55:16.524 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Host can't be null
+   at Npgsql.NpgsqlConnectionStringBuilder.Validate()
+   at Npgsql.NpgsqlConnection.GetPoolAndSettings()
+   at Program.<>c.<<Main>$>b__0_4(IServiceProvider sp) in C:\Fran\BlumeAPI\Backend\bd\Program.cs:line 115
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method10(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-02-04 08:55:16.526 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 4178.6971ms
+2026-02-04 09:06:19.496 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:06:19.731 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:06:19.736 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:06:19.737 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:06:19.737 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:06:57.992 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:06:58.100 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:06:58.121 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:06:58.175 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:06:59.860 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:07:01.055 -03:00 [ERR] Failed executing DbCommand (556ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CantidadEnCorte", a."CantidadEnTaller", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."NUEVO", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:07:01.146 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.CantidadEnCorte
+
+POSITION: 25
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.CantidadEnCorte
+    Position: 25
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.CantidadEnCorte
+
+POSITION: 25
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.CantidadEnCorte
+    Position: 25
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:07:01.434 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3251.5195ms
+2026-02-04 09:07:01.437 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:07:01.443 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.CantidadEnCorte
+
+POSITION: 25
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetByIdAsync(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 21
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 25
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.CantidadEnCorte
+    Position: 25
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:07:01.497 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3509.4091ms
+2026-02-04 09:08:07.481 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:08:07.709 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:08:07.713 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:08:07.714 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:08:07.714 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:08:28.563 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:08:28.669 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:08:28.691 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:08:28.745 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:08:30.150 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:08:31.287 -03:00 [ERR] Failed executing DbCommand (524ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."NUEVO", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:08:31.368 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.NUEVO
+
+POSITION: 161
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.NUEVO
+    Position: 161
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.NUEVO
+
+POSITION: 161
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.NUEVO
+    Position: 161
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:08:31.641 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 2889.1087ms
+2026-02-04 09:08:31.644 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:08:31.651 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.NUEVO
+
+POSITION: 161
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetByIdAsync(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 21
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 25
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.NUEVO
+    Position: 161
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:08:31.704 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3147.0678ms
+2026-02-04 09:10:36.643 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:10:36.843 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:10:36.847 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:10:36.848 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:10:36.848 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:11:12.455 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:11:12.574 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:11:12.602 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:11:12.667 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:11:14.071 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:11:15.253 -03:00 [INF] Executed DbCommand (125ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:11:15.872 -03:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."Codigo", a."Descripcion", a."Precio1", a."Precio2", a."Precio3", a."Relleno"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."Id" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 09:11:15.921 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Id
+
+POSITION: 8
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Id
+    Position: 8
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Id
+
+POSITION: 8
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Id
+    Position: 8
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:11:16.102 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3425.9351ms
+2026-02-04 09:11:16.105 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:11:16.111 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Id
+
+POSITION: 8
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetArticuloPrecioByIdAsync(Int32 idArticuloPrecio) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 28
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 47
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Id
+    Position: 8
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:11:16.161 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3712.0391ms
+2026-02-04 09:30:07.881 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:30:08.081 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:30:08.085 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:30:08.085 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:30:08.085 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:30:23.473 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:30:23.574 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:30:23.597 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:30:23.651 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:30:25.163 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:30:26.333 -03:00 [INF] Executed DbCommand (130ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:30:26.761 -03:00 [ERR] Failed executing DbCommand (91ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."Codigo", a."Descripcion", a."Precio1", a."Precio2", a."Precio3", a."Relleno"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 09:30:26.815 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:30:27.029 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3370.8523ms
+2026-02-04 09:30:27.032 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:30:27.039 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetArticuloPrecioByIdAsync(Int32 idArticuloPrecio) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 28
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 47
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:30:27.096 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3627.6708ms
+2026-02-04 09:39:39.518 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:39:39.773 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:39:39.778 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:39:39.778 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:39:39.778 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:40:30.697 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:40:30.803 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:40:30.825 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:40:30.878 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:40:33.317 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:40:34.966 -03:00 [INF] Executed DbCommand (139ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:40:35.376 -03:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."Codigo", a."Descripcion", a."Precio1", a."Precio2", a."Precio3", a."Relleno"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 09:40:35.441 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:40:35.678 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 4791.1755ms
+2026-02-04 09:40:35.681 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:40:35.687 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetArticuloPrecioByIdAsync(Int32 idArticuloPrecio) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 36
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 47
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:40:35.748 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 5056.0438ms
+2026-02-04 09:44:19.309 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:44:19.530 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:44:19.534 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:44:19.534 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:44:19.534 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:44:27.448 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:44:27.552 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:44:27.575 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:44:27.632 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:44:30.182 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:44:31.377 -03:00 [INF] Executed DbCommand (119ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:44:31.748 -03:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."Codigo", a."Descripcion", a."Precio1", a."Precio2", a."Precio3", a."Relleno"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 09:44:31.797 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:44:31.967 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 4327.8483ms
+2026-02-04 09:44:31.970 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:44:31.976 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.Codigo
+
+POSITION: 32
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ArticuloRepository.GetArticuloPrecioByIdAsync(Int32 idArticuloPrecio) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ArticuloRepository.cs:line 45
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 47
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.Codigo
+    Position: 32
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 09:44:32.027 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 4584.1844ms
+2026-02-04 09:46:32.232 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 09:46:32.504 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 09:46:32.509 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 09:46:32.509 -03:00 [INF] Hosting environment: Development
+2026-02-04 09:46:32.509 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 09:46:38.810 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 09:46:38.908 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 09:46:38.930 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:46:38.982 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 09:46:40.460 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 09:46:41.669 -03:00 [INF] Executed DbCommand (122ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 09:46:42.035 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 09:46:42.144 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3154.6401ms
+2026-02-04 09:46:42.147 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 09:46:42.153 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42P01: no existe la relación «color»
+
+POSITION: 139
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at ColorRepository.GetById(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ColorRepository.cs:line 27
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 67
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: no existe la relación «color»
+    Position: 139
+    File: parse_relation.c
+    Line: 1395
+    Routine: parserOpenTable
+2026-02-04 09:46:42.255 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3449.4220ms
+2026-02-04 10:30:29.768 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 10:30:30.059 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 10:30:30.063 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 10:30:30.064 -03:00 [INF] Hosting environment: Development
+2026-02-04 10:30:30.064 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 10:30:52.809 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 10:30:52.914 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 10:30:52.938 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:30:52.996 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:30:54.436 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:30:55.628 -03:00 [INF] Executed DbCommand (118ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:30:55.958 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:30:56.110 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3106.7388ms
+2026-02-04 10:30:56.113 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:30:56.120 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42P01: no existe la relación «color»
+
+POSITION: 139
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at ColorRepository.GetById(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ColorRepository.cs:line 27
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 67
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: no existe la relación «color»
+    Position: 139
+    File: parse_relation.c
+    Line: 1395
+    Routine: parserOpenTable
+2026-02-04 10:30:56.222 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3417.9925ms
+2026-02-04 10:34:07.950 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 10:34:08.147 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 10:34:08.151 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 10:34:08.152 -03:00 [INF] Hosting environment: Development
+2026-02-04 10:34:08.152 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 10:34:24.038 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 10:34:24.159 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 10:34:24.181 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:34:24.232 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:34:26.156 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:34:27.306 -03:00 [INF] Executed DbCommand (125ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:34:27.691 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:34:27.795 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3081.6227ms
+2026-02-04 10:34:27.797 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:34:27.804 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna «ID_ARTICULO»
+
+POSITION: 197
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at ColorRepository.GetById(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\ColorRepository.cs:line 27
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 67
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna «ID_ARTICULO»
+    Position: 197
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-02-04 10:34:27.909 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3402.1040ms
+2026-02-04 10:35:52.652 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 10:35:52.841 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 10:35:52.845 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 10:35:52.845 -03:00 [INF] Hosting environment: Development
+2026-02-04 10:35:52.845 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 10:36:06.122 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 10:36:06.228 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 10:36:06.253 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:36:06.312 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:36:07.762 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:36:08.882 -03:00 [INF] Executed DbCommand (127ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:36:09.338 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:36:09.463 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3144.3077ms
+2026-02-04 10:36:09.466 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:36:09.472 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: 
+        SELECT
+            "ID_COLOR" AS "Id",
+            "CODIGO" AS Codigo,
+            "DESCRIPCION" AS Descripcion,
+            "HEXA" AS ColorHexa
+        FROM "COLOR"
+        WHERE "ID_COLOR" = @IdColor;
+    
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at MedidaRepository.GetById(Int32 idMedida) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\MedidaRepository.cs:line 27
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 67
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-02-04 10:36:09.565 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 3448.3636ms
+2026-02-04 10:36:51.235 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 10:36:51.251 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:36:51.254 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:36:51.256 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:36:51.266 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:36:51.319 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:36:51.416 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 162.2681ms
+2026-02-04 10:36:51.416 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:36:51.417 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.NpgsqlOperationInProgressException (0x80004005): A command is already in progress: 
+        SELECT
+            "ID_COLOR" AS "Id",
+            "CODIGO" AS Codigo,
+            "DESCRIPCION" AS Descripcion,
+            "HEXA" AS ColorHexa
+        FROM "COLOR"
+        WHERE "ID_COLOR" = @IdColor;
+    
+   at Npgsql.Internal.NpgsqlConnector.<StartUserAction>g__DoStartUserAction|268_0(<>c__DisplayClass268_0& )
+   at Npgsql.Internal.NpgsqlConnector.StartUserAction(ConnectorState newState, NpgsqlCommand command, CancellationToken cancellationToken, Boolean attemptPgCancellation)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.QueryRowAsync[T](IDbConnection cnn, Row row, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 489
+   at MedidaRepository.GetById(Int32 idMedida) in C:\Fran\BlumeAPI\Backend\bd\Entities\Repository\imp\MedidaRepository.cs:line 27
+   at ArticuloServicesNUEVO.GetArticulo(Int32 idArticulo) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServicesNUEVO.cs:line 67
+   at BlumeAPI.Controllers.ArticuloController.GetArticulo(Int32 id) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 229
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-02-04 10:36:51.424 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 500 - text/plain;+charset=utf-8 188.4287ms
+2026-02-04 10:49:09.044 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 10:49:09.329 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 10:49:09.334 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 10:49:09.334 -03:00 [INF] Hosting environment: Development
+2026-02-04 10:49:09.334 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 10:51:58.483 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - -
+2026-02-04 10:51:58.636 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 10:51:58.660 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:51:58.713 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:52:00.016 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:52:01.257 -03:00 [INF] Executed DbCommand (122ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:52:01.508 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:52:01.533 -03:00 [INF] Executing OkObjectResult, writing value of type 'Articulo'.
+2026-02-04 10:52:01.769 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 3048.9374ms
+2026-02-04 10:52:01.772 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:52:01.795 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1 - - - 200 - application/json;+charset=utf-8 3318.9631ms
+2026-02-04 10:52:51.519 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1062 - -
+2026-02-04 10:52:51.546 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:52:51.547 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:52:51.550 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:52:51.558 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:52:51.558 -03:00 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-02-04 10:52:51.559 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 11.854ms
+2026-02-04 10:52:51.559 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:52:51.559 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1062 - - - 204 0 - 39.8440ms
+2026-02-04 10:53:18.225 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1000 - -
+2026-02-04 10:53:18.228 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:18.228 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:53:18.327 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:53:18.333 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:53:18.342 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:53:18.343 -03:00 [INF] Executing OkObjectResult, writing value of type 'Articulo'.
+2026-02-04 10:53:18.343 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 115.0212ms
+2026-02-04 10:53:18.343 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:18.343 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1000 - - - 200 - application/json;+charset=utf-8 118.2315ms
+2026-02-04 10:53:29.061 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1060 - -
+2026-02-04 10:53:29.061 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:29.061 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:53:29.062 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:53:29.065 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:53:29.065 -03:00 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-02-04 10:53:29.065 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 4.4089ms
+2026-02-04 10:53:29.066 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:29.066 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1060 - - - 204 0 - 4.9244ms
+2026-02-04 10:53:40.871 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1001 - -
+2026-02-04 10:53:40.901 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:40.903 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:53:40.905 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:53:40.922 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:53:40.925 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:53:40.926 -03:00 [INF] Executing OkObjectResult, writing value of type 'Articulo'.
+2026-02-04 10:53:40.926 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 22.4712ms
+2026-02-04 10:53:40.926 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:53:40.926 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1001 - - - 200 - application/json;+charset=utf-8 54.9490ms
+2026-02-04 10:54:03.394 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1201 - -
+2026-02-04 10:54:03.394 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:54:03.394 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:54:03.395 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:54:03.405 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:54:03.416 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:54:03.416 -03:00 [INF] Executing OkObjectResult, writing value of type 'Articulo'.
+2026-02-04 10:54:03.417 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 22.5496ms
+2026-02-04 10:54:03.417 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:54:03.417 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1201 - - - 200 - application/json;+charset=utf-8 23.5879ms
+2026-02-04 10:54:06.508 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1201 - -
+2026-02-04 10:54:06.508 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:54:06.508 -03:00 [INF] Route matched with {action = "GetArticulo", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetArticulo(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:54:06.508 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:54:06.510 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:54:06.513 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:54:06.514 -03:00 [INF] Executing OkObjectResult, writing value of type 'Articulo'.
+2026-02-04 10:54:06.514 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI) in 5.8516ms
+2026-02-04 10:54:06.514 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulo (BlumeAPI)'
+2026-02-04 10:54:06.514 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/GetArticulo?id=1201 - - - 200 - application/json;+charset=utf-8 6.3261ms
+2026-02-04 10:56:45.651 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/1/ingresados - -
+2026-02-04 10:56:45.656 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetIngresados (BlumeAPI)'
+2026-02-04 10:56:45.662 -03:00 [INF] Route matched with {action = "GetIngresados", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetIngresados(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 10:56:45.712 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 10:56:45.715 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 10:56:45.726 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 10:56:45.729 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloIngreso, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-04 10:56:45.742 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetIngresados (BlumeAPI) in 79.256ms
+2026-02-04 10:56:45.742 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetIngresados (BlumeAPI)'
+2026-02-04 10:56:45.742 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/1/ingresados - - - 200 - application/json;+charset=utf-8 90.7624ms
+2026-02-04 11:01:20.560 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 11:01:20.791 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 11:01:20.796 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 11:01:20.797 -03:00 [INF] Hosting environment: Development
+2026-02-04 11:01:20.797 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 11:01:36.842 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/1/facturados - -
+2026-02-04 11:01:36.953 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 11:01:36.983 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:01:37.051 -03:00 [INF] Route matched with {action = "GetFacturados", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFacturados(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 11:01:39.200 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 11:01:39.845 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 11:01:39.927 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 11:01:39.988 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloFactura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-04 11:01:40.212 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI) in 3155.0253ms
+2026-02-04 11:01:40.214 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:01:40.236 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/1/facturados - - - 200 - application/json;+charset=utf-8 3398.8238ms
+2026-02-04 11:07:30.478 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-04 11:07:30.697 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-04 11:07:30.702 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-04 11:07:30.703 -03:00 [INF] Hosting environment: Development
+2026-02-04 11:07:30.703 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-02-04 11:07:43.397 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/1/facturados - -
+2026-02-04 11:07:43.506 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-04 11:07:43.529 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:07:43.583 -03:00 [INF] Route matched with {action = "GetFacturados", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFacturados(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 11:07:46.183 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 11:07:46.863 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 11:07:46.952 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 11:07:47.022 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloFactura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-04 11:07:47.251 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI) in 3661.492ms
+2026-02-04 11:07:47.253 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:07:47.274 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/1/facturados - - - 200 - application/json;+charset=utf-8 3883.5458ms
+2026-02-04 11:09:42.436 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/1006/facturados - -
+2026-02-04 11:09:42.446 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:09:42.452 -03:00 [INF] Route matched with {action = "GetFacturados", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFacturados(Int32) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-02-04 11:09:42.460 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-02-04 11:09:42.474 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__idArticulo_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO", a."CODIGO", a."DESCRIPCION", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK"
+FROM "ARTICULO" AS a
+WHERE a."ID_ARTICULO" = @__idArticulo_0
+LIMIT 1
+2026-02-04 11:09:42.481 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idArticuloPrecio_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+WHERE a."ID_ARTICULO_PRECIO" = @__idArticuloPrecio_0
+LIMIT 1
+2026-02-04 11:09:42.482 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloFactura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-04 11:09:42.483 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI) in 30.5083ms
+2026-02-04 11:09:42.483 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetFacturados (BlumeAPI)'
+2026-02-04 11:09:42.483 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/1006/facturados - - - 200 - application/json;+charset=utf-8 46.9561ms

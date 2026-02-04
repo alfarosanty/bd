@@ -1,5 +1,6 @@
 
 
+using BlumeAPI.Entities.clases.modelo;
 using Npgsql;
 
 public class SubFamiliaServices: BasicoServices 

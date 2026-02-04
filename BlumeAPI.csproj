@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="FastReport.OpenSource" Version="2026.1.2" />
     <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2026.1.2" />
     <PackageReference Include="itext7" Version="9.4.0" />

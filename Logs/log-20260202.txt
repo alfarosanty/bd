@@ -1,0 +1,7 @@
+2026-02-02 10:12:05.153 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-02 10:12:05.238 -03:00 [INF] Creating key {5385d51b-de31-4b94-aced-b322738a59b5} with creation date 2026-02-02 13:12:05Z, activation date 2026-02-02 13:12:05Z, and expiration date 2026-05-03 13:12:05Z.
+2026-02-02 10:12:05.278 -03:00 [INF] Writing data to file 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys\key-5385d51b-de31-4b94-aced-b322738a59b5.xml'.
+2026-02-02 10:12:05.601 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-02-02 10:12:05.606 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-02 10:12:05.607 -03:00 [INF] Hosting environment: Development
+2026-02-02 10:12:05.607 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\

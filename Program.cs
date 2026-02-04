@@ -1,7 +1,11 @@
+using System.Data;
 using System.Globalization;
+using BlumeAPI.Repositories;
 using BlumeAPI.Services;
+using BlumeAPI.Services.Imp;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -84,19 +88,39 @@ builder.Services.AddAuthentication("MiCookieAuth")
     });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<IDbConnectionFactory, NpgsqlConnectionFactory>();
+// Repositorios
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IArticuloRepository, ArticuloRepository>();
+builder.Services.AddScoped<IColorRepository, ColorRepository>();
+builder.Services.AddScoped<IMedidaRepository, MedidaRepository>();
+builder.Services.AddScoped<ISubfamiliaRepository, SubfamiliaRepository>();
+
+// Servicios
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<PdfService>();
+builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
+
+
 
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
-// Para producción:
 var connectionString = builder.Configuration.GetConnectionString(
-   "BDPruebas"
+    "BDPruebasPCEri"
+   //"BDPruebas"
    //"BDProduccion"
     );
-// Para pruebas/desarrollo:
-// var connectionString = builder.Configuration.GetConnectionString("BDPruebas");
+
+// Configuración de NpgsqlConnection para inyección de dependencias
+builder.Services.AddScoped<NpgsqlConnection>(_ =>
+    new NpgsqlConnection(connectionString)
+);
+
+builder.Services.AddScoped<IDbConnection>(_ =>
+    new NpgsqlConnection(connectionString)
+);
+// Configuración de Entity Framework Core con PostgreSQL
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));

@@ -1,5 +1,7 @@
 
 
+using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Services.Imp;
 using Npgsql;
 
 public class IngresoService

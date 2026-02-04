@@ -11,10 +11,12 @@ using System.Threading.Tasks;
         static String servidor=
         
         
-        //"localhost"; //pruebas
-        "192.168.1.104";//ofi
+        "localhost"; //pruebas
+        //"192.168.1.104";//ofi
         //"192.168.1.40";//casa
-        static String bd="BD";
+        static String bd=
+        //"BD"; 
+        "BDPruebas";//Pruebas Pc Eri
         static String usuario="postgres";
         static String password="admin";
         static String puerto = "5432";

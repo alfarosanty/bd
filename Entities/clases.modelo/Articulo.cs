@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using BlumeAPI.Entities.clases.modelo;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;

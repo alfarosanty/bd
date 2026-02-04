@@ -2,6 +2,7 @@ using System.Text;
 using System.Xml;
 using Npgsql;
 using System.Globalization;
+using BlumeAPI.Services.Imp;
 
 
 namespace BlumeAPI.Services;
@@ -775,7 +776,7 @@ private static List<ArticuloFactura> getArticuloFactura(Factura factura, NpgsqlC
             {
                 var af = new ArticuloFactura
                 {
-                    idArticuloFactura = Convert.ToInt64(reader["ID_ARTICULO_FACTURA"]),
+                    IdFactura = (int)Convert.ToInt64(reader["ID_ARTICULO_FACTURA"]),
                     PrecioUnitario = (decimal)reader["PRECIO_UNITARIO"],
                     Cantidad = (int)reader["CANTIDAD"],
                     Descuento = (decimal)reader["DESCUENTO"],
