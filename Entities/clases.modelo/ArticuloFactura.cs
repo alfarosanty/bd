@@ -30,6 +30,7 @@ using System.Threading.Tasks;
             public string Codigo { get; set; }
 
             public string Descripcion { get; set; }
+            public DateTime Fecha { get; set; }
 
     }
 

@@ -42,60 +42,91 @@ public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticu
 }
 
     // DAPPER METHODS
-    public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(int idArticulo)
+public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
+    int idArticulo,
+    DateTime? desde,
+    DateTime? hasta)
+{
+    using var conn = _factory.CreateConnection();
+
+    var sql = @"
+        SELECT
+            AF.""ID_ARTICULO_FACTURA"" AS IdArticuloFactura,
+            AF.""ID_ARTICULO""         AS IdArticulo,
+            AF.""ID_FACTURA""          AS IdFactura,
+            AF.""CODIGO""              AS Codigo,
+            AF.""DESCRIPCION""         AS Descripcion,
+            AF.""CANTIDAD""            AS Cantidad,
+            AF.""PRECIO_UNITARIO""     AS PrecioUnitario,
+            AF.""DESCUENTO""           AS Descuento,
+            AF.""FECHA_CREACION""      AS FechaCreacion
+        FROM ""ARTICULO_FACTURA"" AF
+        JOIN ""FACTURA"" F ON AF.""ID_FACTURA"" = F.""ID_FACTURA""
+        WHERE AF.""ID_ARTICULO"" = @IdArticulo
+    ";
+
+    var parameters = new DynamicParameters();
+    parameters.Add("IdArticulo", idArticulo);
+
+    if (desde.HasValue)
     {
-
-        using var conn = _factory.CreateConnection();
-
-        var sql = @"
-            SELECT
-                ""ID_ARTICULO_FACTURA"" AS IdArticuloFactura,
-                ""ID_ARTICULO""         AS IdArticulo,
-                ""ID_FACTURA""          AS IdFactura,
-                ""CODIGO""              AS Codigo,
-                ""DESCRIPCION""         AS Descripcion,
-                ""CANTIDAD""            AS Cantidad,
-                ""PRECIO_UNITARIO""     AS PrecioUnitario,
-                ""DESCUENTO""           AS Descuento,
-                ""FECHA_CREACION""      AS FechaCreacion
-            FROM ""ARTICULO_FACTURA""
-            WHERE ""ID_ARTICULO"" = @IdArticulo
-            ORDER BY ""FECHA_CREACION"" DESC;
-        ";
-
-        var result = await conn.QueryAsync<ArticuloFacturaEntity>(
-            sql,
-            new { IdArticulo = idArticulo }
-        );
-
-        return result.ToList();
+        sql += @" AND F.""FECHA_FACTURA"" >= @Desde";
+        parameters.Add("Desde", desde.Value);
     }
 
-    public async Task<List<ArticuloIngresoEntity>> GetIngresadosByArticulo(int idArticulo)
+    if (hasta.HasValue)
     {
-        using var conn = _factory.CreateConnection();
-
-        var sql = @"
-            SELECT
-                ""ID_ARTICULO_INGRESO"" AS IdArticuloIngreso,
-                ""ID_ARTICULO""         AS IdArticulo,
-                ""ID_INGRESO""          AS IdIngreso,
-                ""CODIGO""              AS Codigo,
-                ""DESCRIPCION""         AS Descripcion,
-                ""CANTIDAD""            AS Cantidad,
-                ""FECHA_INGRESO""       AS FechaIngreso,
-                ""FECHA_CREACION""      AS FechaCreacion
-            FROM ""ARTICULO_INGRESO""
-            WHERE ""ID_ARTICULO"" = @IdArticulo
-            ORDER BY ""FECHA_INGRESO"" DESC;
-        ";
-
-        var result = await conn.QueryAsync<ArticuloIngresoEntity>(
-            sql,
-            new { IdArticulo = idArticulo }
-        );
-
-        return result.ToList();
+        sql += @" AND F.""FECHA_FACTURA"" <= @Hasta";
+        parameters.Add("Hasta", hasta.Value);
     }
+
+    sql += @" ORDER BY AF.""ID_ARTICULO_FACTURA"" DESC";
+
+    var result = await conn.QueryAsync<ArticuloFacturaEntity>(sql, parameters);
+    return result.ToList();
+}
+
+    public async Task<List<ArticuloIngresoEntity>> GetIngresadosByArticulo(
+    int idArticulo,
+    DateTime? desde,
+    DateTime? hasta)
+{
+    using var conn = _factory.CreateConnection();
+
+    var sql = @"
+        SELECT
+            AI.""ID_ARTICULO_INGRESO"" AS IdArticuloIngreso,
+            AI.""ID_ARTICULO""         AS IdArticulo,
+            AI.""ID_INGRESO""          AS IdIngreso,
+            AI.""CODIGO""              AS Codigo,
+            AI.""DESCRIPCION""         AS Descripcion,
+            AI.""CANTIDAD""            AS Cantidad,
+            AI.""FECHA_INGRESO""       AS FechaIngreso,
+            AI.""FECHA_CREACION""      AS FechaCreacion
+        FROM ""ARTICULO_INGRESO"" AI
+        JOIN ""INGRESO"" I ON AI.""ID_INGRESO"" = I.""ID_INGRESO""
+        WHERE AI.""ID_ARTICULO"" = @IdArticulo
+    ";
+
+    var parameters = new DynamicParameters();
+    parameters.Add("IdArticulo", idArticulo);
+
+    if (desde.HasValue)
+    {
+        sql += @" AND I.""FECHA_INGRESO"" >= @Desde";
+        parameters.Add("Desde", desde.Value);
+    }
+
+    if (hasta.HasValue)
+    {
+        sql += @" AND I.""FECHA_INGRESO"" <= @Hasta";
+        parameters.Add("Hasta", hasta.Value);
+    }
+
+    sql += @" ORDER BY AI.""ID_ARTICULO_INGRESO"" DESC";
+
+    var result = await conn.QueryAsync<ArticuloIngresoEntity>(sql, parameters);
+    return result.ToList();
+}
 
 }

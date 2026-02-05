@@ -210,17 +210,17 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     }
 }
 
-    [HttpGet("{id}/facturados")]
-    public async Task<IActionResult> GetFacturados(int id)
+    [HttpGet("{id}/Facturados")]
+    public async Task<IActionResult> GetFacturados(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)
     {
-        var result = await _articuloService.GetFacturadosByArticulo(id);
+        var result = await _articuloService.GetFacturadosByArticulo(id, desde, hasta);
         return Ok(result);
     }
 
-    [HttpGet("{id}/ingresados")]
-    public async Task<IActionResult> GetIngresados(int id)
+    [HttpGet("{id}/Ingresados")]
+    public async Task<IActionResult> GetIngresados(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)
     {
-        var result = await _articuloService.GetIngresadosByArticulo(id);
+        var result = await _articuloService.GetIngresadosByArticulo(id, desde, hasta);
         return Ok(result);
     }
      [HttpGet("GetArticulo")]

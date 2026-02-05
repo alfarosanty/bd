@@ -82,10 +82,10 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
     };
 }
 
-        public async Task<List<ArticuloFactura>> GetFacturadosByArticulo(int idArticulo)
+        public async Task<List<ArticuloFactura>> GetFacturadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
     {
         var entities = await _articuloRepository
-            .GetFacturadosByArticulo(idArticulo);
+            .GetFacturadosByArticulo(idArticulo, desde, hasta);
 
         var articulo = await GetArticulo(idArticulo);
 
@@ -98,15 +98,17 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
             Codigo = e.Codigo,
             Descripcion = e.Descripcion,
             Descuento = e.Descuento,
-            IdArticuloFactura = e.IdArticuloFactura
+            IdArticuloFactura = e.IdArticuloFactura,
+            Fecha = e.FechaCreacion
+
         }).OrderBy(e => e.IdFactura)
         .ToList();
     }
 
-    public async Task<List<ArticuloIngreso>> GetIngresadosByArticulo(int idArticulo)
+    public async Task<List<ArticuloIngreso>> GetIngresadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
     {
         var entities = await _articuloRepository
-            .GetIngresadosByArticulo(idArticulo);
+            .GetIngresadosByArticulo(idArticulo, desde, hasta);
 
         var articulo = await GetArticulo(idArticulo);
 
@@ -116,7 +118,9 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
             Codigo = e.Codigo,
             Descripcion = e.Descripcion,
             IdIngreso = e.IdIngreso,
-            Articulo = articulo
+            Articulo = articulo,
+            Fecha = e.FechaCreacion
+
         }).OrderBy(e=>e.IdIngreso)
         .ToList();
     }
