@@ -82,46 +82,42 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
     };
 }
 
-        public async Task<List<ArticuloFactura>> GetFacturadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
+        public async Task<List<CartaKardexDTO>> GetFacturadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
     {
         var entities = await _articuloRepository
             .GetFacturadosByArticulo(idArticulo, desde, hasta);
 
         var articulo = await GetArticulo(idArticulo);
 
-        return entities.Select(e => new ArticuloFactura
-        {
-            IdFactura = e.IdFactura,
-            Articulo = articulo,
-            Cantidad = e.Cantidad,
-            PrecioUnitario = e.PrecioUnitario,
-            Codigo = e.Codigo,
-            Descripcion = e.Descripcion,
-            Descuento = e.Descuento,
-            IdArticuloFactura = e.IdArticuloFactura,
-            Fecha = e.FechaCreacion
-
-        }).OrderBy(e => e.IdFactura)
+        entities.ForEach(carta => carta.articulo = articulo);
+    
+        return entities.OrderBy(e=>e.Fecha)
         .ToList();
     }
 
-    public async Task<List<ArticuloIngreso>> GetIngresadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
+
+    public async Task<List<CartaKardexDTO>> GetIngresadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta)
     {
         var entities = await _articuloRepository
             .GetIngresadosByArticulo(idArticulo, desde, hasta);
 
         var articulo = await GetArticulo(idArticulo);
 
-        return entities.Select(e => new ArticuloIngreso
-        {
-            cantidad = e.Cantidad,
-            Codigo = e.Codigo,
-            Descripcion = e.Descripcion,
-            IdIngreso = e.IdIngreso,
-            Articulo = articulo,
-            Fecha = e.FechaCreacion
-
-        }).OrderBy(e=>e.IdIngreso)
+        entities.ForEach(carta => carta.articulo = articulo);
+        return entities.OrderBy(e=>e.Fecha)
         .ToList();
+    }
+
+    public async Task<List<CartaKardexDTO>> GetResumenKardex(int idArticulo, DateTime? desde, DateTime? hasta)
+    {
+        var facturados = await GetFacturadosByArticulo(idArticulo, desde, hasta);
+        var ingresados = await GetIngresadosByArticulo(idArticulo, desde, hasta);
+
+        var resumen = new List<CartaKardexDTO>();
+
+        resumen.AddRange(facturados);
+        resumen.AddRange(ingresados);
+
+        return resumen.OrderBy(r => r.Fecha).ToList();
     }
 }

@@ -42,7 +42,7 @@ public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticu
 }
 
     // DAPPER METHODS
-public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
+public async Task<List<CartaKardexDTO>> GetFacturadosByArticulo(
     int idArticulo,
     DateTime? desde,
     DateTime? hasta)
@@ -51,17 +51,17 @@ public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
 
     var sql = @"
         SELECT
-            AF.""ID_ARTICULO_FACTURA"" AS IdArticuloFactura,
-            AF.""ID_ARTICULO""         AS IdArticulo,
-            AF.""ID_FACTURA""          AS IdFactura,
-            AF.""CODIGO""              AS Codigo,
-            AF.""DESCRIPCION""         AS Descripcion,
-            AF.""CANTIDAD""            AS Cantidad,
-            AF.""PRECIO_UNITARIO""     AS PrecioUnitario,
-            AF.""DESCUENTO""           AS Descuento,
-            AF.""FECHA_CREACION""      AS FechaCreacion
+            AF.""ID_ARTICULO""      AS ""IdArticulo"",
+            AF.""CODIGO""           AS ""Codigo"",
+            AF.""DESCRIPCION""      AS ""Descripcion"",
+            'FACTURADO'             AS ""Tipo"",
+            F.""ID_FACTURA""        AS ""DocumentoId"",
+            C.""RAZON_SOCIAL""      AS ""DocumentoNombre"",
+            F.""FECHA_FACTURA""     AS ""Fecha"",
+            AF.""CANTIDAD"" * -1    AS ""Cantidad""
         FROM ""ARTICULO_FACTURA"" AF
         JOIN ""FACTURA"" F ON AF.""ID_FACTURA"" = F.""ID_FACTURA""
+        JOIN ""CLIENTE"" C ON F.""ID_CLIENTE"" = C.""ID_CLIENTE""
         WHERE AF.""ID_ARTICULO"" = @IdArticulo
     ";
 
@@ -80,13 +80,13 @@ public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
         parameters.Add("Hasta", hasta.Value);
     }
 
-    sql += @" ORDER BY AF.""ID_ARTICULO_FACTURA"" DESC";
+    sql += @" ORDER BY F.""FECHA_FACTURA"" DESC";
 
-    var result = await conn.QueryAsync<ArticuloFacturaEntity>(sql, parameters);
+    var result = await conn.QueryAsync<CartaKardexDTO>(sql, parameters);
     return result.ToList();
 }
 
-    public async Task<List<ArticuloIngresoEntity>> GetIngresadosByArticulo(
+public async Task<List<CartaKardexDTO>> GetIngresadosByArticulo(
     int idArticulo,
     DateTime? desde,
     DateTime? hasta)
@@ -95,16 +95,17 @@ public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
 
     var sql = @"
         SELECT
-            AI.""ID_ARTICULO_INGRESO"" AS IdArticuloIngreso,
-            AI.""ID_ARTICULO""         AS IdArticulo,
-            AI.""ID_INGRESO""          AS IdIngreso,
-            AI.""CODIGO""              AS Codigo,
-            AI.""DESCRIPCION""         AS Descripcion,
-            AI.""CANTIDAD""            AS Cantidad,
-            AI.""FECHA_INGRESO""       AS FechaIngreso,
-            AI.""FECHA_CREACION""      AS FechaCreacion
+            AI.""ID_ARTICULO""      AS ""IdArticulo"",
+            AI.""CODIGO""           AS ""Codigo"",
+            AI.""DESCRIPCION""      AS ""Descripcion"",
+            'INGRESADO'             AS ""Tipo"",
+            I.""ID_INGRESO""        AS ""DocumentoId"",
+            T.""RAZON_SOCIAL""      AS ""DocumentoNombre"",
+            I.""FECHA_INGRESO""     AS ""Fecha"",
+            AI.""CANTIDAD""         AS ""Cantidad""
         FROM ""ARTICULO_INGRESO"" AI
         JOIN ""INGRESO"" I ON AI.""ID_INGRESO"" = I.""ID_INGRESO""
+        JOIN ""FABRICANTE"" T ON I.""ID_FABRICANTE"" = T.""ID_FABRICANTE""
         WHERE AI.""ID_ARTICULO"" = @IdArticulo
     ";
 
@@ -123,10 +124,11 @@ public async Task<List<ArticuloFacturaEntity>> GetFacturadosByArticulo(
         parameters.Add("Hasta", hasta.Value);
     }
 
-    sql += @" ORDER BY AI.""ID_ARTICULO_INGRESO"" DESC";
+    sql += @" ORDER BY I.""FECHA_INGRESO"" DESC";
 
-    var result = await conn.QueryAsync<ArticuloIngresoEntity>(sql, parameters);
+    var result = await conn.QueryAsync<CartaKardexDTO>(sql, parameters);
     return result.ToList();
 }
+
 
 }

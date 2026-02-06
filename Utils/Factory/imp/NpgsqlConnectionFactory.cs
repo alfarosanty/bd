@@ -8,7 +8,7 @@ public class NpgsqlConnectionFactory : IDbConnectionFactory
     public NpgsqlConnectionFactory(IConfiguration config)
     {
     var connectionString = config.GetConnectionString(
-        "BDPruebasPCEri"
+    "BDPruebasPCEri"
     //"BDPruebas"
     //"BDProduccion"
         );

@@ -108,8 +108,8 @@ builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 var connectionString = builder.Configuration.GetConnectionString(
     "BDPruebasPCEri"
-   //"BDPruebas"
-   //"BDProduccion"
+    //"BDPruebas"
+    //"BDProduccion"
     );
 
 // Configuración de NpgsqlConnection para inyección de dependencias
