@@ -223,12 +223,14 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
         var result = await _articuloService.GetIngresadosByArticulo(id, desde, hasta);
         return Ok(result);
     }
-     [HttpGet("GetArticulo")]
+    
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetArticulo(int id)
     {
         var result = await _articuloService.GetArticulo(id);
         return Ok(result);
     }
+
 
         [HttpGet("{id}/ResumenKardex")]
     public async Task<IActionResult> GetResumenKardex(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)

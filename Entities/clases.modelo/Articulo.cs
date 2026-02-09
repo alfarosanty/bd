@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 
         public ArticuloPrecio articuloPrecio{ get; set; }
         public int IdFabricante{ get; set; }
+        public int IdAsociadoRelleno{ get; set; }
 
         public bool? Nuevo{ get; set; }
         

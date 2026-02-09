@@ -8,10 +8,8 @@ public class ArticuloConfiguration : IEntityTypeConfiguration<ArticuloEntity>
     {
         entity.ToTable("ARTICULO");
 
-        // PK
         entity.HasKey(a => a.IdArticulo);
 
-        // Columnas
         entity.Property(a => a.IdArticulo)
             .HasColumnName("ID_ARTICULO");
 
@@ -44,5 +42,25 @@ public class ArticuloConfiguration : IEntityTypeConfiguration<ArticuloEntity>
 
         entity.Property(a => a.Stock)
             .HasColumnName("STOCK");
+
+        entity.Property(a => a.IdAsociadoRelleno)
+            .HasColumnName("ID_ASOCIADO_RELLENO");
+
+        // 🔗 Relaciones
+        entity.HasOne(a => a.Color)
+            .WithMany()
+            .HasForeignKey(a => a.IdColor);
+
+        entity.HasOne(a => a.Medida)
+            .WithMany()
+            .HasForeignKey(a => a.IdMedida);
+
+        entity.HasOne(a => a.SubFamilia)
+            .WithMany()
+            .HasForeignKey(a => a.IdSubFamilia);
+
+        entity.HasOne(a => a.ArticuloPrecio)
+            .WithMany()
+            .HasForeignKey(a => a.IdArticuloPrecio);
     }
 }

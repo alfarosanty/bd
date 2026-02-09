@@ -681,26 +681,46 @@ private static int CalcularTotal(List<ArticuloFactura> articulos)
 
 
 
-private static void actualizarStock(List<ArticuloFactura> egresoArticulos, NpgsqlConnection conex)
+private static void actualizarStock(
+    List<ArticuloFactura> egresoArticulos,
+    NpgsqlConnection conex)
 {
     string updateQuery = @"
-        UPDATE """ + Articulo.TABLA + @"""
+        UPDATE ""ARTICULO""
         SET ""STOCK"" = COALESCE(""STOCK"", 0) - @CANTIDAD
-        WHERE ""ID_ARTICULO"" = @ID_ARTICULO;
+        WHERE ""ID_ARTICULO"" = @ID_OBJETIVO;
     ";
 
     using (var cmd = new NpgsqlCommand(updateQuery, conex))
     {
         foreach (var ea in egresoArticulos)
         {
+            // 1️⃣ Decidimos a quién descontar stock
+            int idObjetivo;
+
+            if (
+                ea.Articulo.Codigo != null &&
+                ea.Articulo.Codigo.Contains("/FU") &&
+                ea.Articulo.IdAsociadoRelleno > 0
+            )
+            {
+                idObjetivo = ea.Articulo.IdAsociadoRelleno;
+            }
+            else
+            {
+                idObjetivo = ea.Articulo.Id;
+            }
+
+            // 2️⃣ Ejecutamos el UPDATE
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@CANTIDAD", ea.Cantidad);
-            cmd.Parameters.AddWithValue("@ID_ARTICULO", ea.Articulo.Id);
+            cmd.Parameters.AddWithValue("@ID_OBJETIVO", idObjetivo);
 
             cmd.ExecuteNonQuery();
         }
     }
 }
+
 
 private static void completarDatosFactura(Factura factura, Npgsql.NpgsqlConnection npgsqlConnection)
 {

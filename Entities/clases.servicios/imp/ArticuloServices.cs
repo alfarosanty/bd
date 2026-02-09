@@ -999,6 +999,7 @@ private List<ConsultaTallerCorte> consultarSeparados(string? codigo, NpgsqlConne
             string name = reader["CODIGO"] as string;
             string minPlayers = reader["DESCRIPCION"] as string;
             int? idFabricante = reader["ID_FABRICANTE"] as int?;
+            int? idAsociadoRelleno = reader["ID_ASOCIADO_RELLENO"] as int?;
             
             int? medidaId = reader["ID_" + Medida.TABLA] as int?;            
             string meidadCodigo = reader["MEDIDA_CODIGO"] as string;   
@@ -1077,6 +1078,7 @@ private List<ConsultaTallerCorte> consultarSeparados(string? codigo, NpgsqlConne
             articulo.Habilitado = habilitado;
             articulo.Nuevo = false;
             articulo.Stock = stock;
+            articulo.IdAsociadoRelleno = idAsociadoRelleno ?? 0;
             return articulo;
         }
 

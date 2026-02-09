@@ -20,13 +20,17 @@ public async Task<ArticuloEntity?> GetByIdAsync(int idArticulo)
 {
     var query = _context.Articulos
         .AsNoTracking()
+        .Include(a => a.Color)
+        .Include(a => a.Medida)
+        .Include(a => a.SubFamilia)
+        .Include(a => a.ArticuloPrecio)
         .Where(a => a.IdArticulo == idArticulo);
 
-    // 🔍 LOG DEL SQL REAL
     var sql = query.ToQueryString();
 
     return await query.FirstOrDefaultAsync();
 }
+
 
 
 public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticuloPrecio)
@@ -40,7 +44,24 @@ public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticu
 
     return await query.FirstOrDefaultAsync();
 }
+/*
+public async Task<List<ArticuloEntity>> GetArticulosByArticuloPrecioIdAsync(
+    int articuloPrecioId,
+    bool soloHabilitados)
+{
+    var query = _context.Articulos
+        .AsNoTracking()
+        .Where(a => a.IdArticuloPrecio == articuloPrecioId);
 
+    if (soloHabilitados)
+        query = query.Where(a => a.Habilitado);
+
+    return await query
+        .OrderBy(a => a.IdArticulo)
+        .ToListAsync();
+}
+
+*/
     // DAPPER METHODS
 public async Task<List<CartaKardexDTO>> GetFacturadosByArticulo(
     int idArticulo,
