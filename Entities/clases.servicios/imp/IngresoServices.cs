@@ -223,6 +223,7 @@ public int BorrarIngreso(Ingreso ingreso, NpgsqlConnection npgsqlConnection)
 
         using (var cmd = new NpgsqlCommand(sqlDeleteIngreso, npgsqlConnection, transaction))
         {
+            cmd.Parameters.AddWithValue("ID_INGRESO", idIngreso);
             idIngreso = Convert.ToInt32(cmd.ExecuteScalar());
         }
 

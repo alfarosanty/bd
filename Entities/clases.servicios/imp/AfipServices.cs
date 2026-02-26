@@ -23,9 +23,10 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
         DateTime horaExpiracion = DateTime.MinValue;
         string token = null!;
         string firma = null!;
+        string uniqueId = null!;
 
         using (var cmd = new NpgsqlCommand(
-            @"SELECT ""TOKEN"", ""FIRMA"", ""EXPIRACION"" FROM ""DATOS_AUTENTICACION"" LIMIT 1", con))
+            @"SELECT ""TOKEN"", ""FIRMA"", ""EXPIRACION"", ""UNIQUE_ID"" FROM ""DATOS_AUTENTICACION"" LIMIT 1", con))
         using (var reader = await cmd.ExecuteReaderAsync())
         {
             if (await reader.ReadAsync())
@@ -68,6 +69,10 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
                             ? null! 
                             : reader.GetString(reader.GetOrdinal("FIRMA"));
 
+                uniqueId = reader.IsDBNull(reader.GetOrdinal("UNIQUE_ID")) 
+                            ? null! 
+                            : reader.GetString(reader.GetOrdinal("UNIQUE_ID"));
+
 
             }
         }
@@ -82,7 +87,7 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
                 Sign = firma,
                 ExpirationTime = horaExpiracion,
                 GenerationTime = DateTime.Now,
-                UniqueId = 0
+                UniqueId = uniqueId
             };
         }
 
@@ -131,14 +136,18 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
 
         if (verbose) Console.WriteLine("LoginTicket generado correctamente.");
 
-        // 6️⃣ Guardamos token nuevo en la BD
+        // 6️⃣ Guardamos token nuevo en la BD incluyendo UniqueId
         using (var cmdUpdate = new NpgsqlCommand(
             @"UPDATE ""DATOS_AUTENTICACION"" 
-              SET ""TOKEN"" = @token, ""FIRMA"" = @firma, ""EXPIRACION"" = @expiracion", con))
+            SET ""TOKEN"" = @token, 
+                ""FIRMA"" = @firma, 
+                ""EXPIRACION"" = @expiracion,
+                ""UNIQUE_ID"" = @uniqueId", con))
         {
             cmdUpdate.Parameters.AddWithValue("token", loginResponse.Token);
             cmdUpdate.Parameters.AddWithValue("firma", loginResponse.Sign);
             cmdUpdate.Parameters.AddWithValue("expiracion", loginResponse.ExpirationTime);
+            cmdUpdate.Parameters.AddWithValue("uniqueId", loginResponse.UniqueId);
             await cmdUpdate.ExecuteNonQueryAsync();
         }
 

@@ -1,9 +1,9 @@
-using System;
+/*using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 
-public class ComprobanteCaeBuilder
+public class ComprobanteCaeBuilderWsmtxca
 {
     private int tipoComprobante { get; set;}
     private int puntoVenta { get; set;} 
@@ -25,7 +25,7 @@ public class ComprobanteCaeBuilder
     public List<Item> GetItems(){
         return items;
     }
-    public ComprobanteCaeBuilder datosFactura(int tipoComprobante, int puntoVenta, int numero, DateTime fechaFactura)
+    public ComprobanteCaeBuilderWsmtxca datosFactura(int tipoComprobante, int puntoVenta, int numero, DateTime fechaFactura)
     {
         this.tipoComprobante = tipoComprobante;
         this.puntoVenta = puntoVenta;
@@ -34,7 +34,7 @@ public class ComprobanteCaeBuilder
         return this;
     }
 
-    public ComprobanteCaeBuilder Receptor(int tipoDoc, long nroDoc, int condicionIVA)
+    public ComprobanteCaeBuilderWsmtxca Receptor(int tipoDoc, long nroDoc, int condicionIVA)
     {
         this.tipoDoc = tipoDoc;
         this.nroDoc = nroDoc;
@@ -42,7 +42,7 @@ public class ComprobanteCaeBuilder
         return this;
     }
 
-    public ComprobanteCaeBuilder Importes(decimal gravado, decimal subtotal, decimal total)
+    public ComprobanteCaeBuilderWsmtxca Importes(decimal gravado, decimal subtotal, decimal total)
     {
         this.importeGravado = gravado;
         this.importeSubtotal = subtotal;
@@ -50,13 +50,13 @@ public class ComprobanteCaeBuilder
         return this;
     }
 
-    public ComprobanteCaeBuilder AgregarItem(Item item)
+    public ComprobanteCaeBuilderWsmtxca AgregarItem(Item item)
     {
         items.Add(item);
         return this;
     }
 
-    public ComprobanteCaeBuilder AgregarSubtotal(SubtotalIVA sub)
+    public ComprobanteCaeBuilderWsmtxca AgregarSubtotal(SubtotalIVA sub)
     {
         subtotales.Add(sub);
         return this;
@@ -152,5 +152,5 @@ public class SubtotalIVA
     public int codigo { get; set; }
     public decimal importe { get; set; }
 }
-
+*/
 

@@ -120,232 +120,109 @@ public List<Factura> GetFacturasByCliente(
 
 
 
-public async Task<AfipResponse> FacturarAsync(
+public async Task<AfipResponse> FacturarWsfeAsync(
     Factura factura,
     LoginTicketResponseData loginTicket,
     long cuitRepresentada)
 {
-    // 1️⃣ Crear el builder del comprobante y cliente AFIPs
-
-    var datosFacturaAfip = new ComprobanteCaeBuilder();
-    var afipClient = new AfipWsMtxcaClient("https://serviciosjava.afip.gob.ar/wsmtxca/services/MTXCAService");
-
-
-
-    // 2️⃣ Completar datos del comprobante
+    var afipClient = new AfipWsfeClient("https://wswhomo.afip.gov.ar/wsfev1/service.asmx");
 
     int tipoFactura = factura.TipoFactura == "A" ? 1 : 6;
-    var numeroComprobanteResponseXML = await afipClient.ConsultarUltimoAutorizadoAsync(loginTicket.Token, loginTicket.Sign, cuitRepresentada, tipoFactura, factura.PuntoDeVenta);
-    UltimoComprobanteAutorizadoResult numeroComprobanteResponse = afipClient.ParseUltimoComprobanteAutorizadoResponse(numeroComprobanteResponseXML);
 
-var numeroComprobante = numeroComprobanteResponse.Exitoso?(numeroComprobanteResponse.NumeroComprobante + 1 ?? 1) : 1;
-
-    datosFacturaAfip.datosFactura(
-        tipoFactura,
-        factura.PuntoDeVenta,
-        numeroComprobante,
-        factura.FechaFactura
-    );
-    var tipoIVAReceptor = 0;
-    if (factura.Cliente.CondicionFiscal.Codigo == "RI")
-        tipoIVAReceptor = 1;
-    else if (factura.Cliente.CondicionFiscal.Codigo == "MO")
-        tipoIVAReceptor = 6;
-    else
-        tipoIVAReceptor = 5; // Consumidor Final
-    datosFacturaAfip.Receptor(
-        80, // CUIT
-        long.Parse(factura.Cliente.Cuit.Replace("-", "")),
-        tipoIVAReceptor // Responsable Inscripto
-    );
-
-
-var articulosAgrupados = AgruparPorCodigo(factura.Articulos!);
-
-foreach (var articulos in articulosAgrupados.Values)
-{
-    var primero = articulos[0];
-
-    decimal precioConIVA = primero.PrecioUnitario;
-    decimal precioNeto = redondeoDecimales(precioConIVA / 1.21m);
-
-    decimal descItemPct = primero.Descuento / 100m;
-    decimal descGeneralPct = (factura.DescuentoGeneral ?? 0) / 100m;
-
-    int cantidadTotal = articulos.Sum(a => a.Cantidad);
-
-    decimal importeBonificacion;
-    decimal importeIVA;
-    decimal importeItem;
-    decimal precioParaCalcular;
-    int codigoCondicionIVA;
-
-    if (tipoFactura == 1) // FACTURA A (neto + IVA)
-    {
-        decimal bonifItem = redondeoDecimales(precioNeto * descItemPct * cantidadTotal);
-
-        decimal subtotalSinDescuento = precioNeto * cantidadTotal;
-        decimal bonifGeneral = redondeoDecimales(subtotalSinDescuento * descGeneralPct);
-
-        importeBonificacion = redondeoDecimales(bonifItem + bonifGeneral);
-
-        decimal baseNeta = redondeoDecimales(subtotalSinDescuento - importeBonificacion);
-
-        importeIVA = redondeoDecimales(baseNeta * 0.21m);
-        importeItem = redondeoDecimales(baseNeta + importeIVA);
-
-        precioParaCalcular = precioNeto;
-
-        codigoCondicionIVA = 5;
-    }
-    else // FACTURA B (precios brutos)
-    {
-        decimal bonifItemBruto = redondeoDecimales(precioConIVA * descItemPct * cantidadTotal);
-
-        decimal subtotalBruto = precioConIVA * cantidadTotal;
-        decimal bonifGeneralBruto = redondeoDecimales(subtotalBruto * descGeneralPct);
-
-        importeBonificacion = redondeoDecimales(bonifItemBruto + bonifGeneralBruto);
-
-        decimal totalConDescuento = redondeoDecimales(subtotalBruto - importeBonificacion);
-
-
-
-
-
-
-        /*PRUEBA IMPORTE IVA*/
-
-        decimal bonifItem = redondeoDecimales(precioNeto * descItemPct * cantidadTotal);
-
-        decimal subtotalSinDescuento = precioNeto * cantidadTotal;
-        decimal bonifGeneral = redondeoDecimales(subtotalSinDescuento * descGeneralPct);
-
-        importeBonificacion = redondeoDecimales(bonifItem + bonifGeneral);
-
-        decimal baseNeta = redondeoDecimales(subtotalSinDescuento - importeBonificacion);
-
-        importeIVA = redondeoDecimales(baseNeta * 0.21m);
-
-        /*==================*/
-
-
-
-        importeItem = totalConDescuento;
-
-        precioParaCalcular = precioConIVA;
-
-        codigoCondicionIVA = 5;
-    }
-
-
-var cantidadesPorColor = articulos
-    .GroupBy(a => a.Articulo.Color.Codigo)
-    .Select(g => new { Color = g.Key, Cant = g.Sum(a => a.Cantidad) })
-    .OrderBy(x => x.Color) // opcional
-    .ToList();
-
-string detalleColores = string.Join(
-    " ",
-    cantidadesPorColor.Select(x => $"{x.Cant}{x.Color}")
-);
-
-string descripcionFinal = $"{primero.Descripcion} {detalleColores}";
-
-    var item = new Item
-    {
-        unidadesMtx = 7,
-        codigoMtx = primero.Codigo,
-        codigo = primero.Codigo,
-        descripcion = descripcionFinal,
-        cantidad = cantidadTotal,
-        codigoUnidadMedida = 7,
-
-        precioUnitario = redondeoDecimales(precioParaCalcular),
-        importeBonificacion = importeBonificacion,
-        codigoCondicionIVA = codigoCondicionIVA,
-        importeIVA = importeIVA,
-        importeItem = importeItem
-    };
-
-    datosFacturaAfip.AgregarItem(item);
-}
-
-
-
-
-var totalItems = datosFacturaAfip.GetItems().Sum(i => i.importeItem);
-var totalIVA   = datosFacturaAfip.GetItems().Sum(i => i.importeIVA);
-
-decimal gravado;
-decimal subtotal;
-decimal total;
-
-if (tipoFactura == 1) // A
-{
-    gravado = totalItems - totalIVA;
-    subtotal = gravado;
-    total = totalItems;
-}
-else // B
-{
-    total = totalItems;
-    gravado = redondeoDecimales(total / 1.21m);
-    subtotal = gravado;
-    totalIVA = total - gravado;
-}
-
-datosFacturaAfip.Importes(
-    redondeoDecimales(gravado),
-    redondeoDecimales(subtotal),
-    redondeoDecimales(total)
-);
-
-
-
-var subtotalIVA = new SubtotalIVA
-{
-    codigo = 5, // IVA 21%
-    importe = datosFacturaAfip.GetItems().Sum(i => i.importeIVA)
-};
-
-    datosFacturaAfip.AgregarSubtotal(subtotalIVA);
-
-// 4️⃣ Generar XML del comprobante
-    string comprobanteXml = datosFacturaAfip.Build();
-
-
-    // 5️⃣ Llamar al método AutorizarComprobanteAsync
-    string responseXml = await afipClient.AutorizarComprobanteAsync(
+    // 🔹 1. Obtener último comprobante
+    var ultimoResult = await afipClient.ConsultarUltimoAutorizadoAsync(
         loginTicket.Token,
         loginTicket.Sign,
         cuitRepresentada,
-        comprobanteXml
-    );
+        factura.PuntoDeVenta,
+        tipoFactura);
 
-    // 7️⃣ Retornar XML de respuesta (puedes parsearlo a objeto si quieres)
-
-    var afip = afipClient.ParseAfipResponse(responseXml, factura.Id);
-    
-
-    if (!afip.Aprobado)
+    if (!ultimoResult.Exitoso)
     {
-        var errors = string.Join("; ", afip.Errores);
-        throw new Exception($"Factura rechazada: {errors}");
+        return new AfipResponse
+        {
+            Aprobado = false,
+            idFactura = factura.Id,
+            Errores = ultimoResult.Errores
+                .Select(e => $"{e.Codigo} - {e.Descripcion}")
+                .ToList()
+        };
     }
 
-    if (afip.Observaciones.Any())
+    long numeroComprobante = ultimoResult.NumeroComprobante!.Value + 1;
+
+    // 🔹 2.1 Calcular totales
+    var articulosAgrupados = AgruparPorCodigo(factura.Articulos!);
+
+    decimal totalGravado = 0;
+    decimal totalIVA = 0;
+
+    foreach (var articulos in articulosAgrupados.Values)
     {
-        Console.WriteLine("Observaciones de AFIP:");
-        foreach (var o in afip.Observaciones)
-            Console.WriteLine(o);
+        var primero = articulos[0];
+
+        decimal precioConIVA = primero.PrecioUnitario;
+        decimal precioNeto = redondeoDecimales(precioConIVA / 1.21m);
+
+        int cantidadTotal = articulos.Sum(a => a.Cantidad);
+
+        decimal subtotalNeto = precioNeto * cantidadTotal;
+
+        decimal descItem = subtotalNeto * (primero.Descuento / 100m);
+        decimal descGeneral = subtotalNeto * ((factura.DescuentoGeneral ?? 0) / 100m);
+
+        decimal baseNeta = redondeoDecimales(subtotalNeto - descItem - descGeneral);
+        decimal iva = redondeoDecimales(baseNeta * 0.21m);
+
+        totalGravado += baseNeta;
+        totalIVA += iva;
     }
 
+    totalGravado = redondeoDecimales(totalGravado);
+    totalIVA = redondeoDecimales(totalIVA);
+    decimal totalGeneral = redondeoDecimales(totalGravado + totalIVA);
 
+    // 🔹 2.2 obtener el tipoClienteReceptor
 
-    return afip;
+    int tipoCondIVARec = factura.Cliente.CondicionFiscal.Codigo switch
+    {
+        "RI" => 1,  // Responsable Inscripto
+        "CF" => 5,  // Consumidor Final
+        "MO" => 6,  // Monotributo
+        _ => throw new Exception("Condición IVA del cliente no reconocida")
+    };
+    // 🔹 3. Construir XML con Builder
+    var builder = new ComprobanteCaeBuilderWsfe()
+        .DatosFactura(
+            tipoFactura,
+            factura.PuntoDeVenta,
+            (int)numeroComprobante,
+            factura.FechaFactura)
+        .Receptor(
+            80, // CUIT
+            long.Parse(factura.Cliente.Cuit.Replace("-", "")),
+            tipoCondIVARec)
+        .Importes(
+            totalGravado,
+            totalGeneral)
+        .AgregarSubtotalIVA(new SubtotalIVA
+        {
+            codigo = 5, // 21%
+            importe = totalIVA
+        });
+
+    string xmlRequest = builder.Build();
+
+    // 🔹 4. Autorizar enviando XML crudo
+    var afipResponse = await afipClient.AutorizarComprobanteAsync(
+        loginTicket.Token,
+        loginTicket.Sign,
+        cuitRepresentada,
+        xmlRequest,
+        factura.Id);
+
+    return afipResponse;
 }
-
 private decimal calcularPrecioUnitario(decimal precioFinal/*, decimal descuentoUnitario, decimal descuentoGeneral*/)
 {
     return Math.Round(precioFinal / 1.21m, 2);

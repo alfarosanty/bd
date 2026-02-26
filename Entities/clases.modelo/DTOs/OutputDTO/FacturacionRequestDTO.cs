@@ -1,54 +1,58 @@
-public class FEAuthRequest
+using System;
+
+public class FECAERequest
 {
-    public string Token { get; set; }
-    public string Sign { get; set; }
-    public long Cuit { get; set; }
+    public FECAECabRequest FeCabReq { get; set; } = null!;
+    public FECAEDetRequest[] FeDetReq { get; set; } = Array.Empty<FECAEDetRequest>();
 }
 
-public class FeCabReq
+public class FECAECabRequest
 {
     public int CantReg { get; set; }
     public int PtoVta { get; set; }
-    public int CbteTipo { get; set; } // 1 = Factura A, 6 = Factura B, etc.
-}
-
-public class AlicIva
-{
-    public short Id { get; set; }       // 5 = 21%, 4 = 10.5%, etc.
-    public double BaseImp { get; set; }
-    public double Importe { get; set; }
+    public int CbteTipo { get; set; }
 }
 
 public class FECAEDetRequest
 {
-    public int Concepto { get; set; }   // 1=Productos, 2=Servicios, 3=Ambos
-    public int DocTipo { get; set; }    // 80=CUIT, 96=DNI, etc.
+    public int Concepto { get; set; }
+
+    public int DocTipo { get; set; }
     public long DocNro { get; set; }
+
     public long CbteDesde { get; set; }
     public long CbteHasta { get; set; }
-    public string CbteFch { get; set; }
-    public double ImpTotal { get; set; }
-    public double ImpTotConc { get; set; }
-    public double ImpNeto { get; set; }
-    public double ImpOpEx { get; set; }
-    public double ImpIVA { get; set; }
-    public double ImpTrib { get; set; }
+
+    /// <summary>
+    /// Formato yyyyMMdd
+    /// </summary>
+    public string CbteFch { get; set; } = string.Empty;
+
+    public decimal ImpTotal { get; set; }
+    public decimal ImpTotConc { get; set; }
+    public decimal ImpNeto { get; set; }
+    public decimal ImpOpEx { get; set; }
+    public decimal ImpTrib { get; set; }
+    public decimal ImpIVA { get; set; }
+
     public string MonId { get; set; } = "PES";
-    public double MonCotiz { get; set; } = 1.0;
-    public int CondicionIVAReceptorId { get; set; } = 0; // 0 = no informado
+    public decimal MonCotiz { get; set; }
 
-
-    public List<AlicIva> Iva { get; set; } = new();
+    public AlicIva[]? Iva { get; set; }
 }
 
-public class FeCAEReq
+public class AlicIva
 {
-    public FeCabReq FeCabReq { get; set; }
-    public List<FECAEDetRequest> FeDetReq { get; set; } = new();
-}
+    /// <summary>
+    /// 5 = 21%
+    /// 4 = 10.5%
+    /// 6 = 27%
+    /// 3 = 0%
+    /// 8 = 5%
+    /// 9 = 2.5%
+    /// </summary>
+    public int Id { get; set; }
 
-public class FECAESolicitarRequest
-{
-    public FEAuthRequest Auth { get; set; }
-    public FeCAEReq FeCAEReq { get; set; }
+    public decimal BaseImp { get; set; }
+    public decimal Importe { get; set; }
 }

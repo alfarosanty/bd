@@ -4,5 +4,5 @@ public class LoginTicketResponseData
     public string? Sign { get; set; }
     public DateTime GenerationTime { get; set; }
     public DateTime ExpirationTime { get; set; }
-    public uint UniqueId { get; set; }
+    public string UniqueId { get; set; }
 }

@@ -65,10 +65,11 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
 
         factura.Id = idInterno;
 
-        var respuestaAfip = await fs.FacturarAsync(
+        var respuestaAfip = await fs.FacturarWsfeAsync(
             factura,
             loginTicket,
-            Convert.ToInt64(30716479966)
+            //Convert.ToInt64(30716479966)
+            Convert.ToInt64(20302367613)
         );
 
         // 4) Guardar datos del CAE en DB
@@ -120,7 +121,7 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
 
             // Facturar en AFIP
             FacturaServices fs = new FacturaServices();
-            var facturaAfipResponse = await fs.FacturarAsync(factura, loginTicket, Convert.ToInt64(20302367613));
+            var facturaAfipResponse = await fs.FacturarWsfeAsync(factura, loginTicket, Convert.ToInt64(20302367613));
 
             con.cerrarConexion(npgsqlConnection);
 
@@ -131,32 +132,7 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
             return BadRequest(new { error = ex.Message });
         }
     }
-/*
-    [HttpGet("{id}/pdf")]
-    public async Task<IActionResult> GenerarPdf(int id)
-    {
-            // Conexión a BD
-            CConexion con = new CConexion();
-            using var npgsqlConnection = con.establecerConexion();
 
-            // Autenticación AFIP
-            AfipServices afipServices = new AfipServices();
-            FacturaServices facturaServices = new FacturaServices();
-            PdfService pdfService = new PdfService();
-            TemplateService templateService = new TemplateService();
-            FacturaBuilder _facturaBuilder = new FacturaBuilder(templateService, pdfService);
-
-            var factura = facturaServices.GetFactura(id, npgsqlConnection);
-        if (factura == null)
-            return NotFound("Factura no encontrada.");
-
-        var pdfDocument = _facturaBuilder.Build(factura);
-
-        var pdfBytes = await _facturaBuilder.Build(factura);
-
-        return File(pdfBytes, "application/pdf", $"Factura_{id}.pdf");
-    }
-*/
 
 [HttpGet("{id}")]
 public async Task<IActionResult> GetFactura(int id)
@@ -220,7 +196,7 @@ public IActionResult GetFacturasPorCliente(
 }
 
 [HttpGet("{id}/pdf")]
-public IActionResult PdfTest(int id)
+public IActionResult PdfFactura(int id)
 {
     CConexion con = new CConexion();
     using var npgsqlConnection = con.establecerConexion();

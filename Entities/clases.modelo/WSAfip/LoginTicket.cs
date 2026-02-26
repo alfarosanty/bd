@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 public class LoginTicket
 { 
-    public UInt32 UniqueId; // Entero de 32 bits sin signo que identifica el requerimiento
+    public string UniqueId; // Entero de 32 bits sin signo que identifica el requerimiento
     public DateTime GenerationTime; // Momento en que fue generado el requerimiento
     public DateTime ExpirationTime; // Momento en el que expira la solicitud
     public string? Service; // Identificacion del WSN para el cual se solicita el TA
@@ -145,9 +145,9 @@ public class LoginTicket
 
             XmlNode nodo;
 
-            nodo = XmlLoginTicketResponse.SelectSingleNode("//uniqueId") 
-                ?? throw new Exception("No se encontró el nodo <uniqueId> en la respuesta del WSAA");
-            loginTicketData.UniqueId = UInt32.Parse(nodo.InnerText);
+            nodo = XmlLoginTicketResponse.SelectSingleNode("//uniqueId")
+                        ?? throw new Exception("No se encontró el nodo <uniqueId>");
+                        loginTicketData.UniqueId = nodo.InnerText.Trim();
 
             nodo = XmlLoginTicketResponse.SelectSingleNode("//generationTime") 
                 ?? throw new Exception("No se encontró el nodo <generationTime> en la respuesta del WSAA");
