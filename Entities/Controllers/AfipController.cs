@@ -53,7 +53,7 @@ public IActionResult InsertarCertificado()
     try
     {
         // 1️⃣ Ruta del archivo
-        string ruta = "C:\\Fran\\ARCA\\CERTIFICADOS\\blumehomologacion3\\blumehomologacion3.pfx";
+        string ruta = "C:\\Fran\\ARCA\\CERTIFICADOS\\blumeproduccion2wsfe\\facturador1wsfe.pfx";
 
         // 2️⃣ Leer archivo como bytes
         byte[] certificadoBytes = System.IO.File.ReadAllBytes(ruta);

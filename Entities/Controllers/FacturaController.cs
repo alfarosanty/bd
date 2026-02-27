@@ -38,71 +38,90 @@ public class FacturaController : ControllerBase
         });    }
 
     [HttpPost("crearConAFIP")]
-public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
-{
-    Npgsql.NpgsqlConnection? npgsqlConnection = null;
-
-    try
+    public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
     {
-        // 1) Establecemos conexiones
+        if (factura == null)
+            return BadRequest(new { error = "Factura inválida." });
 
-        CConexion con = new CConexion();
-        npgsqlConnection = con.establecerConexion();
+        using var connection = new CConexion().establecerConexion();
+        using var transaction = connection.BeginTransaction();
 
-        FacturaServices fs = new FacturaServices();
-
-        // 2) Facturo de manera interna
-
-        int idInterno = fs.crear(factura, npgsqlConnection);
-        
-        // 3) Facturo en AFIP
-
-        AfipServices afipServices = new AfipServices();
-        var loginTicket = await afipServices.AutenticacionAsync(
-            verbose: false,
-            npgsqlConnection
-        );
-
-        factura.Id = idInterno;
-
-        var respuestaAfip = await fs.FacturarWsfeAsync(
-            factura,
-            loginTicket,
-            //Convert.ToInt64(30716479966)
-            Convert.ToInt64(20302367613)
-        );
-
-        // 4) Guardar datos del CAE en DB
-        fs.ActualizarDatosAFIP(
-            facturaId: idInterno,
-            respuestaAfip,
-            npgsqlConnection
-        );
-
-        con.cerrarConexion(npgsqlConnection);
-
-        return Ok(new
+        try
         {
-            idInterno,
-            respuestaCompleta = respuestaAfip
-        });
-    }
-    catch (Exception ex)
-    {
-        if (npgsqlConnection != null)
-        {
-            CConexion con = new CConexion();
-            con.cerrarConexion(npgsqlConnection);
+            var facturaService = new FacturaServices();
+            var afipService = new AfipServices();
+
+            // =========================
+            // 1️⃣ Crear factura interna
+            // =========================
+            int idInterno = facturaService.crear(factura, connection);
+            factura.Id = idInterno;
+
+            // =========================
+            // 2️⃣ Autenticación AFIP
+            // =========================
+            var loginTicket = await afipService.AutenticacionAsync(
+                verbose: false,
+                connection
+            );
+
+            if (loginTicket == null)
+                throw new Exception("No se pudo autenticar contra AFIP.");
+
+            // =========================
+            // 3️⃣ Facturar en AFIP
+            // =========================
+            var respuestaAfip = await facturaService.FacturarWsfeAsync(
+                factura,
+                loginTicket,
+                30716479966
+            );
+
+            if (!respuestaAfip.Aprobado)
+            {
+                var errores = string.Join(" | ", respuestaAfip.Errores);
+                throw new Exception($"AFIP rechazó la factura: {errores}");
+            }
+
+            // =========================
+            // 4️⃣ Guardar CAE
+            // =========================
+            facturaService.ActualizarDatosAFIP(
+                idInterno,
+                respuestaAfip,
+                connection
+            );
+
+            // =========================
+            // 5️⃣ Commit
+            // =========================
+            transaction.Commit();
+
+            return Ok(new
+            {
+                idInterno,
+                cae = respuestaAfip.Cae,
+                vencimiento = respuestaAfip.CaeVencimiento,
+                observaciones = respuestaAfip.Observaciones
+            });
         }
-
-        return BadRequest(new
+        catch (Exception ex)
         {
-            error = ex.Message,
-            stack = ex.StackTrace
-        });
-    }
-}
+            try
+            {
+                transaction.Rollback();
+            }
+            catch
+            {
+                // si falla el rollback no queremos romper más
+            }
 
+            return BadRequest(new
+            {
+                error = ex.Message
+            });
+        }
+    }
 
 
 
@@ -121,7 +140,7 @@ public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
 
             // Facturar en AFIP
             FacturaServices fs = new FacturaServices();
-            var facturaAfipResponse = await fs.FacturarWsfeAsync(factura, loginTicket, Convert.ToInt64(20302367613));
+            var facturaAfipResponse = await fs.FacturarWsfeAsync(factura, loginTicket, Convert.ToInt64(30716479966));
 
             con.cerrarConexion(npgsqlConnection);
 

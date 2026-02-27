@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Globalization;
+
 
 public class AfipWsfeClient
 {
@@ -140,8 +142,18 @@ public AfipResponse ParseAutorizarResponse(string xml, int idFactura)
     result.Cae = doc.Descendants()
         .FirstOrDefault(x => x.Name.LocalName == "CAE")?.Value;
 
-    result.CaeVencimiento = doc.Descendants()
+
+    var caeVtoStr = doc.Descendants()
         .FirstOrDefault(x => x.Name.LocalName == "CAEFchVto")?.Value;
+
+    if (!string.IsNullOrEmpty(caeVtoStr))
+    {
+        result.CaeVencimiento = DateTime.ParseExact(
+            caeVtoStr,
+            "yyyyMMdd",
+            CultureInfo.InvariantCulture
+        );
+    }
 
     result.numeroComprobante = doc.Descendants()
         .FirstOrDefault(x => x.Name.LocalName == "CbteDesde")?.Value;

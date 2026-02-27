@@ -1,24 +1,53 @@
 using BlumeAPI.Services;
 using FastReport;
 using FastReport.Export.PdfSimple;
-using FastReport.Utils;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 
 public class FastReportService
 {
+    private static readonly CultureInfo CulturaAR = new("es-AR");
 
-public byte[] CrearPdf(Factura factura, string version)
-{
-    using var report = new Report();
+    public byte[] CrearPdf(Factura factura, string version)
+    {
+        using var report = new Report();
 
-    if (factura.TipoFactura == "A"){
+        // 🔹 Cultura argentina para TODO el reporte
+    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("es-AR");
+    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("es-AR");
+        string plantilla = factura.TipoFactura switch
+        {
+            "A" => "FastReport/Factura_A.frx",
+            "B" => "FastReport/Factura_B.frx",
+            _ => throw new Exception("Tipo de factura no soportado")
+        };
 
-    report.Dictionary.Clear();
-    report.Load("FastReport/Factura_A.frx");
+        report.Dictionary.Clear();
+        report.Load(plantilla);
 
-    var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
+        CargarParametrosBase(report, factura, version);
+        CargarTotales(report, factura);
+        RegistrarArticulos(report, factura);
+        ConfigurarFooter(report, factura);
+        ConfigurarQr(report, factura);
+
+
+        report.Prepare();
+
+        using var export = new PDFSimpleExport();
+        using var ms = new MemoryStream();
+        report.Export(export, ms);
+
+        return ms.ToArray();
+    }
+
+    // ===============================
+    // 🔹 PARÁMETROS GENERALES
+    // ===============================
+    private void CargarParametrosBase(Report report, Factura factura, string version)
+    {
+        var ubicacion = CapitalizarPalabras(
+            $"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
 
         report.SetParameterValue("Version", version);
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
@@ -29,167 +58,96 @@ public byte[] CrearPdf(Factura factura, string version)
         report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
         report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
         report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("CondVentaCliente", "Otra");//factura.Cliente.CondicionFiscal.Descripcion);
+        report.SetParameterValue("CondVentaCliente", "Otra");
         report.SetParameterValue("DomicilioCliente", ubicacion);
 
         report.SetParameterValue("NroCAE", factura.CaeNumero);
         report.SetParameterValue("FechaVtoCAE", factura.FechaVencimientoCae?.ToString("dd/MM/yyyy"));
+    }
 
-        //TOTALES
-        var total = factura.calcularTotal();
-        var subtotal = factura.calcularSubtotal();
-        var iva = factura.calcularIva();
-        var descuento = factura.CalcularDescuento();
-        report.SetParameterValue("Subtotal", subtotal.ToString("N2", new CultureInfo("es-AR")));
-        report.SetParameterValue("Descuento", descuento.ToString("N2", new CultureInfo("es-AR")));
-        report.SetParameterValue("MontoIVA", iva.ToString("N2", new CultureInfo("es-AR")));
-        report.SetParameterValue("Total", total.ToString("N2", new CultureInfo("es-AR")));
+    // ===============================
+    // 🔹 TOTALES (DECIMALES, NO STRING)
+    // ===============================
+    private void CargarTotales(Report report, Factura factura)
+    {
+        report.SetParameterValue("Subtotal", factura.calcularSubtotal());
+        report.SetParameterValue("Descuento", factura.CalcularDescuento());
+        report.SetParameterValue("MontoIVA", factura.calcularIva());
+        report.SetParameterValue("Total", factura.calcularTotal());
+    }
 
+    // ===============================
+    // 🔹 ARTÍCULOS
+    // ===============================
+    private void RegistrarArticulos(Report report, Factura factura)
+    {
+        var facturaServices = new FacturaServices();
+        var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
+        var articulos = facturaServices.ConstruirResumen(mapar);
 
-// registrar datos
-FacturaServices facturaServices = new FacturaServices();
+        report.RegisterData(articulos, "Articulos");
+    }
 
-var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
-var articulos = facturaServices.ConstruirResumen(mapar);
+    // ===============================
+    // 🔹 FOOTER (sin comparar cultura)
+    // ===============================
+    private void ConfigurarFooter(Report report, Factura factura)
+    {
+        var footer = report.FindObject("PageFooter1") as FastReport.PageFooterBand;
 
-report.RegisterData(articulos, "Articulos");
+        if (footer != null)
+        {
+            footer.AfterLayout += (sender, e) =>
+            {
+                var text = report.FindObject("Text66") as FastReport.TextObject;
+                var linea1 = report.FindObject("Line19") as FastReport.LineObject;
+                var linea2 = report.FindObject("Line20") as FastReport.LineObject;
 
-var footer = report.FindObject("PageFooter1") as FastReport.PageFooterBand;
-             Console.WriteLine(footer);
-            if (footer != null)
+                if (text == null) return;
+
+                var subtotalEsperado = factura.CalcularSubtotalSinDescuentoGeneral();
+                var subtotalFormateado = subtotalEsperado.ToString("N2", CulturaAR);
+                var textoEsperado = $"Subtotal: ${subtotalFormateado}";
+
+                /* 🔎 LOGS DE COMPARACIÓN
+                Console.WriteLine("------ DEBUG FOOTER ------");
+                Console.WriteLine($"Texto reporte: '{text.Text.Trim()}'");
+                Console.WriteLine($"Texto esperado: '{textoEsperado}'");
+                Console.WriteLine($"Coinciden: {text.Text.Trim() == textoEsperado}");
+                Console.WriteLine("--------------------------");
+                */
+                if (text.Text.Trim() == textoEsperado)
                 {
-                   footer.AfterLayout += (sender, e) =>
-                        {
-                            Console.WriteLine(e);
-                           var text = report.FindObject("Text66") as FastReport.TextObject;
-                           var linea1 = report.FindObject("Line19") as FastReport.LineObject;
-                           var linea2 = report.FindObject("Line20") as FastReport.LineObject;
-                            Console.WriteLine(text.Text);
-                            Console.WriteLine("Subtotal: $" + total.ToString("N2"));
-                            if(text.Text == "Subtotal: $" + total.ToString("N2")){
-                                text.Visible = false;
-                                linea1.Visible = false;
-                                linea2.Visible = false;
+                    text.Visible = false;
+                    linea1.Visible = false;
+                    linea2.Visible = false;
+                }
+            };
+        }
+    }
 
-                            }
-                            // Ocultar el pie en la última página
-                            //if (report.Engine.Page == report.Engine.TotalPages)
-                                //footer.
-                        };
-                        }
+    // ===============================
+    // 🔹 QR
+    // ===============================
+    private void ConfigurarQr(Report report, Factura factura)
+    {
+        if (factura.CaeNumero.HasValue)
+        {
+            var qrUrl = AfipQrHelper.GenerarQrUrl(factura, 20302367613);
+            report.SetParameterValue("QrText", qrUrl);
+        }
+        else
+        {
+            report.SetParameterValue("QrText", "");
+        }
+    }
 
-if (factura.CaeNumero.HasValue)
-{
-    var qrUrl = AfipQrHelper.GenerarQrUrl(factura, 20302367613);
-    report.SetParameterValue("QrText", qrUrl);
-}
-else
-{
-    report.SetParameterValue("QrText", "");
-}
+    private string CapitalizarPalabras(string texto)
+    {
+        if (string.IsNullOrWhiteSpace(texto))
+            return texto;
 
-
-
-
-report.Prepare();
-using var export = new PDFSimpleExport();
-using var ms = new MemoryStream();
-report.Export(export, ms);
-
-return ms.ToArray();
-}   else
-if(factura.TipoFactura == "B"){
-
-    report.Dictionary.Clear();
-    report.Load("FastReport/Factura_B.frx");
-
-    // parámetros → OK
-
-var ubicacion = CapitalizarPalabras($"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
-        report.SetParameterValue("Version", version);
-        report.SetParameterValue("TipoFactura", factura.TipoFactura);
-        report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
-        report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
-        report.SetParameterValue("FechaFactura", factura.FechaFactura.ToString("dd/MM/yyyy"));
-
-        report.SetParameterValue("CuitCliente", factura.Cliente.Cuit);
-        report.SetParameterValue("RazonSocialCliente", factura.Cliente.RazonSocial);
-        report.SetParameterValue("CondIVACliente", factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("CondVentaCliente", "Otra");//factura.Cliente.CondicionFiscal.Descripcion);
-        report.SetParameterValue("DomicilioCliente", ubicacion);
-
-        report.SetParameterValue("NroCAE", factura.CaeNumero);
-        report.SetParameterValue("FechaVtoCAE", factura.FechaVencimientoCae?.ToString("dd/MM/yyyy"));
-
-        //TOTALES
-        var total = factura.calcularTotal();
-        var subtotal = factura.calcularTotal();
-        var descuento = factura.CalcularDescuento();
-        report.SetParameterValue("Subtotal", subtotal.ToString("N2", new CultureInfo("es-AR")));
-        report.SetParameterValue("Descuento", descuento.ToString("N2", new CultureInfo("es-AR")));
-        report.SetParameterValue("Total", total.ToString("N2", new CultureInfo("es-AR")));
-
-// registrar datos
-// registrar datos
-FacturaServices facturaServices = new FacturaServices();
-
-var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
-var articulos = facturaServices.ConstruirResumen(mapar);
-
-report.RegisterData(articulos, "Articulos");
-
-var footer = report.FindObject("PageFooter1") as FastReport.PageFooterBand;
-             Console.WriteLine(footer);
-            if (footer != null)
-                {
-                   footer.AfterLayout += (sender, e) =>
-                        {
-                            Console.WriteLine(e);
-                           var text = report.FindObject("Text66") as FastReport.TextObject;
-                           var linea1 = report.FindObject("Line19") as FastReport.LineObject;
-                           var linea2 = report.FindObject("Line20") as FastReport.LineObject;
-                            Console.WriteLine(text.Text);
-                            Console.WriteLine("Subtotal: $" + total.ToString("N2"));
-                            if(text.Text == "Subtotal: $" + total.ToString("N2")){
-                                text.Visible = false;
-                                linea1.Visible = false;
-                                linea2.Visible = false;
-
-                            }
-                            // Ocultar el pie en la última página
-                            //if (report.Engine.Page == report.Engine.TotalPages)
-                                //footer.
-                        };
-                        }
-
-if (factura.CaeNumero.HasValue)
-{
-    var qrUrl = AfipQrHelper.GenerarQrUrl(factura, 20302367613);
-    report.SetParameterValue("QrText", qrUrl);
-}
-else
-{
-    report.SetParameterValue("QrText", "");
-}
-
-
-report.Prepare();
-using var export = new PDFSimpleExport();
-using var ms = new MemoryStream();
-report.Export(export, ms);
-
-return ms.ToArray();
-}
-    throw new System.Exception("Tipo de factura no soportado (no es A ni B)");
-}
-
-
-string CapitalizarPalabras(string texto)
-{
-    if (string.IsNullOrWhiteSpace(texto))
-        return texto;
-
-    texto = texto.ToLower();
-    return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(texto);
-}
+        texto = texto.ToLower();
+        return CulturaAR.TextInfo.ToTitleCase(texto);
+    }
 }

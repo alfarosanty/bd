@@ -92,7 +92,7 @@ public class ComprobanteCaeBuilderWsfe
         sb.AppendLine($"<ser:Concepto>{concepto}</ser:Concepto>");
         sb.AppendLine($"<ser:DocTipo>{tipoDoc}</ser:DocTipo>");
         sb.AppendLine($"<ser:DocNro>{nroDoc}</ser:DocNro>");
-        sb.AppendLine($"<ser:CondicionIVAReceptor>{tipoCondIVAReceptor}</ser:CondicionIVAReceptor>");
+        sb.AppendLine($"<ser:CondicionIVAReceptorId>{tipoCondIVAReceptor}</ser:CondicionIVAReceptorId>");
         sb.AppendLine($"<ser:CbteDesde>{numeroComprobante}</ser:CbteDesde>");
         sb.AppendLine($"<ser:CbteHasta>{numeroComprobante}</ser:CbteHasta>");
         sb.AppendLine($"<ser:CbteFch>{fechaEmision}</ser:CbteFch>");
