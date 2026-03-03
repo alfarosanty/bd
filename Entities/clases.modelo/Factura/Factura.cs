@@ -18,7 +18,7 @@ public class Factura
 
     public decimal? ImporteBruto { get; set; }
 
-    public int PuntoDeVenta { get; set; }
+    public int? PuntoDeVenta { get; set; }
 
     public int? NumeroComprobante { get; set; }
 
@@ -28,7 +28,7 @@ public class Factura
 
     public decimal? ImporteNeto { get; set; }
 
-    public int? Iva { get; set; }
+    public decimal? Iva { get; set; }
 
     public string TipoFactura { get; set; }
 

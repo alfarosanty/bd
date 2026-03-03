@@ -51,7 +51,11 @@ public class FastReportService
 
         report.SetParameterValue("Version", version);
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
-        report.SetParameterValue("PtoVenta", factura.PuntoDeVenta.ToString("D4"));
+        if(factura.PuntoDeVenta == null || factura.PuntoDeVenta == 0){
+            report.SetParameterValue("PtoVenta", "0000");
+        } else {
+            report.SetParameterValue("PtoVenta", factura.PuntoDeVenta!.Value.ToString("D4"));
+        }
         report.SetParameterValue("NroComprobante", factura.NumeroComprobante?.ToString("D8"));
         report.SetParameterValue("FechaFactura", factura.FechaFactura.ToString("dd/MM/yyyy"));
 

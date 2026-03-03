@@ -131,10 +131,14 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     if (factura.Cliente == null)
         throw new Exception("La factura no tiene cliente asociado.");
 
+    if(factura.PuntoDeVenta == null || factura.PuntoDeVenta == 0)
+        throw new Exception("La factura no tiene punto de venta asignado.");
+
     if (factura.Articulos == null || !factura.Articulos.Any())
         throw new Exception("La factura no contiene artículos.");
 
-    var afipClient = new AfipWsfeClient("https://servicios1.afip.gov.ar/wsfev1/service.asmx");
+    //var afipClient = new AfipWsfeClient("https://servicios1.afip.gov.ar/wsfev1/service.asmx"); // PRODUCCIÓN    
+    var afipClient = new AfipWsfeClient("https://wswhomo.afip.gov.ar/wsfev1/service.asmx"); // HOMOLOGACIÓN 
 
     int tipoFactura = factura.TipoFactura switch
     {
@@ -148,7 +152,7 @@ public async Task<AfipResponse> FacturarWsfeAsync(
         loginTicket.Token,
         loginTicket.Sign,
         cuitRepresentada,
-        factura.PuntoDeVenta,
+        factura.PuntoDeVenta!.Value,
         tipoFactura);
 
     if (!ultimoResult.Exitoso || ultimoResult.NumeroComprobante == null)
@@ -233,7 +237,7 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     var builder = new ComprobanteCaeBuilderWsfe()
         .DatosFactura(
             tipoFactura,
-            factura.PuntoDeVenta,
+            factura.PuntoDeVenta!.Value,
             (int)numeroComprobante,
             factura.FechaFactura)
         .Receptor(
@@ -386,7 +390,24 @@ public List<ArticuloResumen> ConstruirResumen(Dictionary<string, List<ArticuloFa
     cmd.Parameters.AddWithValue("IMPORTE_BRUTO", factura.ImporteBruto);
     cmd.Parameters.AddWithValue("EXIMIR_IVA", factura.EximirIVA);
     cmd.Parameters.AddWithValue("ID_PRESUPUESTO", factura.Presupuesto?.Id ?? (object)DBNull.Value);
-    cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", factura.PuntoDeVenta);
+    if(factura.PuntoDeVenta == null || factura.PuntoDeVenta == 0){
+        cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", DBNull.Value);
+    } else {
+        cmd.Parameters.AddWithValue("PUNTO_DE_VENTA", factura.PuntoDeVenta);
+    }
+    long numeroFactura;
+
+    if (factura.EximirIVA == true){
+        using var seqCmd = new NpgsqlCommand(
+            "SELECT nextval('comprobante_interno_seq')",
+            npgsqlConnection);
+
+        numeroFactura = (long)seqCmd.ExecuteScalar();
+    }else{
+        numeroFactura = factura.NumeroComprobante ?? 0;
+    }
+
+cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", numeroFactura);
     cmd.Parameters.AddWithValue("NUMERO_DE_FACTURA", factura.NumeroComprobante ?? 0);
     cmd.Parameters.AddWithValue("CAE_NUMERO", (object?)factura.CaeNumero ?? DBNull.Value);
     cmd.Parameters.AddWithValue("FECHA_VENCIMIENTO_CAE", (object?)factura.FechaVencimientoCae ?? DBNull.Value);
@@ -678,13 +699,13 @@ private static Factura ReadFactura(NpgsqlDataReader reader)
         Presupuesto = reader["ID_PRESUPUESTO"] != DBNull.Value 
             ? new Presupuesto { Id = Convert.ToInt32(reader["ID_PRESUPUESTO"]) }
             : null,
-        ImporteBruto = reader["IMPORTE_BRUTO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_BRUTO"]) : null,
+        ImporteBruto = reader["IMPORTE_BRUTO"] != DBNull.Value ? Convert.ToDecimal(reader["IMPORTE_BRUTO"]) : null,
         NumeroComprobante = reader["NUMERO_FACTURA"] != DBNull.Value ? Convert.ToInt32(reader["NUMERO_FACTURA"]) : null,
         CaeNumero = reader["CAE_NUMERO"] != DBNull.Value ? Convert.ToInt64(reader["CAE_NUMERO"]) : null,
         FechaVencimientoCae = reader["FECHA_VENCIMIENTO_CAE"] != DBNull.Value ? Convert.ToDateTime(reader["FECHA_VENCIMIENTO_CAE"]) : null,
-        ImporteNeto = reader["IMPORTE_NETO"] != DBNull.Value ? Convert.ToInt32(reader["IMPORTE_NETO"]) : null,
-        Iva = reader["IVA"] != DBNull.Value ? Convert.ToInt32(reader["IVA"]) : null,
-        PuntoDeVenta = Convert.ToInt32(reader["PUNTO_DE_VENTA"]),
+        ImporteNeto = reader["IMPORTE_NETO"] != DBNull.Value ? Convert.ToDecimal(reader["IMPORTE_NETO"]) : null,
+        Iva = reader["IVA"] != DBNull.Value ? Convert.ToDecimal(reader["IVA"]) : null,
+        PuntoDeVenta = reader["PUNTO_DE_VENTA"] != DBNull.Value ? Convert.ToInt32(reader["PUNTO_DE_VENTA"]) : null,
         TipoFactura = reader["TIPO_FACTURA"].ToString(),
         DescuentoGeneral = reader["DESCUENTO"] != DBNull.Value ? Convert.ToInt32(reader["DESCUENTO"]) : null
     };

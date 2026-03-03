@@ -78,7 +78,7 @@ public async Task<LoginTicketResponseData> AutenticacionAsync(bool verbose, Npgs
         }
 
         //* 2️⃣ Si token aún es válido, lo devolvemos
-        if (horaExpiracion > DateTime.UtcNow)
+        if (horaExpiracion.ToUniversalTime() > DateTime.UtcNow)
         {
             if (verbose) Console.WriteLine("Token válido encontrado en BD");
             return new LoginTicketResponseData

@@ -74,7 +74,8 @@ public class FacturaController : ControllerBase
             var respuestaAfip = await facturaService.FacturarWsfeAsync(
                 factura,
                 loginTicket,
-                30716479966
+                //30716479966 // CUIT de produccion de AFIP
+                20302367613 // CUIT de homologacion de AFIP
             );
 
             if (!respuestaAfip.Aprobado)
