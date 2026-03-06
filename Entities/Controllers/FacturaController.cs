@@ -16,10 +16,12 @@ public class FacturaController : ControllerBase
 {
 
     private readonly ILogger<ClienteController> _logger;
+    private readonly IFacturaService _facturaService;
 
-    public FacturaController(ILogger<ClienteController> logger)
+    public FacturaController(ILogger<ClienteController> logger, IFacturaService facturaService)
     {
         _logger = logger;
+        _facturaService = facturaService;
     }
 
     [HttpPost("crear")]
@@ -74,8 +76,8 @@ public class FacturaController : ControllerBase
             var respuestaAfip = await facturaService.FacturarWsfeAsync(
                 factura,
                 loginTicket,
-                //30716479966 // CUIT de produccion de AFIP
-                20302367613 // CUIT de homologacion de AFIP
+                30716479966 // CUIT de produccion de AFIP
+                //20302367613 // CUIT de homologacion de AFIP
             );
 
             if (!respuestaAfip.Aprobado)
@@ -157,18 +159,22 @@ public class FacturaController : ControllerBase
 [HttpGet("{id}")]
 public async Task<IActionResult> GetFactura(int id)
 {
-    CConexion con = new CConexion();
+    if (id <= 0)
+        return BadRequest("Id de factura inválido");
 
-    using var npgsqlConnection = con.establecerConexion();
+    try
+    {
+        var factura = await _facturaService.GetByIdAsync(id);
 
-    FacturaServices facturaServices = new FacturaServices();
+        if (factura == null)
+            return NotFound();
 
-    var factura = facturaServices.GetFactura(id, npgsqlConnection);
-
-    if (factura == null)
-        return NotFound("Factura no encontrada.");
-
-    return Ok(factura);
+        return Ok(factura);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, "Error interno del servidor: " + ex.Message);
+    }
 }
 
 [HttpGet("GetByCliente/{idCliente}")]

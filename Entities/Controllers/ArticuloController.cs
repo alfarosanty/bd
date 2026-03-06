@@ -196,9 +196,9 @@ public IActionResult ActualizarStock([FromBody] ActualizacionStockInutDTO[] arti
 }
 
 
-[HttpGet("Presupuestados/{idArticuloPrecio}")]
+[HttpGet("Presupuestados/{codigo}")]
 public EstadisticaArticuloDTO GetArticulosPresupuestados(
-    int idArticuloPrecio,
+    string codigo,
     [FromQuery] DateTime? fechaDesde,
     [FromQuery] DateTime? fechaHasta)
 {
@@ -206,7 +206,7 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     using (var npgsqlConnection = con.establecerConexion())
     {
         return new ArticuloServices()
-            .GetArticuloPresupuestado(idArticuloPrecio, fechaDesde, fechaHasta, npgsqlConnection);
+            .GetArticuloPresupuestado(codigo, fechaDesde, fechaHasta, npgsqlConnection);
     }
 }
 

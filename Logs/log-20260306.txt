@@ -1,0 +1,614 @@
+2026-03-06 08:30:42.189 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:30:42.452 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:30:42.457 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:30:42.458 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:30:42.458 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:32:07.603 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 08:32:07.965 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 366.9397ms
+2026-03-06 08:32:08.253 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 08:32:08.539 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.0846ms
+2026-03-06 08:33:33.727 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:33:33.742 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:33:33.772 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:33:33.835 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:33:33.849 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 5.9629ms
+2026-03-06 08:33:33.852 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:33:33.855 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'BlumeAPI.Services.IFacturaService' while attempting to activate 'BlumeAPI.Controllers.FacturaController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-03-06 08:33:33.912 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 190.3690ms
+2026-03-06 08:38:16.783 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:38:16.980 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:38:16.984 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:38:16.985 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:38:16.985 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:38:20.241 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 08:38:20.597 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 360.8422ms
+2026-03-06 08:38:20.857 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 08:38:21.130 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 272.8043ms
+2026-03-06 08:38:31.837 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:38:31.863 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:38:31.891 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:38:31.951 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:38:33.996 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 08:38:35.557 -03:00 [ERR] Failed executing DbCommand (545ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."IdPresupuesto", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_FISCAL", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."IdPresupuesto", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_FISCAL", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 08:38:35.649 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna f.IdPresupuesto
+
+POSITION: 1083
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna f.IdPresupuesto
+    Position: 1083
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna f.IdPresupuesto
+
+POSITION: 1083
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna f.IdPresupuesto
+    Position: 1083
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-03-06 08:38:35.895 -03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-03-06 08:38:35.907 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3947.6217ms
+2026-03-06 08:38:35.908 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:38:35.926 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 4089.3586ms
+2026-03-06 08:41:13.582 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:41:13.806 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:41:13.811 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:41:13.811 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:41:13.811 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:41:18.930 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:41:19.064 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:41:19.090 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:41:19.141 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:41:20.800 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 08:41:22.308 -03:00 [ERR] Failed executing DbCommand (502ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_FISCAL", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_FISCAL", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 08:41:22.389 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna c.ID_CONDICION_FISCAL
+
+POSITION: 1280
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna c.ID_CONDICION_FISCAL
+    Position: 1280
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna c.ID_CONDICION_FISCAL
+
+POSITION: 1280
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna c.ID_CONDICION_FISCAL
+    Position: 1280
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-03-06 08:41:22.603 -03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-03-06 08:41:22.619 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3470.7282ms
+2026-03-06 08:41:22.621 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:41:22.644 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 3718.5577ms
+2026-03-06 08:47:03.565 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:47:03.768 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:47:03.772 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:47:03.773 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:47:03.773 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:47:47.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:47:48.127 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:47:48.149 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:47:48.200 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:47:49.832 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 08:47:51.424 -03:00 [INF] Executed DbCommand (218ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_AFIP", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 08:47:51.507 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+System.InvalidCastException: Can't cast database type numeric to String
+   at Npgsql.Internal.TypeHandling.NpgsqlTypeHandler.ReadCustom[TAny](NpgsqlReadBuffer buf, Int32 len, Boolean async, FieldDescription fieldDescription)
+   at Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method50(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Can't cast database type numeric to String
+   at Npgsql.Internal.TypeHandling.NpgsqlTypeHandler.ReadCustom[TAny](NpgsqlReadBuffer buf, Int32 len, Boolean async, FieldDescription fieldDescription)
+   at Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method50(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-03-06 08:47:51.763 -03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-03-06 08:47:51.781 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3574.1448ms
+2026-03-06 08:47:51.784 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:47:51.810 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 3815.6678ms
+2026-03-06 08:51:40.138 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:51:40.339 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:51:40.343 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:51:40.343 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:51:40.343 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:51:46.601 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 08:51:46.940 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 343.8117ms
+2026-03-06 08:51:47.159 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 08:51:47.439 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 280.0195ms
+2026-03-06 08:52:03.422 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:52:03.440 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:52:03.469 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:52:03.524 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:52:05.434 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 08:52:07.028 -03:00 [INF] Executed DbCommand (150ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_AFIP", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 08:52:07.102 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+System.OverflowException: Value was either too large or too small for an Int32.
+   at System.Decimal.ToInt32(Decimal d)
+   at Npgsql.Internal.TypeHandlers.NumericHandlers.NumericHandler.Npgsql.Internal.TypeHandling.INpgsqlTypeHandler<System.Int32>.Read(NpgsqlReadBuffer buf, Int32 len, Boolean async, FieldDescription fieldDescription)
+   at Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method50(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.OverflowException: Value was either too large or too small for an Int32.
+   at System.Decimal.ToInt32(Decimal d)
+   at Npgsql.Internal.TypeHandlers.NumericHandlers.NumericHandler.Npgsql.Internal.TypeHandling.INpgsqlTypeHandler<System.Int32>.Read(NpgsqlReadBuffer buf, Int32 len, Boolean async, FieldDescription fieldDescription)
+   at Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method50(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-03-06 08:52:07.311 -03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-03-06 08:52:07.321 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3790.4825ms
+2026-03-06 08:52:07.323 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:52:07.340 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 3918.5369ms
+2026-03-06 08:53:15.441 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:53:15.625 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:53:15.629 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:53:15.629 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:53:15.629 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:55:06.832 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 08:55:07.014 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 08:55:07.018 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 08:55:07.019 -03:00 [INF] Hosting environment: Development
+2026-03-06 08:55:07.019 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 08:55:19.364 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/706 - -
+2026-03-06 08:55:19.503 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 08:55:19.531 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:55:19.584 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 08:55:21.198 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 08:55:22.679 -03:00 [INF] Executed DbCommand (137ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_AFIP", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 08:55:22.805 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Data.Entities.FacturaEntity'.
+2026-03-06 08:55:23.067 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3476.7754ms
+2026-03-06 08:55:23.071 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 08:55:23.078 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.Cliente.IdCliente.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-03-06 08:55:23.144 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/706 - - - 500 - text/plain;+charset=utf-8 3789.7769ms
+2026-03-06 10:05:16.109 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/243 - -
+2026-03-06 10:05:16.229 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2026-03-06 10:05:16.263 -03:00 [INF] Route matched with {action = "GetArticulosByArticuloPrecioId", controller = "Articulo"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Articulo] GetArticulosByArticuloPrecioId(Int32, System.Nullable`1[System.Boolean]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:05:16.614 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Articulo, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-06 10:05:16.678 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI) in 414.2065ms
+2026-03-06 10:05:16.678 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosByArticuloPrecioId (BlumeAPI)'
+2026-03-06 10:05:16.678 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ByArticuloPrecio/243 - - - 200 - application/json;+charset=utf-8 579.1266ms
+2026-03-06 10:12:41.437 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 10:12:41.710 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 10:12:41.714 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 10:12:41.715 -03:00 [INF] Hosting environment: Development
+2026-03-06 10:12:41.715 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 10:12:54.684 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 10:12:55.026 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 347.1971ms
+2026-03-06 10:12:55.296 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 10:12:55.576 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 277.9625ms
+2026-03-06 10:14:44.340 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 10:14:44.528 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 10:14:44.532 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 10:14:44.533 -03:00 [INF] Hosting environment: Development
+2026-03-06 10:14:44.533 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 10:15:11.970 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 10:15:12.328 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 361.7797ms
+2026-03-06 10:15:12.484 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 10:15:12.764 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 280.3865ms
+2026-03-06 10:15:43.166 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-03-31 - -
+2026-03-06 10:15:43.199 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 10:15:43.231 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:15:43.292 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:16:18.138 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 34836.788ms
+2026-03-06 10:16:18.143 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:16:18.145 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42601: error de sintaxis en o cerca de «ALIKE»
+
+POSITION: 488
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at BlumeAPI.Services.Imp.ArticuloServices.GetArticuloPresupuestado(String codigo, Nullable`1 fechaDesde, Nullable`1 fechaHasta, NpgsqlConnection connection) in C:\Fran\BlumeAPI\Backend\bd\Entities\clases.servicios\imp\ArticuloServices.cs:line 494
+   at BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados(String codigo, Nullable`1 fechaDesde, Nullable`1 fechaHasta) in C:\Fran\BlumeAPI\Backend\bd\Entities\Controllers\ArticuloController.cs:line 208
+   at lambda_method3(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: error de sintaxis en o cerca de «ALIKE»
+    Position: 488
+    File: scan.l
+    Line: 1192
+    Routine: scanner_yyerror
+2026-03-06 10:16:18.175 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-03-31 - - - 500 - text/plain;+charset=utf-8 35009.3032ms
+2026-03-06 10:16:34.896 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 10:16:35.223 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 10:16:35.227 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 10:16:35.228 -03:00 [INF] Hosting environment: Development
+2026-03-06 10:16:35.228 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 10:16:44.323 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 10:16:44.680 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 362.4798ms
+2026-03-06 10:16:44.780 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 10:16:45.042 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 262.7035ms
+2026-03-06 10:17:07.970 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-03-31 - -
+2026-03-06 10:17:07.979 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 10:17:08.005 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:08.065 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:17:09.080 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:17:09.124 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 1053.0062ms
+2026-03-06 10:17:09.127 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:09.131 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-03-31 - - - 200 - application/json;+charset=utf-8 1161.5662ms
+2026-03-06 10:17:27.190 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - -
+2026-03-06 10:17:27.197 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:27.197 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:17:27.217 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:17:27.217 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 19.7358ms
+2026-03-06 10:17:27.217 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:27.217 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/lavanda%2Ftb6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - - - 200 - application/json;+charset=utf-8 28.1456ms
+2026-03-06 10:17:36.923 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - -
+2026-03-06 10:17:36.934 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:36.934 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:17:36.954 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:17:36.954 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 19.8096ms
+2026-03-06 10:17:36.954 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:36.954 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - - - 200 - application/json;+charset=utf-8 31.1691ms
+2026-03-06 10:17:59.105 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - -
+2026-03-06 10:17:59.105 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:17:59.106 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:24:24.850 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:24:27.156 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 388050.6765ms
+2026-03-06 10:24:27.157 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:24:27.157 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - - - 200 - application/json;+charset=utf-8 388051.5374ms
+2026-03-06 10:25:40.612 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - -
+2026-03-06 10:25:40.612 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:25:40.612 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:27:29.437 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:27:29.439 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 108826.5554ms
+2026-03-06 10:27:29.439 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:27:29.439 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - - - 200 - application/json;+charset=utf-8 108827.2003ms
+2026-03-06 10:27:53.578 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 10:27:53.786 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 10:27:53.791 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 10:27:53.791 -03:00 [INF] Hosting environment: Development
+2026-03-06 10:27:53.791 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 10:28:19.938 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - -
+2026-03-06 10:28:20.067 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 10:28:20.095 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:28:20.145 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:28:24.257 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:28:24.437 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 4285.3232ms
+2026-03-06 10:28:24.441 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:28:24.448 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/LAVANDA%2FTB6?fechaDesde=2026-03-30&fechaHasta=2026-04-20 - - - 200 - application/json;+charset=utf-8 4516.2595ms
+2026-03-06 10:40:14.375 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/CALA%2FM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:40:14.384 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:14.385 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:40:18.846 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:40:18.846 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 4461.6193ms
+2026-03-06 10:40:18.847 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:18.847 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/CALA%2FM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 4471.3577ms
+2026-03-06 10:40:42.957 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/PENSAMIENTO%2FXXL?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:40:42.970 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:42.970 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:40:42.988 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:40:42.988 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 18.1949ms
+2026-03-06 10:40:42.988 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:42.988 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/PENSAMIENTO%2FXXL?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 30.8688ms
+2026-03-06 10:40:54.869 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/ZINNIA%2FM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:40:54.869 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:54.869 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:40:54.880 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:40:54.880 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 10.4754ms
+2026-03-06 10:40:54.880 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:40:54.880 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/ZINNIA%2FM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 11.4722ms
+2026-03-06 10:41:07.928 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/DOGM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:41:07.929 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:07.929 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:41:07.937 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:41:07.937 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 8.1478ms
+2026-03-06 10:41:07.937 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:07.937 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/DOGM?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 9.9767ms
+2026-03-06 10:41:16.176 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/PANXL?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:41:16.176 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:16.176 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:41:16.185 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:41:16.185 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 9.127ms
+2026-03-06 10:41:16.186 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:16.186 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/PANXL?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 9.7301ms
+2026-03-06 10:41:32.213 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/TB6?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:41:32.213 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:32.214 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:41:32.221 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:41:32.222 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 8.0534ms
+2026-03-06 10:41:32.222 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:32.222 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/TB6?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 8.5414ms
+2026-03-06 10:41:48.490 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/COMBCO?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - -
+2026-03-06 10:41:48.500 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:48.500 -03:00 [INF] Route matched with {action = "GetArticulosPresupuestados", controller = "Articulo"}. Executing controller action with signature EstadisticaArticuloDTO GetArticulosPresupuestados(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-03-06 10:41:48.532 -03:00 [INF] Executing ObjectResult, writing value of type 'EstadisticaArticuloDTO'.
+2026-03-06 10:41:48.532 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 32.6434ms
+2026-03-06 10:41:48.532 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
+2026-03-06 10:41:48.533 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/COMBCO?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 42.4969ms

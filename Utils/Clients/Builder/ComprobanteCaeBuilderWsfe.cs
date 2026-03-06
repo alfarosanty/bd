@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 public class ComprobanteCaeBuilderWsfe
 {
@@ -97,11 +98,11 @@ public class ComprobanteCaeBuilderWsfe
         sb.AppendLine($"<ser:CbteHasta>{numeroComprobante}</ser:CbteHasta>");
         sb.AppendLine($"<ser:CbteFch>{fechaEmision}</ser:CbteFch>");
 
-        sb.AppendLine($"<ser:ImpTotal>{importeTotal}</ser:ImpTotal>");
+        sb.AppendLine($"<ser:ImpTotal>{numberToString(importeTotal)}</ser:ImpTotal>");
         sb.AppendLine("<ser:ImpTotConc>0</ser:ImpTotConc>");
-        sb.AppendLine($"<ser:ImpNeto>{importeGravado}</ser:ImpNeto>");
+        sb.AppendLine($"<ser:ImpNeto>{numberToString(importeGravado)}</ser:ImpNeto>");
         sb.AppendLine("<ser:ImpOpEx>0</ser:ImpOpEx>");
-        sb.AppendLine($"<ser:ImpIVA>{ivaTotal}</ser:ImpIVA>");
+        sb.AppendLine($"<ser:ImpIVA>{numberToString(ivaTotal)}</ser:ImpIVA>");
         sb.AppendLine("<ser:ImpTrib>0</ser:ImpTrib>");
 
         sb.AppendLine("<ser:MonId>PES</ser:MonId>");
@@ -116,8 +117,8 @@ public class ComprobanteCaeBuilderWsfe
             {
                 sb.AppendLine("<ser:AlicIva>");
                 sb.AppendLine($"<ser:Id>{s.codigo}</ser:Id>");
-                sb.AppendLine($"<ser:BaseImp>{importeGravado}</ser:BaseImp>");
-                sb.AppendLine($"<ser:Importe>{s.importe}</ser:Importe>");
+                sb.AppendLine($"<ser:BaseImp>{numberToString(importeGravado)}</ser:BaseImp>");
+                sb.AppendLine($"<ser:Importe>{numberToString(s.importe)}</ser:Importe>");
                 sb.AppendLine("</ser:AlicIva>");
             }
 
@@ -130,6 +131,11 @@ public class ComprobanteCaeBuilderWsfe
         sb.AppendLine("</ser:FeCAEReq>");
 
         return sb.ToString();
+    }
+
+    private string numberToString(decimal valor)
+    {
+        return valor.ToString("0.00", CultureInfo.InvariantCulture);
     }
 }
 

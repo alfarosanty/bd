@@ -466,49 +466,57 @@ public List<int> CrearArticulosPrecios(ArticuloPrecio[] articuloPrecios, Npgsql.
     return idsGenerados;
 }
 public EstadisticaArticuloDTO GetArticuloPresupuestado(
-    int idArticuloPrecio,
+    string codigo,
     DateTime? fechaDesde,
     DateTime? fechaHasta,
     NpgsqlConnection connection)
 {
+
+    string codigoLimpio = System.Uri.UnescapeDataString(codigo);
     string query = @"
-        SELECT ap.*, p.""FECHA_PRESUPUESTO""
-        FROM ""ARTICULO_PRESUPUESTO"" ap
-        INNER JOIN ""PRESUPUESTO"" p ON ap.""ID_PRESUPUESTO"" = p.""ID_PRESUPUESTO""
-        WHERE ap.""ID_ARTICULO"" = @ID_ARTICULO
-          AND (@FECHADESDE IS NULL OR p.""FECHA_PRESUPUESTO"" >= @FECHADESDE)
-          AND (@FECHAHASTA IS NULL OR p.""FECHA_PRESUPUESTO"" <= @FECHAHASTA)";
+        SELECT SUM(AP.""CANTIDAD"") as cantidad, A.""ID_ARTICULO_PRECIO"", A.""CODIGO"", C.""DESCRIPCION"" as color
+        FROM public.""ARTICULO_PRESUPUESTO"" AP
+        JOIN PUBLIC.""PRESUPUESTO"" P ON P.""ID_PRESUPUESTO"" = AP.""ID_PRESUPUESTO""
+        JOIN PUBLIC.""ARTICULO"" A ON AP.""ID_ARTICULO"" = A.""ID_ARTICULO""
+        JOIN PUBLIC.""COLOR"" C ON C.""ID_COLOR"" = A.""ID_COLOR""
+        WHERE P.""ID_ESTADO"" = 1 
+          AND P.""FECHA_PRESUPUESTO"" BETWEEN @DESDE AND @HASTA
+          AND A.""CODIGO"" ILIKE @CODIGO
+        GROUP BY A.""CODIGO"", C.""DESCRIPCION"", A.""ID_ARTICULO_PRECIO""
+        ORDER BY A.""CODIGO"" ASC";
+
+    var dto = new EstadisticaArticuloDTO();
+    bool datosInicializados = false;
 
     using var cmd = new NpgsqlCommand(query, connection);
-    cmd.Parameters.Add("ID_ARTICULO", NpgsqlTypes.NpgsqlDbType.Integer).Value = idArticuloPrecio;
-    cmd.Parameters.Add("FECHADESDE", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaDesde ?? DBNull.Value;
-    cmd.Parameters.Add("FECHAHASTA", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = (object?)fechaHasta ?? DBNull.Value;
+    cmd.Parameters.AddWithValue("DESDE", (object?)fechaDesde ?? new DateTime(2000, 1, 1));
+    cmd.Parameters.AddWithValue("HASTA", (object?)fechaHasta ?? DateTime.Now);
+    cmd.Parameters.AddWithValue("CODIGO", $"%{codigoLimpio}%");
 
-    // Leer todas las filas en memoria
-    int cantidadTotal = 0;
-    DateTime fechaUltimoPresupuesto = DateTime.MinValue;
-
-    using (var reader = cmd.ExecuteReader())
+    using var reader = cmd.ExecuteReader();
+    
+    while (reader.Read())
     {
-        while (reader.Read())
+        if (!datosInicializados)
         {
-            cantidadTotal += reader.GetInt32(reader.GetOrdinal("CANTIDAD"));
-            var fecha = reader.GetDateTime(reader.GetOrdinal("FECHA_PRESUPUESTO"));
-            if (fecha > fechaUltimoPresupuesto)
-                fechaUltimoPresupuesto = fecha; // opcional, si querés registrar la última fecha
+            dto.IdArticuloPrecio = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO_PRECIO"));
+            dto.Codigo = reader.GetString(reader.GetOrdinal("CODIGO"));
+            datosInicializados = true;
         }
+
+        string nombreColor = reader.GetString(reader.GetOrdinal("color"));
+        decimal cant = reader.GetDecimal(reader.GetOrdinal("cantidad"));
+
+        if (dto.CantidadPorColor.ContainsKey(nombreColor))
+            dto.CantidadPorColor[nombreColor] += cant;
+        else
+            dto.CantidadPorColor[nombreColor] = cant;
+
+        dto.TotalGeneral += cant;
     }
-
-    // Crear el DTO con un solo artículo
-    var dto = new EstadisticaArticuloDTO
-    {
-        Articulo = GetArticulo(idArticuloPrecio, connection),
-        CantidadPresupuestada = cantidadTotal,
-    };
-
+    
     return dto;
 }
-
 public List<int> ActualizarArticulosPrecios(
     ArticuloPrecio[] articuloPrecios,
     NpgsqlConnection connection)

@@ -137,8 +137,8 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     if (factura.Articulos == null || !factura.Articulos.Any())
         throw new Exception("La factura no contiene artículos.");
 
-    //var afipClient = new AfipWsfeClient("https://servicios1.afip.gov.ar/wsfev1/service.asmx"); // PRODUCCIÓN    
-    var afipClient = new AfipWsfeClient("https://wswhomo.afip.gov.ar/wsfev1/service.asmx"); // HOMOLOGACIÓN 
+    var afipClient = new AfipWsfeClient("https://servicios1.afip.gov.ar/wsfev1/service.asmx"); // PRODUCCIÓN    
+    //var afipClient = new AfipWsfeClient("https://wswhomo.afip.gov.ar/wsfev1/service.asmx"); // HOMOLOGACIÓN 
 
     int tipoFactura = factura.TipoFactura switch
     {

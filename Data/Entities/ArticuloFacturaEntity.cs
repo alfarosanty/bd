@@ -1,17 +1,20 @@
 namespace BlumeAPI.Data.Entities;
+
 public class ArticuloFacturaEntity
 {
     public int IdArticuloFactura { get; set; }
-
-    public int IdArticulo { get; set; }
     public int IdFactura { get; set; }
-
-    public string Codigo { get; set; }
-    public string Descripcion { get; set; }
-
+    public int IdArticulo { get; set; }
     public int Cantidad { get; set; }
     public decimal PrecioUnitario { get; set; }
+    public string Codigo { get; set; } = null!;
+    public string Descripcion { get; set; } = null!;
     public decimal Descuento { get; set; }
 
-    public DateTime FechaCreacion { get; set; } // auditoría
+    // 🔗 Relaciones
+    // La referencia de vuelta a la factura
+    public virtual FacturaEntity Factura { get; set; } = null!;
+    
+    // La referencia al artículo original (por si necesitás ver stock o talle/color)
+    public virtual ArticuloEntity Articulo { get; set; } = null!;
 }

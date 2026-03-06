@@ -8,9 +8,9 @@ public class NpgsqlConnectionFactory : IDbConnectionFactory
     public NpgsqlConnectionFactory(IConfiguration config)
     {
     var connectionString = config.GetConnectionString(
-    "BDPruebasPCEri"
+    //"BDPruebasPCEri"
     //"BDPruebas"
-    //"BDProduccion"
+    "BDProduccion"
         );
     _connectionString = connectionString ?? throw new ArgumentNullException("Connection string is null"); 
     }

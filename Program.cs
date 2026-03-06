@@ -1,6 +1,7 @@
 using System.Data;
 using System.Globalization;
 using BlumeAPI.Repositories;
+using BlumeAPI.Repository;
 using BlumeAPI.Services;
 using BlumeAPI.Services.Imp;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -33,7 +34,11 @@ builder.Services.AddCors(options =>
                 .WithOrigins(
                     "http://localhost:8080", // desarrollo Compu Agos
                     "http://localhost:8082",    // desarrollo notebook Santi
-                    "http://192.168.1.104:8081" // producción / otra PC
+                    "http://192.168.1.41:8081", // producción / otra PC
+                    "http://192.168.0.101:8081", // producción / otra PC
+                    "http://192.168.0.100:8081" // producción / otra PC
+
+
                 )
                 .AllowAnyHeader()
                 .AllowAnyMethod()
@@ -96,20 +101,23 @@ builder.Services.AddScoped<IArticuloRepository, ArticuloRepository>();
 builder.Services.AddScoped<IColorRepository, ColorRepository>();
 builder.Services.AddScoped<IMedidaRepository, MedidaRepository>();
 builder.Services.AddScoped<ISubfamiliaRepository, SubfamiliaRepository>();
+builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
+
 
 // Servicios
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
+builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
 
 
 
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 var connectionString = builder.Configuration.GetConnectionString(
-    "BDPruebasPCEri"
+    //"BDPruebasPCEri"
     //"BDPruebas"
-    //"BDProduccion"
+    "BDProduccion"
     );
 
 // Configuración de NpgsqlConnection para inyección de dependencias
