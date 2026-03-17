@@ -30,7 +30,7 @@ namespace BlumeAPI.Data.Configurations
             entity.Property(f => f.PuntoDeVenta)
                 .HasColumnName("PUNTO_DE_VENTA");
 
-            entity.Property(f => f.NumeroFactura)
+            entity.Property(f => f.NumeroComprobante)
                 .HasColumnName("NUMERO_FACTURA");
 
             entity.Property(f => f.CaeNumero)

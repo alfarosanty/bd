@@ -9,7 +9,7 @@ public class FacturaEntity
     public bool EximirIva { get; set; }
     public int? IdPresupuesto { get; set; }
     public int PuntoDeVenta { get; set; }
-    public int NumeroFactura { get; set; }
+    public int NumeroComprobante { get; set; }
     public long? CaeNumero { get; set; }
     public DateTime? FechaVencimientoCae { get; set; }
     public decimal ImporteNeto { get; set; }
@@ -21,5 +21,5 @@ public class FacturaEntity
     public virtual ClienteEntity Cliente { get; set; } = null!;
     
     // Esta es la lista que vamos a recorrer en Angular para la NC
-    public virtual ICollection<ArticuloFacturaEntity> ArticulosFactura { get; set; } = new List<ArticuloFacturaEntity>();
+    public virtual ICollection<ArticuloFacturaEntity> Articulos { get; set; } = new List<ArticuloFacturaEntity>();
 }

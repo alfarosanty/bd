@@ -218,14 +218,15 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     if (Redondear(totalGravado + totalIVA) != totalGeneral)
         throw new Exception("Los totales no cierran correctamente.");
 
-    // 🔹 3. Condición IVA receptor
+        // 🔹 3. Condición IVA receptor
+
 
     int tipoCondIVARec = factura.Cliente.CondicionFiscal?.Codigo switch
     {
         "RI" => 1,
-        "CF" => 5,
-        "MO" => 6,
-        _ => throw new Exception("Condición IVA del cliente no reconocida.")
+        _ => 5,
+        //"MO" => 6,
+        //_ => throw new Exception("Condición IVA del cliente no reconocida.")
     };
 
     long nroDoc = long.Parse(

@@ -612,3 +612,233 @@ POSITION: 488
 2026-03-06 10:41:48.532 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI) in 32.6434ms
 2026-03-06 10:41:48.532 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticulosPresupuestados (BlumeAPI)'
 2026-03-06 10:41:48.533 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/Presupuestados/COMBCO?fechaDesde=2026-03-30&fechaHasta=2026-04-30 - - - 200 - application/json;+charset=utf-8 42.4969ms
+2026-03-06 11:43:27.115 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 11:43:27.357 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 11:43:27.363 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 11:43:27.363 -03:00 [INF] Hosting environment: Development
+2026-03-06 11:43:27.363 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 11:44:27.520 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-06 11:44:27.875 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 359.5783ms
+2026-03-06 11:44:28.328 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-06 11:44:28.571 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 243.0558ms
+2026-03-06 11:45:15.859 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/707 - -
+2026-03-06 11:45:15.898 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 11:45:15.926 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 11:45:15.982 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 11:45:18.034 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 11:45:19.598 -03:00 [INF] Executed DbCommand (161ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_AFIP", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 11:45:19.721 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Data.Entities.FacturaEntity'.
+2026-03-06 11:45:19.821 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3830.9384ms
+2026-03-06 11:45:19.825 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 11:45:19.833 -03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.ArticulosFactura.Factura.Cliente.IdCliente.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2026-03-06 11:45:19.897 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/707 - - - 500 - text/plain;+charset=utf-8 4039.0045ms
+2026-03-06 11:47:11.567 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-06 11:47:11.772 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-06 11:47:11.776 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-06 11:47:11.777 -03:00 [INF] Hosting environment: Development
+2026-03-06 11:47:11.777 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-06 11:47:52.017 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura/707 - -
+2026-03-06 11:47:52.119 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-06 11:47:52.141 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 11:47:52.193 -03:00 [INF] Route matched with {action = "GetFactura", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFactura(Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-03-06 11:47:53.775 -03:00 [INF] Entity Framework Core 6.0.22 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.9+8a11c486e9101a88b36d398723638d274aadb2f1' with options: None
+2026-03-06 11:47:55.232 -03:00 [ERR] Failed executing DbCommand (503ms) [Parameters=[@__idFactura_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", t."ID_CLIENTE0", t."CONTACTO", t."CUIT", t."DOMICILIO", t."ID_CONDICION_AFIP", t."LOCALIDAD", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", t."TRANSPORTE", t."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."FacturaEntityIdFactura", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_SUBFAMILIA0", t0."CODIGO3", t0."DESCRIPCION3"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA", c."ID_CLIENTE" AS "ID_CLIENTE0", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO"
+    FROM "FACTURA" AS f
+    INNER JOIN "CLIENTE" AS c ON f."ID_CLIENTE" = c."ID_CLIENTE"
+    WHERE f."ID_FACTURA" = @__idFactura_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."FacturaEntityIdFactura", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO3", s."DESCRIPCION" AS "DESCRIPCION3"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."FacturaEntityIdFactura"
+ORDER BY t."ID_FACTURA", t."ID_CLIENTE0", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0"
+2026-03-06 11:47:55.310 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.FacturaEntityIdFactura
+
+POSITION: 1670
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.FacturaEntityIdFactura
+    Position: 1670
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: no existe la columna a.FacturaEntityIdFactura
+
+POSITION: 1670
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|223_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: no existe la columna a.FacturaEntityIdFactura
+    Position: 1670
+    File: parse_relation.c
+    Line: 3675
+    Routine: errorMissingColumn
+2026-03-06 11:47:55.560 -03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2026-03-06 11:47:55.577 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI) in 3376.7314ms
+2026-03-06 11:47:55.579 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetFactura (BlumeAPI)'
+2026-03-06 11:47:55.603 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura/707 - - - 500 - text/plain;+charset=utf-8 3591.1919ms

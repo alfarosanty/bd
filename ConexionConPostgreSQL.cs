@@ -16,7 +16,7 @@ using System.Threading.Tasks;
         //"192.168.1.40";//casa
         static String bd=
         "BD"; 
-        //"BDPruebas";//Pruebas Pc Eri
+        //"BDPruebas";//Pruebas
         static String usuario="postgres";
         static String password="admin";
         static String puerto = "5432";

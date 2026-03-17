@@ -481,7 +481,7 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
         JOIN PUBLIC.""COLOR"" C ON C.""ID_COLOR"" = A.""ID_COLOR""
         WHERE P.""ID_ESTADO"" = 1 
           AND P.""FECHA_PRESUPUESTO"" BETWEEN @DESDE AND @HASTA
-          AND A.""CODIGO"" ILIKE @CODIGO
+          AND A.""CODIGO"" = @CODIGO
         GROUP BY A.""CODIGO"", C.""DESCRIPCION"", A.""ID_ARTICULO_PRECIO""
         ORDER BY A.""CODIGO"" ASC";
 
@@ -491,7 +491,9 @@ public EstadisticaArticuloDTO GetArticuloPresupuestado(
     using var cmd = new NpgsqlCommand(query, connection);
     cmd.Parameters.AddWithValue("DESDE", (object?)fechaDesde ?? new DateTime(2000, 1, 1));
     cmd.Parameters.AddWithValue("HASTA", (object?)fechaHasta ?? DateTime.Now);
-    cmd.Parameters.AddWithValue("CODIGO", $"%{codigoLimpio}%");
+    cmd.Parameters.AddWithValue("CODIGO", $"{codigoLimpio}");
+
+// Corregido con Mayúscula
 
     using var reader = cmd.ExecuteReader();
     

@@ -38,15 +38,16 @@ namespace BlumeAPI.Data.Configurations
             entity.Property(af => af.Descuento)
                 .HasColumnName("DESCUENTO");
 
-            // 🔗 Relación con Factura (Muchos artículos pertenecen a una Factura)
-            entity.HasOne(af => af.Factura)
-                .WithMany(f => f.ArticulosFactura)
-                .HasForeignKey(af => af.IdFactura);
-
             // 🔗 Relación con Articulo
             entity.HasOne(af => af.Articulo)
                 .WithMany()
-                .HasForeignKey(af => af.IdArticulo);
+                .HasForeignKey(af => af.IdArticulo)
+                .HasConstraintName("ID_ARTICULO");
+            
+            entity.HasOne<FacturaEntity>()
+                .WithMany(f => f.Articulos)
+                .HasForeignKey(af => af.IdFactura)
+                .HasConstraintName("ID_FACTURA");
         }
     }
 }

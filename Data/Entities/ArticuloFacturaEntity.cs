@@ -12,9 +12,6 @@ public class ArticuloFacturaEntity
     public decimal Descuento { get; set; }
 
     // 🔗 Relaciones
-    // La referencia de vuelta a la factura
-    public virtual FacturaEntity Factura { get; set; } = null!;
-    
     // La referencia al artículo original (por si necesitás ver stock o talle/color)
     public virtual ArticuloEntity Articulo { get; set; } = null!;
 }

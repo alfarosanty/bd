@@ -36,7 +36,12 @@ builder.Services.AddCors(options =>
                     "http://localhost:8082",    // desarrollo notebook Santi
                     "http://192.168.1.41:8081", // producción / otra PC
                     "http://192.168.0.101:8081", // producción / otra PC
-                    "http://192.168.0.100:8081" // producción / otra PC
+                    "http://192.168.0.100:8081", // producción / otra PC
+                    "http://192.168.0.102:8081",// producción / otra PC
+                    "http://192.168.0.103:8081", // producción / otra PC
+                    "http://192.168.0.104:8081", // producción / otra PC
+                    "http://192.168.0.105:8081" // producción / otra PC
+
 
 
                 )
@@ -115,7 +120,6 @@ builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 var connectionString = builder.Configuration.GetConnectionString(
-    //"BDPruebasPCEri"
     //"BDPruebas"
     "BDProduccion"
     );
