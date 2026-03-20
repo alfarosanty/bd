@@ -24,7 +24,7 @@ public async Task<ArticuloEntity?> GetByIdAsync(int idArticulo)
         .Include(a => a.Medida)
         .Include(a => a.SubFamilia)
         .Include(a => a.ArticuloPrecio)
-        .Where(a => a.IdArticulo == idArticulo);
+        .Where(a => a.Id == idArticulo);
 
     var sql = query.ToQueryString();
 
@@ -37,7 +37,7 @@ public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticu
 {
     var query = _context.ArticuloPrecios
         .AsNoTracking()
-        .Where(p => p.IdArticuloPrecio == idArticuloPrecio);
+        .Where(p => p.Id == idArticuloPrecio);
 
     // 🔍 LOG DEL SQL REAL
     var sql = query.ToQueryString();
@@ -151,5 +151,31 @@ public async Task<List<CartaKardexDTO>> GetIngresadosByArticulo(
     return result.ToList();
 }
 
+public async Task RestaurarStockAsync(List<IArticuloConStock> articulos, 
+                                      NpgsqlConnection conn, 
+                                      NpgsqlTransaction tran
+                                      )
+{
+
+    var sql = @"
+        UPDATE ""ARTICULO""
+        SET ""STOCK"" = ""STOCK"" + @Cantidad
+        WHERE ""ID_ARTICULO"" = @IdArticulo
+    ";
+
+    var parametros = articulos
+        .Where(a => a.Articulo != null)
+        .Select(a => new 
+        {
+            Cantidad = a.Cantidad,
+            IdArticulo = a.Articulo!.Id
+        }).ToList();
+
+    Console.WriteLine($"🔍 Restaurando stock de {parametros.Count} artículos:");
+    foreach (var p in parametros)
+        Console.WriteLine($"   IdArticulo: {p.IdArticulo}, Cantidad: {p.Cantidad}");
+
+    await conn.ExecuteAsync(sql, parametros, tran);
+}
 
 }

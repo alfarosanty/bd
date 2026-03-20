@@ -7,6 +7,12 @@ using System.IO;
 public class FastReportService
 {
     private static readonly CultureInfo CulturaAR = new("es-AR");
+    private readonly AfipWsfeClient _afipClient;
+
+    public FastReportService(AfipWsfeClient afipClient)
+    {
+        _afipClient = afipClient;
+    }
 
     public byte[] CrearPdf(Factura factura, string version)
     {
@@ -85,7 +91,7 @@ public class FastReportService
     // ===============================
     private void RegistrarArticulos(Report report, Factura factura)
     {
-        var facturaServices = new FacturaServices();
+        var facturaServices = new FacturaServices(_afipClient);
         var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
         var articulos = facturaServices.ConstruirResumen(mapar);
 

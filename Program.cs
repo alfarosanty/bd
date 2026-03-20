@@ -6,6 +6,7 @@ using BlumeAPI.Services;
 using BlumeAPI.Services.Imp;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Npgsql;
 using Serilog;
 
@@ -59,6 +60,7 @@ builder.WebHost.UseUrls("http://0.0.0.0:7166");
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
         options.JsonSerializerOptions.Converters.Add(
             new System.Text.Json.Serialization.JsonStringEnumConverter()
         );
@@ -120,9 +122,18 @@ builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
 
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 var connectionString = builder.Configuration.GetConnectionString(
-    //"BDPruebas"
-    "BDProduccion"
+    "BD"
     );
+// Variables de entorno para AFIP WSFE1
+builder.Services.Configure<AfipSettings>(builder.Configuration.GetSection("Afip"));
+
+builder.Services.AddScoped<AfipWsfeClient>(provider =>
+{
+    var settings = provider.GetRequiredService<IOptions<AfipSettings>>().Value;
+    return new AfipWsfeClient(settings.UrlWsfev1);
+});
+
+builder.Services.AddScoped<FacturaServicesNUEVO>();
 
 // Configuración de NpgsqlConnection para inyección de dependencias
 builder.Services.AddScoped<NpgsqlConnection>(_ =>
@@ -135,7 +146,10 @@ builder.Services.AddScoped<IDbConnection>(_ =>
 // Configuración de Entity Framework Core con PostgreSQL
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
+{
+    options.UseNpgsql(connectionString);
+    options.LogTo(Console.WriteLine, LogLevel.Information);
+});
 
 var app = builder.Build();
 

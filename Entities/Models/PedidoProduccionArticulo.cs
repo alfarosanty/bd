@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 
 
-    public  class PedidoProduccionArticulo
+    public  class PedidoProduccionArticulo : IArticuloConStock
         {
         public static String TABLA="PRODUCCION_ARTICULO";        
         public Articulo Articulo { get; set; }

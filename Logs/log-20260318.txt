@@ -1,0 +1,30 @@
+2026-03-18 07:59:18.047 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-18 07:59:18.380 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-18 07:59:18.385 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 07:59:18.385 -03:00 [INF] Hosting environment: Development
+2026-03-18 07:59:18.385 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-18 08:00:55.867 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - -
+2026-03-18 08:00:56.236 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - - - 200 - text/html;charset=utf-8 374.1259ms
+2026-03-18 08:00:56.660 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - -
+2026-03-18 08:00:56.944 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 283.1484ms
+2026-03-18 08:01:03.381 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2026-03-18 08:01:03.396 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-18 08:01:03.427 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2026-03-18 08:01:03.485 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2026-03-18 08:01:05.450 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-03-18 08:01:05.489 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 1996.8872ms
+2026-03-18 08:01:05.492 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2026-03-18 08:01:05.498 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 500 - application/json;+charset=utf-8 2116.7143ms
+2026-03-18 08:03:18.147 -03:00 [INF] User profile is available. Using 'C:\Users\Blume\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-18 08:03:18.355 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-03-18 08:03:18.360 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 08:03:18.360 -03:00 [INF] Hosting environment: Development
+2026-03-18 08:03:18.360 -03:00 [INF] Content root path: C:\Fran\BlumeAPI\Backend\bd\
+2026-03-18 08:03:49.771 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Afip/login - -
+2026-03-18 08:03:49.877 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-03-18 08:03:49.899 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2026-03-18 08:03:49.936 -03:00 [INF] Route matched with {action = "ObtenerLoginTicket", controller = "Afip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicket() on controller BlumeAPI.Controllers.AfipController (BlumeAPI).
+2026-03-18 08:03:52.038 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2026-03-18 08:03:52.230 -03:00 [INF] Executed action BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI) in 2286.7926ms
+2026-03-18 08:03:52.234 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AfipController.ObtenerLoginTicket (BlumeAPI)'
+2026-03-18 08:03:52.243 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Afip/login - - - 200 - application/json;+charset=utf-8 2477.3449ms

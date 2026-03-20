@@ -1,6 +1,6 @@
 public class ArticuloPrecioEntity
 {
-    public int IdArticuloPrecio { get; set; }
+    public int Id { get; set; }
     public string? Codigo { get; set; }
     public string? Descripcion { get; set; }
     public decimal? Precio1 { get; set; }

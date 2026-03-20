@@ -10,9 +10,9 @@ namespace BlumeAPI.Data.Configurations
         {
             entity.ToTable("FACTURA");
 
-            entity.HasKey(f => f.IdFactura);
+            entity.HasKey(f => f.Id);
 
-            entity.Property(f => f.IdFactura)
+            entity.Property(f => f.Id)
                 .HasColumnName("ID_FACTURA");
 
             entity.Property(f => f.IdCliente)
@@ -50,7 +50,7 @@ namespace BlumeAPI.Data.Configurations
                 .HasColumnName("TIPO_FACTURA")
                 .HasMaxLength(2);
 
-            entity.Property(f => f.Descuento)
+            entity.Property(f => f.DescuentoGeneral)
                 .HasColumnName("DESCUENTO");
 
             entity.Property(f => f.IdPresupuesto)

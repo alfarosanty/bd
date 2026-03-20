@@ -66,8 +66,8 @@ public async Task<AfipResponse> AutorizarComprobanteAsync(
     string token,
     string sign,
     long cuit,
-    string feCaeReqXml,
-    int idFactura)
+    string feReqXml,
+    int idDocumento)
 {
     string body = $@"
 <ser:FECAESolicitar>
@@ -76,12 +76,12 @@ public async Task<AfipResponse> AutorizarComprobanteAsync(
       <ser:Sign>{sign}</ser:Sign>
       <ser:Cuit>{cuit}</ser:Cuit>
    </ser:Auth>
-   {feCaeReqXml}
+   {feReqXml}
 </ser:FECAESolicitar>";
 
     var xml = await SendSoapRequest(body);
 
-    var response = ParseAutorizarResponse(xml, idFactura);
+    var response = ParseAutorizarResponse(xml, idDocumento);
 
     if (!response.Aprobado)
     {
@@ -126,12 +126,12 @@ public async Task<UltimoComprobanteAutorizadoResult> ConsultarUltimoAutorizadoAs
     // ============================================================
     // PARSE RESPONSE FECAESolicitar
     // ============================================================
-public AfipResponse ParseAutorizarResponse(string xml, int idFactura)
+public AfipResponse ParseAutorizarResponse(string xml, int idDocumento)
 {
     var doc = XDocument.Parse(xml);
     var result = new AfipResponse
     {
-        idFactura = idFactura
+        idDocumento = idDocumento
     };
 
     var resultado = doc.Descendants()

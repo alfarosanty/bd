@@ -2,7 +2,7 @@ namespace BlumeAPI.Data.Entities;
 
 public class ClienteEntity
 {
-    public int IdCliente { get; set; }
+    public int Id { get; set; }
     public string RazonSocial { get; set; } = null!;
     public string? Telefono { get; set; }
     public string? Contacto { get; set; }

@@ -16,10 +16,12 @@ public class FacturaServices
 
 
 private readonly HttpClient _httpClient;
+private readonly AfipWsfeClient _afipClient;
 
-    public FacturaServices()
+    public FacturaServices(AfipWsfeClient afipClient)
     {
         _httpClient = new HttpClient();
+        _afipClient = afipClient;
     }
 
 public Factura GetFactura(int id, NpgsqlConnection conex)
@@ -137,8 +139,6 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     if (factura.Articulos == null || !factura.Articulos.Any())
         throw new Exception("La factura no contiene artículos.");
 
-    var afipClient = new AfipWsfeClient("https://servicios1.afip.gov.ar/wsfev1/service.asmx"); // PRODUCCIÓN    
-    //var afipClient = new AfipWsfeClient("https://wswhomo.afip.gov.ar/wsfev1/service.asmx"); // HOMOLOGACIÓN 
 
     int tipoFactura = factura.TipoFactura switch
     {
@@ -148,7 +148,7 @@ public async Task<AfipResponse> FacturarWsfeAsync(
     };
 
     // 🔹 1. Obtener último comprobante
-    var ultimoResult = await afipClient.ConsultarUltimoAutorizadoAsync(
+    var ultimoResult = await _afipClient.ConsultarUltimoAutorizadoAsync(
         loginTicket.Token,
         loginTicket.Sign,
         cuitRepresentada,
@@ -160,7 +160,7 @@ public async Task<AfipResponse> FacturarWsfeAsync(
         return new AfipResponse
         {
             Aprobado = false,
-            idFactura = factura.Id,
+            idDocumento = factura.Id,
             Errores = ultimoResult.Errores?
                 .Select(e => $"{e.Codigo} - {e.Descripcion}")
                 .ToList() ?? new List<string> { "No se pudo obtener último comprobante." }
@@ -262,7 +262,7 @@ public async Task<AfipResponse> FacturarWsfeAsync(
 
     // 🔹 5. Enviar a AFIP
 
-    var afipResponse = await afipClient.AutorizarComprobanteAsync(
+    var afipResponse = await _afipClient.AutorizarComprobanteAsync(
         loginTicket.Token,
         loginTicket.Sign,
         cuitRepresentada,
@@ -651,7 +651,7 @@ private static void actualizarStock(
                 ea.Articulo.IdAsociadoRelleno > 0
             )
             {
-                idObjetivo = ea.Articulo.IdAsociadoRelleno;
+                idObjetivo = (int)ea.Articulo.IdAsociadoRelleno;
             }
             else
             {

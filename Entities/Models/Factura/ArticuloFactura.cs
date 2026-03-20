@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
- public class ArticuloFactura
+ public class ArticuloFactura : IArticuloConStock
         {
             public static String TABLA="ARTICULO_FACTURA";
 

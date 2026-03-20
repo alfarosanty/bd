@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
- public class ArticuloIngreso
+ public class ArticuloIngreso : IArticuloConStock
         {
             public static String TABLA="ARTICULO_INGRESO";
 
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
             public int? IdIngreso { get; set; }
 
-            public int cantidad { get; set; }
+            public int Cantidad { get; set; }
 
             public string Codigo { get; set; }
 

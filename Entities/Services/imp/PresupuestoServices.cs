@@ -158,7 +158,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             NpgsqlCommand cmdArticulo = new NpgsqlCommand(sqlArticuloInsert, npgsqlConnection);
             cmdArticulo.Parameters.AddWithValue("ID_PRESUPUESTO", idPresupuesto);
             cmdArticulo.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
-            cmdArticulo.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
+            cmdArticulo.Parameters.AddWithValue("CANTIDAD", ap.Cantidad);
             cmdArticulo.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
             cmdArticulo.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
             cmdArticulo.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
@@ -208,7 +208,7 @@ public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlCon
                     {
                         cmdInsert.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
                         cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ap.Articulo.Id);
-                        cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.cantidad);
+                        cmdInsert.Parameters.AddWithValue("CANTIDAD", ap.Cantidad);
                         cmdInsert.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
                         cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
                         cmdInsert.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
@@ -386,7 +386,7 @@ private static string GetFromTextByArticulo()
     {
         Articulo = articulo,
         PrecioUnitario = precioUnitario,
-        cantidad = cantidadAP,
+        Cantidad = cantidadAP,
         Descuento = descuento,
         hayStock = hayStock,
         CantidadPendiente = pendiente,
@@ -403,7 +403,7 @@ private static int calcularTotal(List<ArticuloPresupuesto> articulos)
     {
         return 0;
     }
-    decimal sumaTotal = articulos.Sum(articulo => articulo.PrecioUnitario * articulo.cantidad);
+    decimal sumaTotal = articulos.Sum(articulo => articulo.PrecioUnitario * articulo.Cantidad);
     int sumaTotalRedondeada = (int)Math.Round(sumaTotal);
     return sumaTotalRedondeada;
 }
@@ -476,7 +476,7 @@ public List<ArticuloPresupuesto> articulosPresupuestados(
                 var presuArt = new ArticuloPresupuesto
                 {
                     Articulo = articulo,
-                    cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad_total")) 
+                    Cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad_total")) 
                                 ? 0 
                                 : reader.GetInt32(reader.GetOrdinal("cantidad_total")),
                     codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) 

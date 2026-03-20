@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using BlumeAPI.Data.Entities;
 using BlumeAPI;
 using BlumeAPI.Data.Configurations;
+using BlumeAPI.Entities.clases.modelo;
 
 
 
@@ -23,6 +24,8 @@ public class AppDbContext : DbContext
     public DbSet<FacturaEntity> Facturas { get; set; }
     public DbSet<ArticuloFacturaEntity> ArticuloFacturas { get; set; }
     public DbSet<CondicionFiscalEntity> CondicionesFiscales { get; set; }
+    public DbSet<NotaDeCredito> NotasDeCredito { get; set; }
+    public DbSet<ArticuloNotaCredito> ArticulosNotaCredito { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -41,5 +44,7 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new FacturaConfiguration());
         modelBuilder.ApplyConfiguration(new ArticuloFacturaConfiguration());
         modelBuilder.ApplyConfiguration(new CondicionFiscalConfiguration());
+        modelBuilder.ApplyConfiguration(new NotaDeCreditoConfiguration());
+        modelBuilder.ApplyConfiguration(new ArticuloNotaCreditoConfiguration());
     }
 }

@@ -106,7 +106,7 @@ public List<Ingreso> GetIngresosByIds(List<int> idsIngresos, NpgsqlConnection co
                         {                        
                             cmd.Parameters.AddWithValue("ID_ARTICULO",ia.Articulo.Id);
                             cmd.Parameters.AddWithValue("ID_INGRESO",idIngreso);
-                            cmd.Parameters.AddWithValue("CANTIDAD",ia.cantidad);
+                            cmd.Parameters.AddWithValue("CANTIDAD",ia.Cantidad);
                             cmd.Parameters.AddWithValue("FECHA_INGRESO",ingreso.Fecha);
                             cmd.Parameters.AddWithValue("CODIGO",ia.Codigo);
                             cmd.Parameters.AddWithValue("DESCRIPCION",ia.Descripcion);
@@ -140,7 +140,7 @@ public List<Ingreso> GetIngresosByIds(List<int> idsIngresos, NpgsqlConnection co
             NpgsqlCommand cmdInsert = new NpgsqlCommand(sqlInsert, npgsqlConnection);
             cmdInsert.Parameters.AddWithValue("ID_ARTICULO", ia.Articulo.Id);
             cmdInsert.Parameters.AddWithValue("ID_INGRESO", ingreso.Id);  // Usa el mismo ID del presupuesto existente
-            cmdInsert.Parameters.AddWithValue("CANTIDAD", ia.cantidad);
+            cmdInsert.Parameters.AddWithValue("CANTIDAD", ia.Cantidad);
             cmdInsert.Parameters.AddWithValue("FECHA_INGRESO", ingreso.Fecha);
             cmdInsert.ExecuteNonQuery();
         }
@@ -480,7 +480,7 @@ private static string GetFromTextByArticulo()
             return new ArticuloIngreso{
                 Articulo = articulo,
                 //Presupuesto = presupuesto,
-                cantidad = cantidadI,
+                Cantidad = cantidadI,
                 IdIngreso = ingreso.Id,
                 Codigo = codigo,
                 Descripcion = descripcion
@@ -503,7 +503,7 @@ string updateQuery = @"
         foreach (var ia in ingresoArticulos)
         {
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@CANTIDAD", ia.cantidad);
+            cmd.Parameters.AddWithValue("@CANTIDAD", ia.Cantidad);
             cmd.Parameters.AddWithValue("@ID_ARTICULO", ia.Articulo.Id);
 
             cmd.ExecuteNonQuery();
@@ -525,7 +525,7 @@ string updateQuery = @"
         foreach (var ia in ingresoArticulos)
         {
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@CANTIDAD", ia.cantidad);
+            cmd.Parameters.AddWithValue("@CANTIDAD", ia.Cantidad);
             cmd.Parameters.AddWithValue("@ID_ARTICULO", ia.Articulo.Id);
 
             cmd.ExecuteNonQuery();

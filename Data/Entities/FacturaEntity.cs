@@ -2,7 +2,7 @@ namespace BlumeAPI.Data.Entities;
 
 public class FacturaEntity
 {
-    public int IdFactura { get; set; }
+    public int Id { get; set; }
     public int IdCliente { get; set; }
     public DateTime FechaFactura { get; set; }
     public decimal ImporteBruto { get; set; }
@@ -15,7 +15,7 @@ public class FacturaEntity
     public decimal ImporteNeto { get; set; }
     public decimal Iva { get; set; }
     public string TipoFactura { get; set; } = null!;
-    public decimal Descuento { get; set; }
+    public decimal DescuentoGeneral { get; set; }
 
     // 🔗 Relaciones
     public virtual ClienteEntity Cliente { get; set; } = null!;

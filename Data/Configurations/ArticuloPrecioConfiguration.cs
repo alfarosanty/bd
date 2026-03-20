@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+namespace BlumeAPI.Data.Configurations
+{
 public class ArticuloPrecioConfiguration 
     : IEntityTypeConfiguration<ArticuloPrecioEntity>
 {
@@ -8,9 +10,9 @@ public class ArticuloPrecioConfiguration
     {
         entity.ToTable("ARTICULO_PRECIO");
 
-        entity.HasKey(p => p.IdArticuloPrecio);
+        entity.HasKey(p => p.Id);
 
-        entity.Property(p => p.IdArticuloPrecio)
+        entity.Property(p => p.Id)
             .HasColumnName("ID_ARTICULO_PRECIO");
 
         entity.Property(p => p.Codigo)
@@ -33,5 +35,7 @@ public class ArticuloPrecioConfiguration
         entity.Property(p => p.Relleno)
             .HasColumnName("RELLENO");
     }
+}
+    
 }
 

@@ -8,9 +8,9 @@ public class SubFamiliaConfiguration : IEntityTypeConfiguration<SubFamiliaEntity
     {
         entity.ToTable("SUBFAMILIA");
 
-        entity.HasKey(s => s.IdSubFamilia);
+        entity.HasKey(s => s.Id);
 
-        entity.Property(s => s.IdSubFamilia)
+        entity.Property(s => s.Id)
             .HasColumnName("ID_SUBFAMILIA");
 
         entity.Property(s => s.Codigo)

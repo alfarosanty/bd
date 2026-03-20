@@ -10,9 +10,9 @@ namespace BlumeAPI.Data.Configurations
         {
             entity.ToTable("CLIENTE");
 
-            entity.HasKey(c => c.IdCliente);
+            entity.HasKey(c => c.Id);
 
-            entity.Property(c => c.IdCliente)
+            entity.Property(c => c.Id)
                 .HasColumnName("ID_CLIENTE");
 
             entity.Property(c => c.RazonSocial)

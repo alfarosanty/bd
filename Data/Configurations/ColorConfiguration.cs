@@ -8,9 +8,9 @@ public class ColorConfiguration : IEntityTypeConfiguration<ColorEntity>
     {
         entity.ToTable("COLOR");
 
-        entity.HasKey(c => c.IdColor);
+        entity.HasKey(c => c.Id);
 
-        entity.Property(c => c.IdColor)
+        entity.Property(c => c.Id)
             .HasColumnName("ID_COLOR");
 
         entity.Property(c => c.Codigo)

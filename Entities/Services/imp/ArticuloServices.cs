@@ -581,7 +581,7 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
             continue;
 
         string codigoMedida = presuArt.Articulo.Medida.Codigo;
-        int cantidad = presuArt.cantidad;
+        int cantidad = presuArt.Cantidad;
 
         // Buscar el relleno desde el diccionario
         int relleno = presuArt.Articulo.articuloPrecio.Relleno ?? 1;

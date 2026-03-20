@@ -6,7 +6,7 @@
         "type": "coreclr",
         "request": "launch",
         "preLaunchTask": "build",
-        "program": "${workspaceFolder}/bin/Debug/net6.0/BlumeAPI.dll",
+        "program": "${workspaceFolder}/bin/Debug/net8.0/BlumeAPI.dll",
         "args": [],
         "cwd": "${workspaceFolder}",
         "stopAtEntry": false,

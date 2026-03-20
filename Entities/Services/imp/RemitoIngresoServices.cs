@@ -33,7 +33,7 @@ using System.Threading.Tasks;
                     {                        
                         cmd.Parameters.AddWithValue("ID_INGRESO",remito.Id);
                         cmd.Parameters.AddWithValue("ID_ARTICULO",art.Articulo.Id);
-                        cmd.Parameters.AddWithValue("CANTIDAD",art.cantidad);
+                        cmd.Parameters.AddWithValue("CANTIDAD",art.Cantidad);
                         cmd.Parameters.AddWithValue("FECHA",remito.Fecha);
                          cmd.ExecuteNonQuery();
                         Console.WriteLine("Ingreso el  " + ArticuloIngreso.TABLA +   " el aritculo" + art.Articulo.Id);

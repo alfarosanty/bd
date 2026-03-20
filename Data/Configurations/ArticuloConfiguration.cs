@@ -8,9 +8,9 @@ public class ArticuloConfiguration : IEntityTypeConfiguration<ArticuloEntity>
     {
         entity.ToTable("ARTICULO");
 
-        entity.HasKey(a => a.IdArticulo);
+        entity.HasKey(a => a.Id);
 
-        entity.Property(a => a.IdArticulo)
+        entity.Property(a => a.Id)
             .HasColumnName("ID_ARTICULO");
 
         entity.Property(a => a.Codigo)

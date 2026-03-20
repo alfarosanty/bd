@@ -29,7 +29,7 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
     return new Articulo
     {
-        Id = entity.IdArticulo,
+        Id = entity.Id,
         Codigo = entity.Codigo,
         Descripcion = entity.Descripcion,
         Habilitado = entity.Habilitado,
@@ -37,7 +37,7 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
         Color = entity.Color == null ? null : new Color
         {
-            Id = entity.Color.IdColor,
+            Id = entity.Color.Id,
             Codigo = entity.Color.Codigo,
             Descripcion = entity.Color.Descripcion,
             ColorHexa = entity.Color.ColorHexa
@@ -52,14 +52,14 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
         SubFamilia = entity.SubFamilia == null ? null : new SubFamilia
         {
-            Id = entity.SubFamilia.IdSubFamilia,
+            Id = entity.SubFamilia.Id,
             Codigo = entity.SubFamilia.Codigo,
             Descripcion = entity.SubFamilia.Descripcion
         },
 
         articuloPrecio = entity.ArticuloPrecio == null ? null : new ArticuloPrecio
         {
-            Id = entity.ArticuloPrecio.IdArticuloPrecio,
+            Id = entity.ArticuloPrecio.Id,
             Codigo = entity.ArticuloPrecio.Codigo,
             Descripcion = entity.ArticuloPrecio.Descripcion,
             Precio1 = entity.ArticuloPrecio.Precio1,
