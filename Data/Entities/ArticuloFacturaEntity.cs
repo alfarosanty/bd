@@ -13,5 +13,5 @@ public class ArticuloFacturaEntity
 
     // 🔗 Relaciones
     // La referencia al artículo original (por si necesitás ver stock o talle/color)
-    public virtual ArticuloEntity Articulo { get; set; } = null!;
+    public virtual Articulo Articulo { get; set; } = null!;
 }

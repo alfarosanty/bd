@@ -3,7 +3,6 @@ using System.Globalization;
 using BlumeAPI.Repositories;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
-using BlumeAPI.Services.Imp;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -109,6 +108,7 @@ builder.Services.AddScoped<IColorRepository, ColorRepository>();
 builder.Services.AddScoped<IMedidaRepository, MedidaRepository>();
 builder.Services.AddScoped<ISubfamiliaRepository, SubfamiliaRepository>();
 builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
+builder.Services.AddScoped<IPresupuestoRepository, PresupuestoRepository>();
 
 
 // Servicios
@@ -116,6 +116,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
 builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
+builder.Services.AddScoped<IPresupuestoService, PresupuestoServiceNUEVO>();
 
 
 
@@ -152,6 +153,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 var app = builder.Build();
+
+app.UseExceptionHandler(appError =>
+{
+    appError.Run(async context =>
+    {
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsJsonAsync(new { mensaje = "Error interno del servidor" });
+    });
+});
 
 app.UseRouting(); // 🚀 siempre antes de CORS
 

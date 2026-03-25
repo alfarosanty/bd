@@ -99,7 +99,7 @@ public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
         cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
         cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("@valido", cliente.valido ?? (object)DBNull.Value);
+        cmd.Parameters.AddWithValue("@valido", cliente.Valido ?? (object)DBNull.Value);
 
         cliente.Id = (int)cmd.ExecuteScalar();
         return cliente;
@@ -133,7 +133,7 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
     cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
     cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
-    cmd.Parameters.AddWithValue("@valido", cliente.valido ?? (object)DBNull.Value);
+    cmd.Parameters.AddWithValue("@valido", cliente.Valido ?? (object)DBNull.Value);
 
     int filasAfectadas = cmd.ExecuteNonQuery();
     return filasAfectadas;
@@ -198,7 +198,7 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
                 CondicionFiscal = cf,
                 Provincia = provincia,
                 Transporte = transporte,
-                valido = valido
+                Valido = valido
 
             };
 

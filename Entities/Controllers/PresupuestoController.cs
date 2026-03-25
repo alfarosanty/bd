@@ -1,3 +1,4 @@
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 
@@ -9,9 +10,11 @@ public class PresupuestoController : ControllerBase
 {
 
     private readonly ILogger<ClienteController> _logger;
+    private readonly IPresupuestoService _presupuestoService;
 
-    public PresupuestoController(ILogger<ClienteController> logger)
+    public PresupuestoController(ILogger<ClienteController> logger, IPresupuestoService iPresupuestoService)
     {
+        _presupuestoService = iPresupuestoService;
         _logger = logger;
     }
 
@@ -179,6 +182,54 @@ public ActionResult<List<ArticuloPresupuesto>> articulosPresupuestados([FromQuer
         List<Presupuesto> presupuestos = presupuestoService.GetPresupuestosByIds(idsPresupuestos,npgsqlConnection);
         con.cerrarConexion(npgsqlConnection);
         return presupuestos;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll(
+        [FromQuery] DateTime desde,
+        [FromQuery] DateTime hasta,
+        [FromQuery] int? idEstado,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 15)
+    {
+        if (page < 1 || pageSize < 1)
+            return BadRequest("Los parámetros de paginación deben ser mayores a 0.");
+
+        var result = await _presupuestoService.GetPresupuestosAsync(desde, hasta, idEstado, page, pageSize);
+
+        if (result == null || result.Items.Count == 0)
+            return NoContent();
+
+        return Ok(result);
+    }
+
+    [HttpGet("cliente/{idCliente}")]
+    public async Task<IActionResult> GetByCliente(
+        [FromRoute] int idCliente,      // <--- Cambiado de FromQuery a FromRoute
+        [FromQuery] DateTime desde,
+        [FromQuery] DateTime hasta,
+        [FromQuery] int? idEstado,
+        [FromQuery] int page = 0,       // Es mejor empezar en 0 si usas Skip(page * size)
+        [FromQuery] int pageSize = 15)
+    {
+        // C# ya no se quejará porque idCliente es int y coincide con el Service
+        var result = await _presupuestoService.GetPresupuestosByClienteAsync(idCliente, desde, hasta, idEstado, page, pageSize);
+
+        if (result == null || result.Items.Count == 0)
+            return NoContent();
+
+        return Ok(result);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var result = await _presupuestoService.GetPresupuestoByIdAsync(id);
+
+        if (result == null)
+            return NotFound(new { mensaje = $"No se encontró el presupuesto con id {id}" });
+
+        return Ok(result);
     }
 
 }

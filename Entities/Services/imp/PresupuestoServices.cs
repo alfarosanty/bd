@@ -143,7 +143,7 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
     cmd.Parameters.AddWithValue("ID_CLIENTE", presupuesto.Cliente.Id);
     cmd.Parameters.AddWithValue("EXMIR_IVA", presupuesto.EximirIVA);
     cmd.Parameters.AddWithValue("ID_ESTADO", 1);
-    cmd.Parameters.AddWithValue("DESCUENTO", presupuesto.descuentoGeneral);
+    cmd.Parameters.AddWithValue("DESCUENTO", presupuesto.DescuentoGeneral);
     cmd.Parameters.AddWithValue("TOTAL_PRESUPUESTO", calcularTotal(presupuesto.Articulos));
     cmd.ExecuteNonQuery();
 
@@ -162,8 +162,8 @@ public int crear(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlConnecti
             cmdArticulo.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
             cmdArticulo.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
             cmdArticulo.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
-            cmdArticulo.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
-            cmdArticulo.Parameters.AddWithValue("CODIGO", ap.codigo);
+            cmdArticulo.Parameters.AddWithValue("DESCRIPCION", ap.Descripcion);
+            cmdArticulo.Parameters.AddWithValue("CODIGO", ap.Codigo);
 
             cmdArticulo.ExecuteNonQuery();
 
@@ -212,9 +212,9 @@ public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlCon
                         cmdInsert.Parameters.AddWithValue("PENDIENTE", ap.CantidadPendiente);
                         cmdInsert.Parameters.AddWithValue("PRECIO_UNITARIO", ap.PrecioUnitario);
                         cmdInsert.Parameters.AddWithValue("DESCUENTO", ap.Descuento);
-                        cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.hayStock);
-                        cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.descripcion);
-                        cmdInsert.Parameters.AddWithValue("CODIGO", ap.codigo);
+                        cmdInsert.Parameters.AddWithValue("HAY_STOCK", ap.HayStock);
+                        cmdInsert.Parameters.AddWithValue("DESCRIPCION", ap.Descripcion);
+                        cmdInsert.Parameters.AddWithValue("CODIGO", ap.Codigo);
                         cmdInsert.ExecuteNonQuery();
                     }
                 }
@@ -233,7 +233,7 @@ public int actualizar(Presupuesto presupuesto, Npgsql.NpgsqlConnection npgsqlCon
                 cmdUpdateTotal.Parameters.AddWithValue("ID_PRESUPUESTO", presupuesto.Id);
                 cmdUpdateTotal.Parameters.AddWithValue("FECHA_PRESUPUESTO", presupuesto.Fecha);
                 cmdUpdateTotal.Parameters.AddWithValue("ID_ESTADO", presupuesto.EstadoPresupuesto.Id);
-                cmdUpdateTotal.Parameters.AddWithValue("DESCUENTO", presupuesto.descuentoGeneral ?? 0);
+                cmdUpdateTotal.Parameters.AddWithValue("DESCUENTO", presupuesto.DescuentoGeneral ?? 0);
                 cmdUpdateTotal.ExecuteNonQuery();
             }
 
@@ -299,9 +299,9 @@ private static Presupuesto ReadPresupeusto(NpgsqlDataReader reader){
              Id = id,
              Fecha = fecha,
              EximirIVA = eximirIVA,
-             descuentoGeneral = descGeneral,
+             DescuentoGeneral = descGeneral,
              EstadoPresupuesto = estadoPresupuesto,
-             total = total,
+             Total = total,
              };
 
            CConexion cconexio =  new CConexion();
@@ -388,10 +388,10 @@ private static string GetFromTextByArticulo()
         PrecioUnitario = precioUnitario,
         Cantidad = cantidadAP,
         Descuento = descuento,
-        hayStock = hayStock,
+        HayStock = hayStock,
         CantidadPendiente = pendiente,
-        descripcion = desc,
-        codigo = cod
+        Descripcion = desc,
+        Codigo = cod
     };  
 }
 
@@ -458,7 +458,7 @@ public List<ArticuloPresupuesto> articulosPresupuestados(
                     Descripcion = reader.IsDBNull(reader.GetOrdinal("articuloDescripcion")) 
                             ? null 
                             : reader.GetString(reader.GetOrdinal("articuloDescripcion")),
-                    articuloPrecio = new ArticuloPrecio { Id = idPrecioArticulo },
+                    ArticuloPrecio = new ArticuloPrecio { Id = idPrecioArticulo },
                     Color = new Color
                     {
                         Id = reader.IsDBNull(reader.GetOrdinal("ID_COLOR")) 
@@ -479,10 +479,10 @@ public List<ArticuloPresupuesto> articulosPresupuestados(
                     Cantidad = reader.IsDBNull(reader.GetOrdinal("cantidad_total")) 
                                 ? 0 
                                 : reader.GetInt32(reader.GetOrdinal("cantidad_total")),
-                    codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) 
+                    Codigo = reader.IsDBNull(reader.GetOrdinal("CODIGO")) 
                             ? null 
                             : reader.GetString(reader.GetOrdinal("CODIGO")),
-                    descripcion = reader.IsDBNull(reader.GetOrdinal("articuloDescripcion")) 
+                    Descripcion = reader.IsDBNull(reader.GetOrdinal("articuloDescripcion")) 
                             ? null 
                             : reader.GetString(reader.GetOrdinal("articuloDescripcion"))
                 };

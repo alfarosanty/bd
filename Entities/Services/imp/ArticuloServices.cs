@@ -392,7 +392,7 @@ public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection co
                 cmd.CommandText = insertQuery;
 
                 cmd.Parameters.AddWithValue("@DESCRIPCION", articulo.Descripcion ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@ID_ARTICULO_PRECIO", articulo.articuloPrecio.Id);
+                cmd.Parameters.AddWithValue("@ID_ARTICULO_PRECIO", articulo.ArticuloPrecio.Id);
                 cmd.Parameters.AddWithValue("@CODIGO", articulo.Codigo);
                 cmd.Parameters.AddWithValue("@ID_COLOR", articulo.Color.Id);
                 cmd.Parameters.AddWithValue("@ID_MEDIDA", articulo.Medida.Id);
@@ -584,7 +584,7 @@ public List<ConsultaMedida> ConsultarMedidasNecesarias(ArticuloPresupuesto[] pre
         int cantidad = presuArt.Cantidad;
 
         // Buscar el relleno desde el diccionario
-        int relleno = presuArt.Articulo.articuloPrecio.Relleno ?? 1;
+        int relleno = presuArt.Articulo.ArticuloPrecio.Relleno ?? 1;
 
         int cantidadFinal = cantidad * relleno;
 
@@ -1083,7 +1083,7 @@ private List<ConsultaTallerCorte> consultarSeparados(string? codigo, NpgsqlConne
             articulo.Medida = medida;
             articulo.Color = color;
             articulo.SubFamilia = subfamilia;
-            articulo.articuloPrecio = articuloPrecio;
+            articulo.ArticuloPrecio = articuloPrecio;
             articulo.IdFabricante = idFabricante.Value;
             articulo.Habilitado = habilitado;
             articulo.Nuevo = false;

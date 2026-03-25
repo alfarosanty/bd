@@ -4,23 +4,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BlumeAPI.Data.Entities;
 
-public class CondicionFiscalConfiguration : IEntityTypeConfiguration<CondicionFiscalEntity>
+public class CondicionFiscalConfiguration : IEntityTypeConfiguration<CondicionFiscal>
 {
-    public void Configure(EntityTypeBuilder<CondicionFiscalEntity> entity)
+    public void Configure(EntityTypeBuilder<CondicionFiscal> builder)
     {
-        entity.ToTable("CONDICION_AFIP");
+        builder.ToTable("CONDICION_AFIP");
 
-        entity.HasKey(c => c.IdCondicion);
+        builder.HasKey(c => c.IdCondicion);
 
-        entity.Property(c => c.IdCondicion)
+        builder.Property(c => c.IdCondicion)
             .HasColumnName("ID_CONDICION");
 
-        entity.Property(c => c.Codigo)
+        builder.Property(c => c.Codigo)
             .HasColumnName("CODIGO")
             .HasMaxLength(50)
             .IsRequired();
 
-        entity.Property(c => c.Descripcion)
+        builder.Property(c => c.Descripcion)
             .HasColumnName("DESCRIPCION")
             .HasMaxLength(200)
             .IsRequired();

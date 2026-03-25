@@ -1,23 +1,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Data.Entities;
+using BlumeAPI.Entities.clases.modelo;
 
-public class SubFamiliaConfiguration : IEntityTypeConfiguration<SubFamiliaEntity>
+public class SubFamiliaConfiguration : IEntityTypeConfiguration<SubFamilia>
 {
-    public void Configure(EntityTypeBuilder<SubFamiliaEntity> entity)
+    public void Configure(EntityTypeBuilder<SubFamilia> builder)
     {
-        entity.ToTable("SUBFAMILIA");
+        builder.ToTable("SUBFAMILIA");
 
-        entity.HasKey(s => s.Id);
+        builder.HasKey(s => s.Id);
 
-        entity.Property(s => s.Id)
+        builder.Property(s => s.Id)
             .HasColumnName("ID_SUBFAMILIA");
 
-        entity.Property(s => s.Codigo)
+        builder.Property(s => s.Codigo)
             .HasColumnName("CODIGO")
             .HasMaxLength(50);
 
-        entity.Property(s => s.Descripcion)
+        builder.Property(s => s.Descripcion)
             .HasColumnName("DESCRIPCION")
             .HasMaxLength(200);
     }

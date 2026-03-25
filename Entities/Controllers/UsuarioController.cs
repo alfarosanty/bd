@@ -10,10 +10,12 @@ using BlumeAPI;
 public class UsuarioController : ControllerBase // puede implementar IUsuarioController si querés
 {
     private readonly IUsuarioService usuarioService;
+    private readonly IConfiguration _configuration;
 
-    public UsuarioController(IUsuarioService usuarioService)
+    public UsuarioController(IUsuarioService usuarioService, IConfiguration configuration)
     {
         this.usuarioService = usuarioService;
+        this._configuration = configuration;
     }
 
     [HttpGet]
@@ -49,5 +51,14 @@ public class UsuarioController : ControllerBase // puede implementar IUsuarioCon
         usuarioService.EliminarUsuario(id); // void
         return NoContent();
     }
-
+/*    [HttpGet("debug/config")]
+    public ActionResult GetConfig()
+    {
+        return Ok(new
+        {
+            ambiente = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
+            connectionString = _configuration.GetConnectionString("BD")
+        });
+    }
+*/
 }

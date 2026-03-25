@@ -16,7 +16,7 @@ public ArticuloRepository(IDbConnectionFactory factory, AppDbContext context)
 }
 
     // ORM METHODS
-public async Task<ArticuloEntity?> GetByIdAsync(int idArticulo)
+public async Task<Articulo?> GetByIdAsync(int idArticulo)
 {
     var query = _context.Articulos
         .AsNoTracking()
@@ -33,7 +33,7 @@ public async Task<ArticuloEntity?> GetByIdAsync(int idArticulo)
 
 
 
-public async Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticuloPrecio)
+public async Task<ArticuloPrecio?> GetArticuloPrecioByIdAsync(int idArticuloPrecio)
 {
     var query = _context.ArticuloPrecios
         .AsNoTracking()

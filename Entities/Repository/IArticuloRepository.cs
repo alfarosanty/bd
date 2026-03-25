@@ -5,8 +5,8 @@ using Npgsql;
 public interface IArticuloRepository
 {
     // ORM
-    Task<ArticuloPrecioEntity?> GetArticuloPrecioByIdAsync(int idArticuloPrecio);
-    Task<ArticuloEntity?> GetByIdAsync(int idArticulo);
+    Task<ArticuloPrecio?> GetArticuloPrecioByIdAsync(int idArticuloPrecio);
+    Task<Articulo?> GetByIdAsync(int idArticulo);
     //Task<List<ArticuloEntity>> GetArticulosByArticuloPrecioIdAsync(int articuloPrecioId, bool habilitados);
     // DAPPER
     Task<List<CartaKardexDTO>> GetFacturadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta);

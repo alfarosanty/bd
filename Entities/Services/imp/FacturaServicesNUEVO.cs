@@ -104,7 +104,7 @@ long cuitRepresentada)
             loginTicket.Token,
             loginTicket.Sign,
             cuitRepresentada,
-            facturaAsociada.PuntoDeVenta,
+            facturaAsociada.PuntoDeVenta ?? 5,
             tipoComprobante);
 
         if (!ultimoResult.Exitoso || ultimoResult.NumeroComprobante == null)
@@ -146,13 +146,13 @@ long cuitRepresentada)
 
         // 6. Armar XML y autorizar
         var xml = new NotaCreditoBuilderWsfe()
-            .DatosNotaCredito(tipoComprobante, facturaAsociada.PuntoDeVenta, (int)numeroComprobante, DateTime.Today)
+            .DatosNotaCredito(tipoComprobante, facturaAsociada.PuntoDeVenta ?? 5, (int)numeroComprobante, DateTime.Today)
             .Receptor(tipoDoc: 80, nroDoc: long.Parse(facturaAsociada.Cliente.Cuit.Replace("-", "")), tipoCondIVAReceptor: tipoCondIVARec)
             .Importes(gravado: gravado, total: total)
             .AgregarSubtotalIVA(new SubtotalIVA { codigo = 5, importe = ivaTotal })
             .ComprobanteAsociado(
                 tipo: tipoComprobanteAsociado,
-                ptoVta: facturaAsociada.PuntoDeVenta,
+                ptoVta: facturaAsociada.PuntoDeVenta ?? 5,
                 nro: facturaAsociada.NumeroComprobante,
                 cuit: long.Parse(facturaAsociada.Cliente.Cuit.Replace("-", "")),
                 fecha: facturaAsociada.FechaFactura)

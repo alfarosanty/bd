@@ -1,23 +1,24 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BlumeAPI.Data.Entities;
+using BlumeAPI.Entities.clases.modelo;
 
-public class MedidaConfiguration : IEntityTypeConfiguration<MedidaEntity>
+public class MedidaConfiguration : IEntityTypeConfiguration<Medida>
 {
-    public void Configure(EntityTypeBuilder<MedidaEntity> entity)
+    public void Configure(EntityTypeBuilder<Medida> builder)
     {
-        entity.ToTable("MEDIDA");
+        builder.ToTable("MEDIDA");
 
-        entity.HasKey(m => m.IdMedida);
+        builder.HasKey(m => m.Id);
 
-        entity.Property(m => m.IdMedida)
+        builder.Property(m => m.Id)
             .HasColumnName("ID_MEDIDA");
 
-        entity.Property(m => m.Codigo)
+        builder.Property(m => m.Codigo)
             .HasColumnName("CODIGO")
             .HasMaxLength(50);
 
-        entity.Property(m => m.Descripcion)
+        builder.Property(m => m.Descripcion)
             .HasColumnName("DESCRIPCION")
             .HasMaxLength(200);
     }

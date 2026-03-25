@@ -8,32 +8,36 @@ using System.Threading.Tasks;
 
 
 
-    public  class Articulo
-        {
-        public static String TABLA="ARTICULO";
-        public int Id { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public Color Color{ get; set; }
-        public Medida Medida{ get; set; }
-        public SubFamilia? SubFamilia{ get; set; }
+public class Articulo
+{
+    public static String TABLA="ARTICULO";
+    public int Id { get; set; }
+    public string Codigo { get; set; } = null!;
+    public string Descripcion { get; set; } = null!;
 
-        public ArticuloPrecio articuloPrecio{ get; set; }
-        public int IdFabricante{ get; set; }
-        public int? IdAsociadoRelleno{ get; set; }
+    // --- IDs para el mapeo ---
+    public int IdColor { get; set; } // Asegurate que se llame así
+    public int IdMedida { get; set; }
+    public int? IdSubFamilia { get; set; }
+    public int? IdArticuloPrecio { get; set; } // OJO: en el JSON decía null pero el objeto venía lleno
+    public int IdFabricante { get; set; }
+    public int? IdAsociadoRelleno { get; set; }
 
-        public bool? Nuevo{ get; set; }
-        
-        public bool? Habilitado{ get; set; }
+    // --- Navegaciones ---
+    public Color Color { get; set; } = null!;
+    public Medida Medida { get; set; } = null!;
+    public SubFamilia? SubFamilia { get; set; }
+    
+    public ArticuloPrecio? ArticuloPrecio { get; set; } 
 
-        public int? Stock{ get; set; }
+    public bool? Habilitado { get; set; }
+    public int? Stock { get; set; }
 
-        public int? CantidadEnCorte{ get; set; }
-
-        public int? CantidadEnTaller{ get; set; }
-
-    }
-
+    // --- Ignorados ---
+    public bool? Nuevo { get; set; }
+    public int? CantidadEnCorte { get; set; }
+    public int? CantidadEnTaller { get; set; }
+}
     public class ConsultaMedida{
         public string Medida{ get; set; }
 

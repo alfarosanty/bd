@@ -15,17 +15,20 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<ArticuloEntity> Articulos { get; set; }
-    public DbSet<ArticuloPrecioEntity> ArticuloPrecios { get; set; }
-    public DbSet<ColorEntity> Colores { get; set; }
-    public DbSet<MedidaEntity> Medidas { get; set; }
-    public DbSet<SubFamiliaEntity> SubFamilias { get; set; }
-    public DbSet<ClienteEntity> Clientes { get; set; }
+    public DbSet<Articulo> Articulos { get; set; }
+    public DbSet<ArticuloPrecio> ArticuloPrecios { get; set; }
+    public DbSet<Color> Colores { get; set; }
+    public DbSet<Medida> Medidas { get; set; }
+    public DbSet<SubFamilia> SubFamilias { get; set; }
+    public DbSet<Cliente> Clientes { get; set; }
     public DbSet<FacturaEntity> Facturas { get; set; }
     public DbSet<ArticuloFacturaEntity> ArticuloFacturas { get; set; }
-    public DbSet<CondicionFiscalEntity> CondicionesFiscales { get; set; }
+    public DbSet<CondicionFiscal> CondicionesFiscales { get; set; }
     public DbSet<NotaDeCredito> NotasDeCredito { get; set; }
     public DbSet<ArticuloNotaCredito> ArticulosNotaCredito { get; set; }
+    public DbSet<Presupuesto> Presupuestos { get; set; }
+    public DbSet<ArticuloPresupuesto> ArticulosPresupuesto { get; set; }
+    public DbSet<EstadoPresupuesto> EstadosPresupuesto { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -46,5 +49,9 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new CondicionFiscalConfiguration());
         modelBuilder.ApplyConfiguration(new NotaDeCreditoConfiguration());
         modelBuilder.ApplyConfiguration(new ArticuloNotaCreditoConfiguration());
+        modelBuilder.ApplyConfiguration(new PresupuestoConfiguration());
+        modelBuilder.ApplyConfiguration(new ArticuloPresupuestoConfiguration());
+        modelBuilder.ApplyConfiguration(new EstadoPresupuestoConfiguration());
+
     }
 }

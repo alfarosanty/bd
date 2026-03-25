@@ -1,25 +1,25 @@
+using BlumeAPI.Entities.clases.modelo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Data.Entities;
 
-public class ColorConfiguration : IEntityTypeConfiguration<ColorEntity>
+public class ColorConfiguration : IEntityTypeConfiguration<Color>
 {
-    public void Configure(EntityTypeBuilder<ColorEntity> entity)
+    public void Configure(EntityTypeBuilder<Color> builder)
     {
-        entity.ToTable("COLOR");
+        builder.ToTable("COLOR");
 
-        entity.HasKey(c => c.Id);
+        builder.HasKey(c => c.Id);
 
-        entity.Property(c => c.Id)
+        builder.Property(c => c.Id)
             .HasColumnName("ID_COLOR");
 
-        entity.Property(c => c.Codigo)
+        builder.Property(c => c.Codigo)
             .HasColumnName("CODIGO");
 
-        entity.Property(c => c.Descripcion)
+        builder.Property(c => c.Descripcion)
             .HasColumnName("DESCRIPCION");
 
-        entity.Property(c => c.ColorHexa)
+        builder.Property(c => c.ColorHexa)
             .HasColumnName("HEXA");
     }
 }

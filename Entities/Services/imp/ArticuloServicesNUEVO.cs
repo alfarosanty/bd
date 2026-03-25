@@ -45,7 +45,7 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
         Medida = entity.Medida == null ? null : new Medida
         {
-            Id = entity.Medida.IdMedida,
+            Id = entity.Medida.Id,
             Codigo = entity.Medida.Codigo,
             Descripcion = entity.Medida.Descripcion
         },
@@ -57,7 +57,7 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
             Descripcion = entity.SubFamilia.Descripcion
         },
 
-        articuloPrecio = entity.ArticuloPrecio == null ? null : new ArticuloPrecio
+        ArticuloPrecio = entity.ArticuloPrecio == null ? null : new ArticuloPrecio
         {
             Id = entity.ArticuloPrecio.Id,
             Codigo = entity.ArticuloPrecio.Codigo,

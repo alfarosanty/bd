@@ -4,35 +4,35 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace BlumeAPI.Data.Configurations
 {
 public class ArticuloPrecioConfiguration 
-    : IEntityTypeConfiguration<ArticuloPrecioEntity>
+    : IEntityTypeConfiguration<ArticuloPrecio>
 {
-    public void Configure(EntityTypeBuilder<ArticuloPrecioEntity> entity)
+    public void Configure(EntityTypeBuilder<ArticuloPrecio> builder)
     {
-        entity.ToTable("ARTICULO_PRECIO");
+        builder.ToTable("ARTICULO_PRECIO");
 
-        entity.HasKey(p => p.Id);
+        builder.HasKey(p => p.Id);
 
-        entity.Property(p => p.Id)
+        builder.Property(p => p.Id)
             .HasColumnName("ID_ARTICULO_PRECIO");
 
-        entity.Property(p => p.Codigo)
+        builder.Property(p => p.Codigo)
             .HasColumnName("CODIGO")
             .HasMaxLength(50);
 
-        entity.Property(p => p.Descripcion)
+        builder.Property(p => p.Descripcion)
             .HasColumnName("DESCRIPCION")
             .HasMaxLength(200);
 
-        entity.Property(p => p.Precio1)
+        builder.Property(p => p.Precio1)
             .HasColumnName("PRECIO1");
 
-        entity.Property(p => p.Precio2)
+        builder.Property(p => p.Precio2)
             .HasColumnName("PRECIO2");
 
-        entity.Property(p => p.Precio3)
+        builder.Property(p => p.Precio3)
             .HasColumnName("PRECIO3");
 
-        entity.Property(p => p.Relleno)
+        builder.Property(p => p.Relleno)
             .HasColumnName("RELLENO");
     }
 }
