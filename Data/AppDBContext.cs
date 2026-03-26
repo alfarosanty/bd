@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using BlumeAPI.Data.Entities;
 using BlumeAPI;
 using BlumeAPI.Data.Configurations;
 using BlumeAPI.Entities.clases.modelo;
@@ -21,8 +20,8 @@ public class AppDbContext : DbContext
     public DbSet<Medida> Medidas { get; set; }
     public DbSet<SubFamilia> SubFamilias { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
-    public DbSet<FacturaEntity> Facturas { get; set; }
-    public DbSet<ArticuloFacturaEntity> ArticuloFacturas { get; set; }
+    public DbSet<Factura> Facturas { get; set; }
+    public DbSet<ArticuloFactura> ArticuloFacturas { get; set; }
     public DbSet<CondicionFiscal> CondicionesFiscales { get; set; }
     public DbSet<NotaDeCredito> NotasDeCredito { get; set; }
     public DbSet<ArticuloNotaCredito> ArticulosNotaCredito { get; set; }

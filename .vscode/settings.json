@@ -1,0 +1,32 @@
+{
+    /* --- Red de la Oficina y Seguridad --- */
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.restrictUNCAccess": false,
+    "security.allowedUNCHosts": [],
+
+    /* --- Interfaz y Estética --- */
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.colorTheme": "Dark Modern",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+
+    /* --- Configuración Crítica para .NET 8 --- */
+    "dotnet.server.useOmnisharp": false,
+    "csharp.devKit.solutionContext": "Never",
+    "csharp.autoGenerateSolution": false,
+    "dotnet.projects.analysisScope": "fullSolution",
+
+    /* --- Ayudas visuales y Limpieza --- */
+    "csharp.extendedAnalyzerOptions": {
+        "dotnet_show_unindexed_symbols": true,
+        "dotnet_enable_inlay_hints": true
+    },
+    "files.exclude": {
+        "**/*.sln": true,
+        "**/.vs": true,
+        "**/.vscode": false
+    },
+    "dotnet.inlayHints.enableInlayHintsForParameters": true,
+    "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true
+}

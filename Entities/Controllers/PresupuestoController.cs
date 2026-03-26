@@ -205,14 +205,13 @@ public ActionResult<List<ArticuloPresupuesto>> articulosPresupuestados([FromQuer
 
     [HttpGet("cliente/{idCliente}")]
     public async Task<IActionResult> GetByCliente(
-        [FromRoute] int idCliente,      // <--- Cambiado de FromQuery a FromRoute
+        [FromRoute] int idCliente,
         [FromQuery] DateTime desde,
         [FromQuery] DateTime hasta,
         [FromQuery] int? idEstado,
-        [FromQuery] int page = 0,       // Es mejor empezar en 0 si usas Skip(page * size)
+        [FromQuery] int page = 1,
         [FromQuery] int pageSize = 15)
     {
-        // C# ya no se quejará porque idCliente es int y coincide con el Service
         var result = await _presupuestoService.GetPresupuestosByClienteAsync(idCliente, desde, hasta, idEstado, page, pageSize);
 
         if (result == null || result.Items.Count == 0)

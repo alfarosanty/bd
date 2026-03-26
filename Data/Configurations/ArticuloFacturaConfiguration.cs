@@ -1,12 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Data.Entities;
 
 namespace BlumeAPI.Data.Configurations
 {
-    public class ArticuloFacturaConfiguration : IEntityTypeConfiguration<ArticuloFacturaEntity>
+    public class ArticuloFacturaConfiguration : IEntityTypeConfiguration<ArticuloFactura>
     {
-        public void Configure(EntityTypeBuilder<ArticuloFacturaEntity> entity)
+        public void Configure(EntityTypeBuilder<ArticuloFactura> entity)
         {
             entity.ToTable("ARTICULO_FACTURA");
 
@@ -44,10 +43,12 @@ namespace BlumeAPI.Data.Configurations
                 .HasForeignKey(af => af.IdArticulo)
                 .HasConstraintName("ID_ARTICULO");
             
-            entity.HasOne<FacturaEntity>()
+           entity.HasOne(af => af.Factura)
                 .WithMany(f => f.Articulos)
-                .HasForeignKey(af => af.IdFactura)
-                .HasConstraintName("ID_FACTURA");
+                .HasForeignKey(af => af.IdFactura);
+
+            //IGNORES
+            entity.Ignore(af => af.Fecha);
         }
     }
 }

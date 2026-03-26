@@ -14,8 +14,8 @@ using System.Threading.Tasks;
         "localhost"; //pruebas
         //"192.168.1.41";//ofi
         static String bd=
-        //"BD"; 
-        "BDPruebas";//Pruebas
+        "BD"; 
+        //"BDPruebas";//Pruebas
         static String usuario="postgres";
         static String password="admin";
         static String puerto = "5432";

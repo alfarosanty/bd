@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using BlumeAPI.Data.Entities;
 using BlumeAPI.Repository;
+using BlumeAPI.Repositories;
 using BlumeAPI.Entities.clases.modelo;
 public class FacturaRepository : IFacturaRepository
 {
@@ -13,8 +13,92 @@ public FacturaRepository(AppDbContext context, IDbConnectionFactory factory)
     _factory = factory;
 }    
 
-    // ORM METHODS
-public async Task<FacturaEntity?> GetByIdAsync(int idFactura)
+// ORM METHODS
+
+private IQueryable<Factura> QueryBase()
+    {
+        return _context.Facturas
+            .AsNoTracking()
+            .Include(f => f.Cliente)
+            .Include(f => f.Articulos)
+                .ThenInclude(a => a.Articulo)
+                    .ThenInclude(a => a.Color)
+            .Include(f => f.Articulos)
+                .ThenInclude(a => a.Articulo)
+                    .ThenInclude(a => a.Medida)
+            .Include(f => f.Articulos)
+                .ThenInclude(a => a.Articulo)
+                    .ThenInclude(a => a.ArticuloPrecio)
+            .Include(f => f.Articulos)
+                .ThenInclude(a => a.Articulo)
+                    .ThenInclude(a => a.SubFamilia);
+    }
+
+public async Task<PagedResult<Factura>> GetAll(
+    DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize)
+{
+    var query = QueryBase()
+        .Where(f => f.FechaFactura >= desde && f.FechaFactura <= hasta);
+
+    // Filtro inteligente para ARCA / Locales
+    if (facturadoARCA.HasValue)
+    {
+        query = query.Where(f => facturadoARCA.Value 
+            ? f.PuntoDeVenta == 5 
+            : f.PuntoDeVenta != 5);
+    }
+
+    var totalRecords = await query.CountAsync();
+
+    var items = await query
+        .OrderByDescending(f => f.FechaFactura)
+        .Skip((page - 1) * pageSize) 
+        .Take(pageSize)
+        .ToListAsync();
+
+    return new PagedResult<Factura>
+    {
+        Items = items,
+        TotalRecords = totalRecords,
+        Page = page,
+        PageSize = pageSize
+    };
+}
+
+public async Task<PagedResult<Factura>> GetByCliente(
+    int idCliente, DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize)
+{
+    // 1. Base de la consulta con filtros obligatorios
+    var query = QueryBase()
+        .Where(f => f.IdCliente == idCliente && f.FechaFactura >= desde && f.FechaFactura <= hasta);
+
+    // 2. Filtro opcional de ARCA (Soberbio: maneja True, False y Todos/Null)
+    if (facturadoARCA.HasValue)
+    {
+        query = query.Where(f => facturadoARCA.Value 
+            ? f.PuntoDeVenta == 5 
+            : f.PuntoDeVenta != 5);
+    }
+
+    // 3. Contamos el total antes de paginar
+    var totalRecords = await query.CountAsync();
+
+    // 4. Pagina y ordena (usando 'f' para consistencia)
+    var items = await query
+        .OrderByDescending(f => f.FechaFactura) 
+        .Skip((page - 1) * pageSize)
+        .Take(pageSize)
+        .ToListAsync();
+
+    return new PagedResult<Factura>
+    {
+        Items = items,
+        TotalRecords = totalRecords,
+        Page = page,
+        PageSize = pageSize
+    };
+}
+public async Task<Factura?> GetByIdAsync(int idFactura)
 {
     // Usamos el nombre exacto de la propiedad en la Entity: ArticulosFactura
     var query = _context.Facturas

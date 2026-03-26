@@ -5,19 +5,15 @@ public class Factura
     public static string TABLA = "FACTURA";
 
     public int Id { get; set; }
-
-    public DateTime FechaFactura { get; set; }
+    public int IdCliente { get; set; }
 
     public Cliente Cliente { get; set; }
 
-    public bool EximirIVA { get; set; }
-
-    public List<ArticuloFactura>? Articulos { get; set; }
-
-    public Presupuesto? Presupuesto { get; set; }
-
+    public DateTime FechaFactura { get; set; }
     public decimal? ImporteBruto { get; set; }
-
+    public bool EximirIVA { get; set; }
+    public int? IdPresupuesto { get; set; }
+    public Presupuesto? Presupuesto { get; set; }
     public int? PuntoDeVenta { get; set; }
 
     public int? NumeroComprobante { get; set; }
@@ -29,10 +25,15 @@ public class Factura
     public decimal? ImporteNeto { get; set; }
 
     public decimal? Iva { get; set; }
-
     public string TipoFactura { get; set; }
-
     public int? DescuentoGeneral { get; set; }
+    public List<ArticuloFactura>? Articulos { get; set; }
+
+
+
+
+
+
 
     // =====================================================
     // 🔹 MÉTODO CENTRAL DE CÁLCULO

@@ -1,4 +1,3 @@
-using BlumeAPI.Data.Entities;
 using BlumeAPI.Services;
 using BlumeAPI.Repository;
 using BlumeAPI.Entities.clases.modelo;
@@ -25,11 +24,24 @@ public FacturaServicesNUEVO(IFacturaRepository facturaRepository,
     _context = context;
 }
 
-public Task<FacturaEntity> GetByIdAsync(int idFactura)
-{
-    var facturaResponse = _facturaRepository.GetByIdAsync(idFactura);
-    return facturaResponse;
-}
+    public Task<Factura> GetByIdAsync(int idFactura)
+    {
+        var facturaResponse = _facturaRepository.GetByIdAsync(idFactura);
+        return facturaResponse;
+    }
+
+    public async Task<PagedResult<Factura>> GetFacturasAsync(
+        DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize)
+    {
+        // Ya no retorna List<>, retorna PagedResult<>
+        return await _facturaRepository.GetAll(desde, hasta, facturadoARCA, page, pageSize);
+    }
+
+    public async Task<PagedResult<Factura>> GetFacturasByClienteAsync(
+        int idCliente, DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize)
+    {
+        return await _facturaRepository.GetByCliente(idCliente, desde, hasta, facturadoARCA, page, pageSize);
+    }
 
 //================================ NOTA DE CRÉDITO ================================
 public async Task<NotaDeCredito> CrearNotaCreditoAsync(NotaDeCredito notaDeCredito)
@@ -139,9 +151,9 @@ long cuitRepresentada)
             var montoNeto = montoBruto / 1.21m;
             var ivaArticulo = montoBruto - montoNeto;
 
-            total += montoBruto;
-            ivaTotal += ivaArticulo;
-            gravado += montoNeto;
+            total += montoBruto ?? 0;
+            ivaTotal += ivaArticulo ?? 0;
+            gravado += montoNeto ?? 0;
         }
 
         // 6. Armar XML y autorizar
@@ -153,7 +165,7 @@ long cuitRepresentada)
             .ComprobanteAsociado(
                 tipo: tipoComprobanteAsociado,
                 ptoVta: facturaAsociada.PuntoDeVenta ?? 5,
-                nro: facturaAsociada.NumeroComprobante,
+                nro: (long)(facturaAsociada.NumeroComprobante ?? 0),
                 cuit: long.Parse(facturaAsociada.Cliente.Cuit.Replace("-", "")),
                 fecha: facturaAsociada.FechaFactura)
             .Build();

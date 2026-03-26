@@ -9,6 +9,9 @@ using Microsoft.Extensions.Options;
 using Npgsql;
 using Serilog;
 
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔧 Configurar Serilog para escribir logs en archivo por día

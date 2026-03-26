@@ -1,5 +1,4 @@
 using System.Data;
-using BlumeAPI.Data.Entities;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;

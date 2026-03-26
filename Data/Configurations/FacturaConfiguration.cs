@@ -1,12 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Data.Entities;
 
 namespace BlumeAPI.Data.Configurations
 {
-    public class FacturaConfiguration : IEntityTypeConfiguration<FacturaEntity>
+    public class FacturaConfiguration : IEntityTypeConfiguration<Factura>
     {
-        public void Configure(EntityTypeBuilder<FacturaEntity> entity)
+        public void Configure(EntityTypeBuilder<Factura> entity)
         {
             entity.ToTable("FACTURA");
 
@@ -24,7 +23,7 @@ namespace BlumeAPI.Data.Configurations
             entity.Property(f => f.ImporteBruto)
                 .HasColumnName("IMPORTE_BRUTO");
 
-            entity.Property(f => f.EximirIva)
+            entity.Property(f => f.EximirIVA)
                 .HasColumnName("EXIMIR_IVA");
 
             entity.Property(f => f.PuntoDeVenta)
@@ -54,12 +53,17 @@ namespace BlumeAPI.Data.Configurations
                 .HasColumnName("DESCUENTO");
 
             entity.Property(f => f.IdPresupuesto)
-                .HasColumnName("ID_PRESUPUESTO");
+                .HasColumnName("ID_PRESUPUESTO")
+                .IsRequired(false);
 
-            // 🔗 Relación con Cliente
+            // 🔗 Relaciones con entidades
             entity.HasOne(f => f.Cliente)
                 .WithMany()
                 .HasForeignKey(f => f.IdCliente);
+            
+            entity.HasOne(f => f.Presupuesto)
+                .WithMany()
+                .HasForeignKey(f => f.IdPresupuesto);
         }
     }
 }

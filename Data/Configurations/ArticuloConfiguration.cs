@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Data.Entities;
 
 public class ArticuloConfiguration : IEntityTypeConfiguration<Articulo>
 {

@@ -53,27 +53,6 @@ public class FacturaController : ControllerBase
         });    }
 
 
-[HttpGet("{id}")]
-public async Task<IActionResult> GetFactura(int id)
-{
-    if (id <= 0)
-        return BadRequest("Id de factura inválido");
-
-    try
-    {
-        var factura = await _facturaService.GetByIdAsync(id);
-
-        if (factura == null)
-            return NotFound();
-
-        return Ok(factura);
-    }
-    catch (Exception ex)
-    {
-        return StatusCode(500, "Error interno del servidor: " + ex.Message);
-    }
-}
-
 [HttpGet("GetByCliente/{idCliente}")]
 public IActionResult GetFacturasPorCliente(
     int idCliente,
@@ -265,6 +244,64 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
             });
         }
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll(
+        [FromQuery] DateTime desde,
+        [FromQuery] DateTime hasta,
+        [FromQuery] bool facturadoARCA,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 15)
+    {
+    if (page < 1 || pageSize < 1)
+            return BadRequest("Los parámetros de paginación deben ser mayores a 0.");
+
+        var result = await _facturaService.GetFacturasAsync(desde, hasta, facturadoARCA, page, pageSize);
+
+        if (result == null || result.Items.Count == 0)
+            return NoContent();
+
+        return Ok(result);
+    }
+
+[HttpGet("cliente/{idCliente}")]
+    public async Task<IActionResult> GetByCliente(
+        [FromRoute] int idCliente,
+        [FromQuery] DateTime desde,
+        [FromQuery] DateTime hasta,
+        [FromQuery] bool facturadoARCA,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 15)
+    {
+        var result = await _facturaService.GetFacturasByClienteAsync(idCliente, desde, hasta, facturadoARCA, page, pageSize);
+
+        if (result == null || result.Items.Count == 0)
+            return NoContent();
+
+        return Ok(result);
+    }
+
+
+[HttpGet("{id}")]
+public async Task<IActionResult> GetFactura(int id)
+{
+    if (id <= 0)
+        return BadRequest("Id de factura inválido");
+
+    try
+    {
+        var factura = await _facturaService.GetByIdAsync(id);
+
+        if (factura == null)
+            return NotFound();
+
+        return Ok(factura);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, "Error interno del servidor: " + ex.Message);
+    }
+}
 
 [HttpPost("{id}/NotaCredito")]
 public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito notaDeCredito)

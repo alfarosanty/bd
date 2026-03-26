@@ -11,18 +11,18 @@ public class PresupuestoServiceNUEVO : IPresupuestoService
     }
 
 // Service
-public async Task<PagedResult<Presupuesto>> GetPresupuestosAsync(
-    DateTime desde, DateTime hasta, int? idEstado, int page, int pageSize)
-{
-    // Ya no retorna List<>, retorna PagedResult<>
-    return await _presupuestoRepository.GetAll(desde, hasta, idEstado, page, pageSize);
-}
+    public async Task<PagedResult<Presupuesto>> GetPresupuestosAsync(
+        DateTime desde, DateTime hasta, int? idEstado, int page, int pageSize)
+    {
+        // Ya no retorna List<>, retorna PagedResult<>
+        return await _presupuestoRepository.GetAll(desde, hasta, idEstado, page, pageSize);
+    }
 
-public async Task<PagedResult<Presupuesto>> GetPresupuestosByClienteAsync(
-    int idCliente, DateTime desde, DateTime hasta, int? idEstado, int page, int pageSize)
-{
-    return await _presupuestoRepository.GetByCliente(idCliente, desde, hasta, idEstado, page, pageSize);
-}
+    public async Task<PagedResult<Presupuesto>> GetPresupuestosByClienteAsync(
+        int idCliente, DateTime desde, DateTime hasta, int? idEstado, int page, int pageSize)
+    {
+        return await _presupuestoRepository.GetByCliente(idCliente, desde, hasta, idEstado, page, pageSize);
+    }
 
     public async Task<Presupuesto?> GetPresupuestoByIdAsync(int id)
     {
