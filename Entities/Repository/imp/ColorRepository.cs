@@ -1,6 +1,6 @@
 using System.Data;
-using BlumeAPI.Entities.clases.modelo;
-using BlumeAPI.Repositories;
+using BlumeAPI.Entities;
+using BlumeAPI.Repository;
 using Dapper;
 
 public class ColorRepository : IColorRepository

@@ -1,4 +1,4 @@
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Npgsql;
 
 public interface IArticuloRepository

@@ -1,3 +1,4 @@
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -8,134 +9,110 @@ public class PedidoProduccionController : ControllerBase
 {
 
     private readonly ILogger<PedidoProduccionController> _logger;
+    private readonly IPedidoProduccionService _pedidoProduccionService;
 
-    public PedidoProduccionController(ILogger<PedidoProduccionController> logger)
+    public PedidoProduccionController(ILogger<PedidoProduccionController> logger, IPedidoProduccionService pedidoProduccionService)
     {
         _logger = logger;
+        _pedidoProduccionService = pedidoProduccionService;
     }
  
-    [HttpPost("crear")]
-    public int  Crear(PedidoProduccion pedidoProduccion){
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+[HttpPost("crear")]
+    public async Task<ActionResult<int>> Crear(PedidoProduccion pedido)
+    {
+        var id = await _pedidoProduccionService.CrearPedido(pedido);
+        return Ok(id);
+    }
 
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        int id =  pps.crear(pedidoProduccion, npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-        return id;  
+[HttpGet("taller/{idTaller}")]
+    public async Task<IActionResult> GetByTaller(
+        [FromRoute] int idTaller,
+        [FromQuery] DateTime desde,
+        [FromQuery] DateTime hasta,
+        [FromQuery] int? idEstado,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 15)
+    {
+        var result = await _pedidoProduccionService.ListarPorTallerPaginado(
+            idTaller, desde, hasta, idEstado, page, pageSize);
+
+        if (result == null || result.Items.Count == 0)
+            return NoContent();
+
+        return Ok(result);
+    }
+
+[HttpPost("eliminar")]
+    public async Task<ActionResult<List<int>>> Eliminar([FromBody] List<int> idPedidos)
+    {
+        var eliminados = await _pedidoProduccionService.EliminarPedidos(idPedidos);
+        if (!eliminados.Any()) return NotFound("No se eliminó nada.");
+        return Ok(eliminados);
     }
 
 
 
-    [HttpPost("actualizar")]
-    public int Actualizar(PedidoProduccion pedidoProduccion)
+[HttpPut("{id}")]
+    public async Task<ActionResult<int>> Actualizar(int id, [FromBody] PedidoProduccion pedidoProduccion)
     {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    PedidoProduccionService pps = new PedidoProduccionService();
-    int id = pps.actualizar(pedidoProduccion, npgsqlConnection);
-    con.cerrarConexion(npgsqlConnection);
-    return id;
+        if (id != pedidoProduccion.Id) return BadRequest("ID de ruta no coincide con el ID del objeto.");
+        
+        await _pedidoProduccionService.Actualizar(pedidoProduccion);
+        return Ok(id);
     }
 
-    [HttpPost("ObtenerClientes")]
-    public List<ClienteXPedidoProduccionOutputDTO> ObtenerClientes([FromBody] List<int> idPedidos)
+[HttpGet("{id}")]
+    public async Task<ActionResult<PedidoProduccion>> Get(int id)
     {
-        using var conexion = new CConexion().establecerConexion();
+        if (id <= 0)
+        {
+            throw new BusinessException("El ID proporcionado no es válido. Debe ser mayor a cero.");
+        }
 
-        PedidoProduccionService pps = new PedidoProduccionService();
-        var clientesXPedidoProduccion = pps.obtenerClientes(conexion, idPedidos);
+        var pedido = await _pedidoProduccionService.GetById(id);
 
-        return clientesXPedidoProduccion;
-    }
+        if (pedido == null)
+        {
+            throw new NotFoundException($"No se encontró el pedido de producción con ID: {id}");
+        }
 
-[HttpPost("EliminarPedidosProduccion")]
-public ActionResult<List<int>> EliminarPedidosProduccion([FromBody] List<int> idPedidos)
-{
-    if (idPedidos == null || idPedidos.Count == 0)
-        return BadRequest("No se enviaron IDs para eliminar.");
-
-    try
-    {
-        using var conexion = new CConexion().establecerConexion();
-
-        PedidoProduccionService pps = new PedidoProduccionService();
-        var idsEliminados = pps.eliminarPedidosProduccion(conexion, idPedidos);
-
-        if (idsEliminados.Count == 0)
-            return NotFound("No se encontraron pedidos para eliminar con los IDs enviados.");
-
-        return Ok(idsEliminados);
-    }
-    catch (Exception ex)
-    {
-        Console.Error.WriteLine($"Error al eliminar pedidos: {ex}");
-        return StatusCode(StatusCodes.Status500InternalServerError,
-            $"Ocurrió un error al eliminar los pedidos: {ex.Message}");
-    }
-}
-
-
-
-      [HttpGet("GetPedidoProduccionByTaller/{idTaller}")]
-    public async Task<List<PedidoProduccion>> GetByTaller(int idTaller)
-    {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-       PedidoProduccionService  pps = new PedidoProduccionService();
-        List<PedidoProduccion> pedidoProducciones = pps.GetPedidoProduccionByTaller(idTaller,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-         return pedidoProducciones;
-    }
-
-         [HttpGet("GetPedidoProduccionByNumero/{idPedidoProduccion}")]
-    public PedidoProduccion Get(int idPedidoProduccion)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        PedidoProduccion pedidoProduccion = pps.getPedidoProduccion(idPedidoProduccion,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return pedidoProduccion;
+        return Ok(pedido);
     }
 
 
-         [HttpGet("GetEstadosPedidoProduccion")]
-    public List<EstadoPedidoProduccion> GetEstadosPedidoProduccion()
+[HttpGet("estados")]
+    public async Task<ActionResult<List<EstadoPedidoProduccion>>> GetEstadosPedidoProduccion()
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pps = new PedidoProduccionService();
-        List<EstadoPedidoProduccion> estadosPedidoProduccion = pps.getEstadosPedidoProduccion(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return estadosPedidoProduccion;
+        var estados = await _pedidoProduccionService.ListarEstados();
+
+        if (estados == null || !estados.Any())
+        {
+            throw new NotFoundException("No se encontraron estados de producción registrados.");
+        }
+
+        return Ok(estados);
     }
 
 
-    [HttpPatch("ActualizarEstadosPedidoProduccion")]
-    public List<int> ActualizarEstadosPedidoProduccion([FromBody] List<PedidoProduccionEstadoDTO> lista)
+[HttpPatch("actualizar-estados")]
+    public async Task<ActionResult> ActualizarEstadosMasivos([FromBody] ActualizacionEstadosDTO dto)
     {
-        CConexion con = new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+        if (dto.PedidoIds == null || !dto.PedidoIds.Any())
+            throw new BusinessException("Debe proporcionar al menos un ID de pedido.");
 
-        PedidoProduccionService pps = new PedidoProduccionService();
-        List<int> idsPedidosProducionActualizados = pps.actualizarEstadosPedidoProduccion(npgsqlConnection, lista);
-
-        con.cerrarConexion(npgsqlConnection);
-        return idsPedidosProducionActualizados;
+        await _pedidoProduccionService.ActualizarEstadoVarios(dto);
+        
+        return Ok(new { Mensaje = $"Se procesó la actualización de {dto.PedidoIds.Count} pedidos." });
     }
 
-    [HttpGet("PedidosProduccionByIds")]
-    public List<PedidoProduccion> GetByIds([FromQuery] string ids)
+[HttpPost("ByIds")]
+    public async Task<ActionResult<List<PedidoProduccion>>> GetPedidosProduccionByIds([FromBody] List<int> ids)
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        PedidoProduccionService  pedidoProduccionService = new PedidoProduccionService();
-        var idsPedidosProduccion = ids.Split(',').Select(int.Parse).ToList();
-        List<PedidoProduccion> pedidosProduccion = pedidoProduccionService.GetPedidosProduccionByIds(idsPedidosProduccion,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return pedidosProduccion;
+        if (ids == null || !ids.Any())
+            throw new BusinessException("Debe proporcionar al menos un ID.");
+
+        var pedidos = await _pedidoProduccionService.GetByIds(ids);
+        return Ok(pedidos);
     }
 
 

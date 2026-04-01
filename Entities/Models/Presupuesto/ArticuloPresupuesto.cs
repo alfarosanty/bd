@@ -29,5 +29,7 @@ using System.Threading.Tasks;
     public string? Descripcion { get; set; }
     public string? Codigo { get; set; }
     public bool HayStock { get; set; }
+    [JsonIgnore]
+    public bool Producir { get; set; }
             
 }

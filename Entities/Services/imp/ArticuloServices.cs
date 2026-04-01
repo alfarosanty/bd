@@ -1,5 +1,5 @@
-﻿using BlumeAPI.Entities.clases.modelo;
-using BlumeAPI.Repositories;
+﻿using BlumeAPI.Entities;
+using BlumeAPI.Repository;
 using Npgsql;
 using System.Data;
 using System.Net;

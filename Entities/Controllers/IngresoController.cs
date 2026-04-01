@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using BlumeAPI.Entities;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -7,132 +10,68 @@ namespace BlumeAPI.Controllers;
 public class IngresoController : ControllerBase
 {
 
-    private readonly ILogger<ClienteController> _logger;
+private readonly ILogger<ClienteController> _logger;
+private readonly IIngresoService _ingresoService;
 
-    public IngresoController(ILogger<ClienteController> logger)
-    {
-        _logger = logger;
-    }
- 
-    [HttpPost("crear")]
-    public int  Crear(Ingreso ingreso){
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-        IngresoService  ingresoService = new IngresoService();
-        int id =  ingresoService.crear(ingreso, npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-        return id;  
-    }
-
-
-
-    [HttpPost("actualizar")]
-    public int Actualizar(Ingreso ingreso)
-    {
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-        IngresoService  ingresoService = new IngresoService();
-    int id = ingresoService.actualizar(ingreso, npgsqlConnection);
-    con.cerrarConexion(npgsqlConnection);
-    return id;
-    }
-
-
-
-
-        // POST api/ingresodetalle
-[HttpPost("DetallesIngresoPedidoProduccion")]
-public IActionResult CrearDetallesIngresoPedidoProduccion([FromBody] List<PedidoProduccionIngresoDetalle> detalles)
+public IngresoController(ILogger<ClienteController> logger, IIngresoService ingresoService)
 {
-    try
-    {
-        CConexion con = new CConexion();
-        using var npgsqlConnection = con.establecerConexion();
-        using var transaction = npgsqlConnection.BeginTransaction();
-
-        IngresoService ingresoService = new IngresoService();
-        // Guardamos los IDs creados
-        List<int> idsCreados = ingresoService.CrearDetallesIngresoPedidoProduccion(detalles, npgsqlConnection);
-
-        transaction.Commit();
-
-        return Ok(new { ids = idsCreados, mensaje = "Detalles guardados correctamente" });
-    }
-    catch (Exception ex)
-    {
-        return StatusCode(500, $"Error al guardar los detalles: {ex.Message}");
-    }
+    _logger = logger;
+    _ingresoService = ingresoService;
+}
+ 
+    [HttpPost()]
+public async Task<Ingreso>  Crear(Ingreso ingreso){
+             
+    return await _ingresoService.CrearIngresoConDescuentoAsync(ingreso);  
 }
 
 
-      [HttpGet("IngresoByTaller/{idTaller}")]
-    public List<Ingreso> GetByTaller(int idTaller)
-    {
-         CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        IngresoService  ingresoService = new IngresoService();
-        List<Ingreso> ingresos = ingresoService.GetIngresoByTaller(idTaller,npgsqlConnection);
-         con.cerrarConexion(npgsqlConnection);
-         return ingresos;
-    }
 
-    [HttpGet("IngresoByNumero/{idIngreso}")]
-    public Ingreso Get(int idIngreso)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        IngresoService  ingresoService = new IngresoService();
-        Ingreso ingreso = ingresoService.getIngreso(idIngreso,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return ingreso;
-    }
+    [HttpPut()]
+public async Task<IActionResult> Actualizar(Ingreso ingreso)
+{
+    await _ingresoService.ActualizarIngreso(ingreso);
+    return Ok(ingreso.Id);
+}
 
-    [HttpGet("IngresosByIds")]
-    public List<Ingreso> GetByIds([FromQuery] string ids)
+    [HttpGet("taller/{idTaller}")]
+public async Task<IActionResult> GetByTaller(
+    [FromRoute] int idTaller,
+    [FromQuery] DateTime desde,
+    [FromQuery] DateTime hasta,
+    [FromQuery] int page = 1,
+    [FromQuery] int pageSize = 15)
+{
+    return Ok(await _ingresoService.GetIngresosByTaller(idTaller,desde, hasta, page, pageSize));
+}
+
+[HttpGet("{idIngreso}")]
+public async Task<IActionResult> Get(int idIngreso)
+{
+    var ingreso = await _ingresoService.GetById(idIngreso);
+    return Ok(ingreso);
+}
+
+[HttpPost("ByIds")]
+    public async Task<IActionResult> GetByIds([FromBody] List<int> ids)
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        IngresoService  ingresoService = new IngresoService();
-        var idsIngresos = ids.Split(',').Select(int.Parse).ToList();
-        List<Ingreso> ingresos = ingresoService.GetIngresosByIds(idsIngresos,npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return ingresos;
+        var ingresos = await _ingresoService.GetByIds(ids);
+        return Ok(ingresos);
     }
 
 [HttpGet("DetallesIngresoPedidoProduccion/{idIngreso}")]
-public List<PedidoProduccionIngresoDetalle> GetDetallePPI(int idIngreso)
-{
-    CConexion con =  new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-    IngresoService  ingresoService = new IngresoService();
-    List<PedidoProduccionIngresoDetalle> detallesPPI = ingresoService.GetDetallesPPI(idIngreso,npgsqlConnection);
-    con.cerrarConexion(npgsqlConnection);
-    return detallesPPI;
-}
-
-[HttpDelete("borrar")]
-public IActionResult Borrar([FromBody] Ingreso ingreso)
-{
-    if (ingreso == null) return BadRequest("Ingreso no puede ser null");
-
-    try
+    public async Task<IActionResult> GetDetallePPI(int idIngreso)
     {
-        CConexion con = new CConexion();
-        using var npgsqlConnection = con.establecerConexion();
-
-        IngresoService ingresoService = new IngresoService();
-        int id = ingresoService.BorrarIngreso(ingreso, npgsqlConnection);
-
-        con.cerrarConexion(npgsqlConnection);
-        return Ok(new { id, mensaje = "Ingreso borrado correctamente" });
+        var detallesPPI = await _ingresoService.GetDetallesPPI(idIngreso);
+        return Ok(detallesPPI);
     }
-    catch (Exception ex)
+
+[HttpDelete()]
+    public async Task<IActionResult> Borrar([FromBody] Ingreso ingreso)
     {
-        return StatusCode(500, $"Error al borrar el ingreso: {ex.Message}");
+        var eliminados = await _ingresoService.EliminarIngresos(new List<int> { ingreso.Id });
+        if (!eliminados.Any()) return NotFound("No se eliminó nada.");
+        return Ok(eliminados);
     }
 }
 
-
-}

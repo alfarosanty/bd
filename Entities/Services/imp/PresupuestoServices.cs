@@ -1,5 +1,5 @@
 using System.Text;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using BlumeAPI.Services.Imp;
 using Npgsql;
 

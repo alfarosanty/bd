@@ -1,4 +1,4 @@
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 
 public class CartaKardexDTO
 {

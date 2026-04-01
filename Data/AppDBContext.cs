@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BlumeAPI;
 using BlumeAPI.Data.Configurations;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 
 
 
@@ -28,6 +28,13 @@ public class AppDbContext : DbContext
     public DbSet<Presupuesto> Presupuestos { get; set; }
     public DbSet<ArticuloPresupuesto> ArticulosPresupuesto { get; set; }
     public DbSet<EstadoPresupuesto> EstadosPresupuesto { get; set; }
+    public DbSet<PedidoProduccion> PedidosProduccion { get; set; }
+    public DbSet<PedidoProduccionArticulo> PedidoProduccionArticulos { get; set; }
+    public DbSet<EstadoPedidoProduccion> EstadosPedidoProduccion { get; set; }
+    public DbSet<Taller> Talleres { get; set; }
+    public DbSet<Ingreso> Ingresos { get; set; }
+    public DbSet<ArticuloIngreso> ArticulosIngreso { get; set; }
+    public DbSet<PedidoProduccionIngresoDetalle> PedidoProduccionIngresoDetalles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -51,6 +58,13 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new PresupuestoConfiguration());
         modelBuilder.ApplyConfiguration(new ArticuloPresupuestoConfiguration());
         modelBuilder.ApplyConfiguration(new EstadoPresupuestoConfiguration());
+        modelBuilder.ApplyConfiguration(new PedidoProduccionConfiguration());
+        modelBuilder.ApplyConfiguration(new PedidoProduccionArticuloConfiguration());
+        modelBuilder.ApplyConfiguration(new EstadoPedidoProduccionConfiguration());
+        modelBuilder.ApplyConfiguration(new TallerConfiguration());
+        modelBuilder.ApplyConfiguration(new IngresoConfiguration());
+        modelBuilder.ApplyConfiguration(new ArticuloIngresoConfiguration());
+        modelBuilder.ApplyConfiguration(new PedidoProduccionIngresoDetalleConfiguration());
 
     }
 }

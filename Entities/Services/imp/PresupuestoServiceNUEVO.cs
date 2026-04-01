@@ -1,4 +1,4 @@
-using BlumeAPI.Repositories;
+using BlumeAPI.Repository;
 using BlumeAPI.Services;
 
 public class PresupuestoServiceNUEVO : IPresupuestoService

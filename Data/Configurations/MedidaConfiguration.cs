@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 
 public class MedidaConfiguration : IEntityTypeConfiguration<Medida>
 {

@@ -1,3 +1,4 @@
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -8,21 +9,22 @@ public class TallerController : ControllerBase
 {
 
     private readonly ILogger<TallerController> _logger;
+    private readonly ITallerService _tallerService;
 
-    public TallerController(ILogger<TallerController> logger)
+    public TallerController(ILogger<TallerController> logger, ITallerService tallerService)
     {
         _logger = logger;
+        _tallerService = tallerService;
     }
 
-    [HttpGet("GetTalleres")]
-    public IEnumerable<Taller> Get()
+    [HttpGet()]
+    public async Task<ActionResult<List<Taller>>> GetTalleres()
     {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Taller> talleres = new TallerServices().listarTalleres(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return talleres;
+        var talleres = await _tallerService.GetAll();
+        if (talleres == null || talleres.Count == 0)
+            return NoContent();
+
+        return Ok(talleres);
     }
 
 

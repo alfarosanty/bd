@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using BlumeAPI.Services;  // Cambia esto si tu servicio está en otro namespace
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Microsoft.Extensions.Options;
 
 namespace BlumeAPI.Controllers;
@@ -249,7 +249,7 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
     public async Task<IActionResult> GetAll(
         [FromQuery] DateTime desde,
         [FromQuery] DateTime hasta,
-        [FromQuery] bool facturadoARCA,
+        [FromQuery] bool? facturadoARCA,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 15)
     {
@@ -269,7 +269,7 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
         [FromRoute] int idCliente,
         [FromQuery] DateTime desde,
         [FromQuery] DateTime hasta,
-        [FromQuery] bool facturadoARCA,
+        [FromQuery] bool? facturadoARCA,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 15)
     {

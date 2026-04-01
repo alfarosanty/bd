@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BlumeAPI.Repository;
-using BlumeAPI.Repositories;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Repository;
+using BlumeAPI.Entities;
 public class FacturaRepository : IFacturaRepository
 {
 private readonly IDbConnectionFactory _factory;

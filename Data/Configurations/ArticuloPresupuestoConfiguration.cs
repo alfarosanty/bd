@@ -23,6 +23,7 @@ public class ArticuloPresupuestoConfiguration : IEntityTypeConfiguration<Articul
         builder.Property(x => x.Descripcion).HasColumnName("DESCRIPCION");
         builder.Property(x => x.Codigo).HasColumnName("CODIGO");
         builder.Property(x => x.HayStock).HasColumnName("HAY_STOCK");
+        builder.Ignore(x => x.Producir);
 
         builder.HasOne(x => x.Articulo)
                .WithMany()

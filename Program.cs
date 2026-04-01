@@ -1,6 +1,6 @@
 using System.Data;
 using System.Globalization;
-using BlumeAPI.Repositories;
+using BlumeAPI.Entities.Repository;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -112,6 +112,10 @@ builder.Services.AddScoped<IMedidaRepository, MedidaRepository>();
 builder.Services.AddScoped<ISubfamiliaRepository, SubfamiliaRepository>();
 builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
 builder.Services.AddScoped<IPresupuestoRepository, PresupuestoRepository>();
+builder.Services.AddScoped<IPedidoProduccionRepository,PedidoProduccionRepository>();
+builder.Services.AddScoped<ITallerRepository, TallerRepository>();
+builder.Services.AddScoped<IIngresoRepository, IngresoRepository>();
+
 
 
 // Servicios
@@ -120,6 +124,9 @@ builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
 builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
 builder.Services.AddScoped<IPresupuestoService, PresupuestoServiceNUEVO>();
+builder.Services.AddScoped<IPedidoProduccionService, PedidoProduccionServiceNUEVO>();
+builder.Services.AddScoped<ITallerService, TallerService>();
+builder.Services.AddScoped<IIngresoService, IngresoServiceNuevo>();
 
 
 
@@ -153,6 +160,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
     options.LogTo(Console.WriteLine, LogLevel.Information);
+    options.EnableSensitiveDataLogging();
+    options.EnableDetailedErrors();
 });
 
 var app = builder.Build();
@@ -166,6 +175,8 @@ app.UseExceptionHandler(appError =>
         await context.Response.WriteAsJsonAsync(new { mensaje = "Error interno del servidor" });
     });
 });
+app.UseMiddleware<ExceptionMiddleware>();
+
 
 app.UseRouting(); // 🚀 siempre antes de CORS
 

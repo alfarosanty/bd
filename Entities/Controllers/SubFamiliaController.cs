@@ -1,4 +1,4 @@
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -13,18 +13,6 @@ public class SubFamiliaController : ControllerBase{
     public SubFamiliaController(ILogger<SubFamiliaController> logger)
     {
         _logger = logger;
-    }
-
-
-    [HttpGet("GetSubFamilias")]
-    public IEnumerable<SubFamilia> Get()
-    {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<SubFamilia> subFamilias = new SubFamiliaServices().listarSubFamilias(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return subFamilias;
     }
 
 

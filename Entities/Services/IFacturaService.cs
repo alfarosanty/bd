@@ -1,5 +1,5 @@
 namespace BlumeAPI.Services;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 
 public interface IFacturaService
 {

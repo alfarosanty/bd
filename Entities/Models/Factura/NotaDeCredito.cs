@@ -1,4 +1,4 @@
-namespace BlumeAPI.Entities.clases.modelo;
+namespace BlumeAPI.Entities;
 
 public class NotaDeCredito
 {

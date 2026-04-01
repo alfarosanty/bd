@@ -1,4 +1,4 @@
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

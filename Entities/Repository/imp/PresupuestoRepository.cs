@@ -1,5 +1,5 @@
 
-using BlumeAPI.Repositories;
+using BlumeAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 
 public class PresupuestoRepository : IPresupuestoRepository
@@ -120,4 +120,96 @@ public async Task<Presupuesto?> GetById(int id)
         throw; 
     }
 }
+
+    public async Task<Dictionary<int, string>> GetNombresClientesPorPresupuestos(List<int> idsPresupuesto)
+    {
+        var idsUnicos = idsPresupuesto.Distinct().ToList();
+
+        return await _context.Presupuestos
+            .AsNoTracking()
+            .Where(p => idsUnicos.Contains(p.Id))
+            .Select(p => new 
+            { 
+                p.Id, 
+                Nombre = p.Cliente != null ? p.Cliente.RazonSocial : "Stock" 
+            })
+            .ToDictionaryAsync(x => x.Id, x => x.Nombre);
+    }
+
+    public async Task<List<EstadoPresupuesto>> GetEstados()
+    {
+       return await _context.EstadosPresupuesto
+            .AsNoTracking()
+            .ToListAsync(); 
+    }
+
+    public async Task<int> Crear(Presupuesto presupuesto)
+    {
+        if (presupuesto == null)
+            throw new ArgumentNullException(nameof(presupuesto));
+
+        _context.Presupuestos.Add(presupuesto);
+        await _context.SaveChangesAsync();
+
+        return presupuesto.Id;
+    }
+
+    public async Task Actualizar(Presupuesto presupuestoRecibido)
+    {
+        var presupuestoExistente = await _context.Presupuestos
+            .Include(p => p.Articulos)
+            .AsTracking()
+            .FirstOrDefaultAsync(p => p.Id == presupuestoRecibido.Id);
+
+        if (presupuestoExistente == null)
+            throw new NotFoundException($"El presupuesto {presupuestoRecibido.Id} no existe.");
+
+        // Resolver FKs si vienen como navegación
+        if (presupuestoRecibido.IdCliente == 0 && presupuestoRecibido.Cliente != null)
+            presupuestoRecibido.IdCliente = presupuestoRecibido.Cliente.Id;
+
+        if (presupuestoRecibido.IdEstado == 0 && presupuestoRecibido.EstadoPresupuesto != null)
+            presupuestoRecibido.IdEstado = presupuestoRecibido.EstadoPresupuesto.Id;
+
+        // Limpiar navegaciones para que SetValues no se confunda
+        presupuestoRecibido.Cliente = null;
+        presupuestoRecibido.EstadoPresupuesto = null;
+
+        _context.Entry(presupuestoExistente).CurrentValues.SetValues(presupuestoRecibido);
+
+        // Eliminar artículos que ya no están
+        foreach (var artExistente in presupuestoExistente.Articulos!.ToList())
+        {
+            if (!presupuestoRecibido.Articulos!.Any(a => a.Id == artExistente.Id))
+                _context.Remove(artExistente);
+        }
+
+        // Actualizar o insertar artículos
+        foreach (var artRecibido in presupuestoRecibido.Articulos!)
+        {
+            if (artRecibido.IdArticulo == 0 && artRecibido.Articulo != null)
+                artRecibido.IdArticulo = artRecibido.Articulo.Id;
+
+            var artExistente = presupuestoExistente.Articulos!
+                .FirstOrDefault(a => a.Id == artRecibido.Id);
+
+            if (artExistente != null && artRecibido.Id != 0)
+            {
+                artRecibido.Articulo = null;
+                artRecibido.Presupuesto = null;
+                _context.Entry(artExistente).CurrentValues.SetValues(artRecibido);
+            }
+            else
+            {
+                artRecibido.Id = 0;
+                artRecibido.IdPresupuesto = presupuestoExistente.Id;
+                artRecibido.Articulo = null;
+                artRecibido.Presupuesto = null;
+
+                presupuestoExistente.Articulos!.Add(artRecibido);
+            }
+        }
+
+        await _context.SaveChangesAsync();
+    }
 }

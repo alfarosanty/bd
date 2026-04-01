@@ -1,6 +1,6 @@
 using BlumeAPI.Services;
 using BlumeAPI.Repository;
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;

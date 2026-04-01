@@ -196,7 +196,7 @@ public IActionResult ActualizarStock([FromBody] ActualizacionStockInutDTO[] arti
 }
 
 
-[HttpGet("Presupuestados/{codigo}")]
+[HttpGet("Presupuestados/{*codigo}")]
 public EstadisticaArticuloDTO GetArticulosPresupuestados(
     string codigo,
     [FromQuery] DateTime? fechaDesde,

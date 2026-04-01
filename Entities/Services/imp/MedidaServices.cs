@@ -1,6 +1,6 @@
 
 
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 using Npgsql;
 
 public class MedidaServices: BasicoServices 

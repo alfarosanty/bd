@@ -1,5 +1,4 @@
 using BlumeAPI;
-using BlumeAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 public interface IUsuarioController

@@ -1,6 +1,6 @@
-using BlumeAPI.Entities.clases.modelo;
+using BlumeAPI.Entities;
 
-namespace BlumeAPI.Repositories;
+namespace BlumeAPI.Repository;
 public interface IMedidaRepository
 {
     Task<Medida?> GetById(int id);
