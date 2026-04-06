@@ -40,5 +40,10 @@ public class ArticuloIngresoConfiguration : IEntityTypeConfiguration<ArticuloIng
             .WithMany()
             .HasForeignKey(p => p.IdArticulo)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(p => p.Ingreso)
+            .WithMany(p => p.Articulos)
+            .HasForeignKey(p => p.IdIngreso)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

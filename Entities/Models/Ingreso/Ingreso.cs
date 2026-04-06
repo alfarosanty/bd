@@ -9,7 +9,7 @@ public class Ingreso
     public EstadoIngreso Estado { get; set; } = EstadoIngreso.Creado;
 
     public int IdTaller { get; set; }
-    public Taller Taller { get; set; }
+    public Taller? Taller { get; set; }
     public List<ArticuloIngreso> Articulos { get; set; } = new List<ArticuloIngreso>();
 }
     

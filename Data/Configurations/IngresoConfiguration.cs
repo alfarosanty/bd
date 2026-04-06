@@ -7,7 +7,6 @@ public class IngresoConfiguration : IEntityTypeConfiguration<Ingreso>
     public void Configure(EntityTypeBuilder<Ingreso> builder)
     {
         builder.ToTable("INGRESO");
-
         builder.HasKey(p => p.Id);
 
         builder.Property(p => p.Id)
@@ -19,7 +18,7 @@ public class IngresoConfiguration : IEntityTypeConfiguration<Ingreso>
             .IsRequired();
 
         builder.Property(p => p.IdTaller)
-            .HasColumnName("ID_TALLER")
+            .HasColumnName("ID_FABRICANTE")
             .IsRequired();
 
         builder.Property(p => p.Estado)
@@ -36,9 +35,5 @@ public class IngresoConfiguration : IEntityTypeConfiguration<Ingreso>
             .HasForeignKey(p => p.IdTaller)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(p => p.Articulos)
-            .WithOne()
-            .HasForeignKey("ID_INGRESO") 
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -36,6 +36,7 @@ builder.Services.AddCors(options =>
             policy
                 .WithOrigins(
                     "http://localhost:8080", // desarrollo Compu Agos
+                    "http://localhost:8081", // desarrollo Compu Agos
                     "http://localhost:8082",    // desarrollo notebook Santi
                     "http://192.168.1.41:8081", // producción / otra PC
                     "http://192.168.0.101:8081", // producción / otra PC
@@ -44,6 +45,7 @@ builder.Services.AddCors(options =>
                     "http://192.168.0.103:8081", // producción / otra PC
                     "http://192.168.0.104:8081", // producción / otra PC
                     "http://192.168.0.105:8081" // producción / otra PC
+                    
 
 
 
@@ -66,6 +68,7 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.Converters.Add(
             new System.Text.Json.Serialization.JsonStringEnumConverter()
         );
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
 builder.Services.AddEndpointsApiExplorer();

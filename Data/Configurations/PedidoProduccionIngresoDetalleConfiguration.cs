@@ -20,8 +20,8 @@ public class PedidoProduccionIngresoDetalleConfiguration : IEntityTypeConfigurat
         builder.Property(p => p.IdArticulo).HasColumnName("ID_ARTICULO").IsRequired();
 
         builder.Property(p => p.CantidadDescontada).HasColumnName("CANTIDAD_DESCONTADA");
-        builder.Property(p => p.CantidadPendienteAntes).HasColumnName("CANT_PENDIENTE_ANTES");
-        builder.Property(p => p.CantidadPendienteDespues).HasColumnName("CANT_PENDIENTE_DESPUES");
+        builder.Property(p => p.CantidadPendienteAntes).HasColumnName("CANTIDAD_PENDIENTE_ANTES");
+        builder.Property(p => p.CantidadPendienteDespues).HasColumnName("CANTIDAD_PENDIENTE_DESPUES");
 
         // Relaciones
         builder.HasOne(p => p.PedidoProduccion)
@@ -38,5 +38,10 @@ public class PedidoProduccionIngresoDetalleConfiguration : IEntityTypeConfigurat
             .WithMany()
             .HasForeignKey(p => p.IdArticulo)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(p => p.Presupuesto)
+            .WithMany()
+            .HasForeignKey(p => p.IdPresupuesto)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

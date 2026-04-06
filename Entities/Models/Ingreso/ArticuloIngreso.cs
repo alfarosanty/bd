@@ -7,9 +7,10 @@ public class ArticuloIngreso : IArticuloConStock
     public int Id { get; set; }
 
     public int? IdIngreso { get; set; }
+    public Ingreso? Ingreso { get; set; }
     
     public int IdArticulo { get; set; }
-    public Articulo Articulo { get; set; }
+    public Articulo? Articulo { get; set; }
 
     public int Cantidad { get; set; }
     public string Codigo { get; set; }

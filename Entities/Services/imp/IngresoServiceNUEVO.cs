@@ -32,6 +32,7 @@ public class IngresoServiceNuevo : IIngresoService
 
         var pedidosTA = resultadoPaginado.Items
             .OrderBy(p => p.Fecha)
+            .ThenBy(p => p.Id)
             .ToList();
 
         if (!pedidosTA.Any())

@@ -39,6 +39,7 @@ public class IngresoRepository : IIngresoRepository
         using var transaction = await _context.Database.BeginTransactionAsync();
         try
         {
+            // 1. Limpiamos el Taller para que no intente duplicarlo
             if (ingreso.Taller != null) {
                 ingreso.IdTaller = ingreso.Taller.Id;
                 ingreso.Taller = null;
@@ -47,24 +48,22 @@ public class IngresoRepository : IIngresoRepository
             foreach (var item in ingreso.Articulos)
             {
                 var articuloMaestro = await _context.Articulos
-                    .FirstOrDefaultAsync(a => a.Id == item.IdArticulo || (item.Articulo != null && a.Id == item.Articulo.Id));
+                    .FirstOrDefaultAsync(a => a.Id == item.IdArticulo);
 
                 if (articuloMaestro == null)
                     throw new BusinessException($"No se encontró el artículo con ID {item.IdArticulo}");
 
-
                 articuloMaestro.Stock += item.Cantidad;
 
-                item.IdArticulo = articuloMaestro.Id;
-                item.Articulo = null; 
+                item.Articulo = null;
+                item.IdArticulo = articuloMaestro.Id; 
                 item.Fecha = ingreso.Fecha;
-            }
-
+                }
+                
             _context.Ingresos.Add(ingreso);
             await _context.SaveChangesAsync();
 
             await transaction.CommitAsync();
-            
             return ingreso;
         }
         catch (Exception)
@@ -146,12 +145,26 @@ public class IngresoRepository : IIngresoRepository
     public async Task<List<PedidoProduccionIngresoDetalle>> GetDetallesPPI(int idIngreso)
     {
         return await _context.Set<PedidoProduccionIngresoDetalle>()
+            .AsNoTracking()
+
             .Include(d => d.Articulo)
+                .ThenInclude(a => a.Color)
+            .Include(d => d.Articulo)
+                .ThenInclude(a => a.Medida)
+            .Include(d => d.Articulo)
+                .ThenInclude(a => a.SubFamilia)
+
             .Include(d => d.PedidoProduccion)
+
+            .Include(d => d.Presupuesto)
+                .ThenInclude(presu => presu.Cliente)
+
+            .Include(d => d.Ingreso)
+                .ThenInclude(i => i.Taller)
+
             .Where(d => d.IdIngreso == idIngreso)
             .ToListAsync();
     }
-
     public async Task Actualizar(Ingreso ingresoRecibido)
     {
         var ingresoExistente = await _context.Ingresos

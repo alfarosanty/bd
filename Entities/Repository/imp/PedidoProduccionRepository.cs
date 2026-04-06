@@ -75,6 +75,7 @@ public class PedidoProduccionRepository : IPedidoProduccionRepository
 
         var items = await query
             .OrderByDescending(p => p.Fecha)
+            .ThenByDescending(p => p.Id)
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();

@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using BlumeAPI.Repository;
-using BlumeAPI.Repository;
 using BlumeAPI.Entities;
 public class FacturaRepository : IFacturaRepository
 {
@@ -68,11 +67,9 @@ public async Task<PagedResult<Factura>> GetAll(
 public async Task<PagedResult<Factura>> GetByCliente(
     int idCliente, DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize)
 {
-    // 1. Base de la consulta con filtros obligatorios
     var query = QueryBase()
         .Where(f => f.IdCliente == idCliente && f.FechaFactura >= desde && f.FechaFactura <= hasta);
 
-    // 2. Filtro opcional de ARCA (Soberbio: maneja True, False y Todos/Null)
     if (facturadoARCA.HasValue)
     {
         query = query.Where(f => facturadoARCA.Value 
@@ -80,12 +77,11 @@ public async Task<PagedResult<Factura>> GetByCliente(
             : f.PuntoDeVenta != 5);
     }
 
-    // 3. Contamos el total antes de paginar
     var totalRecords = await query.CountAsync();
 
-    // 4. Pagina y ordena (usando 'f' para consistencia)
     var items = await query
-        .OrderByDescending(f => f.FechaFactura) 
+        .OrderByDescending(f => f.FechaFactura)
+        .ThenByDescending(f => f.Id)
         .Skip((page - 1) * pageSize)
         .Take(pageSize)
         .ToListAsync();
