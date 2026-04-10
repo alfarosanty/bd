@@ -73,17 +73,26 @@ public class IngresoRepository : IIngresoRepository
         }
     }
 
-    public async Task<PagedResult<Ingreso>> GetByTaller(int idTaller, DateTime desde, DateTime hasta, int page, int pageSize)
+    public async Task<PagedResult<Ingreso>> GetByTaller(int idTaller, DateTime desde, DateTime hasta, EstadoIngreso? estado, int page, int pageSize)
     {
-        // 1. Iniciamos la query con los Includes
-        var query = QueryBase();
-
-        // 2. Aplicamos filtros (Fijate que 'hasta' incluya todo el día)
+    var query = QueryBase();
         var fechaHastaFinal = hasta.Date.AddDays(1).AddTicks(-1);
 
         query = query.Where(i => i.IdTaller == idTaller)
                     .Where(i => i.Fecha >= desde && i.Fecha <= fechaHastaFinal)
-                    .Where(i => i.Estado == EstadoIngreso.Creado);
+                    .Where(i => i.Estado != EstadoIngreso.Eliminado);
+
+        // Si 'estado' tiene un valor (no es null), filtramos por él
+        if (estado.HasValue)
+        {
+            query = query.Where(i => i.Estado == estado.Value);
+        }
+        else 
+        {
+            // Si no mandan nada, puedes decidir si traer todos 
+            // o mantener el filtro por defecto de 'Creado'
+            query = query.Where(i => i.Estado == EstadoIngreso.Creado);
+        }
 
         // 3. Contamos el total de registros ANTES de paginar
         var totalRegistros = await query.CountAsync();
@@ -204,32 +213,11 @@ public class IngresoRepository : IIngresoRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<List<int>> EliminarIngresos(List<int> ids)
+    public async Task Eliminar(Ingreso ingreso)
     {
-        var ingresos = await _context.Ingresos
-            .Include(i => i.Articulos)
-            .Where(i => ids.Contains(i.Id))
-            .ToListAsync();
-
-        foreach (var ingreso in ingresos)
-        {
-            if (ingreso.Estado == EstadoIngreso.Eliminado) continue;
-
-            // 1. Devolvemos el stock al maestro (restamos lo que entró)
-            foreach (var detalle in ingreso.Articulos)
-            {
-                var maestro = await _context.Articulos.FindAsync(detalle.IdArticulo);
-                if (maestro != null)
-                {
-                    maestro.Stock -= detalle.Cantidad;
-                }
-            }
-
-            // 2. Cambio de estado (Mayúsculas automáticas por el Configuration)
-            ingreso.Estado = EstadoIngreso.Eliminado;
-        }
-
-        await _context.SaveChangesAsync();
-        return ingresos.Select(i => i.Id).ToList();
+        var entry = _context.Entry(ingreso);
+        ingreso.Estado = EstadoIngreso.Eliminado;
+        entry.Property(x => x.Estado).IsModified = true;
     }
+
 }

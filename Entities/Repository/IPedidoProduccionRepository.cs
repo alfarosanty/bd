@@ -1,3 +1,5 @@
+using BlumeAPI.Entities;
+
 namespace BlumeAPI.Repository
 {
     public interface IPedidoProduccionRepository
@@ -11,6 +13,7 @@ namespace BlumeAPI.Repository
         Task<List<PedidoProduccion>> GetByIds(List<int> ids);
         Task<bool> Existe(int id);
         Task<int> ActualizarEstadosMasivos(List<int> ids, EstadoPedidoProduccion nuevoEstadoId);
+        Task RestaurarCantidadPendiente(List<PedidoProduccionIngresoDetalle> detallesPPI);
 
     }
 }

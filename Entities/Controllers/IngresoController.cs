@@ -39,18 +39,19 @@ public async Task<IActionResult> GetByTaller(
     [FromRoute] int idTaller,
     [FromQuery] DateTime desde,
     [FromQuery] DateTime hasta,
+    [FromQuery] EstadoIngreso? estado,
     [FromQuery] int page = 1,
     [FromQuery] int pageSize = 15)
 {
-    return Ok(await _ingresoService.GetIngresosByTaller(idTaller,desde, hasta, page, pageSize));
+    return Ok(await _ingresoService.GetIngresosByTaller(idTaller,desde, hasta, estado, page, pageSize));
 }
 
 [HttpGet("{idIngreso}")]
-public async Task<IActionResult> Get(int idIngreso)
-{
-    var ingreso = await _ingresoService.GetById(idIngreso);
-    return Ok(ingreso);
-}
+    public async Task<IActionResult> Get(int idIngreso)
+    {
+        var ingreso = await _ingresoService.GetById(idIngreso);
+        return Ok(ingreso);
+    }
 
 [HttpPost("ByIds")]
     public async Task<IActionResult> GetByIds([FromBody] List<int> ids)
@@ -66,12 +67,12 @@ public async Task<IActionResult> Get(int idIngreso)
         return Ok(detallesPPI);
     }
 
-[HttpDelete()]
-    public async Task<IActionResult> Borrar([FromBody] Ingreso ingreso)
+[HttpDelete("{idIngreso}")]
+    public async Task<IActionResult> Borrar([FromRoute]int idIngreso)
     {
-        var eliminados = await _ingresoService.EliminarIngresos(new List<int> { ingreso.Id });
-        if (!eliminados.Any()) return NotFound("No se eliminó nada.");
-        return Ok(eliminados);
+        var eliminado = await _ingresoService.EliminarIngresoAsync(idIngreso);
+        if (!eliminado) return NotFound("No se eliminó nada.");
+        return Ok(eliminado);
     }
 }
 

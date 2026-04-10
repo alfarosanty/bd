@@ -1,7 +1,5 @@
-using System.Security.Claims;
 using BlumeAPI.Services;
 using BlumeAPI.Services.Imp;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 
@@ -25,9 +23,44 @@ public class ArticuloController : ControllerBase
         _articuloService = articuloService;
     }
 
+
+// 
+
+[HttpGet("exportar")]
+    public async Task<IActionResult> ExportarArticulos()
+    {
+        // 1. Obtenemos los bytes del Excel desde el servicio
+        byte[] reporteBytes = await _articuloService.ExportarArticulosAExcel();
+
+        // 2. Definimos el nombre del archivo
+        string nombreArchivo = $"Inventario_Blume_{DateTime.Now:dd-MM-yyyy}.xlsx";
+
+        // 3. Retornamos el archivo con el MIME type correcto para Excel
+        return File(
+            reporteBytes, 
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+            nombreArchivo
+        );
+    }
+
+
+[HttpGet("precios/exportar")]
+    public async Task<IActionResult> ExportarPrecios()
+    {
+        byte[] reporteBytes = await _articuloService.ExportarPreciosAExcel();
+
+        string nombreArchivo = $"Precios_Blume_{DateTime.Now:dd-MM-yyyy}.xlsx";
+
+        return File(
+            reporteBytes, 
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+            nombreArchivo
+        );
+    }
+
 // ARTICULO
 
-     [HttpGet("GetArticulos")]
+[HttpGet("GetArticulos")]
     public IEnumerable<Articulo> GetArticulos()
     {
         CConexion con =  new CConexion();
@@ -121,14 +154,19 @@ public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte([FromQuery]
 
 // ARTICULO PRECIO
 
-    [HttpGet("GetArticulosPrecio")]
-    public IEnumerable<ArticuloPrecio> GetArticuloPrecio()
+[HttpGet("ArticulosPrecio")]
+    public async Task<ActionResult<IEnumerable<ArticuloPrecio>>> GetArticuloPrecio()
     {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<ArticuloPrecio> articulosPrecio = new ArticuloServices().GetArticuloPrecio(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return articulosPrecio;
+        try 
+        {
+            // El service se encarga de todo, el controller solo espera el resultado
+            var articulos = await _articuloService.GetArticulosPrecioAsync();
+            return Ok(articulos);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error al obtener precios: {ex.Message}");
+        }
     }
 
 
@@ -210,14 +248,14 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     }
 }
 
-    [HttpGet("{id}/Facturados")]
+[HttpGet("{id}/Facturados")]
     public async Task<IActionResult> GetFacturados(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)
     {
         var result = await _articuloService.GetFacturadosByArticulo(id, desde, hasta);
         return Ok(result);
     }
 
-    [HttpGet("{id}/Ingresados")]
+[HttpGet("{id}/Ingresados")]
     public async Task<IActionResult> GetIngresados(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)
     {
         var result = await _articuloService.GetIngresadosByArticulo(id, desde, hasta);
@@ -232,7 +270,7 @@ public EstadisticaArticuloDTO GetArticulosPresupuestados(
     }
 
 
-        [HttpGet("{id}/ResumenKardex")]
+[HttpGet("{id}/ResumenKardex")]
     public async Task<IActionResult> GetResumenKardex(int id, [FromQuery] DateTime? desde, [FromQuery] DateTime? hasta)
     {
         var result = await _articuloService.GetResumenKardex(id, desde, hasta);

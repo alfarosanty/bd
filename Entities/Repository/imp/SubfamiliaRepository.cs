@@ -2,29 +2,27 @@ using System.Data;
 using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using Dapper;
+using Microsoft.EntityFrameworkCore;
 
 public class SubfamiliaRepository : ISubfamiliaRepository
 {
     private readonly IDbConnectionFactory _factory;
+    private readonly AppDbContext _context;
 
-    public SubfamiliaRepository(IDbConnectionFactory factory)
+    public SubfamiliaRepository(AppDbContext context, IDbConnectionFactory factory)
     {
+        _context = context;
         _factory = factory;
     }
 
-public async Task<SubFamilia?> GetById(int idSubfamilia)
-{
-    using var conn = _factory.CreateConnection();
+    public async Task<List<SubFamilia>> GetAllAsync()
+        {
+            return await _context.Set<SubFamilia>().AsNoTracking().ToListAsync();
+        }
 
-    var sql = @"
-        SELECT
-            ""ID_SUBFAMILIA"" AS ""Id"",
-            ""CODIGO"" AS Codigo,
-            ""DESCRIPCION"" AS Descripcion
-        FROM ""SUBFAMILIA""
-        WHERE ""ID_SUBFAMILIA"" = @IdSubfamilia;
-    ";
-
-    return await conn.QueryFirstOrDefaultAsync<SubFamilia>(sql, new { IdSubfamilia = idSubfamilia });
+    public async Task<SubFamilia?> GetByIdAsync(int id)
+    {
+            return await _context.Set<SubFamilia>().FindAsync(id);
     }
+
 }

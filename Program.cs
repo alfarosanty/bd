@@ -107,6 +107,7 @@ builder.Services.AddAuthentication("MiCookieAuth")
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IDbConnectionFactory, NpgsqlConnectionFactory>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Repositorios
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IArticuloRepository, ArticuloRepository>();
@@ -130,6 +131,9 @@ builder.Services.AddScoped<IPresupuestoService, PresupuestoServiceNUEVO>();
 builder.Services.AddScoped<IPedidoProduccionService, PedidoProduccionServiceNUEVO>();
 builder.Services.AddScoped<ITallerService, TallerService>();
 builder.Services.AddScoped<IIngresoService, IngresoServiceNuevo>();
+builder.Services.AddScoped<IColorService, ColorService>();
+builder.Services.AddScoped<IMedidaService, MedidaServices>();
+builder.Services.AddScoped<ISubfamiliaService, SubfamiliaService>();
 
 
 
@@ -147,9 +151,8 @@ builder.Services.AddScoped<AfipWsfeClient>(provider =>
     return new AfipWsfeClient(settings.UrlWsfev1);
 });
 
-builder.Services.AddScoped<FacturaServicesNUEVO>();
 
-// Configuración de NpgsqlConnection para inyección de dependencias
+/* Configuración de NpgsqlConnection para inyección de dependencias
 builder.Services.AddScoped<NpgsqlConnection>(_ =>
     new NpgsqlConnection(connectionString)
 );
@@ -158,7 +161,7 @@ builder.Services.AddScoped<IDbConnection>(_ =>
     new NpgsqlConnection(connectionString)
 );
 // Configuración de Entity Framework Core con PostgreSQL
-
+*/
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(connectionString);

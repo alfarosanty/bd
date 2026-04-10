@@ -1,20 +1,19 @@
+using System.Reflection;
 using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
+using ClosedXML.Excel;
 
 class ArticuloServicesNUEVO : IArticuloService
 {
     private readonly IArticuloRepository _articuloRepository;
-    private readonly IColorRepository _colorRepository;
-    private readonly IMedidaRepository _medidaRepository;
-    private readonly ISubfamiliaRepository _subFamiliaRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
     
-    public ArticuloServicesNUEVO(IArticuloRepository articuloRepository, IColorRepository colorRepository, IMedidaRepository medidaRepository, ISubfamiliaRepository subFamiliaRepository)
+    public ArticuloServicesNUEVO(IArticuloRepository articuloRepository, IUnitOfWork unitOfWork)
     {
         _articuloRepository = articuloRepository;
-        _colorRepository = colorRepository;
-        _medidaRepository = medidaRepository;
-        _subFamiliaRepository = subFamiliaRepository;
+        _unitOfWork = unitOfWork;
     }
     
     // MÉTODOS NUEVOS
@@ -109,69 +108,128 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
         return resumen.OrderBy(r => r.Fecha).ToList();
     }
-/*
-public async Task<List<Articulo>> GetArticulosByArticuloPrecioAsync(
-    int articuloPrecioId,
-    bool soloHabilitados)
-{
-    var entities = await _articuloRepository
-        .GetByArticuloPrecioIdAsync(articuloPrecioId, soloHabilitados);
 
-    var result = new List<Articulo>();
-
-    foreach (var entity in entities)
+    public async Task<List<ArticuloPrecio>> GetArticulosPrecioAsync()
     {
-        var colorTask = entity.IdColor > 0
-            ? _colorRepository.GetById(entity.IdColor)
-            : Task.FromResult<Color?>(null);
-
-        var medidaTask = entity.IdMedida > 0
-            ? _medidaRepository.GetById(entity.IdMedida)
-            : Task.FromResult<Medida?>(null);
-
-        var subFamiliaTask = entity.IdSubFamilia > 0
-            ? _subFamiliaRepository.GetById((int)entity.IdSubFamilia)
-            : Task.FromResult<SubFamilia?>(null);
-
-        ArticuloPrecio? articuloPrecio = null;
-
-        if (entity.IdArticuloPrecio.HasValue && entity.IdArticuloPrecio > 0)
-        {
-            var precioEntity = await _articuloRepository
-                .GetArticuloPrecioByIdAsync(entity.IdArticuloPrecio.Value);
-
-            if (precioEntity != null)
-            {
-                articuloPrecio = new ArticuloPrecio
-                {
-                    Id = precioEntity.IdArticuloPrecio,
-                    Codigo = precioEntity.Codigo,
-                    Descripcion = precioEntity.Descripcion,
-                    Precio1 = precioEntity.Precio1,
-                    Precio2 = precioEntity.Precio2,
-                    Precio3 = precioEntity.Precio3,
-                    Relleno = precioEntity.Relleno
-                };
-            }
-        }
-
-        await Task.WhenAll(colorTask, medidaTask, subFamiliaTask);
-
-        result.Add(new Articulo
-        {
-            Id = entity.IdArticulo,
-            Codigo = entity.Codigo,
-            Descripcion = entity.Descripcion,
-            Habilitado = entity.Habilitado,
-            Stock = entity.Stock,
-            Color = colorTask.Result,
-            Medida = medidaTask.Result,
-            SubFamilia = subFamiliaTask.Result,
-            articuloPrecio = articuloPrecio
-        });
+        // Usamos el Unit of Work para acceder al repositorio de artículos
+        return await _unitOfWork.Articulos.GetAllArticulosPrecioAsync(habilitados: null);
     }
 
-    return result;
-}
-*/
+    public async Task<byte[]> ExportarArticulosAExcel()
+    {
+        var articulos = await _unitOfWork.Articulos.GetAllAsync(habilitados: null);
+
+        using (var workbook = new XLWorkbook())
+        {
+            var worksheet = workbook.Worksheets.Add("ARTICULOS");
+
+            // --- LISTA DE PROPIEDADES A IGNORAR ---
+            var ignorados = new[] { "Nuevo", "CantidadEnCorte", "CantidadEnTaller" };
+
+            var propiedades = typeof(Articulo)
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => !ignorados.Contains(p.Name)) // <--- FILTRO DE EXCLUSIÓN
+                .Where(p => p.PropertyType.IsPrimitive || 
+                            p.PropertyType == typeof(string) || 
+                            p.PropertyType == typeof(decimal) || 
+                            p.PropertyType == typeof(decimal?) || // Importante para precios
+                            p.PropertyType == typeof(int?) || 
+                            p.PropertyType == typeof(bool?))
+                .ToList();
+
+            // Encabezados
+            for (int i = 0; i < propiedades.Count; i++)
+            {
+                var cell = worksheet.Cell(1, i + 1);
+                cell.Value = propiedades[i].Name.ToUpper();
+                cell.Style.Font.Bold = true;
+                cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#1f4e78");
+                cell.Style.Font.FontColor = XLColor.White;
+            }
+
+            // Datos
+            int filaIndex = 2;
+            foreach (var art in articulos)
+            {
+                for (int colIndex = 0; colIndex < propiedades.Count; colIndex++)
+                {
+                    var valor = propiedades[colIndex].GetValue(art);
+                    
+                    // Manejo inteligente de tipos para que Excel los reconozca
+                    var celda = worksheet.Cell(filaIndex, colIndex + 1);
+                    
+                    if (valor == null) {
+                        celda.Value = "";
+                    } else if (valor is bool b) {
+                        celda.Value = b ? "SI" : "NO";
+                    } else if (valor is decimal || valor is int || valor is double) {
+                        celda.SetValue(Convert.ToDouble(valor)); // Para que sea numérico en Excel
+                    } else {
+                        celda.Value = valor.ToString();
+                    }
+                }
+                filaIndex++;
+            }
+
+            worksheet.Columns().AdjustToContents();
+
+            using (var stream = new MemoryStream())
+            {
+                workbook.SaveAs(stream);
+                return stream.ToArray();
+            }
+        }
+    }
+    public async Task<byte[]> ExportarPreciosAExcel()
+    {
+        var precios = await _unitOfWork.Articulos.GetAllArticulosPrecioAsync(habilitados: null);
+
+        using (var workbook = new XLWorkbook())
+        {
+            var worksheet = workbook.Worksheets.Add("PRECIOS");
+
+            var propiedades = typeof(ArticuloPrecio)
+                .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.PropertyType.IsPrimitive || 
+                            p.PropertyType == typeof(string) || 
+                            p.PropertyType == typeof(decimal) ||
+                            p.PropertyType == typeof(decimal?) ||
+                            p.PropertyType == typeof(int?) || 
+                            p.PropertyType == typeof(bool?))
+                .ToList();
+
+            for (int i = 0; i < propiedades.Count; i++)
+            {
+                var cell = worksheet.Cell(1, i + 1);
+                cell.Value = propiedades[i].Name.ToUpper(); 
+                cell.Style.Font.Bold = true;
+                cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#7b241c"); // Un color distinto (bordó) para diferenciar
+                cell.Style.Font.FontColor = XLColor.White;
+            }
+
+            int filaIndex = 2;
+            foreach (var p in precios)
+            {
+                for (int colIndex = 0; colIndex < propiedades.Count; colIndex++)
+                {
+                    var valor = propiedades[colIndex].GetValue(p);
+                    // Si el valor es decimal (como un precio), ClosedXML lo maneja mejor así:
+                    if (valor is decimal d) 
+                        worksheet.Cell(filaIndex, colIndex + 1).Value = d;
+                    else
+                        worksheet.Cell(filaIndex, colIndex + 1).Value = valor?.ToString() ?? "";
+                }
+                filaIndex++;
+            }
+
+            worksheet.Columns().AdjustToContents();
+
+            using (var stream = new MemoryStream())
+            {
+                workbook.SaveAs(stream);
+                return stream.ToArray();
+            }
+        }
+    }
+
 }

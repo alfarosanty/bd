@@ -1,4 +1,5 @@
 using BlumeAPI.Entities;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -9,22 +10,19 @@ namespace BlumeAPI.Controllers;
 public class MedidaController : ControllerBase{
 
     private readonly ILogger<MedidaController> _logger;
+    private readonly IMedidaService _medidaService;
 
-    public MedidaController(ILogger<MedidaController> logger)
+    public MedidaController(ILogger<MedidaController> logger, IMedidaService medidaService)
     {
         _logger = logger;
+        _medidaService = medidaService;
     }
 
-
-    [HttpGet("GetMedidas")]
-    public IEnumerable<Medida> Get()
+[HttpGet]
+    public async Task<IActionResult> Get()
     {
-        
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Medida> medidas = new MedidaServices().listarMedidas(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return medidas;
+        var medidas = await _medidaService.getAll();
+        return Ok(medidas);
     }
 
 

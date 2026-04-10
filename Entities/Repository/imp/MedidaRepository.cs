@@ -2,29 +2,26 @@ using System.Data;
 using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using Dapper;
+using Microsoft.EntityFrameworkCore;
 
 public class MedidaRepository : IMedidaRepository
 {
 private readonly IDbConnectionFactory _factory;
+private readonly AppDbContext _context;
 
-    public MedidaRepository(IDbConnectionFactory factory)
+    public MedidaRepository(AppDbContext context, IDbConnectionFactory factory)
     {
+        _context = context;
         _factory = factory;
     }
 
-    public async Task<Medida?> GetById(int idMedida)
+    public async Task<List<Medida>> GetAllAsync()
     {
-        using var conn = _factory.CreateConnection();
+        return await _context.Set<Medida>().AsNoTracking().ToListAsync();
+    }
 
-        var sql = @"
-            SELECT
-                ""ID_MEDIDA"" AS ""Id"",
-                ""CODIGO"" AS Codigo,
-                ""DESCRIPCION"" AS Descripcion
-            FROM ""MEDIDA""
-            WHERE ""ID_MEDIDA"" = @IdMedida;
-        ";
-
-        return await conn.QueryFirstOrDefaultAsync<Medida>(sql, new { IdMedida = idMedida });
+    public async Task<Medida?> GetByIdAsync(int id)
+    {
+        return await _context.Set<Medida>().FindAsync(id);
     }
 }

@@ -1,3 +1,4 @@
+using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -199,6 +200,57 @@ public class PedidoProduccionRepository : IPedidoProduccionRepository
                 p => p.IdEstadoPedidoProduccion,
                 NuevoEstado.Id
             ));
+    }
+
+    public async Task RestaurarCantidadPendiente(List<PedidoProduccionIngresoDetalle> detallesPPI)
+    {
+        if (detallesPPI == null || !detallesPPI.Any()) return;
+
+        var idsPedidos = detallesPPI.Select(d => d.IdPedidoProduccion).Distinct().ToList();
+
+        // 1. Traemos los pedidos
+        var pedidos = await _context.PedidosProduccion
+            .Where(p => idsPedidos.Contains(p.Id))
+            .ToListAsync();
+
+        // 2. Traemos TODOS los artículos de esos pedidos (necesitamos todos para saber si se completó)
+        var articulosPedidos = await _context.PedidoProduccionArticulos
+            .Where(pa => pa.IdPedidoProduccion.HasValue && idsPedidos.Contains(pa.IdPedidoProduccion.Value))
+            .ToListAsync();
+
+        // 3. Restauramos cantidades (Sumamos lo que estamos anulando al pendiente)
+        foreach (var detalle in detallesPPI)
+        {
+            var artPed = articulosPedidos.FirstOrDefault(x => 
+                x.IdPedidoProduccion == detalle.IdPedidoProduccion && 
+                x.IdArticulo == detalle.IdArticulo);
+
+            if (artPed != null)
+            {
+                artPed.CantidadPendiente += detalle.CantidadDescontada;
+            }
+        }
+
+        // 4. NUEVA LÓGICA: Evaluamos el estado real del pedido
+        foreach (var pedido in pedidos)
+        {
+            // Filtramos los artículos que pertenecen a ESTE pedido en particular
+            var itemsDelPedido = articulosPedidos.Where(x => x.IdPedidoProduccion == pedido.Id).ToList();
+
+            // Si TODOS los artículos tienen cantidad pendiente 0 o menos, está completado
+            bool estaTodoCompletado = itemsDelPedido.All(a => a.CantidadPendiente <= 0);
+
+            if (estaTodoCompletado)
+            {
+                pedido.IdEstadoPedidoProduccion = 1; // Completado
+            }
+            else
+            {
+                pedido.IdEstadoPedidoProduccion = 3; // En Taller / Pendiente
+            }
+        }
+        
+        // El SaveChanges lo hará el Unit of Work al final de la transacción
     }
 
 }

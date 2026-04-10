@@ -333,39 +333,6 @@ public List<Articulo> GetArticulosBySubfamilia(string subfamilia, NpgsqlConnecti
                 return articulos;
             }
 
-
-
-    public List<ArticuloPrecio> GetArticuloPrecio(NpgsqlConnection conex){
-    string query = "SELECT \"ID_ARTICULO_PRECIO\", \"CODIGO\", \"DESCRIPCION\", \"PRECIO1\", \"PRECIO2\", \"PRECIO3\", \"RELLENO\" FROM \"ARTICULO_PRECIO\" ORDER BY \"ID_ARTICULO_PRECIO\"" ;
-    
-    List<ArticuloPrecio> articulosPrecios = new List<ArticuloPrecio>();
-    
-    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conex))
-    {
-        using (NpgsqlDataReader reader = cmd.ExecuteReader())
-        {
-            while (reader.Read())
-            {
-                ArticuloPrecio precio = new ArticuloPrecio
-                {
-                    Id = reader.GetInt32(reader.GetOrdinal("ID_ARTICULO_PRECIO")),
-                    Codigo = reader.GetString(reader.GetOrdinal("CODIGO")),
-                    Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION")),
-                    Precio1 = reader.IsDBNull(reader.GetOrdinal("PRECIO1")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO1")),
-                    Precio2 = reader.IsDBNull(reader.GetOrdinal("PRECIO2")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO2")),
-                    Precio3 = reader.IsDBNull(reader.GetOrdinal("PRECIO3")) ? 0m : reader.GetDecimal(reader.GetOrdinal("PRECIO3")),
-                    Relleno = reader.IsDBNull(reader.GetOrdinal("RELLENO")) ? 0 : reader.GetInt32(reader.GetOrdinal("RELLENO")),
-
-                };
-                articulosPrecios.Add(precio);
-            }
-        }
-    }
-
-    return articulosPrecios;
-}
-
-
 public List<int> crearArticulos(Articulo[] articulos, Npgsql.NpgsqlConnection connection)
 {
     var idsGenerados = new List<int>();

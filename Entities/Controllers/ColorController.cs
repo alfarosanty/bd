@@ -1,4 +1,5 @@
 using BlumeAPI.Entities;
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlumeAPI.Controllers;
@@ -9,22 +10,21 @@ namespace BlumeAPI.Controllers;
 public class ColorController : ControllerBase{
 
     private readonly ILogger<ColorController> _logger;
+    private readonly IColorService _colorService;
 
-    public ColorController(ILogger<ColorController> logger)
+    public ColorController(ILogger<ColorController> logger, IColorService colorService)
     {
         _logger = logger;
+        _colorService = colorService;
     }
 
 
-    [HttpGet("GetColores")]
-    public IEnumerable<Color> Get()
+[HttpGet]
+    public async Task<IActionResult> Get()
     {
+        var colores = await _colorService.getAll();
+        return Ok(colores);  
         
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Color> colores = new ColorServices().listarColores(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return colores;
     }
 
 

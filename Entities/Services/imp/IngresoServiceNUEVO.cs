@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
@@ -7,11 +8,20 @@ public class IngresoServiceNuevo : IIngresoService
     private readonly IIngresoRepository _ingresoRepository;
     private readonly IPedidoProduccionRepository _pedidoProduccionRepository;
     private readonly IPresupuestoRepository _presupuestoRepository;
-    public IngresoServiceNuevo(IIngresoRepository ingresoRepository, IPedidoProduccionRepository pedidoProduccionRepository, IPresupuestoRepository presupuestoRepository)
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IArticuloRepository _articuloRepository;
+    public IngresoServiceNuevo(IIngresoRepository ingresoRepository, 
+                               IPedidoProduccionRepository pedidoProduccionRepository, 
+                               IPresupuestoRepository presupuestoRepository,
+                               IUnitOfWork uow,
+                               IArticuloRepository articuloRepository
+                               )
     {
         _ingresoRepository = ingresoRepository;
         _pedidoProduccionRepository = pedidoProduccionRepository;
         _presupuestoRepository = presupuestoRepository;
+        _unitOfWork = uow;
+        _articuloRepository = articuloRepository;
     }
 
     public async Task<Ingreso> CrearIngresoConDescuentoAsync(Ingreso ingreso)
@@ -154,9 +164,9 @@ public class IngresoServiceNuevo : IIngresoService
 
         await _ingresoRepository.Actualizar(ingreso);
     }
-    public async Task<PagedResult<Ingreso>> GetIngresosByTaller(int idTaller, DateTime desde, DateTime hasta, int page, int pageSize)
+    public async Task<PagedResult<Ingreso>> GetIngresosByTaller(int idTaller, DateTime desde, DateTime hasta, EstadoIngreso? estado, int page, int pageSize)
     {
-        return await _ingresoRepository.GetByTaller(idTaller, desde, hasta, page, pageSize);
+        return await _ingresoRepository.GetByTaller(idTaller, desde, hasta, estado, page, pageSize);
     }
 
     public async Task<Ingreso> GetById(int id)
@@ -181,12 +191,60 @@ public class IngresoServiceNuevo : IIngresoService
         return await _ingresoRepository.GetDetallesPPI(idIngreso);
     }
 
-    public async Task<List<int>> EliminarIngresos(List<int> ids)
+    public async Task<bool> EliminarIngresoAsync(int idIngreso)
     {
-        if (ids == null || ids.Count == 0)
-            throw new BusinessException("La lista de IDs no puede estar vacía.");
+        await _unitOfWork.BeginTransactionAsync();
+        
+        try
+        {
+            var ingreso = await _ingresoRepository.GetById(idIngreso);
+            
+            if (ingreso == null) {
+                return false;
+            }
 
-        return await _ingresoRepository.EliminarIngresos(ids);
+            if (ingreso.Estado == EstadoIngreso.Eliminado) {
+                return false;
+            }
+
+            var trazabilidad = await _ingresoRepository.GetDetallesPPI(idIngreso);
+
+            await _pedidoProduccionRepository.RestaurarCantidadPendiente(trazabilidad);
+
+            foreach (var itemIngreso in ingreso.Articulos)
+            {
+                var maestro = await _articuloRepository.GetByIdAsync(itemIngreso.IdArticulo);
+                
+                if (maestro != null)
+                {
+                    int stockAnterior = maestro.Stock ?? 0;
+                    maestro.Stock -= itemIngreso.Cantidad;
+                    
+
+                    await _articuloRepository.Update(maestro);
+                }
+                else 
+                {
+                }
+            }
+
+            await _ingresoRepository.Eliminar(ingreso);
+
+            int cambios = await _unitOfWork.SaveChangesAsync();
+
+            await _unitOfWork.CommitAsync();
+            
+            return true;
+        }
+        catch (Exception ex)
+        {
+
+            if (ex.InnerException != null) 
+
+            await _unitOfWork.RollbackAsync();
+
+            throw;
+        }
     }
 
 }

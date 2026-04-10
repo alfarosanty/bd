@@ -5,11 +5,9 @@ using Microsoft.EntityFrameworkCore;
 public class PresupuestoRepository : IPresupuestoRepository
 {
     private readonly AppDbContext _context;
-    private readonly ILogger<PresupuestoRepository> _logger;
 
-    public PresupuestoRepository(AppDbContext context, ILogger<PresupuestoRepository> illoger)
+    public PresupuestoRepository(AppDbContext context)
     {
-        _logger = illoger;
         _context = context;
     }
 
