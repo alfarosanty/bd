@@ -2,7 +2,7 @@
 
 
 
-    public  class SubFamilia: Basico
+    public  class SubFamilia
     {
     public static String TABLA="SUBFAMILIA";
 

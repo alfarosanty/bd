@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-    public  class CondicionFiscal: Basico
-    {
-        public static String TABLA="CONDICION_AFIP";
-        public static String ID="ID_CONDICION";
-        public int IdCondicion { get; set; }
-        public string Codigo { get; set; } = null!;
-        public string Descripcion { get; set; } = null!;
+public  class CondicionFiscal
+{
+    public static String TABLA="CONDICION_AFIP";
+    public static String ID="ID_CONDICION";
+    public int IdCondicion { get; set; }
+    public string Codigo { get; set; } = null!;
+    public string Descripcion { get; set; } = null!;
 
-    }
+}
 
 

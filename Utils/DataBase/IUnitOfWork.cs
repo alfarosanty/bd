@@ -7,7 +7,7 @@ public interface IUnitOfWork : IDisposable
     IIngresoRepository Ingresos { get; }
     IArticuloRepository Articulos { get; }
     IPedidoProduccionRepository Pedidos { get; }
-
+    IPresupuestoRepository Presupuestos { get; }
     ISubfamiliaRepository Subfamilias { get; }
     IColorRepository Colores { get; }
     IMedidaRepository Medidas { get; }

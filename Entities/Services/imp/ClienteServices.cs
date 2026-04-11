@@ -65,7 +65,7 @@ public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
             {
                 var item = new CondicionFiscal
                 {
-                    Id = reader.GetInt32(0),
+                    IdCondicion = reader.GetInt32(0),
                     Codigo = reader.IsDBNull(1) ? null : reader.GetString(1),
                     Descripcion = reader.IsDBNull(2) ? null : reader.GetString(2)
                 };
@@ -96,7 +96,7 @@ public List<CondicionFiscal> GetCondicionFiscal(NpgsqlConnection conex)
         cmd.Parameters.AddWithValue("@domicilio", cliente.Domicilio ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@localidad", cliente.Localidad ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@cuit", cliente.Cuit ?? (object)DBNull.Value);
-        cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
+        cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.IdCondicion);
         cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
         cmd.Parameters.AddWithValue("@valido", cliente.Valido ?? (object)DBNull.Value);
@@ -130,7 +130,7 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
     cmd.Parameters.AddWithValue("@domicilio", cliente.Domicilio ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@localidad", cliente.Localidad ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@cuit", cliente.Cuit ?? (object)DBNull.Value);
-    cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.Id);
+    cmd.Parameters.AddWithValue("@idCondicionAfip", cliente.CondicionFiscal.IdCondicion);
     cmd.Parameters.AddWithValue("@provincia", cliente.Provincia ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@transporte", cliente.Transporte ?? (object)DBNull.Value);
     cmd.Parameters.AddWithValue("@valido", cliente.Valido ?? (object)DBNull.Value);
@@ -181,7 +181,7 @@ public int Actualizar(NpgsqlConnection conn, Cliente cliente)
             string cfDescripcion = reader["CF_DESCRIPCION"] as string;
             CondicionFiscal cf = new CondicionFiscal
             {
-                Id = cfId.Value,
+                IdCondicion = cfId.Value,
                 Codigo =    cfCodigo,
                 Descripcion = cfDescripcion
             };     

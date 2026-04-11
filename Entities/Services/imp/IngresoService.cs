@@ -3,14 +3,14 @@ using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
 
-public class IngresoServiceNuevo : IIngresoService
+public class IngresoService : IIngresoService
 {
     private readonly IIngresoRepository _ingresoRepository;
     private readonly IPedidoProduccionRepository _pedidoProduccionRepository;
     private readonly IPresupuestoRepository _presupuestoRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IArticuloRepository _articuloRepository;
-    public IngresoServiceNuevo(IIngresoRepository ingresoRepository, 
+    public IngresoService(IIngresoRepository ingresoRepository, 
                                IPedidoProduccionRepository pedidoProduccionRepository, 
                                IPresupuestoRepository presupuestoRepository,
                                IUnitOfWork uow,

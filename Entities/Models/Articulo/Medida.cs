@@ -1,5 +1,5 @@
 ﻿namespace BlumeAPI.Entities;
-    public  class Medida : Basico
+    public  class Medida
     {
         public static String TABLA="MEDIDA";
 

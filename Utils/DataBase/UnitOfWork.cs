@@ -11,6 +11,7 @@ public class UnitOfWork : IUnitOfWork
     public IIngresoRepository Ingresos { get; }
     public IArticuloRepository Articulos { get; }
     public IPedidoProduccionRepository Pedidos { get; }
+    public IPresupuestoRepository Presupuestos { get; }
     public ISubfamiliaRepository Subfamilias { get; }
     public IColorRepository Colores { get; }
     public IMedidaRepository Medidas { get; }
@@ -20,12 +21,14 @@ public class UnitOfWork : IUnitOfWork
         IIngresoRepository ingresos,
         IArticuloRepository articulos,
         IPedidoProduccionRepository pedidos,
+        IPresupuestoRepository presupuestos,
         ISubfamiliaRepository subfamilias,
         IColorRepository colores,
         IMedidaRepository medidas)
     {
         _context = context;
         // Ya no usamos 'new', usamos lo que viene por inyección
+        Presupuestos = presupuestos;
         Ingresos = ingresos;
         Articulos = articulos;
         Pedidos = pedidos;

@@ -1,7 +1,7 @@
 ﻿namespace BlumeAPI.Entities;
 
 
-    public  class Color: Basico
+    public  class Color
     {
         public static String TABLA="COLOR";
     public int Id { get; set; }

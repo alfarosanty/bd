@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 
 
-    public  class EstadoPresupuesto: Basico
-    {
-                public static String TABLA="ESTADO_PRESUPUESTO";
+public  class EstadoPresupuesto
+{
+    public static String TABLA="ESTADO_PRESUPUESTO";
+    public int Id { get; set; }
+    public string? Codigo { get; set; }
+    public string? Descripcion { get; set; }
 
-    }
+}

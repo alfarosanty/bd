@@ -143,68 +143,64 @@ public async Task<Presupuesto?> GetById(int id)
 
     public async Task<int> Crear(Presupuesto presupuesto)
     {
-        if (presupuesto == null)
-            throw new ArgumentNullException(nameof(presupuesto));
+        if (presupuesto.Cliente != null) 
+            _context.Entry(presupuesto.Cliente).State = EntityState.Unchanged;
+
+        if (presupuesto.EstadoPresupuesto != null) 
+            _context.Entry(presupuesto.EstadoPresupuesto).State = EntityState.Unchanged;
+
+        if (presupuesto.Articulos != null)
+        {
+            foreach (var item in presupuesto.Articulos)
+            {
+                if (item.Articulo != null)
+                {
+                    _context.Entry(item.Articulo).State = EntityState.Unchanged;
+                }
+            }
+        }
 
         _context.Presupuestos.Add(presupuesto);
         await _context.SaveChangesAsync();
-
         return presupuesto.Id;
     }
 
     public async Task Actualizar(Presupuesto presupuestoRecibido)
     {
-        var presupuestoExistente = await _context.Presupuestos
+        // 1. Cargar el existente con sus artículos
+        var exist = await _context.Presupuestos
             .Include(p => p.Articulos)
-            .AsTracking()
             .FirstOrDefaultAsync(p => p.Id == presupuestoRecibido.Id);
 
-        if (presupuestoExistente == null)
-            throw new NotFoundException($"El presupuesto {presupuestoRecibido.Id} no existe.");
+        if (exist == null) throw new NotFoundException($"No existe {presupuestoRecibido.Id}");
 
-        // Resolver FKs si vienen como navegación
-        if (presupuestoRecibido.IdCliente == 0 && presupuestoRecibido.Cliente != null)
-            presupuestoRecibido.IdCliente = presupuestoRecibido.Cliente.Id;
+        _context.Entry(exist).CurrentValues.SetValues(presupuestoRecibido);
 
-        if (presupuestoRecibido.IdEstado == 0 && presupuestoRecibido.EstadoPresupuesto != null)
-            presupuestoRecibido.IdEstado = presupuestoRecibido.EstadoPresupuesto.Id;
 
-        // Limpiar navegaciones para que SetValues no se confunda
-        presupuestoRecibido.Cliente = null;
-        presupuestoRecibido.EstadoPresupuesto = null;
+        var idsRecibidos = presupuestoRecibido.Articulos?.Select(a => a.Id).ToList() ?? new List<int>();
 
-        _context.Entry(presupuestoExistente).CurrentValues.SetValues(presupuestoRecibido);
-
-        // Eliminar artículos que ya no están
-        foreach (var artExistente in presupuestoExistente.Articulos!.ToList())
+        foreach (var artEnBD in exist.Articulos!.ToList())
         {
-            if (!presupuestoRecibido.Articulos!.Any(a => a.Id == artExistente.Id))
-                _context.Remove(artExistente);
+            if (!idsRecibidos.Contains(artEnBD.Id))
+            {
+                _context.Remove(artEnBD);
+            }
         }
 
-        // Actualizar o insertar artículos
-        foreach (var artRecibido in presupuestoRecibido.Articulos!)
+        foreach (var itemRecibido in presupuestoRecibido.Articulos!)
         {
-            if (artRecibido.IdArticulo == 0 && artRecibido.Articulo != null)
-                artRecibido.IdArticulo = artRecibido.Articulo.Id;
+            var artEnBD = exist.Articulos!.FirstOrDefault(a => a.Id == itemRecibido.Id && a.Id != 0);
 
-            var artExistente = presupuestoExistente.Articulos!
-                .FirstOrDefault(a => a.Id == artRecibido.Id);
-
-            if (artExistente != null && artRecibido.Id != 0)
+            if (artEnBD != null)
             {
-                artRecibido.Articulo = null;
-                artRecibido.Presupuesto = null;
-                _context.Entry(artExistente).CurrentValues.SetValues(artRecibido);
+
+                _context.Entry(artEnBD).CurrentValues.SetValues(itemRecibido);
             }
             else
             {
-                artRecibido.Id = 0;
-                artRecibido.IdPresupuesto = presupuestoExistente.Id;
-                artRecibido.Articulo = null;
-                artRecibido.Presupuesto = null;
-
-                presupuestoExistente.Articulos!.Add(artRecibido);
+                itemRecibido.Id = 0; // Asegurar que sea nuevo
+                itemRecibido.IdPresupuesto = exist.Id;
+                exist.Articulos.Add(itemRecibido);
             }
         }
 

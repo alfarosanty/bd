@@ -3,12 +3,12 @@ using BlumeAPI.Entities.Repository;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
 
-public class PedidoProduccionServiceNUEVO : IPedidoProduccionService
+public class PedidoProduccionService : IPedidoProduccionService
 {
     private readonly IPedidoProduccionRepository _pedidoProduccionRepository;
     private readonly IPresupuestoRepository _presupuestoRepository;
 
-    public PedidoProduccionServiceNUEVO(IPedidoProduccionRepository pedidoProduccionRepository, IPresupuestoRepository presupuestoRepository)
+    public PedidoProduccionService(IPedidoProduccionRepository pedidoProduccionRepository, IPresupuestoRepository presupuestoRepository)
     {
         _pedidoProduccionRepository = pedidoProduccionRepository;
         _presupuestoRepository = presupuestoRepository;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 
-    public  class EstadoPedidoProduccion: Basico
+    public  class EstadoPedidoProduccion
     {
     public static String TABLA="ESTADO_PEDIDO_PRODUCCION";
         public int Id {get; set;}
