@@ -35,6 +35,8 @@ public class AppDbContext : DbContext
     public DbSet<Ingreso> Ingresos { get; set; }
     public DbSet<ArticuloIngreso> ArticulosIngreso { get; set; }
     public DbSet<PedidoProduccionIngresoDetalle> PedidoProduccionIngresoDetalles { get; set; }
+    public DbSet<DatosAutenticacion> DatosAutenticacion { get; set; }
+    public DbSet<DatosAfip> DatosAfip { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -65,6 +67,8 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new IngresoConfiguration());
         modelBuilder.ApplyConfiguration(new ArticuloIngresoConfiguration());
         modelBuilder.ApplyConfiguration(new PedidoProduccionIngresoDetalleConfiguration());
+        modelBuilder.ApplyConfiguration(new DatosAutenticacionConfiguration());
+        modelBuilder.ApplyConfiguration(new DatosAfipConfiguration());
 
     }
 }

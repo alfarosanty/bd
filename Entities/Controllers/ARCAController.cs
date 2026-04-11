@@ -1,3 +1,4 @@
+using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -5,13 +6,14 @@ namespace BlumeAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AfipController : ControllerBase
+    public class ARCAController : ControllerBase
     {
-    private readonly ILogger<ClienteController> _logger;
+    private readonly IARCAService _arcaService;
 
-    public AfipController(ILogger<ClienteController> logger)
+    public ARCAController(IARCAService arcaService)
     {
-        _logger = logger;
+        _arcaService = arcaService;
+    
     }
 
 
@@ -25,16 +27,9 @@ namespace BlumeAPI.Controllers
             try
             {
 
-                CConexion con = new CConexion();
-                Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-                // Llamamos al servicio que ya obtiene los datos desde la BD
-                AfipServices afipServices = new AfipServices();
-                var loginTicket = await afipServices.AutenticacionAsync(verbose: true, npgsqlConnection);
+                var loginTicket = await _arcaService.AutenticacionAsync();
 
-                con.cerrarConexion(npgsqlConnection);
-
-
-                return Ok(loginTicket); // Devuelve JSON con UniqueId, Sign, Token, etc.
+                return Ok(loginTicket);
             }
             catch (Exception ex)
             {

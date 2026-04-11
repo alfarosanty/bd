@@ -5489,3 +5489,364 @@ FROM "ESTADO_PRESUPUESTO" AS e
 2026-04-10 21:05:13.846 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 10.7019ms
 2026-04-10 21:05:13.846 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
 2026-04-10 21:05:13.846 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 11.2426ms
+2026-04-10 23:39:08.424 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-10 23:39:08.481 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-10 23:39:08.539 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-10 23:39:08.540 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-10 23:39:08.540 -03:00 [INF] Hosting environment: Development
+2026-04-10 23:39:08.540 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-10 23:41:21.863 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:41:21.863 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - null null
+2026-04-10 23:41:21.863 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - null null
+2026-04-10 23:41:21.927 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:21.927 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:21.927 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:22.069 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-10 23:41:22.078 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:41:22.078 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:41:22.078 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:41:22.126 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:41:22.126 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ArticuloPrecio]]] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-04-10 23:41:22.126 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2026-04-10 23:41:24.540 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - null null
+2026-04-10 23:41:24.542 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:24.560 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/logout - 204 null null 19.0629ms
+2026-04-10 23:41:24.862 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/logout - application/json 2
+2026-04-10 23:41:24.864 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:24.870 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2026-04-10 23:41:24.873 -03:00 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2026-04-10 23:41:25.189 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:41:26.181 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 4052.2472ms
+2026-04-10 23:41:26.181 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:41:26.181 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 4319.9034ms
+2026-04-10 23:41:26.470 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed out.
+2026-04-10 23:41:26.471 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-10 23:41:26.478 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Logout (BlumeAPI) in 1605.3436ms
+2026-04-10 23:41:26.478 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Logout (BlumeAPI)'
+2026-04-10 23:41:26.479 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/logout - 200 null application/json; charset=utf-8 1616.9686ms
+2026-04-10 23:41:29.324 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-10 23:41:29.612 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-10 23:41:31.198 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+ORDER BY a."ID_ARTICULO_PRECIO"
+2026-04-10 23:41:31.326 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:41:31.338 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 9211.1958ms
+2026-04-10 23:41:31.338 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:41:31.344 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - 200 null application/json; charset=utf-8 9482.4154ms
+2026-04-10 23:41:31.422 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."ID_ESTADO", e."CODIGO", e."DESCRIPCION"
+FROM "ESTADO_PRESUPUESTO" AS e
+2026-04-10 23:41:31.423 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:41:31.424 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 9297.7372ms
+2026-04-10 23:41:31.425 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:41:31.425 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - 200 null application/json; charset=utf-8 9563.2613ms
+2026-04-10 23:41:34.238 -03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - null null
+2026-04-10 23:41:34.238 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:34.239 -03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:7166/api/Auth/login - 204 null null 0.4769ms
+2026-04-10 23:41:34.245 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:7166/api/Auth/login - application/json 41
+2026-04-10 23:41:34.245 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:41:34.245 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2026-04-10 23:41:34.251 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BlumeAPI.Models.UsuarioLoginRequest) on controller BlumeAPI.Controllers.AuthController (BlumeAPI).
+2026-04-10 23:41:34.635 -03:00 [INF] Executed DbCommand (75ms) [Parameters=[@__nombreUsuario_0='fran'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+WHERE u."USERNAME" = @__nombreUsuario_0
+LIMIT 1
+2026-04-10 23:41:35.046 -03:00 [INF] AuthenticationScheme: MiCookieAuth signed in.
+2026-04-10 23:41:35.046 -03:00 [INF] Executing OkObjectResult, writing value of type 'BlumeAPI.Usuario'.
+2026-04-10 23:41:35.055 -03:00 [INF] Executed action BlumeAPI.Controllers.AuthController.Login (BlumeAPI) in 803.5866ms
+2026-04-10 23:41:35.055 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.AuthController.Login (BlumeAPI)'
+2026-04-10 23:41:35.055 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:7166/api/Auth/login - 200 null application/json; charset=utf-8 810.5144ms
+2026-04-10 23:48:00.364 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:48:00.389 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - null null
+2026-04-10 23:48:00.389 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - null null
+2026-04-10 23:48:00.392 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:00.396 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:00.396 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:00.397 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:00.397 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:48:00.397 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:48:00.397 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2026-04-10 23:48:00.397 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:48:00.397 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ArticuloPrecio]]] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-04-10 23:48:00.676 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:00.683 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 285.8564ms
+2026-04-10 23:48:00.683 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:00.683 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 319.3493ms
+2026-04-10 23:48:00.881 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."ID_ESTADO", e."CODIGO", e."DESCRIPCION"
+FROM "ESTADO_PRESUPUESTO" AS e
+2026-04-10 23:48:00.881 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:00.881 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 483.7034ms
+2026-04-10 23:48:00.881 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:48:00.882 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - 200 null application/json; charset=utf-8 492.0535ms
+2026-04-10 23:48:01.123 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+ORDER BY a."ID_ARTICULO_PRECIO"
+2026-04-10 23:48:01.124 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:01.126 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 728.0155ms
+2026-04-10 23:48:01.126 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:48:01.126 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - 200 null application/json; charset=utf-8 736.2592ms
+2026-04-10 23:48:10.242 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:48:10.242 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:10.242 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:10.242 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:48:10.245 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Factura?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - null null
+2026-04-10 23:48:10.246 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:10.246 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.FacturaController.GetAll (BlumeAPI)'
+2026-04-10 23:48:10.249 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:10.252 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 9.4738ms
+2026-04-10 23:48:10.252 -03:00 [INF] Route matched with {action = "GetAll", controller = "Factura"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.DateTime, System.DateTime, System.Nullable`1[System.Boolean], Int32, Int32) on controller BlumeAPI.Controllers.FacturaController (BlumeAPI).
+2026-04-10 23:48:10.252 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:10.252 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 10.0462ms
+2026-04-10 23:48:11.005 -03:00 [INF] Executed DbCommand (37ms) [Parameters=[@__desde_0='2026-03-11T00:00:00.0000000' (DbType = DateTime), @__hasta_1='2026-04-11T00:00:00.0000000' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "FACTURA" AS f
+WHERE f."FECHA_FACTURA" >= @__desde_0 AND f."FECHA_FACTURA" <= @__hasta_1
+2026-04-10 23:48:11.180 -03:00 [INF] Executed DbCommand (57ms) [Parameters=[@__desde_0='2026-03-11T00:00:00.0000000' (DbType = DateTime), @__hasta_1='2026-04-11T00:00:00.0000000' (DbType = DateTime), @__p_3='10', @__p_2='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_FACTURA", t."CAE_NUMERO", t."DESCUENTO", t."EXIMIR_IVA", t."FECHA_FACTURA", t."FECHA_VENCIMIENTO_CAE", t."ID_CLIENTE", t."ID_PRESUPUESTO", t."IMPORTE_BRUTO", t."IMPORTE_NETO", t."IVA", t."NUMERO_FACTURA", t."PUNTO_DE_VENTA", t."TIPO_FACTURA", c."ID_CLIENTE", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO", t0."ID_ARTICULO_FACTURA", t0."CANTIDAD", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."ID_ARTICULO", t0."ID_FACTURA", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_ARTICULO_PRECIO0", t0."CODIGO3", t0."DESCRIPCION3", t0."PRECIO1", t0."PRECIO2", t0."PRECIO3", t0."RELLENO", t0."ID_SUBFAMILIA0", t0."CODIGO4", t0."DESCRIPCION4"
+FROM (
+    SELECT f."ID_FACTURA", f."CAE_NUMERO", f."DESCUENTO", f."EXIMIR_IVA", f."FECHA_FACTURA", f."FECHA_VENCIMIENTO_CAE", f."ID_CLIENTE", f."ID_PRESUPUESTO", f."IMPORTE_BRUTO", f."IMPORTE_NETO", f."IVA", f."NUMERO_FACTURA", f."PUNTO_DE_VENTA", f."TIPO_FACTURA"
+    FROM "FACTURA" AS f
+    WHERE f."FECHA_FACTURA" >= @__desde_0 AND f."FECHA_FACTURA" <= @__hasta_1
+    ORDER BY f."FECHA_FACTURA" DESC
+    LIMIT @__p_3 OFFSET @__p_2
+) AS t
+INNER JOIN "CLIENTE" AS c ON t."ID_CLIENTE" = c."ID_CLIENTE"
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_FACTURA", a."CANTIDAD", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."ID_ARTICULO", a."ID_FACTURA", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", a1."ID_ARTICULO_PRECIO" AS "ID_ARTICULO_PRECIO0", a1."CODIGO" AS "CODIGO3", a1."DESCRIPCION" AS "DESCRIPCION3", a1."PRECIO1", a1."PRECIO2", a1."PRECIO3", a1."RELLENO", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO4", s."DESCRIPCION" AS "DESCRIPCION4"
+    FROM "ARTICULO_FACTURA" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "ARTICULO_PRECIO" AS a1 ON a0."ID_ARTICULO_PRECIO" = a1."ID_ARTICULO_PRECIO"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_FACTURA" = t0."ID_FACTURA"
+ORDER BY t."FECHA_FACTURA" DESC, t."ID_FACTURA", c."ID_CLIENTE", t0."ID_ARTICULO_FACTURA", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0", t0."ID_ARTICULO_PRECIO0"
+2026-04-10 23:48:11.199 -03:00 [INF] Executing OkObjectResult, writing value of type 'PagedResult`1[[Factura, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:11.231 -03:00 [INF] Executed action BlumeAPI.Controllers.FacturaController.GetAll (BlumeAPI) in 979.3067ms
+2026-04-10 23:48:11.231 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.FacturaController.GetAll (BlumeAPI)'
+2026-04-10 23:48:11.231 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Factura?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - 200 null application/json; charset=utf-8 985.9744ms
+2026-04-10 23:48:16.812 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:48:16.813 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:16.813 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - null null
+2026-04-10 23:48:16.813 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - null null
+2026-04-10 23:48:16.813 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:16.813 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:16.813 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:16.813 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetAll (BlumeAPI)'
+2026-04-10 23:48:16.813 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:48:16.813 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:48:16.813 -03:00 [INF] Route matched with {action = "GetEstadosPresupuesto", controller = "Presupuesto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetEstadosPresupuesto() on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2026-04-10 23:48:16.816 -03:00 [INF] Route matched with {action = "GetAll", controller = "Presupuesto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Int32, Int32) on controller BlumeAPI.Controllers.PresupuestoController (BlumeAPI).
+2026-04-10 23:48:16.818 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:16.822 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."ID_ESTADO", e."CODIGO", e."DESCRIPCION"
+FROM "ESTADO_PRESUPUESTO" AS e
+2026-04-10 23:48:16.824 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPresupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:16.825 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI) in 11.8427ms
+2026-04-10 23:48:16.827 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetEstadosPresupuesto (BlumeAPI)'
+2026-04-10 23:48:16.827 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto/GetEstadosPresupuesto - 200 null application/json; charset=utf-8 14.5349ms
+2026-04-10 23:48:16.829 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 16.4508ms
+2026-04-10 23:48:16.830 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:16.830 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 17.3643ms
+2026-04-10 23:48:16.914 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__desde_0='2026-03-11T00:00:00.0000000' (Nullable = true) (DbType = Date), @__hasta_1='2026-04-11T00:00:00.0000000' (Nullable = true) (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "PRESUPUESTO" AS p
+WHERE p."FECHA_PRESUPUESTO" >= @__desde_0 AND p."FECHA_PRESUPUESTO" <= @__hasta_1
+2026-04-10 23:48:17.046 -03:00 [INF] Executed DbCommand (86ms) [Parameters=[@__desde_0='2026-03-11T00:00:00.0000000' (Nullable = true) (DbType = Date), @__hasta_1='2026-04-11T00:00:00.0000000' (Nullable = true) (DbType = Date), @__p_3='10', @__p_2='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_PRESUPUESTO", t."DESCUENTO", t."EXMIR_IVA", t."FECHA_PRESUPUESTO", t."FECHA_CREACION", t."ID_CLIENTE", t."ID_ESTADO", t."ID_FACTURA", t."TOTAL_PRESUPUESTO", c."ID_CLIENTE", c."CONTACTO", c."CUIT", c."DOMICILIO", c."ID_CONDICION_AFIP", c."LOCALIDAD", c."PROVINCIA", c."RAZON_SOCIAL", c."TELEFONO", c."TRANSPORTE", c."VALIDO", e."ID_ESTADO", e."CODIGO", e."DESCRIPCION", t0."ID_ARTICULO_PRESUPUESTO", t0."CANTIDAD", t0."PENDIENTE", t0."CODIGO", t0."DESCRIPCION", t0."DESCUENTO", t0."FECHA_CREACION", t0."HAY_STOCK", t0."ID_ARTICULO", t0."ID_PRESUPUESTO", t0."PRECIO_UNITARIO", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_MEDIDA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_ARTICULO_PRECIO0", t0."CODIGO3", t0."DESCRIPCION3", t0."PRECIO1", t0."PRECIO2", t0."PRECIO3", t0."RELLENO", t0."ID_SUBFAMILIA0", t0."CODIGO4", t0."DESCRIPCION4"
+FROM (
+    SELECT p."ID_PRESUPUESTO", p."DESCUENTO", p."EXMIR_IVA", p."FECHA_PRESUPUESTO", p."FECHA_CREACION", p."ID_CLIENTE", p."ID_ESTADO", p."ID_FACTURA", p."TOTAL_PRESUPUESTO"
+    FROM "PRESUPUESTO" AS p
+    WHERE p."FECHA_PRESUPUESTO" >= @__desde_0 AND p."FECHA_PRESUPUESTO" <= @__hasta_1
+    ORDER BY p."FECHA_PRESUPUESTO" DESC
+    LIMIT @__p_3 OFFSET @__p_2
+) AS t
+INNER JOIN "CLIENTE" AS c ON t."ID_CLIENTE" = c."ID_CLIENTE"
+INNER JOIN "ESTADO_PRESUPUESTO" AS e ON t."ID_ESTADO" = e."ID_ESTADO"
+LEFT JOIN (
+    SELECT a."ID_ARTICULO_PRESUPUESTO", a."CANTIDAD", a."PENDIENTE", a."CODIGO", a."DESCRIPCION", a."DESCUENTO", a."FECHA_CREACION", a."HAY_STOCK", a."ID_ARTICULO", a."ID_PRESUPUESTO", a."PRECIO_UNITARIO", a0."ID_ARTICULO" AS "ID_ARTICULO0", a0."CODIGO" AS "CODIGO0", a0."DESCRIPCION" AS "DESCRIPCION0", a0."HABILITADO", a0."ID_ARTICULO_PRECIO", a0."ID_ASOCIADO_RELLENO", a0."ID_COLOR", a0."ID_FABRICANTE", a0."ID_MEDIDA", a0."ID_SUBFAMILIA", a0."STOCK", c0."ID_COLOR" AS "ID_COLOR0", c0."CODIGO" AS "CODIGO1", c0."HEXA", c0."DESCRIPCION" AS "DESCRIPCION1", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO2", m."DESCRIPCION" AS "DESCRIPCION2", a1."ID_ARTICULO_PRECIO" AS "ID_ARTICULO_PRECIO0", a1."CODIGO" AS "CODIGO3", a1."DESCRIPCION" AS "DESCRIPCION3", a1."PRECIO1", a1."PRECIO2", a1."PRECIO3", a1."RELLENO", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO4", s."DESCRIPCION" AS "DESCRIPCION4"
+    FROM "ARTICULO_PRESUPUESTO" AS a
+    INNER JOIN "ARTICULO" AS a0 ON a."ID_ARTICULO" = a0."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c0 ON a0."ID_COLOR" = c0."ID_COLOR"
+    INNER JOIN "MEDIDA" AS m ON a0."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "ARTICULO_PRECIO" AS a1 ON a0."ID_ARTICULO_PRECIO" = a1."ID_ARTICULO_PRECIO"
+    LEFT JOIN "SUBFAMILIA" AS s ON a0."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+) AS t0 ON t."ID_PRESUPUESTO" = t0."ID_PRESUPUESTO"
+ORDER BY t."FECHA_PRESUPUESTO" DESC, t."ID_PRESUPUESTO", c."ID_CLIENTE", e."ID_ESTADO", t0."ID_ARTICULO_PRESUPUESTO", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_MEDIDA0", t0."ID_ARTICULO_PRECIO0"
+2026-04-10 23:48:17.054 -03:00 [INF] Executing OkObjectResult, writing value of type 'PagedResult`1[[Presupuesto, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:17.064 -03:00 [INF] Executed action BlumeAPI.Controllers.PresupuestoController.GetAll (BlumeAPI) in 247.5511ms
+2026-04-10 23:48:17.064 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PresupuestoController.GetAll (BlumeAPI)'
+2026-04-10 23:48:17.064 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Presupuesto?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - 200 null application/json; charset=utf-8 251.6385ms
+2026-04-10 23:48:20.408 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/estados - null null
+2026-04-10 23:48:20.408 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller - null null
+2026-04-10 23:48:20.408 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:20.408 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:20.408 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2026-04-10 23:48:20.408 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI)'
+2026-04-10 23:48:20.411 -03:00 [INF] Route matched with {action = "GetTalleres", controller = "Taller"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Taller]]] GetTalleres() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2026-04-10 23:48:20.411 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[EstadoPedidoProduccion]]] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2026-04-10 23:48:20.418 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."ID_FABRICANTE", f."DIRECCION", f."PROVINCIA", f."RAZON_SOCIAL", f."TELEFONO"
+FROM "FABRICANTE" AS f
+2026-04-10 23:48:20.421 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."ID_ESTADO_PRODUCCION", e."CODIGO", e."DESCRIPCION"
+FROM "ESTADO_PEDIDO_PRODUCCION" AS e
+2026-04-10 23:48:20.421 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:20.422 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:20.423 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 12.0132ms
+2026-04-10 23:48:20.423 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2026-04-10 23:48:20.423 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/estados - 200 null application/json; charset=utf-8 15.4241ms
+2026-04-10 23:48:20.424 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI) in 12.8384ms
+2026-04-10 23:48:20.424 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI)'
+2026-04-10 23:48:20.424 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller - 200 null application/json; charset=utf-8 16.2081ms
+2026-04-10 23:48:23.257 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/taller/1?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - null null
+2026-04-10 23:48:23.258 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:23.258 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2026-04-10 23:48:23.262 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByTaller(Int32, System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Int32, Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2026-04-10 23:48:23.515 -03:00 [INF] Executed DbCommand (131ms) [Parameters=[@__idTaller_0='1', @__desde_1='2026-03-11T00:00:00.0000000' (DbType = Date), @__hasta_2='2026-04-11T00:00:00.0000000' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "PEDIDO_PRODUCCION" AS p
+INNER JOIN "FABRICANTE" AS f ON p."ID_FABRICANTE" = f."ID_FABRICANTE"
+WHERE f."ID_FABRICANTE" = @__idTaller_0 AND p."FECHA" >= @__desde_1 AND p."FECHA" <= @__hasta_2
+2026-04-10 23:48:23.647 -03:00 [INF] Executed DbCommand (102ms) [Parameters=[@__idTaller_0='1', @__desde_1='2026-03-11T00:00:00.0000000' (DbType = Date), @__hasta_2='2026-04-11T00:00:00.0000000' (DbType = Date), @__p_4='10', @__p_3='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_PEDIDO_PRODUCCION", t."FECHA", t."ID_PRESUPUESTO", t."ID_ESTADO_PEDIDO_PROD", t."ID_FABRICANTE", t."ID_FABRICANTE0", t."DIRECCION", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", e."ID_ESTADO_PRODUCCION", e."CODIGO", e."DESCRIPCION", t0."ID_PRODUCCION_ARTICULO", t0."CANTIDAD", t0."CANT_PENDIENTE", t0."CODIGO", t0."DESCRIPCION", t0."ID_ARTICULO", t0."ID_PEDIDO_PRODUCCION", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_SUBFAMILIA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_MEDIDA0", t0."CODIGO3", t0."DESCRIPCION3", t0."ID_ARTICULO_PRECIO0", t0."CODIGO4", t0."DESCRIPCION4", t0."PRECIO1", t0."PRECIO2", t0."PRECIO3", t0."RELLENO"
+FROM (
+    SELECT p."ID_PEDIDO_PRODUCCION", p."FECHA", p."ID_PRESUPUESTO", p."ID_ESTADO_PEDIDO_PROD", p."ID_FABRICANTE", f."ID_FABRICANTE" AS "ID_FABRICANTE0", f."DIRECCION", f."PROVINCIA", f."RAZON_SOCIAL", f."TELEFONO"
+    FROM "PEDIDO_PRODUCCION" AS p
+    INNER JOIN "FABRICANTE" AS f ON p."ID_FABRICANTE" = f."ID_FABRICANTE"
+    WHERE f."ID_FABRICANTE" = @__idTaller_0 AND p."FECHA" >= @__desde_1 AND p."FECHA" <= @__hasta_2
+    ORDER BY p."FECHA" DESC, p."ID_PEDIDO_PRODUCCION" DESC
+    LIMIT @__p_4 OFFSET @__p_3
+) AS t
+INNER JOIN "ESTADO_PEDIDO_PRODUCCION" AS e ON t."ID_ESTADO_PEDIDO_PROD" = e."ID_ESTADO_PRODUCCION"
+LEFT JOIN (
+    SELECT p0."ID_PRODUCCION_ARTICULO", p0."CANTIDAD", p0."CANT_PENDIENTE", p0."CODIGO", p0."DESCRIPCION", p0."ID_ARTICULO", p0."ID_PEDIDO_PRODUCCION", a."ID_ARTICULO" AS "ID_ARTICULO0", a."CODIGO" AS "CODIGO0", a."DESCRIPCION" AS "DESCRIPCION0", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_ASOCIADO_RELLENO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK", c."ID_COLOR" AS "ID_COLOR0", c."CODIGO" AS "CODIGO1", c."HEXA", c."DESCRIPCION" AS "DESCRIPCION1", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO2", s."DESCRIPCION" AS "DESCRIPCION2", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO3", m."DESCRIPCION" AS "DESCRIPCION3", a0."ID_ARTICULO_PRECIO" AS "ID_ARTICULO_PRECIO0", a0."CODIGO" AS "CODIGO4", a0."DESCRIPCION" AS "DESCRIPCION4", a0."PRECIO1", a0."PRECIO2", a0."PRECIO3", a0."RELLENO"
+    FROM "PRODUCCION_ARTICULO" AS p0
+    INNER JOIN "ARTICULO" AS a ON p0."ID_ARTICULO" = a."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c ON a."ID_COLOR" = c."ID_COLOR"
+    LEFT JOIN "SUBFAMILIA" AS s ON a."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+    INNER JOIN "MEDIDA" AS m ON a."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "ARTICULO_PRECIO" AS a0 ON a."ID_ARTICULO_PRECIO" = a0."ID_ARTICULO_PRECIO"
+) AS t0 ON t."ID_PEDIDO_PRODUCCION" = t0."ID_PEDIDO_PRODUCCION"
+ORDER BY t."FECHA" DESC, t."ID_PEDIDO_PRODUCCION" DESC, t."ID_FABRICANTE0", e."ID_ESTADO_PRODUCCION", t0."ID_PRODUCCION_ARTICULO", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_SUBFAMILIA0", t0."ID_MEDIDA0"
+2026-04-10 23:48:23.769 -03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__idsUnicos_0={ '1464', '1155', '1289', '1334', '1306', ... } (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."ID_PRESUPUESTO" AS "Id", c."RAZON_SOCIAL" AS "Nombre"
+FROM "PRESUPUESTO" AS p
+INNER JOIN "CLIENTE" AS c ON p."ID_CLIENTE" = c."ID_CLIENTE"
+WHERE p."ID_PRESUPUESTO" = ANY (@__idsUnicos_0)
+2026-04-10 23:48:23.772 -03:00 [INF] Executing OkObjectResult, writing value of type 'PagedResult`1[[PedidoProduccionDTO, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:23.776 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 513.9234ms
+2026-04-10 23:48:23.776 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2026-04-10 23:48:23.776 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/taller/1?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - 200 null application/json; charset=utf-8 519.0111ms
+2026-04-10 23:48:49.495 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:48:49.498 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:49.498 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:49.498 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:48:49.506 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:49.519 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 20.8429ms
+2026-04-10 23:48:49.519 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:48:49.519 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 24.3342ms
+2026-04-10 23:48:51.240 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/Usuario - null null
+2026-04-10 23:48:51.240 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:48:51.240 -03:00 [INF] Executing endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2026-04-10 23:48:51.241 -03:00 [INF] Route matched with {action = "GetUsuarios", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetUsuarios() on controller UsuarioController (BlumeAPI).
+2026-04-10 23:48:51.247 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."ID_USUARIO", u."APELLIDO", u."CONTRASENIA", u."NOMBRE", u."ROL", u."USERNAME"
+FROM "USUARIO" AS u
+2026-04-10 23:48:51.248 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlumeAPI.Usuario, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:48:51.249 -03:00 [INF] Executed action UsuarioController.GetUsuarios (BlumeAPI) in 7.5562ms
+2026-04-10 23:48:51.249 -03:00 [INF] Executed endpoint 'UsuarioController.GetUsuarios (BlumeAPI)'
+2026-04-10 23:48:51.249 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/Usuario - 200 null application/json; charset=utf-8 9.3441ms
+2026-04-10 23:52:01.241 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - null null
+2026-04-10 23:52:01.242 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:52:01.244 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:52:01.245 -03:00 [INF] Route matched with {action = "GetArticuloPrecio", controller = "Articulo"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ArticuloPrecio]]] GetArticuloPrecio() on controller BlumeAPI.Controllers.ArticuloController (BlumeAPI).
+2026-04-10 23:52:01.250 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT a."ID_ARTICULO_PRECIO", a."CODIGO", a."DESCRIPCION", a."PRECIO1", a."PRECIO2", a."PRECIO3", a."RELLENO"
+FROM "ARTICULO_PRECIO" AS a
+ORDER BY a."ID_ARTICULO_PRECIO"
+2026-04-10 23:52:01.255 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ArticuloPrecio, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:52:01.256 -03:00 [INF] Executed action BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI) in 11.2321ms
+2026-04-10 23:52:01.256 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ArticuloController.GetArticuloPrecio (BlumeAPI)'
+2026-04-10 23:52:01.256 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Articulo/ArticulosPrecio - 200 null application/json; charset=utf-8 15.1822ms
+2026-04-10 23:52:05.065 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Taller - null null
+2026-04-10 23:52:05.065 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/estados - null null
+2026-04-10 23:52:05.065 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:52:05.065 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:52:05.065 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2026-04-10 23:52:05.065 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI)'
+2026-04-10 23:52:05.065 -03:00 [INF] Route matched with {action = "GetEstadosPedidoProduccion", controller = "PedidoProduccion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[EstadoPedidoProduccion]]] GetEstadosPedidoProduccion() on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2026-04-10 23:52:05.065 -03:00 [INF] Route matched with {action = "GetTalleres", controller = "Taller"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Taller]]] GetTalleres() on controller BlumeAPI.Controllers.TallerController (BlumeAPI).
+2026-04-10 23:52:05.070 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."ID_FABRICANTE", f."DIRECCION", f."PROVINCIA", f."RAZON_SOCIAL", f."TELEFONO"
+FROM "FABRICANTE" AS f
+2026-04-10 23:52:05.070 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."ID_ESTADO_PRODUCCION", e."CODIGO", e."DESCRIPCION"
+FROM "ESTADO_PEDIDO_PRODUCCION" AS e
+2026-04-10 23:52:05.092 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Taller, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:52:05.092 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EstadoPedidoProduccion, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:52:05.093 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI) in 27.6129ms
+2026-04-10 23:52:05.093 -03:00 [INF] Executed action BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI) in 27.5966ms
+2026-04-10 23:52:05.093 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetEstadosPedidoProduccion (BlumeAPI)'
+2026-04-10 23:52:05.093 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.TallerController.GetTalleres (BlumeAPI)'
+2026-04-10 23:52:05.095 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/estados - 200 null application/json; charset=utf-8 29.9529ms
+2026-04-10 23:52:05.095 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Taller - 200 null application/json; charset=utf-8 30.0486ms
+2026-04-10 23:52:07.771 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/PedidoProduccion/taller/1?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - null null
+2026-04-10 23:52:07.772 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:52:07.772 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2026-04-10 23:52:07.772 -03:00 [INF] Route matched with {action = "GetByTaller", controller = "PedidoProduccion"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetByTaller(Int32, System.DateTime, System.DateTime, System.Nullable`1[System.Int32], Int32, Int32) on controller BlumeAPI.Controllers.PedidoProduccionController (BlumeAPI).
+2026-04-10 23:52:07.777 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idTaller_0='1', @__desde_1='2026-03-11T00:00:00.0000000' (DbType = Date), @__hasta_2='2026-04-11T00:00:00.0000000' (DbType = Date)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "PEDIDO_PRODUCCION" AS p
+INNER JOIN "FABRICANTE" AS f ON p."ID_FABRICANTE" = f."ID_FABRICANTE"
+WHERE f."ID_FABRICANTE" = @__idTaller_0 AND p."FECHA" >= @__desde_1 AND p."FECHA" <= @__hasta_2
+2026-04-10 23:52:07.791 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__idTaller_0='1', @__desde_1='2026-03-11T00:00:00.0000000' (DbType = Date), @__hasta_2='2026-04-11T00:00:00.0000000' (DbType = Date), @__p_4='10', @__p_3='0'], CommandType='"Text"', CommandTimeout='30']
+SELECT t."ID_PEDIDO_PRODUCCION", t."FECHA", t."ID_PRESUPUESTO", t."ID_ESTADO_PEDIDO_PROD", t."ID_FABRICANTE", t."ID_FABRICANTE0", t."DIRECCION", t."PROVINCIA", t."RAZON_SOCIAL", t."TELEFONO", e."ID_ESTADO_PRODUCCION", e."CODIGO", e."DESCRIPCION", t0."ID_PRODUCCION_ARTICULO", t0."CANTIDAD", t0."CANT_PENDIENTE", t0."CODIGO", t0."DESCRIPCION", t0."ID_ARTICULO", t0."ID_PEDIDO_PRODUCCION", t0."ID_ARTICULO0", t0."CODIGO0", t0."DESCRIPCION0", t0."HABILITADO", t0."ID_ARTICULO_PRECIO", t0."ID_ASOCIADO_RELLENO", t0."ID_COLOR", t0."ID_FABRICANTE", t0."ID_MEDIDA", t0."ID_SUBFAMILIA", t0."STOCK", t0."ID_COLOR0", t0."CODIGO1", t0."HEXA", t0."DESCRIPCION1", t0."ID_SUBFAMILIA0", t0."CODIGO2", t0."DESCRIPCION2", t0."ID_MEDIDA0", t0."CODIGO3", t0."DESCRIPCION3", t0."ID_ARTICULO_PRECIO0", t0."CODIGO4", t0."DESCRIPCION4", t0."PRECIO1", t0."PRECIO2", t0."PRECIO3", t0."RELLENO"
+FROM (
+    SELECT p."ID_PEDIDO_PRODUCCION", p."FECHA", p."ID_PRESUPUESTO", p."ID_ESTADO_PEDIDO_PROD", p."ID_FABRICANTE", f."ID_FABRICANTE" AS "ID_FABRICANTE0", f."DIRECCION", f."PROVINCIA", f."RAZON_SOCIAL", f."TELEFONO"
+    FROM "PEDIDO_PRODUCCION" AS p
+    INNER JOIN "FABRICANTE" AS f ON p."ID_FABRICANTE" = f."ID_FABRICANTE"
+    WHERE f."ID_FABRICANTE" = @__idTaller_0 AND p."FECHA" >= @__desde_1 AND p."FECHA" <= @__hasta_2
+    ORDER BY p."FECHA" DESC, p."ID_PEDIDO_PRODUCCION" DESC
+    LIMIT @__p_4 OFFSET @__p_3
+) AS t
+INNER JOIN "ESTADO_PEDIDO_PRODUCCION" AS e ON t."ID_ESTADO_PEDIDO_PROD" = e."ID_ESTADO_PRODUCCION"
+LEFT JOIN (
+    SELECT p0."ID_PRODUCCION_ARTICULO", p0."CANTIDAD", p0."CANT_PENDIENTE", p0."CODIGO", p0."DESCRIPCION", p0."ID_ARTICULO", p0."ID_PEDIDO_PRODUCCION", a."ID_ARTICULO" AS "ID_ARTICULO0", a."CODIGO" AS "CODIGO0", a."DESCRIPCION" AS "DESCRIPCION0", a."HABILITADO", a."ID_ARTICULO_PRECIO", a."ID_ASOCIADO_RELLENO", a."ID_COLOR", a."ID_FABRICANTE", a."ID_MEDIDA", a."ID_SUBFAMILIA", a."STOCK", c."ID_COLOR" AS "ID_COLOR0", c."CODIGO" AS "CODIGO1", c."HEXA", c."DESCRIPCION" AS "DESCRIPCION1", s."ID_SUBFAMILIA" AS "ID_SUBFAMILIA0", s."CODIGO" AS "CODIGO2", s."DESCRIPCION" AS "DESCRIPCION2", m."ID_MEDIDA" AS "ID_MEDIDA0", m."CODIGO" AS "CODIGO3", m."DESCRIPCION" AS "DESCRIPCION3", a0."ID_ARTICULO_PRECIO" AS "ID_ARTICULO_PRECIO0", a0."CODIGO" AS "CODIGO4", a0."DESCRIPCION" AS "DESCRIPCION4", a0."PRECIO1", a0."PRECIO2", a0."PRECIO3", a0."RELLENO"
+    FROM "PRODUCCION_ARTICULO" AS p0
+    INNER JOIN "ARTICULO" AS a ON p0."ID_ARTICULO" = a."ID_ARTICULO"
+    INNER JOIN "COLOR" AS c ON a."ID_COLOR" = c."ID_COLOR"
+    LEFT JOIN "SUBFAMILIA" AS s ON a."ID_SUBFAMILIA" = s."ID_SUBFAMILIA"
+    INNER JOIN "MEDIDA" AS m ON a."ID_MEDIDA" = m."ID_MEDIDA"
+    LEFT JOIN "ARTICULO_PRECIO" AS a0 ON a."ID_ARTICULO_PRECIO" = a0."ID_ARTICULO_PRECIO"
+) AS t0 ON t."ID_PEDIDO_PRODUCCION" = t0."ID_PEDIDO_PRODUCCION"
+ORDER BY t."FECHA" DESC, t."ID_PEDIDO_PRODUCCION" DESC, t."ID_FABRICANTE0", e."ID_ESTADO_PRODUCCION", t0."ID_PRODUCCION_ARTICULO", t0."ID_ARTICULO0", t0."ID_COLOR0", t0."ID_SUBFAMILIA0", t0."ID_MEDIDA0"
+2026-04-10 23:52:07.794 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__idsUnicos_0={ '1464', '1155', '1289', '1334', '1306', ... } (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."ID_PRESUPUESTO" AS "Id", c."RAZON_SOCIAL" AS "Nombre"
+FROM "PRESUPUESTO" AS p
+INNER JOIN "CLIENTE" AS c ON p."ID_CLIENTE" = c."ID_CLIENTE"
+WHERE p."ID_PRESUPUESTO" = ANY (@__idsUnicos_0)
+2026-04-10 23:52:07.795 -03:00 [INF] Executing OkObjectResult, writing value of type 'PagedResult`1[[PedidoProduccionDTO, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:52:07.795 -03:00 [INF] Executed action BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI) in 22.8882ms
+2026-04-10 23:52:07.795 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.PedidoProduccionController.GetByTaller (BlumeAPI)'
+2026-04-10 23:52:07.795 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/PedidoProduccion/taller/1?desde=2026-03-11&hasta=2026-04-11&page=1&pageSize=10 - 200 null application/json; charset=utf-8 23.9968ms
+2026-04-10 23:54:05.267 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - null null
+2026-04-10 23:54:05.268 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:54:05.269 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:54:05.269 -03:00 [INF] Route matched with {action = "Get", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[Cliente] Get() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:54:05.534 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Cliente, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:54:05.540 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.Get (BlumeAPI) in 270.8035ms
+2026-04-10 23:54:05.540 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.Get (BlumeAPI)'
+2026-04-10 23:54:05.540 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetClientes - 200 null application/json; charset=utf-8 273.5482ms
+2026-04-10 23:54:07.049 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/GetCondicionFiscal - null null
+2026-04-10 23:54:07.049 -03:00 [INF] CORS policy execution successful.
+2026-04-10 23:54:07.049 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.GetCondicionFiscal (BlumeAPI)'
+2026-04-10 23:54:07.050 -03:00 [INF] Route matched with {action = "GetCondicionFiscal", controller = "Cliente"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[CondicionFiscal] GetCondicionFiscal() on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-10 23:54:07.052 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[CondicionFiscal, BlumeAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-10 23:54:07.053 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.GetCondicionFiscal (BlumeAPI) in 2.1097ms
+2026-04-10 23:54:07.053 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.GetCondicionFiscal (BlumeAPI)'
+2026-04-10 23:54:07.053 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/GetCondicionFiscal - 200 null application/json; charset=utf-8 3.5165ms

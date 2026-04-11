@@ -12,7 +12,7 @@ namespace BlumeAPI.Controllers;
 public class FacturaController : ControllerBase
 {
 
-    private readonly ILogger<ClienteController> _logger;
+    private readonly IARCAService _arcaService;
     private readonly IFacturaService _facturaService;
     private readonly IDbConnectionFactory _factory;
     private readonly AfipWsfeClient _afipClient;
@@ -21,7 +21,7 @@ public class FacturaController : ControllerBase
 
 
 
-    public FacturaController(ILogger<ClienteController> logger, 
+    public FacturaController(IARCAService arcaService, 
                              IFacturaService facturaService, 
                              IDbConnectionFactory factory, 
                              AfipWsfeClient afipClient,
@@ -29,7 +29,7 @@ public class FacturaController : ControllerBase
                             AppDbContext context
                              )
     {
-        _logger = logger;
+        _arcaService = arcaService;
         _facturaService = facturaService;
         _factory = factory;
         _afipClient = afipClient;
@@ -171,7 +171,7 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
         try
         {
             var facturaService = new FacturaServices(_afipClient);
-            var afipService = new AfipServices();
+            
 
             // =========================
             // 1️⃣ Crear factura interna
@@ -182,10 +182,7 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
             // =========================
             // 2️⃣ Autenticación AFIP
             // =========================
-            var loginTicket = await afipService.AutenticacionAsync(
-                verbose: false,
-                connection
-            );
+            var loginTicket = await _arcaService.AutenticacionAsync();
 
             if (loginTicket == null)
                 throw new Exception("No se pudo autenticar contra AFIP.");
@@ -310,8 +307,6 @@ public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito
     
     try
     {
-        var afipService = new AfipServices();
-
         // 1️⃣ Crear NC interna
         var response = await _facturaService.CrearNotaCreditoAsync(notaDeCredito);
         notaDeCredito.Id = response.Id;
@@ -320,7 +315,7 @@ public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito
         using var connection = (NpgsqlConnection)_factory.CreateConnection();
         connection.Open();
 
-        var loginTicket = await afipService.AutenticacionAsync(verbose: false, connection);
+        var loginTicket = await _arcaService.AutenticacionAsync();
 
         if (loginTicket == null)
             throw new Exception("No se pudo autenticar contra ARCA.");

@@ -15,6 +15,7 @@ public class UnitOfWork : IUnitOfWork
     public ISubfamiliaRepository Subfamilias { get; }
     public IColorRepository Colores { get; }
     public IMedidaRepository Medidas { get; }
+    public IARCARepository Arca { get; }
 
     public UnitOfWork(
         AppDbContext context,
@@ -24,10 +25,12 @@ public class UnitOfWork : IUnitOfWork
         IPresupuestoRepository presupuestos,
         ISubfamiliaRepository subfamilias,
         IColorRepository colores,
-        IMedidaRepository medidas)
+        IMedidaRepository medidas,
+        IARCARepository arca
+        )
     {
         _context = context;
-        // Ya no usamos 'new', usamos lo que viene por inyección
+        Arca = arca;
         Presupuestos = presupuestos;
         Ingresos = ingresos;
         Articulos = articulos;

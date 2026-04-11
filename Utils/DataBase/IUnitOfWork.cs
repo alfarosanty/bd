@@ -11,6 +11,7 @@ public interface IUnitOfWork : IDisposable
     ISubfamiliaRepository Subfamilias { get; }
     IColorRepository Colores { get; }
     IMedidaRepository Medidas { get; }
+    IARCARepository Arca { get; }
 
     // Métodos de persistencia y transaccionalidad
     Task<int> SaveChangesAsync();
