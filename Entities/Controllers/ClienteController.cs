@@ -97,14 +97,14 @@ public IActionResult Actualizar([FromBody] Cliente cliente)
         con.cerrarConexion(npgsqlConnection); // cerrar manualmente
     }
 }
-/*
+
 [HttpGet("consultar-afip/{cuit}")]
     public async Task<IActionResult> ConsultarAFIP(long cuit)
     {
         try
         {
             // Llamas a tu servicio, que se encarga de hablar con ARCA
-            var datosCliente = await _arcaService.ConsultarPersona(cuit);
+            var datosCliente = await _arcaService.ConsultarPersonaAsync(cuit);
             
             if (datosCliente == null) return NotFound("CUIT no encontrado");
             
@@ -115,6 +115,6 @@ public IActionResult Actualizar([FromBody] Cliente cliente)
             return BadRequest($"Error consultando ARCA: {ex.Message}");
         }
     }
-*/
+
 
 }

@@ -1,24 +1,36 @@
 using System.Security;
 using BlumeAPI.Entities;
 using BlumeAPI.Services;
+using BlumeAPI.ServiceReference.Padron;
+using System.ServiceModel;
+using Microsoft.Extensions.Options;
+using Serilog;
 
 public class ARCAService : IARCAService
 {
 
     private readonly IUnitOfWork _iUnitOfWork;
-    public ARCAService(IUnitOfWork iUnitOfWork)
+    private readonly AfipSettings _afipSettings;
+    private readonly AfipPadronClient _padronClient;
+
+    public ARCAService( IUnitOfWork iUnitOfWork,
+                        IOptions<AfipSettings> afipSettings,
+                        AfipPadronClient padronClient
+    )
     {
         _iUnitOfWork = iUnitOfWork;
+        _afipSettings = afipSettings.Value;
+        _padronClient = padronClient;
     }
 
-    public async Task<LoginTicketResponseData> AutenticacionAsync()
+    public async Task<LoginTicketResponseData> AutenticacionAsync(string servicio)    
     {
         Console.WriteLine("Iniciando proceso de autenticación...");
 
         try
         {
             // 1️⃣ Buscamos el token actual usando tu nuevo repositorio
-            var auth = await _iUnitOfWork.Arca.ObtenerAutenticacionAsync();
+            var auth = await _iUnitOfWork.Arca.ObtenerAutenticacionPorServicioAsync(servicio);
 
             if (auth != null && auth.Expiracion.ToUniversalTime() > DateTime.UtcNow)
             {
@@ -37,7 +49,7 @@ public class ARCAService : IARCAService
 
             // 2️⃣ Obtenemos configuración desde la BD
             var config = await _iUnitOfWork.Arca.ObtenerConfiguracionAsync() 
-                        ?? throw new Exception("No se encontró configuración en DATOS_AFIP");
+                 ?? throw new Exception($"No se encontró configuración para el servicio {servicio}");
 
             // 3️⃣ Construimos SecureString
             SecureString passwordSecure = new SecureString();
@@ -49,7 +61,7 @@ public class ARCAService : IARCAService
             var loginResponse = await loginTicket.ObtenerLoginTicketResponse(
                 config.Certificado,
                 passwordSecure,
-                config.Servicio,
+                servicio,
                 config.UrlWsaa,
                 true // verbose
             );
@@ -62,11 +74,14 @@ public class ARCAService : IARCAService
                 UniqueId = loginResponse.UniqueId,
                 Token = loginResponse.Token,
                 Firma = loginResponse.Sign,
-                Expiracion = loginResponse.ExpirationTime
+                Expiracion = loginResponse.ExpirationTime,
+                Servicio = servicio
             };
 
             await _iUnitOfWork.Arca.GuardarAutenticacionAsync(nuevaAuth);
             await _iUnitOfWork.SaveChangesAsync(); // Persistimos los cambios
+
+            loginResponse.Service = servicio;
 
             return loginResponse;
         }
@@ -74,6 +89,32 @@ public class ARCAService : IARCAService
         {
             Console.WriteLine($"ERROR crítico en autenticación: {ex.Message}");
             throw;
+        }
+    }
+
+
+
+    public async Task<ArcaPersonaDto?> ConsultarPersonaAsync(long cuit)
+    {
+        try
+        {
+            // Definimos el servicio que vamos a usar
+            string servicioPadron = "ws_sr_padron_a13"; 
+
+            // Pasamos el servicio a tu método de autenticación mejorado
+            var ticket = await AutenticacionAsync(servicioPadron);
+
+            return await _padronClient.ObtenerPersonaAsync(
+                ticket.Token, 
+                ticket.Sign, 
+                long.Parse(_afipSettings.Cuit), 
+                cuit
+            );
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error al consultar AFIP para CUIT {Cuit}", cuit);
+            return null;
         }
     }
 

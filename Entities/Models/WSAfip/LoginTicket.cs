@@ -3,7 +3,6 @@ using System.Text;
 using System.Xml;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
-using Newtonsoft.Json;
 
 
 
@@ -164,6 +163,7 @@ public class LoginTicket
             nodo = XmlLoginTicketResponse.SelectSingleNode("//token") 
                 ?? throw new Exception("No se encontró el nodo <token> en la respuesta del WSAA");
             loginTicketData.Token = nodo.InnerText;
+            loginTicketData.Service = argServicio;
 
             // Devolvemos como JSON
             return loginTicketData;

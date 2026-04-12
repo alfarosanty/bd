@@ -5,4 +5,5 @@ public class LoginTicketResponseData
     public DateTime GenerationTime { get; set; }
     public DateTime ExpirationTime { get; set; }
     public string UniqueId { get; set; }
+    public string Service { get; set; }
 }

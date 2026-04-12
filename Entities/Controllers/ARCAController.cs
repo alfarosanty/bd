@@ -21,25 +21,45 @@ namespace BlumeAPI.Controllers
         /// Endpoint de prueba para pedir un LoginTicket
         /// </summary>
         /// <returns>LoginTicketResponseData en JSON</returns>
-        [HttpGet("login")]
-        public async Task<IActionResult> ObtenerLoginTicket()
+[HttpGet("login/facturaElectronica")]
+    public async Task<IActionResult> ObtenerLoginTicketWSFE()
+    {
+        try
         {
-            try
-            {
 
-                var loginTicket = await _arcaService.AutenticacionAsync();
+            var loginTicket = await _arcaService.AutenticacionAsync("wsfe");
 
-                return Ok(loginTicket);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new
-                {
-                    error = "Error al generar el LoginTicket",
-                    detalle = ex.Message
-                });
-            }
+            return Ok(loginTicket);
         }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                error = "Error al generar el LoginTicket",
+                detalle = ex.Message
+            });
+        }
+    }
+
+[HttpGet("login/padron")]
+    public async Task<IActionResult> ObtenerLoginTicketPadron()
+    {
+        try
+        {
+
+            var loginTicket = await _arcaService.AutenticacionAsync("ws_sr_padron_a13");
+
+            return Ok(loginTicket);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                error = "Error al generar el LoginTicket",
+                detalle = ex.Message
+            });
+        }
+    }
     
 
 [HttpPost("insertarCertificado")]

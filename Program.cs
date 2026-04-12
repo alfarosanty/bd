@@ -138,12 +138,17 @@ builder.Services.AddScoped<ISubfamiliaService, SubfamiliaService>();
 builder.Services.AddScoped<IARCAService, ARCAService>();
 
 
-
-
 // 🔹 Conexión a la base de datos: cambiás manualmente según quieras producción o pruebas
 var connectionString = builder.Configuration.GetConnectionString(
     "BD"
     );
+
+builder.Services.AddScoped<AfipPadronClient>(provider => 
+{
+    var config = provider.GetRequiredService<IConfiguration>();
+    var logger = provider.GetRequiredService<ILogger<AfipPadronClient>>();
+    return new AfipPadronClient(config["Afip:UrlPadronA13"], logger);
+});
 // Variables de entorno para AFIP WSFE1
 builder.Services.Configure<AfipSettings>(builder.Configuration.GetSection("Afip"));
 

@@ -182,7 +182,8 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
             // =========================
             // 2️⃣ Autenticación AFIP
             // =========================
-            var loginTicket = await _arcaService.AutenticacionAsync();
+            var servicioPadron = "wsfe";
+            var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
 
             if (loginTicket == null)
                 throw new Exception("No se pudo autenticar contra AFIP.");
@@ -315,7 +316,8 @@ public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito
         using var connection = (NpgsqlConnection)_factory.CreateConnection();
         connection.Open();
 
-        var loginTicket = await _arcaService.AutenticacionAsync();
+        var servicioPadron = "wsfe";
+        var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
 
         if (loginTicket == null)
             throw new Exception("No se pudo autenticar contra ARCA.");
