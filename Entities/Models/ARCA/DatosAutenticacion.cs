@@ -2,7 +2,7 @@ namespace BlumeAPI.Entities;
 
 public class DatosAutenticacion
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     public string UniqueId { get; set; } = null!;
     public string Token { get; set; } = null!;
     public string Firma { get; set; } = null!;

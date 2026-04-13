@@ -1,0 +1,57 @@
+2026-04-13 00:01:45.920 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-13 00:01:46.090 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-13 00:01:46.162 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-13 00:01:46.164 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-13 00:01:46.164 -03:00 [INF] Hosting environment: Development
+2026-04-13 00:01:46.164 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-13 00:01:53.345 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-13 00:01:53.494 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-13 00:01:53.510 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-13 00:01:53.513 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:01:53.545 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-13 00:01:54.212 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-13 00:01:54.334 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-13 00:01:55.147 -03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-13 00:01:55.218 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2026-04-13 00:01:55.279 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 1732.1542ms
+2026-04-13 00:01:55.281 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:01:55.291 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 200 null application/json; charset=utf-8 1947.5908ms
+2026-04-13 00:02:19.028 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-13 00:02:19.042 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-13 00:02:19.042 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:02:19.042 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-13 00:02:37.578 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-13 00:02:43.589 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2026-04-13 00:02:43.589 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 24546.816ms
+2026-04-13 00:02:43.589 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:02:43.590 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 200 null application/json; charset=utf-8 24562.5794ms
+2026-04-13 00:03:08.468 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-13 00:03:08.524 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-13 00:03:08.581 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-13 00:03:08.582 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-13 00:03:08.583 -03:00 [INF] Hosting environment: Development
+2026-04-13 00:03:08.583 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-13 00:03:12.668 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-13 00:03:12.724 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-13 00:03:12.740 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-13 00:03:12.742 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:03:12.754 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-13 00:03:20.129 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-13 00:03:20.253 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-13 00:03:21.030 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-13 00:03:21.098 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2026-04-13 00:03:21.157 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 8400.1298ms
+2026-04-13 00:03:21.158 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-13 00:03:21.169 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 200 null application/json; charset=utf-8 8502.4192ms

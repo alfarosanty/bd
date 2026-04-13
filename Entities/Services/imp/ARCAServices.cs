@@ -25,7 +25,7 @@ public class ARCAService : IARCAService
 
     public async Task<LoginTicketResponseData> AutenticacionAsync(string servicio)    
     {
-        Console.WriteLine("Iniciando proceso de autenticación...");
+        Console.WriteLine("Iniciando proceso de autenticación...", servicio);
 
         try
         {
@@ -41,7 +41,8 @@ public class ARCAService : IARCAService
                     Sign = auth.Firma,
                     ExpirationTime = auth.Expiracion,
                     GenerationTime = DateTime.Now, // Esto es informativo
-                    UniqueId = auth.UniqueId
+                    UniqueId = auth.UniqueId,
+                    Service = servicio
                 };
             }
 
@@ -82,6 +83,7 @@ public class ARCAService : IARCAService
             await _iUnitOfWork.SaveChangesAsync(); // Persistimos los cambios
 
             loginResponse.Service = servicio;
+            Console.WriteLine("Loginresponse: {@LoginResponse}", loginResponse);
 
             return loginResponse;
         }

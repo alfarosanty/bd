@@ -348,3 +348,145 @@ LIMIT 1
 2026-04-12 19:45:15.599 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketWSFE (BlumeAPI) in 65.7863ms
 2026-04-12 19:45:15.599 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketWSFE (BlumeAPI)'
 2026-04-12 19:45:15.599 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/facturaElectronica - 200 null application/json; charset=utf-8 76.5596ms
+2026-04-12 23:31:29.640 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-12 23:31:29.788 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-12 23:31:29.956 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-12 23:31:29.957 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-12 23:31:29.958 -03:00 [INF] Hosting environment: Development
+2026-04-12 23:31:29.958 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-12 23:31:47.282 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - null null
+2026-04-12 23:31:47.440 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - 200 null text/html;charset=utf-8 160.1219ms
+2026-04-12 23:31:47.569 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - null null
+2026-04-12 23:31:47.884 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 314.4496ms
+2026-04-12 23:31:50.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-12 23:31:50.834 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-12 23:31:50.848 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-12 23:31:50.850 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:31:50.880 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-12 23:31:52.580 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-12 23:31:52.711 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-12 23:31:53.728 -03:00 [INF] Executed DbCommand (72ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-12 23:31:53.781 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+System.InvalidOperationException: An error occurred while reading a database value for property 'DatosAutenticacion.Id'. The expected type was 'System.Int32' but the actual value was null.
+ ---> System.InvalidCastException: Column 'ID' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetInt32(Int32 ordinal)
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   --- End of inner exception stack trace ---
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An error occurred while reading a database value for property 'DatosAutenticacion.Id'. The expected type was 'System.Int32' but the actual value was null.
+ ---> System.InvalidCastException: Column 'ID' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetInt32(Int32 ordinal)
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   --- End of inner exception stack trace ---
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-12 23:31:54.022 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-12 23:31:54.038 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 3155.4037ms
+2026-04-12 23:31:54.038 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:31:54.075 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 500 null application/json; charset=utf-8 3248.0811ms
+2026-04-12 23:35:39.908 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-12 23:35:39.964 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-12 23:35:40.021 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-12 23:35:40.023 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-12 23:35:40.023 -03:00 [INF] Hosting environment: Development
+2026-04-12 23:35:40.023 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-12 23:35:53.439 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/index.html - null null
+2026-04-12 23:35:53.575 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/index.html - 200 null text/html;charset=utf-8 137.3361ms
+2026-04-12 23:35:53.728 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - null null
+2026-04-12 23:35:53.853 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.3366ms
+2026-04-12 23:35:56.519 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-12 23:35:56.527 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-12 23:35:56.537 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-12 23:35:56.540 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:35:56.552 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-12 23:35:57.216 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-12 23:35:57.339 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-12 23:35:58.130 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-12 23:35:58.161 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AppDbContext'.
+System.InvalidOperationException: An error occurred while reading a database value for property 'DatosAutenticacion.Id'. The expected type was 'System.Nullable`1[System.Int32]' but the actual value was null.
+ ---> System.InvalidCastException: Column 'ID' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetInt32(Int32 ordinal)
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   --- End of inner exception stack trace ---
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An error occurred while reading a database value for property 'DatosAutenticacion.Id'. The expected type was 'System.Nullable`1[System.Int32]' but the actual value was null.
+ ---> System.InvalidCastException: Column 'ID' is null.
+   at Npgsql.ThrowHelper.ThrowInvalidCastException_NoValue(FieldDescription field)
+   at Npgsql.NpgsqlDataReader.DbNullValueOrThrow[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetFieldValueCore[T](Int32 ordinal)
+   at Npgsql.NpgsqlDataReader.GetInt32(Int32 ordinal)
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   --- End of inner exception stack trace ---
+   at lambda_method35(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-12 23:35:58.463 -03:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-12 23:35:58.479 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 1923.7369ms
+2026-04-12 23:35:58.479 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:35:58.488 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 500 null application/json; charset=utf-8 1969.9667ms
+2026-04-12 23:40:25.790 -03:00 [INF] User profile is available. Using 'C:\Users\Mosque pai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-12 23:40:25.852 -03:00 [WRN] The WebRootPath was not found: E:\Proyectos-Trabajos\BlumeDesign\bd\wwwroot. Static files may be unavailable.
+2026-04-12 23:40:25.910 -03:00 [INF] Now listening on: http://0.0.0.0:7166
+2026-04-12 23:40:25.911 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-12 23:40:25.911 -03:00 [INF] Hosting environment: Development
+2026-04-12 23:40:25.911 -03:00 [INF] Content root path: E:\Proyectos-Trabajos\BlumeDesign\bd
+2026-04-12 23:40:43.693 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - null null
+2026-04-12 23:40:43.747 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-04-12 23:40:43.763 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-12 23:40:43.765 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:40:43.778 -03:00 [INF] Route matched with {action = "ObtenerLoginTicketPadron", controller = "ARCA"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerLoginTicketPadron() on controller BlumeAPI.Controllers.ARCAController (BlumeAPI).
+2026-04-12 23:40:44.417 -03:00 [WRN] The navigation 'NotaDeCredito.Articulos' was first mapped explicitly and then ignored. Consider not mapping the navigation in the first place.
+2026-04-12 23:40:44.535 -03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2026-04-12 23:40:45.302 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-12 23:40:45.520 -03:00 [INF] Executing OkObjectResult, writing value of type 'LoginTicketResponseData'.
+2026-04-12 23:40:45.590 -03:00 [INF] Executed action BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI) in 1810.2959ms
+2026-04-12 23:40:45.591 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ARCAController.ObtenerLoginTicketPadron (BlumeAPI)'
+2026-04-12 23:40:45.602 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/api/ARCA/login/padron - 200 null application/json; charset=utf-8 1910.3728ms
+2026-04-12 23:41:30.106 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/consultar-afip/30716479966 - null null
+2026-04-12 23:41:30.110 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-12 23:41:30.110 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI)'
+2026-04-12 23:41:30.127 -03:00 [INF] Route matched with {action = "ConsultarAFIP", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConsultarAFIP(Int64) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-12 23:41:30.258 -03:00 [INF] Executed DbCommand (97ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-12 23:41:31.040 -03:00 [INF] Executing OkObjectResult, writing value of type 'ArcaPersonaDto'.
+2026-04-12 23:41:31.046 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI) in 919.7696ms
+2026-04-12 23:41:31.047 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI)'
+2026-04-12 23:41:31.062 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/consultar-afip/30716479966 - 200 null application/json; charset=utf-8 956.4179ms
+2026-04-12 23:59:16.670 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7166/Cliente/consultar-afip/20449579292 - null null
+2026-04-12 23:59:16.685 -03:00 [INF] MiCookieAuth was not authenticated. Failure message: Ticket expired
+2026-04-12 23:59:16.685 -03:00 [INF] Executing endpoint 'BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI)'
+2026-04-12 23:59:16.686 -03:00 [INF] Route matched with {action = "ConsultarAFIP", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ConsultarAFIP(Int64) on controller BlumeAPI.Controllers.ClienteController (BlumeAPI).
+2026-04-12 23:59:17.017 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__servicio_0='ws_sr_padron_a13'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."ID", d."EXPIRACION", d."FIRMA", d."SERVICIO", d."TOKEN", d."UNIQUE_ID"
+FROM "DATOS_AUTENTICACION" AS d
+WHERE d."SERVICIO" = @__servicio_0
+LIMIT 1
+2026-04-12 23:59:17.134 -03:00 [INF] Executing OkObjectResult, writing value of type 'ArcaPersonaDto'.
+2026-04-12 23:59:17.134 -03:00 [INF] Executed action BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI) in 448.7581ms
+2026-04-12 23:59:17.134 -03:00 [INF] Executed endpoint 'BlumeAPI.Controllers.ClienteController.ConsultarAFIP (BlumeAPI)'
+2026-04-12 23:59:17.135 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7166/Cliente/consultar-afip/20449579292 - 200 null application/json; charset=utf-8 464.9397ms
