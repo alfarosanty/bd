@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.RegularExpressions;
 using BlumeAPI.Entities;
 using BlumeAPI.Repository;
 using BlumeAPI.Services;
@@ -141,7 +142,11 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
             for (int i = 0; i < propiedades.Count; i++)
             {
                 var cell = worksheet.Cell(1, i + 1);
-                cell.Value = propiedades[i].Name.ToUpper();
+                
+                // Transformamos "IdColor" o "IdArticuloPrecio" a "ID_COLOR" o "ID_ARTICULO_PRECIO"
+                string nombreFormateado = FormatearNombreEncabezado(propiedades[i].Name);
+                
+                cell.Value = nombreFormateado;
                 cell.Style.Font.Bold = true;
                 cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#1f4e78");
                 cell.Style.Font.FontColor = XLColor.White;
@@ -230,6 +235,21 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
                 return stream.ToArray();
             }
         }
+    }
+
+
+
+
+// AUXILIAR
+
+    private string FormatearNombreEncabezado(string nombre)
+    {
+        // 1. Insertamos un guion bajo antes de cada mayúscula, excepto la primera
+        // Ej: IdColor -> Id_Color
+        var resultado = Regex.Replace(nombre, @"(\p{Ll})(\p{Lu})", "$1_$2");
+        
+        // 2. Pasamos todo a mayúsculas
+        return resultado.ToUpper();
     }
 
 }

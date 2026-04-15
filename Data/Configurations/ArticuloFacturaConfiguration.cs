@@ -45,7 +45,8 @@ namespace BlumeAPI.Data.Configurations
             
            entity.HasOne(af => af.Factura)
                 .WithMany(f => f.Articulos)
-                .HasForeignKey(af => af.IdFactura);
+                .HasForeignKey(af => af.IdFactura)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //IGNORES
             entity.Ignore(af => af.Fecha);

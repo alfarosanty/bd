@@ -1,4 +1,3 @@
-using BlumeAPI.Entities.Repository;
 using BlumeAPI.Repository;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -12,6 +11,7 @@ public class UnitOfWork : IUnitOfWork
     public IArticuloRepository Articulos { get; }
     public IPedidoProduccionRepository Pedidos { get; }
     public IPresupuestoRepository Presupuestos { get; }
+    public IFacturaRepository Facturas { get; }
     public ISubfamiliaRepository Subfamilias { get; }
     public IColorRepository Colores { get; }
     public IMedidaRepository Medidas { get; }
@@ -26,7 +26,8 @@ public class UnitOfWork : IUnitOfWork
         ISubfamiliaRepository subfamilias,
         IColorRepository colores,
         IMedidaRepository medidas,
-        IARCARepository arca
+        IARCARepository arca,
+        IFacturaRepository facturaRepository
         )
     {
         _context = context;
@@ -38,6 +39,7 @@ public class UnitOfWork : IUnitOfWork
         Subfamilias = subfamilias;
         Colores = colores;
         Medidas = medidas;
+        Facturas = facturaRepository;
     }
     public async Task<int> SaveChangesAsync()
     {

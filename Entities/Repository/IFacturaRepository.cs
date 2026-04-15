@@ -8,6 +8,9 @@ public interface IFacturaRepository
     Task<PagedResult<Factura>> GetByCliente(int idCliente, DateTime desde, DateTime hasta, bool? facturadoARCA, int page, int pageSize);
     
     Task<Factura?> GetByIdAsync(int idFactura);
+    Task AddAsync(Factura factura);
+
+    void ActualizarDatosAFIP(Factura factura, AfipResponse respuesta);
     //DAPPER
 
     // NOTA DE CRÉDITO

@@ -100,6 +100,7 @@ public async Task<Factura?> GetByIdAsync(int idFactura)
     var query = _context.Facturas
         .AsNoTracking()
         .Include(f => f.Cliente)
+            .ThenInclude(c=>c.CondicionFiscal)
         .Include(f => f.Articulos) 
             .ThenInclude(af => af.Articulo)
                 .ThenInclude(a => a.Color)
@@ -118,6 +119,21 @@ public async Task<Factura?> GetByIdAsync(int idFactura)
     var sql = query.ToQueryString(); 
 
     return await query.FirstOrDefaultAsync();
+}
+
+public async Task AddAsync(Factura factura)
+{
+    await _context.Facturas.AddAsync(factura);
+}
+
+public void ActualizarDatosAFIP(Factura factura, AfipResponse respuesta)
+{
+    factura.NumeroComprobante = int.Parse(respuesta.numeroComprobante);
+    factura.CaeNumero = long.Parse(respuesta.Cae);
+    factura.FechaVencimientoCae = respuesta.CaeVencimiento;
+    // Manejo de errores/observaciones si los guardas en la misma tabla o una relacionada
+    
+    _context.Facturas.Update(factura);
 }
 
     // ============================

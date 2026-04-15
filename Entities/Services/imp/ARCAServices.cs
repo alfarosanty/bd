@@ -1,8 +1,6 @@
 using System.Security;
 using BlumeAPI.Entities;
 using BlumeAPI.Services;
-using BlumeAPI.ServiceReference.Padron;
-using System.ServiceModel;
 using Microsoft.Extensions.Options;
 using Serilog;
 
@@ -83,7 +81,6 @@ public class ARCAService : IARCAService
             await _iUnitOfWork.SaveChangesAsync(); // Persistimos los cambios
 
             loginResponse.Service = servicio;
-            Console.WriteLine("Loginresponse: {@LoginResponse}", loginResponse);
 
             return loginResponse;
         }
@@ -118,6 +115,19 @@ public class ARCAService : IARCAService
             Log.Error(ex, "Error al consultar AFIP para CUIT {Cuit}", cuit);
             return null;
         }
+    }
+
+    public async Task GuardarCertificadoAsync(byte[] certificadoBytes)
+    {
+        var datosAfip = await _iUnitOfWork.Arca.GetPrimerRegistroAsync();
+
+        if (datosAfip == null)
+            throw new Exception("No existe el registro de configuración AFIP en la base de datos.");
+
+        datosAfip.Certificado = certificadoBytes;
+        
+        _iUnitOfWork.Arca.Update(datosAfip);
+        await _iUnitOfWork.SaveChangesAsync();
     }
 
 }

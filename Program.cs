@@ -127,7 +127,7 @@ builder.Services.AddScoped<IARCARepository, ARCARepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<IArticuloService, ArticuloServicesNUEVO>();
-builder.Services.AddScoped<IFacturaService, FacturaServicesNUEVO>();
+builder.Services.AddScoped<IFacturaService, FacturaService>();
 builder.Services.AddScoped<IPresupuestoService, PresupuestoService>();
 builder.Services.AddScoped<IPedidoProduccionService, PedidoProduccionService>();
 builder.Services.AddScoped<ITallerService, TallerService>();

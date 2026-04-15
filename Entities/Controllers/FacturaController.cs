@@ -37,76 +37,42 @@ public class FacturaController : ControllerBase
         _context = context;
     }
 
-    [HttpPost("crear")]
-    public ActionResult  Crear(Factura factura){
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
+    [HttpPost()]
+    public async Task<ActionResult>  Crear(Factura factura){
 
-        FacturaServices  fs = new FacturaServices(_afipClient);
-        int id =  fs.crear(factura, npgsqlConnection);
+        int id =  await _facturaService.Crear(factura, false);
         factura.Id = id;
-         con.cerrarConexion(npgsqlConnection);
         return Ok(new
         {
             idInterno = id,
             respuestaCompleta = factura
-        });    }
-
-
-[HttpGet("GetByCliente/{idCliente}")]
-public IActionResult GetFacturasPorCliente(
-    int idCliente,
-    [FromQuery] DateTime? desde,
-    [FromQuery] DateTime? hasta)
-{
-    if (idCliente <= 0)
-        return BadRequest("Id de cliente inválido");
-
-    var con = new CConexion();
-    NpgsqlConnection npgsqlConnection = null;
-
-    try
-    {
-        npgsqlConnection = con.establecerConexion();
-
-        var fs = new FacturaServices(_afipClient);
-        var facturas = fs.GetFacturasByCliente(
-            idCliente,
-            desde,
-            hasta,
-            npgsqlConnection
-        );
-
-        if (facturas == null || facturas.Count == 0)
-            return NoContent();
-
-        return Ok(facturas);
+        });    
     }
-    catch (PostgresException ex)
+
+[HttpPost("ARCA")]
+    public async Task<ActionResult> CrearConARCAAsync([FromBody] Factura factura)
     {
-        return StatusCode(500, "Error de la Base de datos: " + ex.Message);
+        if (factura == null) return BadRequest("Factura inválida.");
+
+        try
+        {
+
+            int idInterno = await _facturaService.Crear(factura, true);
+            
+            return Ok(new { idInterno, mensaje = "Factura autorizada correctamente." });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
-    catch (Exception ex)
-    {
-        return StatusCode(500, "Error interno del servidor" + ex.Message);
-    }
-    finally
-    {
-        if (npgsqlConnection != null)
-            con.cerrarConexion(npgsqlConnection);
-    }
-}
 
 [HttpGet("{id}/pdf")]
-public IActionResult PdfFactura(int id)
+public async Task<IActionResult> PdfFacturaAsync(int id)
 {
-    CConexion con = new CConexion();
-    using var npgsqlConnection = con.establecerConexion();
+    var srv = new FastReportService(_afipClient, _facturaService);
 
-    var srv = new FastReportService(_afipClient);
-    var facturaServices = new FacturaServices(_afipClient);
-
-    Factura factura = facturaServices.GetFactura(id, npgsqlConnection);
+    Factura factura = await _facturaService.GetByIdAsync(id);
 
     var pdfOriginal = srv.CrearPdf(factura, "ORIGINAL");
     var pdfDuplicado = srv.CrearPdf(factura, "DUPLICADO");
@@ -123,127 +89,7 @@ public IActionResult PdfFactura(int id)
     return File(pdfFinal, "application/pdf", fileName);
 }
 
-
-
-[HttpGet("FacturacionXCliente")]
-public ActionResult<List<RespuestaEstadistica>> facturacionXCliente([FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
-{
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    FacturaServices fs = new FacturaServices(_afipClient);
-
-    // Llamás al servicio pasando las fechas recibidas
-    List<RespuestaEstadistica> listaDeRespuestasEstadisticas = fs.facturacionXCliente(fechaInicio, fechaFin, npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
-
-    return listaDeRespuestasEstadisticas;
-}
-
-
-
-[HttpGet("GetPorFiltros")]
-public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idCliente, [FromQuery] string? tipoFactura,[FromQuery] int? puntoDeVenta,[FromQuery] DateTime fechaInicio, [FromQuery] DateTime fechaFin)
-{
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    FacturaServices fs = new FacturaServices(_afipClient);
-
-    // Llamás al servicio pasando las fechas recibidas
-    List<Factura> listaDeFacturas = fs.getFacturaPorFiltro(idCliente, tipoFactura, puntoDeVenta, fechaInicio, fechaFin, npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
-
-    return listaDeFacturas;
-}
-
-    [HttpPost("crearConAFIP")]
-    public async Task<ActionResult> CrearConAFIPAsync([FromBody] Factura factura)
-    {
-        if (factura == null)
-            return BadRequest(new { error = "Factura inválida." });
-
-        using var connection = new CConexion().establecerConexion();
-        using var transaction = connection.BeginTransaction();
-
-        try
-        {
-            var facturaService = new FacturaServices(_afipClient);
-            
-
-            // =========================
-            // 1️⃣ Crear factura interna
-            // =========================
-            int idInterno = facturaService.crear(factura, connection);
-            factura.Id = idInterno;
-
-            // =========================
-            // 2️⃣ Autenticación AFIP
-            // =========================
-            var servicioPadron = "wsfe";
-            var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
-
-            if (loginTicket == null)
-                throw new Exception("No se pudo autenticar contra AFIP.");
-
-            // =========================
-            // 3️⃣ Facturar en AFIP
-            // =========================
-            var respuestaAfip = await facturaService.FacturarWsfeAsync(
-                factura,
-                loginTicket,
-                long.Parse(_afipSettings.Cuit)
-            );
-
-            if (!respuestaAfip.Aprobado)
-            {
-                var errores = string.Join(" | ", respuestaAfip.Errores);
-                throw new Exception($"AFIP rechazó la factura: {errores}");
-            }
-
-            // =========================
-            // 4️⃣ Guardar CAE
-            // =========================
-            facturaService.ActualizarDatosAFIP(
-                idInterno,
-                respuestaAfip,
-                connection
-            );
-
-            // =========================
-            // 5️⃣ Commit
-            // =========================
-            transaction.Commit();
-
-            return Ok(new
-            {
-                idInterno,
-                cae = respuestaAfip.Cae,
-                vencimiento = respuestaAfip.CaeVencimiento,
-                observaciones = respuestaAfip.Observaciones
-            });
-        }
-        catch (Exception ex)
-        {
-            try
-            {
-                transaction.Rollback();
-            }
-            catch
-            {
-                // si falla el rollback no queremos romper más
-            }
-
-            return BadRequest(new
-            {
-                error = ex.Message
-            });
-        }
-    }
-
-    [HttpGet]
+[HttpGet]
     public async Task<IActionResult> GetAll(
         [FromQuery] DateTime desde,
         [FromQuery] DateTime hasta,
@@ -281,80 +127,80 @@ public ActionResult<List<Factura>> getFacturaPorFiltro([FromQuery] int? idClient
 
 
 [HttpGet("{id}")]
-public async Task<IActionResult> GetFactura(int id)
-{
-    if (id <= 0)
-        return BadRequest("Id de factura inválido");
-
-    try
+    public async Task<IActionResult> GetFactura(int id)
     {
-        var factura = await _facturaService.GetByIdAsync(id);
+        if (id <= 0)
+            return BadRequest("Id de factura inválido");
 
-        if (factura == null)
-            return NotFound();
+        try
+        {
+            var factura = await _facturaService.GetByIdAsync(id);
 
-        return Ok(factura);
+            if (factura == null)
+                return NotFound();
+
+            return Ok(factura);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, "Error interno del servidor: " + ex.Message);
+        }
     }
-    catch (Exception ex)
-    {
-        return StatusCode(500, "Error interno del servidor: " + ex.Message);
-    }
-}
 
 [HttpPost("{id}/NotaCredito")]
-public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito notaDeCredito)
-{
-    using var efTransaction = await _context.Database.BeginTransactionAsync();
-    
-    try
+    public async Task<ActionResult> CrearNotaDeCreditoAsync([FromBody] NotaDeCredito notaDeCredito)
     {
-        // 1️⃣ Crear NC interna
-        var response = await _facturaService.CrearNotaCreditoAsync(notaDeCredito);
-        notaDeCredito.Id = response.Id;
-
-        // 2️⃣ Autenticación ARCA
-        using var connection = (NpgsqlConnection)_factory.CreateConnection();
-        connection.Open();
-
-        var servicioPadron = "wsfe";
-        var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
-
-        if (loginTicket == null)
-            throw new Exception("No se pudo autenticar contra ARCA.");
-
-        // 3️⃣ Autorizar en ARCA
-        var respuestaAfip = await _facturaService.ValidarNotaCreditoWsfeAsync(
-            notaDeCredito,
-            loginTicket,
-            long.Parse(_afipSettings.Cuit)
-        );
-
-        if (!respuestaAfip.Aprobado)
+        using var efTransaction = await _context.Database.BeginTransactionAsync();
+        
+        try
         {
-            var errores = string.Join(" | ", respuestaAfip.Errores);
-            throw new Exception($"ARCA rechazó la nota de crédito: {errores}");
+            // 1️⃣ Crear NC interna
+            var response = await _facturaService.CrearNotaCreditoAsync(notaDeCredito);
+            notaDeCredito.Id = response.Id;
+
+            // 2️⃣ Autenticación ARCA
+            using var connection = (NpgsqlConnection)_factory.CreateConnection();
+            connection.Open();
+
+            var servicioPadron = "wsfe";
+            var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
+
+            if (loginTicket == null)
+                throw new Exception("No se pudo autenticar contra ARCA.");
+
+            // 3️⃣ Autorizar en ARCA
+            var respuestaAfip = await _facturaService.ValidarNotaCreditoWsfeAsync(
+                notaDeCredito,
+                loginTicket,
+                long.Parse(_afipSettings.Cuit)
+            );
+
+            if (!respuestaAfip.Aprobado)
+            {
+                var errores = string.Join(" | ", respuestaAfip.Errores);
+                throw new Exception($"ARCA rechazó la nota de crédito: {errores}");
+            }
+
+            // 4️⃣ Guardar CAE
+            Console.WriteLine($"🔍 Id a actualizar: {response.Id}");
+            await _facturaService.ActualizarNotaCreditoDatosAfipAsync(response.Id, respuestaAfip);
+
+            // 5️⃣ Commit
+            await efTransaction.CommitAsync();
+
+            return Ok(new
+            {
+                response.Id,
+                cae = respuestaAfip.Cae,
+                vencimiento = respuestaAfip.CaeVencimiento,
+                observaciones = respuestaAfip.Observaciones
+            });
         }
-
-        // 4️⃣ Guardar CAE
-        Console.WriteLine($"🔍 Id a actualizar: {response.Id}");
-        await _facturaService.ActualizarNotaCreditoDatosAfipAsync(response.Id, respuestaAfip);
-
-        // 5️⃣ Commit
-        await efTransaction.CommitAsync();
-
-        return Ok(new
+        catch (Exception ex)
         {
-            response.Id,
-            cae = respuestaAfip.Cae,
-            vencimiento = respuestaAfip.CaeVencimiento,
-            observaciones = respuestaAfip.Observaciones
-        });
+            await efTransaction.RollbackAsync();
+            return BadRequest(new { error = ex.Message });
+        }
     }
-    catch (Exception ex)
-    {
-        await efTransaction.RollbackAsync();
-        return BadRequest(new { error = ex.Message });
-    }
-}
 }
 

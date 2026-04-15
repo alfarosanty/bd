@@ -1,4 +1,3 @@
-using BlumeAPI.Entities.Repository;
 using BlumeAPI.Repository;
 
 public interface IUnitOfWork : IDisposable
@@ -8,6 +7,7 @@ public interface IUnitOfWork : IDisposable
     IArticuloRepository Articulos { get; }
     IPedidoProduccionRepository Pedidos { get; }
     IPresupuestoRepository Presupuestos { get; }
+    IFacturaRepository Facturas { get; }
     ISubfamiliaRepository Subfamilias { get; }
     IColorRepository Colores { get; }
     IMedidaRepository Medidas { get; }

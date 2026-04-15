@@ -41,4 +41,15 @@ public class ARCARepository : IARCARepository
 
         await _context.SaveChangesAsync();
     }
+
+    public async Task<DatosAfip?> GetPrimerRegistroAsync()
+    {
+        return await _context.DatosAfip
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
+    }
+    public void Update(DatosAfip entidad)
+    {
+        _context.DatosAfip.Update(entidad);
+    }
 }

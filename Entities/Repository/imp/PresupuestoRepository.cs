@@ -153,6 +153,7 @@ public async Task<Presupuesto?> GetById(int id)
         {
             foreach (var item in presupuesto.Articulos)
             {
+                item.FechaCreacion = DateTime.Now;
                 if (item.Articulo != null)
                 {
                     _context.Entry(item.Articulo).State = EntityState.Unchanged;
@@ -167,15 +168,18 @@ public async Task<Presupuesto?> GetById(int id)
 
     public async Task Actualizar(Presupuesto presupuestoRecibido)
     {
-        // 1. Cargar el existente con sus artículos
         var exist = await _context.Presupuestos
             .Include(p => p.Articulos)
             .FirstOrDefaultAsync(p => p.Id == presupuestoRecibido.Id);
 
         if (exist == null) throw new NotFoundException($"No existe {presupuestoRecibido.Id}");
 
-        _context.Entry(exist).CurrentValues.SetValues(presupuestoRecibido);
-
+        exist.Total = presupuestoRecibido.Total; 
+        exist.Fecha = presupuestoRecibido.Fecha;
+        exist.EximirIVA = presupuestoRecibido.EximirIVA;
+        exist.DescuentoGeneral = presupuestoRecibido.DescuentoGeneral;
+        exist.IdCliente = presupuestoRecibido.Cliente?.Id ?? presupuestoRecibido.IdCliente;
+        exist.IdEstado = presupuestoRecibido.EstadoPresupuesto?.Id ?? presupuestoRecibido.IdEstado;
 
         var idsRecibidos = presupuestoRecibido.Articulos?.Select(a => a.Id).ToList() ?? new List<int>();
 
@@ -183,7 +187,7 @@ public async Task<Presupuesto?> GetById(int id)
         {
             if (!idsRecibidos.Contains(artEnBD.Id))
             {
-                _context.Remove(artEnBD);
+                _context.ArticulosPresupuesto.Remove(artEnBD);
             }
         }
 
@@ -193,16 +197,27 @@ public async Task<Presupuesto?> GetById(int id)
 
             if (artEnBD != null)
             {
-
                 _context.Entry(artEnBD).CurrentValues.SetValues(itemRecibido);
             }
             else
             {
-                itemRecibido.Id = 0; // Asegurar que sea nuevo
-                itemRecibido.IdPresupuesto = exist.Id;
-                exist.Articulos.Add(itemRecibido);
+                var nuevoArticulo = new ArticuloPresupuesto
+                {
+                    IdPresupuesto = exist.Id,
+                    Cantidad = itemRecibido.Cantidad,
+                    CantidadPendiente = itemRecibido.CantidadPendiente,
+                    PrecioUnitario = itemRecibido.PrecioUnitario,
+                    Codigo = itemRecibido.Codigo,
+                    Descripcion = itemRecibido.Descripcion,
+                    IdArticulo = itemRecibido.Articulo.Id,
+                    Descuento = itemRecibido.Descuento                    
+                };
+                _context.ArticulosPresupuesto.Add(nuevoArticulo);
             }
         }
+
+        // 3. Forzar el marcado del campo Total para asegurar que el UPDATE incluya esta columna
+        _context.Entry(exist).Property(p => p.Total).IsModified = true;
 
         await _context.SaveChangesAsync();
     }

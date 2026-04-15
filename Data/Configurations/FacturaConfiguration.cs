@@ -30,7 +30,9 @@ namespace BlumeAPI.Data.Configurations
                 .HasColumnName("PUNTO_DE_VENTA");
 
             entity.Property(f => f.NumeroComprobante)
-                .HasColumnName("NUMERO_FACTURA");
+                .HasColumnName("NUMERO_FACTURA")
+                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("nextval('\"comprobante_interno_seq\"'::regclass)");
 
             entity.Property(f => f.CaeNumero)
                 .HasColumnName("CAE_NUMERO")

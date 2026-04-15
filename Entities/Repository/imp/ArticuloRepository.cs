@@ -30,6 +30,13 @@ public class ArticuloRepository : IArticuloRepository
         return await query.FirstOrDefaultAsync();
     }
 
+    public async Task<List<Articulo>> GetByIdsAsync(List<int> ids)
+    {
+        return await _context.Articulos
+            .Where(a => ids.Contains(a.Id))
+            .ToListAsync();
+    }
+
 
 
     public async Task<ArticuloPrecio?> GetArticuloPrecioByIdAsync(int idArticuloPrecio)

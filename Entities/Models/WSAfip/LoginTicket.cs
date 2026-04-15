@@ -83,7 +83,6 @@ public class LoginTicket
         {
             if (this._verboseMode) Console.WriteLine(ID_FNC + "***Leyendo certificado desde BD");
 
-            // Abrimos la conexión usando tu clase CConexion
             
             // Cargamos el certificado en X509Certificate2
             X509Certificate2 certFirmante = CertificadosX509Lib.ObtieneCertificadoDesdeBytes(argcertBytes, argpasswordSecure);
@@ -107,12 +106,11 @@ public class LoginTicket
         // PASO 3: Invoco al WSAA para obtener el Login Ticket Response
         try
         {
-            if (this._verboseMode)
-            {
+
                 Console.WriteLine(ID_FNC + "***Llamando al WSAA en URL: {0}", argUrlWsaa);
                 Console.WriteLine(ID_FNC + "***Argumento en el request:");
                 Console.WriteLine(cmsFirmadoBase64);
-            }
+            
     
             var servicioWsaa = new AFIP.Wsaa.LoginCMSClient();
             servicioWsaa.Endpoint.Address = new System.ServiceModel.EndpointAddress(argUrlWsaa);
@@ -121,11 +119,10 @@ public class LoginTicket
             loginTicketResponse = response.loginCmsReturn;
 
 
-            if (this._verboseMode)
-            {
+
                 Console.WriteLine(ID_FNC + "***LoguinTicketResponse: ");
                 Console.WriteLine(loginTicketResponse);
-            }
+            
 
         }
         catch (Exception excepcionAlInvocarWsaa)

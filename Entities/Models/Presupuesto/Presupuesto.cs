@@ -1,11 +1,5 @@
-﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-    public class Presupuesto
+﻿
+public class Presupuesto
     {
     public static String TABLA="PRESUPUESTO";
     public int Id { get; set; }

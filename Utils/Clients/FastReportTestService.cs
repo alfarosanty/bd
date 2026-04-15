@@ -3,20 +3,29 @@ using FastReport;
 using FastReport.Export.PdfSimple;
 using System.Globalization;
 using System.IO;
+using System.Text.Json;
 
 public class FastReportService
 {
     private static readonly CultureInfo CulturaAR = new("es-AR");
     private readonly AfipWsfeClient _afipClient;
+    private readonly IFacturaService _facturaService;
 
-    public FastReportService(AfipWsfeClient afipClient)
+    public FastReportService(AfipWsfeClient afipClient, IFacturaService facturaService)
     {
         _afipClient = afipClient;
+        _facturaService = facturaService;
     }
 
     public byte[] CrearPdf(Factura factura, string version)
     {
         using var report = new Report();
+
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string jsonFactura = JsonSerializer.Serialize(factura, options);
+
+        Console.WriteLine("--- ESTRUCTURA DE LA FACTURA ---");
+        Console.WriteLine(jsonFactura);
 
         // 🔹 Cultura argentina para TODO el reporte
     CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("es-AR");
@@ -53,7 +62,7 @@ public class FastReportService
     private void CargarParametrosBase(Report report, Factura factura, string version)
     {
         var ubicacion = CapitalizarPalabras(
-            $"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia}");
+            $"{factura.Cliente.Domicilio} - {factura.Cliente.Localidad}, {factura.Cliente.Provincia ?? ""}");
 
         report.SetParameterValue("Version", version);
         report.SetParameterValue("TipoFactura", factura.TipoFactura);
@@ -91,9 +100,8 @@ public class FastReportService
     // ===============================
     private void RegistrarArticulos(Report report, Factura factura)
     {
-        var facturaServices = new FacturaServices(_afipClient);
-        var mapar = facturaServices.AgruparPorCodigo(factura.Articulos);
-        var articulos = facturaServices.ConstruirResumen(mapar);
+        var mapar = _facturaService.AgruparPorCodigo(factura.Articulos);
+        var articulos = _facturaService.ConstruirResumen(mapar);
 
         report.RegisterData(articulos, "Articulos");
     }

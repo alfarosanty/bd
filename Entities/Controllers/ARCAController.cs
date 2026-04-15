@@ -1,9 +1,8 @@
 using BlumeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
-namespace BlumeAPI.Controllers
-{
+namespace BlumeAPI.Controllers;
+
     [ApiController]
     [Route("api/[controller]")]
     public class ARCAController : ControllerBase
@@ -63,40 +62,24 @@ namespace BlumeAPI.Controllers
     
 
 [HttpPost("insertarCertificado")]
-public IActionResult InsertarCertificado()
-{
-    try
+    public async Task<IActionResult> InsertarCertificado(IFormFile archivo)
     {
-        // 1️⃣ Ruta del archivo
-        string ruta = "C:\\Fran\\ARCA\\CERTIFICADOS\\blumeproduccion2wsfe\\facturador1wsfe.pfx";
+        if (archivo == null || archivo.Length == 0)
+            return BadRequest("Archivo no válido.");
 
-        // 2️⃣ Leer archivo como bytes
-        byte[] certificadoBytes = System.IO.File.ReadAllBytes(ruta);
-
-        // 3️⃣ Abrir conexión
-        CConexion con = new CConexion();
-        using var connection = con.establecerConexion();
-
-        // 4️⃣ Update en PostgreSQL
-        using var cmd = new Npgsql.NpgsqlCommand(
-            "UPDATE \"DATOS_AFIP\" SET \"CERTIFICADO\" = @certificado",
-            connection);
-
-        cmd.Parameters.AddWithValue("@certificado", certificadoBytes);
-        cmd.ExecuteNonQuery();
-
-        con.cerrarConexion(connection);
-
-        return Ok(new { mensaje = "Certificado insertado correctamente" });
-    }
-    catch (Exception ex)
-    {
-        return BadRequest(new
+        try
         {
-            error = "Error al insertar certificado",
-            detalle = ex.Message
-        });
+            using var memoryStream = new MemoryStream();
+            await archivo.CopyToAsync(memoryStream);
+            
+            await _arcaService.GuardarCertificadoAsync(memoryStream.ToArray());
+
+            return Ok(new { mensaje = "Certificado guardado correctamente." });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
 }
-    }
-}
+
