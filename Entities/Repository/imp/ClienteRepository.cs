@@ -12,7 +12,9 @@ public class ClienteRepository : IClienteRepository
 
     public async Task<PagedResult<Cliente>> GetClientesAsync(int? page, int? pageSize, FiltrosClienteDTO f)
     {
-        var query = _context.Clientes.AsQueryable();
+        var query = _context.Clientes
+                .Include(c=>c.CondicionFiscal)
+                .AsQueryable();
 
         // 1. Aplicamos filtros dinámicos (igual que antes)
     if (!string.IsNullOrWhiteSpace(f.RazonSocial))

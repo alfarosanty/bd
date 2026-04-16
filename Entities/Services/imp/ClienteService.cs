@@ -38,13 +38,19 @@ public class ClienteService : IClienteService
 
     public async Task<int> Guardar(Cliente cliente)
     {
+        if(cliente.CondicionFiscal != null)
+        {
+            cliente.IdCondicionFiscal = cliente.CondicionFiscal.IdCondicion;
+            cliente.CondicionFiscal = null;
+        }
+
         if (cliente.Id == 0)
         {
-            _unitOfWork.Clientes.Add(cliente); // Solo marcas el objeto
+            _unitOfWork.Clientes.Add(cliente);
         }
         else
         {
-            _unitOfWork.Clientes.Update(cliente); // Marcamos como modificado
+            _unitOfWork.Clientes.Update(cliente);
         }
                 
         await _unitOfWork.SaveChangesAsync(); 
