@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlumeAPI.ServiceReference.Padron
+namespace BlumeAPI.ServiceReference.PadronA13
 {
     
     
@@ -178,17 +178,17 @@ namespace BlumeAPI.ServiceReference.Padron
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.dummyResponse> dummyAsync(BlumeAPI.ServiceReference.Padron.dummy request);
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.dummyResponse> dummyAsync(BlumeAPI.ServiceReference.PadronA13.dummy request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(BlumeAPI.ServiceReference.Padron.SRValidationException), Action="", Name="SRValidationException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(BlumeAPI.ServiceReference.PadronA13.SRValidationException), Action="", Name="SRValidationException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumentoResponse> getIdPersonaListByDocumentoAsync(BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumento request);
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumentoResponse> getIdPersonaListByDocumentoAsync(BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumento request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        [System.ServiceModel.FaultContractAttribute(typeof(BlumeAPI.ServiceReference.Padron.SRValidationException), Action="", Name="SRValidationException")]
+        [System.ServiceModel.FaultContractAttribute(typeof(BlumeAPI.ServiceReference.PadronA13.SRValidationException), Action="", Name="SRValidationException")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getPersonaResponse> getPersonaAsync(BlumeAPI.ServiceReference.Padron.getPersona request);
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getPersonaResponse> getPersonaAsync(BlumeAPI.ServiceReference.PadronA13.getPersona request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -212,13 +212,13 @@ namespace BlumeAPI.ServiceReference.Padron
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://a13.soap.ws.server.puc.sr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public BlumeAPI.ServiceReference.Padron.dummyReturn @return;
+        public BlumeAPI.ServiceReference.PadronA13.dummyReturn @return;
         
         public dummyResponse()
         {
         }
         
-        public dummyResponse(BlumeAPI.ServiceReference.Padron.dummyReturn @return)
+        public dummyResponse(BlumeAPI.ServiceReference.PadronA13.dummyReturn @return)
         {
             this.@return = @return;
         }
@@ -269,13 +269,13 @@ namespace BlumeAPI.ServiceReference.Padron
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://a13.soap.ws.server.puc.sr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public BlumeAPI.ServiceReference.Padron.idPersonaListReturn idPersonaListReturn;
+        public BlumeAPI.ServiceReference.PadronA13.idPersonaListReturn idPersonaListReturn;
         
         public getIdPersonaListByDocumentoResponse()
         {
         }
         
-        public getIdPersonaListByDocumentoResponse(BlumeAPI.ServiceReference.Padron.idPersonaListReturn idPersonaListReturn)
+        public getIdPersonaListByDocumentoResponse(BlumeAPI.ServiceReference.PadronA13.idPersonaListReturn idPersonaListReturn)
         {
             this.idPersonaListReturn = idPersonaListReturn;
         }
@@ -1086,26 +1086,26 @@ namespace BlumeAPI.ServiceReference.Padron
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://a13.soap.ws.server.puc.sr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public BlumeAPI.ServiceReference.Padron.personaReturn personaReturn;
+        public BlumeAPI.ServiceReference.PadronA13.personaReturn personaReturn;
         
         public getPersonaResponse()
         {
         }
         
-        public getPersonaResponse(BlumeAPI.ServiceReference.Padron.personaReturn personaReturn)
+        public getPersonaResponse(BlumeAPI.ServiceReference.PadronA13.personaReturn personaReturn)
         {
             this.personaReturn = personaReturn;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    public interface PersonaServiceA13Channel : BlumeAPI.ServiceReference.Padron.PersonaServiceA13, System.ServiceModel.IClientChannel
+    public interface PersonaServiceA13Channel : BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "8.0.0")]
-    public partial class PersonaServiceA13Client : System.ServiceModel.ClientBase<BlumeAPI.ServiceReference.Padron.PersonaServiceA13>, BlumeAPI.ServiceReference.Padron.PersonaServiceA13
+    public partial class PersonaServiceA13Client : System.ServiceModel.ClientBase<BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13>, BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13
     {
         
         /// <summary>
@@ -1149,47 +1149,47 @@ namespace BlumeAPI.ServiceReference.Padron
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.dummyResponse> BlumeAPI.ServiceReference.Padron.PersonaServiceA13.dummyAsync(BlumeAPI.ServiceReference.Padron.dummy request)
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.dummyResponse> BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13.dummyAsync(BlumeAPI.ServiceReference.PadronA13.dummy request)
         {
             return base.Channel.dummyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.dummyResponse> dummyAsync()
+        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.dummyResponse> dummyAsync()
         {
-            BlumeAPI.ServiceReference.Padron.dummy inValue = new BlumeAPI.ServiceReference.Padron.dummy();
-            return ((BlumeAPI.ServiceReference.Padron.PersonaServiceA13)(this)).dummyAsync(inValue);
+            BlumeAPI.ServiceReference.PadronA13.dummy inValue = new BlumeAPI.ServiceReference.PadronA13.dummy();
+            return ((BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13)(this)).dummyAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumentoResponse> BlumeAPI.ServiceReference.Padron.PersonaServiceA13.getIdPersonaListByDocumentoAsync(BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumento request)
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumentoResponse> BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13.getIdPersonaListByDocumentoAsync(BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumento request)
         {
             return base.Channel.getIdPersonaListByDocumentoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumentoResponse> getIdPersonaListByDocumentoAsync(string token, string sign, long cuitRepresentada, string documento)
+        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumentoResponse> getIdPersonaListByDocumentoAsync(string token, string sign, long cuitRepresentada, string documento)
         {
-            BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumento inValue = new BlumeAPI.ServiceReference.Padron.getIdPersonaListByDocumento();
+            BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumento inValue = new BlumeAPI.ServiceReference.PadronA13.getIdPersonaListByDocumento();
             inValue.token = token;
             inValue.sign = sign;
             inValue.cuitRepresentada = cuitRepresentada;
             inValue.documento = documento;
-            return ((BlumeAPI.ServiceReference.Padron.PersonaServiceA13)(this)).getIdPersonaListByDocumentoAsync(inValue);
+            return ((BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13)(this)).getIdPersonaListByDocumentoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getPersonaResponse> BlumeAPI.ServiceReference.Padron.PersonaServiceA13.getPersonaAsync(BlumeAPI.ServiceReference.Padron.getPersona request)
+        System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getPersonaResponse> BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13.getPersonaAsync(BlumeAPI.ServiceReference.PadronA13.getPersona request)
         {
             return base.Channel.getPersonaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.Padron.getPersonaResponse> getPersonaAsync(string token, string sign, long cuitRepresentada, long idPersona)
+        public System.Threading.Tasks.Task<BlumeAPI.ServiceReference.PadronA13.getPersonaResponse> getPersonaAsync(string token, string sign, long cuitRepresentada, long idPersona)
         {
-            BlumeAPI.ServiceReference.Padron.getPersona inValue = new BlumeAPI.ServiceReference.Padron.getPersona();
+            BlumeAPI.ServiceReference.PadronA13.getPersona inValue = new BlumeAPI.ServiceReference.PadronA13.getPersona();
             inValue.token = token;
             inValue.sign = sign;
             inValue.cuitRepresentada = cuitRepresentada;
             inValue.idPersona = idPersona;
-            return ((BlumeAPI.ServiceReference.Padron.PersonaServiceA13)(this)).getPersonaAsync(inValue);
+            return ((BlumeAPI.ServiceReference.PadronA13.PersonaServiceA13)(this)).getPersonaAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

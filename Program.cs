@@ -149,7 +149,7 @@ builder.Services.AddScoped<AfipPadronClient>(provider =>
 {
     var config = provider.GetRequiredService<IConfiguration>();
     var logger = provider.GetRequiredService<ILogger<AfipPadronClient>>();
-    return new AfipPadronClient(config["Afip:UrlPadronA13"], logger);
+    return new AfipPadronClient(config["Afip:UrlPadronA13"], config["Afip:UrlPadronA5"], logger);
 });
 // Variables de entorno para AFIP WSFE1
 builder.Services.Configure<AfipSettings>(builder.Configuration.GetSection("Afip"));

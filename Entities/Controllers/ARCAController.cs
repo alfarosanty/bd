@@ -40,8 +40,28 @@ namespace BlumeAPI.Controllers;
         }
     }
 
-[HttpGet("login/padron")]
-    public async Task<IActionResult> ObtenerLoginTicketPadron()
+[HttpGet("login/padronA5")]
+    public async Task<IActionResult> ObtenerLoginTicketPadronA5()
+    {
+        try
+        {
+
+            var loginTicket = await _arcaService.AutenticacionAsync("ws_sr_constancia_inscripcion");
+
+            return Ok(loginTicket);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                error = "Error al generar el LoginTicket",
+                detalle = ex.Message
+            });
+        }
+    }
+
+[HttpGet("login/padronA13")]
+    public async Task<IActionResult> ObtenerLoginTicketPadronA13()
     {
         try
         {
@@ -59,7 +79,6 @@ namespace BlumeAPI.Controllers;
             });
         }
     }
-    
 
 [HttpPost("insertarCertificado")]
     public async Task<IActionResult> InsertarCertificado(IFormFile archivo)

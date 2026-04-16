@@ -7,7 +7,7 @@ using Serilog;
 public class ARCAService : IARCAService
 {
 
-    private readonly IUnitOfWork _iUnitOfWork;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly AfipSettings _afipSettings;
     private readonly AfipPadronClient _padronClient;
 
@@ -16,7 +16,7 @@ public class ARCAService : IARCAService
                         AfipPadronClient padronClient
     )
     {
-        _iUnitOfWork = iUnitOfWork;
+        _unitOfWork = iUnitOfWork;
         _afipSettings = afipSettings.Value;
         _padronClient = padronClient;
     }
@@ -28,7 +28,7 @@ public class ARCAService : IARCAService
         try
         {
             // 1️⃣ Buscamos el token actual usando tu nuevo repositorio
-            var auth = await _iUnitOfWork.Arca.ObtenerAutenticacionPorServicioAsync(servicio);
+            var auth = await _unitOfWork.Arca.ObtenerAutenticacionPorServicioAsync(servicio);
 
             if (auth != null && auth.Expiracion.ToUniversalTime() > DateTime.UtcNow)
             {
@@ -38,7 +38,7 @@ public class ARCAService : IARCAService
                     Token = auth.Token,
                     Sign = auth.Firma,
                     ExpirationTime = auth.Expiracion,
-                    GenerationTime = DateTime.Now, // Esto es informativo
+                    GenerationTime = DateTime.Now,
                     UniqueId = auth.UniqueId,
                     Service = servicio
                 };
@@ -47,7 +47,7 @@ public class ARCAService : IARCAService
             Console.WriteLine("Token expirado o inexistente. Solicitando nuevo...");
 
             // 2️⃣ Obtenemos configuración desde la BD
-            var config = await _iUnitOfWork.Arca.ObtenerConfiguracionAsync() 
+            var config = await _unitOfWork.Arca.ObtenerConfiguracionAsync() 
                  ?? throw new Exception($"No se encontró configuración para el servicio {servicio}");
 
             // 3️⃣ Construimos SecureString
@@ -77,8 +77,8 @@ public class ARCAService : IARCAService
                 Servicio = servicio
             };
 
-            await _iUnitOfWork.Arca.GuardarAutenticacionAsync(nuevaAuth);
-            await _iUnitOfWork.SaveChangesAsync(); // Persistimos los cambios
+            await _unitOfWork.Arca.GuardarAutenticacionAsync(nuevaAuth);
+            await _unitOfWork.SaveChangesAsync(); // Persistimos los cambios
 
             loginResponse.Service = servicio;
 
@@ -93,22 +93,50 @@ public class ARCAService : IARCAService
 
 
 
-    public async Task<ArcaPersonaDto?> ConsultarPersonaAsync(long cuit)
+    public async Task<Cliente?> ConsultarPersonaAsync(long cuit)
     {
         try
         {
-            // Definimos el servicio que vamos a usar
-            string servicioPadron = "ws_sr_padron_a13"; 
+            string servicioPadronA13 = "ws_sr_padron_a13";
+            string servicioPadronA5 = "ws_sr_constancia_inscripcion";
 
-            // Pasamos el servicio a tu método de autenticación mejorado
-            var ticket = await AutenticacionAsync(servicioPadron);
+            var ticketPadronA13 = await AutenticacionAsync(servicioPadronA13);
 
-            return await _padronClient.ObtenerPersonaAsync(
-                ticket.Token, 
-                ticket.Sign, 
+            var personaARCADTO = await _padronClient.ObtenerPersonaAsync(
+                ticketPadronA13.Token, 
+                ticketPadronA13.Sign, 
                 long.Parse(_afipSettings.Cuit), 
                 cuit
             );
+
+            var ticketPadronA5 = await AutenticacionAsync(servicioPadronA5);
+            var condicionFiscal = await _padronClient.ObtenerCategoriaFiscalAsync(
+                ticketPadronA5.Token,
+                ticketPadronA5.Sign,
+                long.Parse(_afipSettings.Cuit),
+                cuit
+                );
+
+            var condicionesFiscales = await _unitOfWork.Clientes.GetCondicionFiscalsAsync();
+
+            personaARCADTO.CondicionFiscal = condicionesFiscales.Find(condicion => condicion.Descripcion == condicionFiscal);
+
+            var cliente = new Cliente
+            {
+                RazonSocial = personaARCADTO.RazonSocial,
+                Contacto = personaARCADTO.Contacto,
+                Cuit = cuit.ToString(),
+                Telefono = personaARCADTO.Telefono,
+                Domicilio = personaARCADTO.Domicilio,
+                Localidad = personaARCADTO.Localidad,
+                Provincia = personaARCADTO.Provincia,
+                CondicionFiscal = personaARCADTO.CondicionFiscal,
+                Valido = personaARCADTO.EsValido
+            };
+
+
+
+            return cliente;
         }
         catch (Exception ex)
         {
@@ -119,15 +147,15 @@ public class ARCAService : IARCAService
 
     public async Task GuardarCertificadoAsync(byte[] certificadoBytes)
     {
-        var datosAfip = await _iUnitOfWork.Arca.GetPrimerRegistroAsync();
+        var datosAfip = await _unitOfWork.Arca.GetPrimerRegistroAsync();
 
         if (datosAfip == null)
             throw new Exception("No existe el registro de configuración AFIP en la base de datos.");
 
         datosAfip.Certificado = certificadoBytes;
         
-        _iUnitOfWork.Arca.Update(datosAfip);
-        await _iUnitOfWork.SaveChangesAsync();
+        _unitOfWork.Arca.Update(datosAfip);
+        await _unitOfWork.SaveChangesAsync();
     }
 
 }
