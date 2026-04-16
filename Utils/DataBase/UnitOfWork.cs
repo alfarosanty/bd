@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly AppDbContext _context;
-    private IDbContextTransaction? _transaction;
+    public AppDbContext Context => _context;
+    public IDbContextTransaction? _transaction;
 
     // Propiedades directas
     public IIngresoRepository Ingresos { get; }
@@ -15,6 +16,7 @@ public class UnitOfWork : IUnitOfWork
     public ISubfamiliaRepository Subfamilias { get; }
     public IColorRepository Colores { get; }
     public IMedidaRepository Medidas { get; }
+    public IClienteRepository Clientes { get; }
     public IARCARepository Arca { get; }
 
     public UnitOfWork(
@@ -27,7 +29,8 @@ public class UnitOfWork : IUnitOfWork
         IColorRepository colores,
         IMedidaRepository medidas,
         IARCARepository arca,
-        IFacturaRepository facturaRepository
+        IFacturaRepository facturaRepository,
+        IClienteRepository clienteRepository
         )
     {
         _context = context;
@@ -40,6 +43,7 @@ public class UnitOfWork : IUnitOfWork
         Colores = colores;
         Medidas = medidas;
         Facturas = facturaRepository;
+        Clientes = clienteRepository;
     }
     public async Task<int> SaveChangesAsync()
     {

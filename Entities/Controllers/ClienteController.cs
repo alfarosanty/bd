@@ -10,100 +10,75 @@ namespace BlumeAPI.Controllers;
 public class ClienteController : ControllerBase
 {
 
+    private readonly IClienteService _clienteService;
     private readonly IARCAService _arcaService;
 
-    public ClienteController(IARCAService arcaService)
+    public ClienteController(IClienteService clienteService, IARCAService arcaService)
     {
+        _clienteService = clienteService;
         _arcaService = arcaService;
     }
-
-    [HttpGet("GetClientes")]
-    public IEnumerable<Cliente> Get()
+/*=================== NUEVOS MÉTODOS BIEN HECHOS ===================*/
+[HttpGet]
+    public async Task<IActionResult> Get(
+        [FromQuery] int? page, 
+        [FromQuery] int? pageSize, 
+        [FromQuery] FiltrosClienteDTO filtros)
     {
+        var resultado = await _clienteService.GetClientesAsync(page, pageSize, filtros);
+        return Ok(resultado);
+    }
+
+[HttpGet("{idCliente}")]
+    public async Task<IActionResult> GetById(int idCliente)
+    {
+        var cliente = await _clienteService.GetById(idCliente);
+        if (cliente == null) return NotFound(); // Manejo prolijo
+        return Ok(cliente);
+    }
+
+[HttpGet("condiciones-fiscales")]
+    public async Task<IActionResult> GetCondicionFiscal()
+    {
+        var condicionesFiscales = await _clienteService.GetCondicionFiscalsAsync();   
+        return Ok(condicionesFiscales);
+    }
+
+[HttpPost]
+    public async Task<IActionResult> Crear([FromBody] Cliente cliente)
+    {
+        try
+        {
+            var id = await _clienteService.Guardar(cliente); 
+            return Ok(new { id });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+[HttpPut("{id}")]
+    public async Task<IActionResult> Actualizar(int id, [FromBody] Cliente cliente)
+    {
+        if (id != cliente.Id) return BadRequest("El ID del cliente no coincide");
         
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        List<Cliente> clientes = new ClienteServices().listarClientes(npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return clientes;
+        try
+        {
+            await _clienteService.Guardar(cliente);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
-
-     [HttpGet("GetClienteById/{idCliente}")]
-    public Cliente GetById(int idCliente)
-    {
-        CConexion con =  new CConexion();
-        Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-        Cliente cliente = new ClienteServices().GetCliente(idCliente, npgsqlConnection);
-        con.cerrarConexion(npgsqlConnection);
-        return cliente;
-    }
-
-[HttpGet("GetCondicionFiscal")]
-public IEnumerable<CondicionFiscal> GetCondicionFiscal()
-{
-    CConexion con = new CConexion();
-    Npgsql.NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    ClienteServices clienteServices = new ClienteServices();
-    List<CondicionFiscal> condicionesFiscales = clienteServices.GetCondicionFiscal(npgsqlConnection);
-
-    con.cerrarConexion(npgsqlConnection);
-    return condicionesFiscales;
-}
-
-[HttpPost("Crear")]
-public IActionResult Crear([FromBody] Cliente cliente)
-{
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    try
-    {
-        var clienteServices = new ClienteServices();
-        var clienteCreado = clienteServices.Crear(npgsqlConnection, cliente);
-        return Ok(clienteCreado);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        return StatusCode(500, $"Error al crear el cliente: {ex.Message}");
-    }
-    finally
-    {
-        con.cerrarConexion(npgsqlConnection); // cerrar manualmente
-    }
-}
-
-
-[HttpPost("Actualizar")]
-public IActionResult Actualizar([FromBody] Cliente cliente)
-{
-    CConexion con = new CConexion();
-    NpgsqlConnection npgsqlConnection = con.establecerConexion();
-
-    try
-    {
-        var clienteServices = new ClienteServices();
-        var clienteActualizado = clienteServices.Actualizar(npgsqlConnection, cliente);
-        return Ok(clienteActualizado);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        return StatusCode(500, $"Error al actualizar el cliente: {ex.Message}");
-    }
-    finally
-    {
-        con.cerrarConexion(npgsqlConnection); // cerrar manualmente
-    }
-}
 
 [HttpGet("consultar-afip/{cuit}")]
     public async Task<IActionResult> ConsultarAFIP(long cuit)
     {
         try
         {
-            // Llamas a tu servicio, que se encarga de hablar con ARCA
             var datosCliente = await _arcaService.ConsultarPersonaAsync(cuit);
             
             if (datosCliente == null) return NotFound("CUIT no encontrado");

@@ -1,6 +1,7 @@
 using System.Data;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql;
 
 public class ArticuloRepository : IArticuloRepository
@@ -30,12 +31,13 @@ public class ArticuloRepository : IArticuloRepository
         return await query.FirstOrDefaultAsync();
     }
 
-    public async Task<List<Articulo>> GetByIdsAsync(List<int> ids)
-    {
-        return await _context.Articulos
-            .Where(a => ids.Contains(a.Id))
-            .ToListAsync();
-    }
+public async Task<List<Articulo>> GetByIdsAsync(List<int> ids)
+{
+    return await _context.Articulos
+        .AsNoTracking()
+        .Where(a => ids.Contains(a.Id))
+        .ToListAsync();
+}
 
 
 
@@ -251,5 +253,32 @@ public class ArticuloRepository : IArticuloRepository
         await Task.CompletedTask;
     }
 
+
+    public async Task DescontarStockAsync(List<ArticuloFactura> articulos)
+    {
+        var connection = _context.Database.GetDbConnection();
+        var transaction = _context.Database.CurrentTransaction?.GetDbTransaction();
+
+        // Ajustamos la lógica para decidir qué ID usar
+        var items = articulos.Select(a => {
+            // Determinamos el ID a descontar:
+            // Si la descripción tiene "FUNDA", usamos el ID asociado (relleno), si es null usamos el original
+            int idADescontar = (a.Articulo?.Descripcion?.Contains("FUNDA", StringComparison.OrdinalIgnoreCase) == true) 
+                            ? (a.Articulo.IdAsociadoRelleno ?? a.Articulo.Id) 
+                            : a.Articulo.Id;
+            
+            return $"({a.Cantidad}, {idADescontar})";
+        });
+
+        var sql = $@"
+            UPDATE ""ARTICULO"" 
+            SET ""STOCK"" = ""STOCK"" - data.Cantidad
+            FROM (VALUES 
+                {string.Join(",", items)}
+            ) AS data(Cantidad, Id)
+            WHERE ""ARTICULO"".""ID_ARTICULO"" = data.Id;";
+
+        await connection.ExecuteAsync(sql, transaction: transaction);
+    }
 
 }

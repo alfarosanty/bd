@@ -36,7 +36,6 @@ public class PresupuestoService : IPresupuestoService
 
     public async Task<int> CrearPresupuesto(Presupuesto presupuesto)
     {
-        // 1. Validaciones de Negocio (Mantenemos las tuyas que están bien)
         if (presupuesto == null) throw new ArgumentNullException(nameof(presupuesto));
         if (presupuesto.Articulos == null || !presupuesto.Articulos.Any())
             throw new BusinessException("El presupuesto debe contener al menos un artículo.");
@@ -47,9 +46,10 @@ public class PresupuestoService : IPresupuestoService
 
             presupuesto.FechaCreacion = DateTime.Now;
 
-            int nuevoPresupuestoId = await _unitOfWork.Presupuestos.Crear(presupuesto);
+            _unitOfWork.Presupuestos.Crear(presupuesto);
 
             await _unitOfWork.SaveChangesAsync();
+            int nuevoPresupuestoId = presupuesto.Id;
             await _unitOfWork.CommitAsync();
 
             return nuevoPresupuestoId;

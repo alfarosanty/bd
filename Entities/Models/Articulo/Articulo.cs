@@ -17,8 +17,8 @@ public class Articulo
     public int? IdAsociadoRelleno { get; set; }
 
     // --- Navegaciones ---
-    public Color Color { get; set; } = null!;
-    public Medida Medida { get; set; } = null!;
+    public Color? Color { get; set; } = null!;
+    public Medida? Medida { get; set; } = null!;
     public SubFamilia? SubFamilia { get; set; }
     
     public ArticuloPrecio? ArticuloPrecio { get; set; } 

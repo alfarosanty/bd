@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    public class Cliente
-    {
+public class Cliente
+{
     public static String TABLA="CLIENTE";
     public int Id { get; set; }
     public string RazonSocial{ get; set; }
@@ -23,8 +23,5 @@ using System.Threading.Tasks;
     public CondicionFiscal? CondicionFiscal{ get; set; }
     public int IdCondicionFiscal { get; set; }
 
-
-    
-
-    }
+}
 

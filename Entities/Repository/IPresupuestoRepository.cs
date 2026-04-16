@@ -6,6 +6,6 @@ public interface IPresupuestoRepository
     Task<Presupuesto?> GetById(int id);
     Task<Dictionary<int, string>> GetNombresClientesPorPresupuestos(List<int> idsPresupuesto);
     Task<List<EstadoPresupuesto>> GetEstados();
-    Task<int> Crear(Presupuesto presupuesto);
+    void Crear(Presupuesto presupuesto);
     Task Actualizar(Presupuesto presupuesto);
 }

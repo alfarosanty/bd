@@ -35,80 +35,76 @@ public FacturaService(IFacturaRepository facturaRepository,
     _arcaService = arcaService;
 }
 
-public async Task<int> Crear(Factura factura, bool facturarEnArca)
-{
-  
-    // 1. Validaciones previas (sin tocar DB aún)
-    if (factura.Articulos == null || !factura.Articulos.Any())
-        throw new Exception("La factura no contiene artículos.");
 
-
-
-    // 2. Traer artículos maestros de una vez (Optimización para evitar N+1)
-    var idsArticulos = factura.Articulos.Select(a => a.Articulo.Id).ToList();
-    var articulosMaestros = await _unitOfWork.Articulos.GetByIdsAsync(idsArticulos);
-
-    await _unitOfWork.BeginTransactionAsync();
-    try
+    public async Task<int> Crear(Factura factura, bool facturarEnArca)
     {
-        // 3. Procesar Stock en memoria
-        foreach (var detalle in factura.Articulos)
-        {
-            var maestro = articulosMaestros.FirstOrDefault(a => a.Id == detalle.Articulo.Id);
+        Console.WriteLine("--- INICIO MÉTODO CREAR ---");
 
-            maestro.Stock -= detalle.Cantidad;
-            _unitOfWork.Articulos.Update(maestro);
+        if (factura.Articulos == null || !factura.Articulos.Any())
+            throw new Exception("La factura no contiene artículos.");
+
+        await _unitOfWork.BeginTransactionAsync();
+        try
+        {
+            // 1. Proceso ARCA (Independiente de la DB)
+            if (facturarEnArca)
+            {
+                var loginTicket = await _arcaService.AutenticacionAsync("wsfe");
+                var respuestaArca = await FacturarWsfeAsync(factura, loginTicket, long.Parse(_afipSettings.Cuit));
+
+                if (!respuestaArca.Aprobado)
+                    throw new Exception($"Error ARCA: {string.Join(" - ", respuestaArca.Errores)}");
+
+                factura.CaeNumero = long.Parse(respuestaArca.Cae);
+                factura.NumeroComprobante = int.Parse(respuestaArca.numeroComprobante);
+                factura.FechaVencimientoCae = respuestaArca.CaeVencimiento;
+            }
+
+
+            await _unitOfWork.Articulos.DescontarStockAsync(factura.Articulos.ToList());
+            Console.WriteLine("Stock descontado exitosamente vía Dapper.");
+
+            foreach (var detalle in factura.Articulos)
+            {
+                detalle.IdArticulo = detalle.Articulo.Id;
+                detalle.Articulo = null;
+                detalle.Factura = factura;
+            }
+
+            if (factura.Cliente != null) 
+            { 
+                factura.IdCliente = factura.Cliente.Id; 
+                factura.Cliente = null; 
+            }
+
+            // 4. Persistir Factura
+            _unitOfWork.Context.ChangeTracker.Clear();
+
+            // 1. Marcamos la factura como Added
+            _unitOfWork.Context.Entry(factura).State = EntityState.Added;
+
+            // 2. Marcamos explícitamente cada detalle como Added
+            foreach (var detalle in factura.Articulos)
+            {
+                _unitOfWork.Context.Entry(detalle).State = EntityState.Added;
+            }
+
+            Console.WriteLine("Guardando factura y sus artículos en DB...");
+            await _unitOfWork.SaveChangesAsync();
             
+            await _unitOfWork.CommitAsync();
+            
+            Console.WriteLine($"Factura creada con ID: {factura.Id}");
+            return factura.Id;
         }
-
-        // 4. Si es AFIP, facturar ANTES de persistir la entidad en BD
-        if (facturarEnArca)
+        catch (Exception ex)
         {
-            var servicioPadron = "wsfe";
-            var loginTicket = await _arcaService.AutenticacionAsync(servicioPadron);
-
-            var respuestaArca = await FacturarWsfeAsync(factura, loginTicket, long.Parse(_afipSettings.Cuit));
-
-            if (!respuestaArca.Aprobado)
-            {
-                throw new Exception($"Error ARCA: {string.Join(" - ", respuestaArca.Errores)}");
-            }
-
-            // Asignar datos de AFIP a la entidad
-            factura.CaeNumero = long.Parse(respuestaArca.Cae);
-            factura.NumeroComprobante = int.Parse(respuestaArca.numeroComprobante);
-            factura.FechaVencimientoCae = respuestaArca.CaeVencimiento;
-        }
-
-    // 5. Persistir la factura y los cambios de stock
-    if (factura.Cliente != null)
-    {
-        factura.IdCliente = factura.Cliente.Id;
-        factura.Cliente = null;
-    }
-
-    foreach(var art in factura.Articulos)
-            {
-            art.IdArticulo = art.Articulo.Id;
-            art.Articulo = null;
-            art.Factura = factura;
-            }
-
-        await _unitOfWork.Facturas.AddAsync(factura);
-        await _unitOfWork.SaveChangesAsync();
-
-        // 6. Confirmar transacción
-        await _unitOfWork.CommitAsync();
-
-        return factura.Id;
-    }
-    catch (Exception ex)
-        {
-            Console.WriteLine($"Mensaje: {ex.Message}");
+            Console.WriteLine($"--- ERROR DETECTADO ---: {ex.Message}");
             await _unitOfWork.RollbackAsync();
             throw;
         }
-}
+    }
+
     public async Task<AfipResponse> FacturarWsfeAsync(
         Factura factura,
         LoginTicketResponseData loginTicket,

@@ -16,6 +16,7 @@ public class PresupuestoRepository : IPresupuestoRepository
         return _context.Presupuestos
             .AsNoTracking()
             .Include(p => p.Cliente)
+                .ThenInclude(c=>c.CondicionFiscal)
             .Include(p => p.EstadoPresupuesto)
             .Include(p => p.Articulos)
                 .ThenInclude(a => a.Articulo)
@@ -141,29 +142,36 @@ public async Task<Presupuesto?> GetById(int id)
             .ToListAsync(); 
     }
 
-    public async Task<int> Crear(Presupuesto presupuesto)
+    public void Crear(Presupuesto presupuesto)
     {
         if (presupuesto.Cliente != null) 
-            _context.Entry(presupuesto.Cliente).State = EntityState.Unchanged;
-
-        if (presupuesto.EstadoPresupuesto != null) 
-            _context.Entry(presupuesto.EstadoPresupuesto).State = EntityState.Unchanged;
+        {
+            presupuesto.IdCliente = presupuesto.Cliente.Id;
+            presupuesto.Cliente = null;
+        }
+        
+        if (presupuesto.EstadoPresupuesto != null)
+        {
+            presupuesto.IdEstado = presupuesto.EstadoPresupuesto.Id;
+            presupuesto.EstadoPresupuesto = null;
+        }
 
         if (presupuesto.Articulos != null)
         {
             foreach (var item in presupuesto.Articulos)
             {
                 item.FechaCreacion = DateTime.Now;
+                
                 if (item.Articulo != null)
                 {
-                    _context.Entry(item.Articulo).State = EntityState.Unchanged;
+                    item.IdArticulo = item.Articulo.Id;
+                    item.Articulo = null; 
                 }
+                
             }
         }
 
         _context.Presupuestos.Add(presupuesto);
-        await _context.SaveChangesAsync();
-        return presupuesto.Id;
     }
 
     public async Task Actualizar(Presupuesto presupuestoRecibido)

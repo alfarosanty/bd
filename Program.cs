@@ -118,6 +118,7 @@ builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
 builder.Services.AddScoped<IPresupuestoRepository, PresupuestoRepository>();
 builder.Services.AddScoped<IPedidoProduccionRepository,PedidoProduccionRepository>();
 builder.Services.AddScoped<ITallerRepository, TallerRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IIngresoRepository, IngresoRepository>();
 builder.Services.AddScoped<IARCARepository, ARCARepository>();
 
@@ -131,6 +132,7 @@ builder.Services.AddScoped<IFacturaService, FacturaService>();
 builder.Services.AddScoped<IPresupuestoService, PresupuestoService>();
 builder.Services.AddScoped<IPedidoProduccionService, PedidoProduccionService>();
 builder.Services.AddScoped<ITallerService, TallerService>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IIngresoService, IngresoService>();
 builder.Services.AddScoped<IColorService, ColorService>();
 builder.Services.AddScoped<IMedidaService, MedidaServices>();

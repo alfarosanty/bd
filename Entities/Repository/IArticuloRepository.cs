@@ -13,6 +13,7 @@ public interface IArticuloRepository
     Task<List<CartaKardexDTO>> GetFacturadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta);
     Task<List<CartaKardexDTO>> GetIngresadosByArticulo(int idArticulo, DateTime? desde, DateTime? hasta);
     Task<List<Articulo>> GetByIdsAsync(List<int> ids);
+    Task DescontarStockAsync(List<ArticuloFactura> articulos);
 
     Task RestaurarStockAsync(List<IArticuloConStock> articulos, NpgsqlConnection conn, NpgsqlTransaction tran);
     }
