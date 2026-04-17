@@ -16,11 +16,13 @@ public class ArticuloController : ControllerBase
 
     private readonly ILogger<ArticuloController> _logger;
     private readonly IArticuloService _articuloService;
+    private readonly IDbConnectionFactory _connectionFactory;
 
-    public ArticuloController(ILogger<ArticuloController> logger, IArticuloService articuloService)
+    public ArticuloController(ILogger<ArticuloController> logger, IArticuloService articuloService, IDbConnectionFactory connectionFactory)
     {
         _logger = logger;
         _articuloService = articuloService;
+        _connectionFactory = connectionFactory;
     }
 
 
@@ -173,10 +175,10 @@ public ConsultaTallerCortePorCodigo[] ConsultarCantidadesTallerCorte([FromQuery]
 [HttpGet("ByArticuloPrecio/{articuloPrecio}")]
 public IEnumerable<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecio, [FromQuery] bool? habilitados = null)
 {
-    CConexion con = new CConexion();
-    using (var npgsqlConnection = con.establecerConexion())  // <-- Mejor usar using
-    {
-        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, npgsqlConnection);
+    using (var conex = _connectionFactory.CreateConnection())
+        {
+            conex.Open();
+        List<Articulo> articulos = new ArticuloServices().GetArticulosByArticuloPrecioId(articuloPrecio, habilitados ?? false, conex);
         // No necesitás llamar a cerrarConexion si usás "using"
         return articulos;
     }

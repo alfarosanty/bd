@@ -207,7 +207,7 @@ public async Task<Articulo?> GetArticulo(int idArticulo)
 
 
 
-public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool habilitados, NpgsqlConnection conex)
+public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool habilitados, IDbConnection conex)
 {
     string select = NewMethod(); // SELECT reutilizable
 
@@ -235,7 +235,9 @@ public List<Articulo> GetArticulosByArticuloPrecioId(int articuloPrecioId, bool 
 
     var articulos = new List<Articulo>();
 
-    using (var cmd = new NpgsqlCommand(query, conex))
+    var npgsqlConex = conex as NpgsqlConnection;
+
+    using (var cmd = new NpgsqlCommand(query, npgsqlConex))
     {
         cmd.Parameters.AddWithValue("id_articulo_precio", articuloPrecioId);
 
