@@ -31,7 +31,6 @@ public class ClienteRepository : IClienteRepository
     
     if (!string.IsNullOrWhiteSpace(f.Cuit))
         query = query.Where(c => c.Cuit == f.Cuit);
-        // ... resto de tus filtros
 
         // 2. Lógica de Paginación Condicional
         bool esPaginado = page.HasValue && pageSize.HasValue;

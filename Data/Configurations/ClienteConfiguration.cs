@@ -50,7 +50,7 @@ namespace BlumeAPI.Data.Configurations
                 .HasColumnName("TRANSPORTE")
                 .HasMaxLength(100);
 
-            builder.Property(c => c.Valido)
+            builder.Property(c => c.Validado)
                 .HasColumnName("VALIDO");
 
             builder.HasOne(x => x.CondicionFiscal)

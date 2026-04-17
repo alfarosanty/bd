@@ -17,7 +17,7 @@ public class Cliente
     public string? Provincia { get; set; }
     public string? Cuit{ get; set; }
     public string? Transporte{ get; set; }
-    public bool? Valido { get; set; }
+    public bool? Validado { get; set; }
 
 
     public CondicionFiscal? CondicionFiscal{ get; set; }

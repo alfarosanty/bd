@@ -131,7 +131,7 @@ public class ARCAService : IARCAService
                 Localidad = personaARCADTO.Localidad,
                 Provincia = personaARCADTO.Provincia,
                 CondicionFiscal = personaARCADTO.CondicionFiscal,
-                Valido = personaARCADTO.EsValido
+                Validado = personaARCADTO.EsValido
             };
 
 
